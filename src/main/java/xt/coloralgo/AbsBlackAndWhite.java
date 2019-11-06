@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import xt.math.Complex;
 
-public class AbsBlackAndWhite implements FunctionColorAlgo {
+public class AbsBlackAndWhite implements ColorAlgo {
 
 	private double coef;
 	private boolean inverse;

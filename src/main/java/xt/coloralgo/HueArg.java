@@ -5,7 +5,7 @@ import java.awt.Color;
 import xt.math.MyMath;
 import xt.math.Complex;
 
-public class HueArg implements FunctionColorAlgo {
+public class HueArg implements ColorAlgo {
 
 	private boolean absGrid;
 	private boolean argGrid;

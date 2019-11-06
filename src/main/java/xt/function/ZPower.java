@@ -21,4 +21,9 @@ public class ZPower implements Function {
 		return accu;
 	}
 
+	@Override
+	public String getHumanReadableFormula() {
+		return String.format("z^%d", n);
+	}
+
 }

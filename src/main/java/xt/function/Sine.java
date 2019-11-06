@@ -9,4 +9,9 @@ public class Sine implements Function {
 	public Complex apply(Complex z) {
 		return MyMath.sin(z);
 	}
+
+	@Override
+	public String getHumanReadableFormula() {
+		return "sin(z)";
+	}
 }

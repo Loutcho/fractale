@@ -46,4 +46,9 @@ public class Blanche implements Function {
 	{
 		return r.apply(z);
 	}
+
+	@Override
+	public String getHumanReadableFormula() {
+		return r.getHumanReadableFormula();
+	}
 }

@@ -24,4 +24,9 @@ public class PrimeHyperbola implements Function {
 		Complex zz = Complex.mul(rho, Complex.ei(0.0)); 
 		return zz;
 	}
+
+	@Override
+	public String getHumanReadableFormula() {
+		return "PrimeHyperbola";
+	}
 }

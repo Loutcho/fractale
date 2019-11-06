@@ -15,4 +15,9 @@ public class Exponential implements Function {
 		
 		return result;
 	}
+
+	@Override
+	public String getHumanReadableFormula() {
+		return "e^z";
+	}
 }

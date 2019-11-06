@@ -26,19 +26,19 @@ public class Rational implements Function {
 		return accu;
 	}
 
-	public List<Complex> getZeros() {
-		return zeros;
-	}
+	@Override
+	public String getHumanReadableFormula() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("(");
+		for (Complex pole: poles) {
+			sb.append(String.format("(z - (%s))", pole.toString()));
+		}
+		sb.append(") / (");
+		for (Complex zero: zeros) {
 
-	public void setZeros(List<Complex> zeros) {
-		this.zeros = zeros;
-	}
-
-	public List<Complex> getPoles() {
-		return poles;
-	}
-
-	public void setPoles(List<Complex> poles) {
-		this.poles = poles;
+			sb.append(String.format("(z - (%s))", zero.toString()));
+		}
+		sb.append(")");
+		return sb.toString();
 	}
 }

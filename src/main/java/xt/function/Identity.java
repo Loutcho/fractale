@@ -7,4 +7,10 @@ public class Identity implements Function {
 	{
 		return z;
 	}
+
+	@Override
+	public String getHumanReadableFormula() {
+		return "z";
+	}
+
 }

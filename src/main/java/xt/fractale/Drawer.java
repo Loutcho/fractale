@@ -9,15 +9,13 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import xt.coloralgo.FractalColorAlgo;
-import xt.coloralgo.FunctionColorAlgo;
-import xt.coloralgo.EscapeTime;
-import xt.function.ZPower;
+import xt.coloralgo.*;
+import xt.function.*;
 import xt.math.Complex;
-import xt.function.BurningShip;
-import xt.function.Function;
 import xt.graph.Graph;
 import xt.sound.Sound;
 
@@ -58,10 +56,7 @@ public class Drawer extends Graph
 	
 	static RectangularZone zone = null;
 	static RectangularZone saveZone = null;
-	static Function function = null;
-	static FractalColorAlgo fractalColorAlgo = null;
-	static FunctionColorAlgo functionColorAlgo = null;
-	
+
 	enum DrawingMode {
 		FUNCTION,
 		FRACTAL,
@@ -70,23 +65,26 @@ public class Drawer extends Graph
 	
 	static DrawingMode drawingMode;
 
-	public static void main(String[] args)
+	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, FractalColorAlgo colorAlgo)
 	{
-		zone = new RectangularZone(DEFAULT_X_MIN, DEFAULT_X_MAX, DEFAULT_Y_MIN, DEFAULT_Y_MAX);
-
-		function = new ZPower(2);
-		//function = new BurningShip();
 		drawingMode = DrawingMode.FRACTAL;
-		fractalColorAlgo = new EscapeTime(function, false, 1.0, 0.5, 100, 100.0, true);
+		zone = new RectangularZone(xMin, yMin, xMax, yMax);
 
-		//function = new Blanche();
-		//drawingMode = DrawingMode.FUNCTION;
-		//functionColorAlgo = new HueArg(false, false, false);
-		//functionColorAlgo = new AbsBlackAndWhite(0.2, true);
+		//List<Complex> zeros = new ArrayList<>();
+		//List<Complex> poles = new ArrayList<>();
+		//poles.add(new Complex(0.0, 0.0));
+		//for (int n = 2; n <= 50; n ++) {
+		//	addAll(n, zeros, poles);
+		//}
+		// function = new Rational(zeros, poles);
+		// function = new Experiment();
+		// drawingMode = DrawingMode.FUNCTION;
+		// functionColorAlgo = new HueArg(true, true, true);
+		// functionColorAlgo = new AbsBlackAndWhite(0.5, false);
 		
 		Drawer f = new Drawer();
 		f.init();
-		f.addKeyListener2(f.new MyKeyListener());
+		f.addKeyListener2(f.new MyKeyListener(function, colorAlgo));
 		Graphics graphics = f.getGraphics2();
 		
 		while (status != STATUS_QUIT)
@@ -94,7 +92,7 @@ public class Drawer extends Graph
 			switch (status)
 			{
 			case STATUS_DRAW:
-				draw(graphics, f.getRectangle());
+				draw(graphics, f.getRectangle(), function, colorAlgo);
 				if (status == STATUS_DRAW)
 				{
 					status = STATUS_WAIT;
@@ -120,7 +118,7 @@ public class Drawer extends Graph
 		System.exit(0);
 	}
 
-	public static void draw(Graphics graphics, Rectangle rectangle)
+	public static void draw(Graphics graphics, Rectangle rectangle, Function function, ColorAlgo colorAlgo)
 	{
 		int ix, iy;
 		int granu;
@@ -150,11 +148,11 @@ public class Drawer extends Graph
 					{
 					case FRACTAL:
 					case FRACTAL_JULIA:
-						color = fractalColorAlgo.getColor(z);
+						color = colorAlgo.getColor(z);
 						break;
 					case FUNCTION:
 						z = function.apply(z);
-						color = functionColorAlgo.getColor(z);
+						color = colorAlgo.getColor(z);
 						break;
 					}
 					graphics.setColor(color);
@@ -175,17 +173,17 @@ public class Drawer extends Graph
 	
 
 	
-	public static void saveParameters(String outFileName)
+	public static void saveParameters(String outFileName, Function function, ColorAlgo colorAlgo)
 	{
 		BufferedWriter bw = null;
 
 		try
 		{
-			bw = new BufferedWriter(new FileWriter("C:\\Users\\Luc\\Pictures\\04 - Fractales\\" + "Coords.txt", true));
+			bw = new BufferedWriter(new FileWriter("C:\\Users\\Luc\\Desktop\\" + "Coords.txt", true));
 			bw.write("filename = " + outFileName + ";\n");
-			bw.write(function.toString());
-			bw.write(fractalColorAlgo != null ? fractalColorAlgo.toString() : "");
-			bw.write(functionColorAlgo.toString());
+			bw.write(function.getHumanReadableFormula());
+			bw.write(colorAlgo != null ? colorAlgo.toString() : "");
+			//bw.write(functionColorAlgo.toString());
 			/*
 			bw.write("X_MIN = " + X_MIN + ";\n");
 			bw.write("X_MAX = " + X_MAX + ";\n");
@@ -233,6 +231,14 @@ public class Drawer extends Graph
 	
 	private class MyKeyListener extends KeyAdapter {
 
+		private Function function;
+		private ColorAlgo colorAlgo;
+
+		public MyKeyListener(Function function, ColorAlgo colorAlgo) {
+			this.function = function;
+			this.colorAlgo = colorAlgo;
+		}
+
 		public void keyPressed(KeyEvent event)
 		{
 			System.out.print("keyPressed");
@@ -278,7 +284,7 @@ public class Drawer extends Graph
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 				String outFileName = "C:\\Users\\Luc\\Desktop\\" + sdf.format(new Date()) + ".png";
 				Graph.save(outFileName);
-				saveParameters(outFileName);
+				saveParameters(outFileName, function, colorAlgo);
 				break;
 
 			case KeyEvent.VK_G:
@@ -298,36 +304,29 @@ public class Drawer extends Graph
 				{
 				case FUNCTION:
 					break;
-				case FRACTAL:
+				case FRACTAL: {
 					saveZone = zone;
+					FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
 					fractalColorAlgo.setJuliaX((zone.getxMin() + zone.getxMax()) / 2);
 					fractalColorAlgo.setJuliaY((zone.getyMin() + zone.getyMax()) / 2);
 					zone = new RectangularZone(DEFAULT_X_MIN, DEFAULT_X_MAX, DEFAULT_Y_MIN, DEFAULT_Y_MAX);
 					drawingMode = DrawingMode.FRACTAL_JULIA;
 					status = STATUS_REDRAW;
 					fractalColorAlgo.processKeyEvent(key);
+				}
 					break;
-				case FRACTAL_JULIA:
+				case FRACTAL_JULIA: {
 					zone = saveZone;
+					FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
 					drawingMode = DrawingMode.FRACTAL;
 					status = STATUS_REDRAW;
 					fractalColorAlgo.processKeyEvent(key);
+				}
 					break;
 				}
-				
-				
 				break;
 			default:
-				switch (drawingMode)
-				{
-				case FRACTAL:
-				case FRACTAL_JULIA:
-					fractalColorAlgo.processKeyEvent(key);
-					break;
-				case FUNCTION:
-					functionColorAlgo.processKeyEvent(key);
-					break;
-				}
+				colorAlgo.processKeyEvent(key);
 				status = STATUS_REDRAW;
 				break;
 			}

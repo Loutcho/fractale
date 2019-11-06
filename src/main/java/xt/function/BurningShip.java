@@ -18,4 +18,11 @@ public class BurningShip implements Function {
 		Complex zz = new Complex(xx, yy);
 		return Complex.mul(zz, zz);
 	}
+
+	@Override
+	public String getHumanReadableFormula() {
+		return "(|re(z)| + I*|im(z)|)^2";
+	}
+
+
 }

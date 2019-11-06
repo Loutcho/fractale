@@ -12,10 +12,15 @@ public class Experiment implements Function {
 	{
 		double x = z.re();
 		double y = z.im();
-		
-		double xx = x; 
-		double yy = y;
-		Complex zz = new Complex(xx, yy);
-		return Complex.mul(zz, zz);
+		double tt = Math.sqrt(x * x - 2 * x * y + y * y + 8 * x + 8 * y);
+		double ll = 2.0 * Math.log(2.0);
+		double xx = Math.log(tt - x + y) - ll;
+		double yy = Math.log(tt + x - y) - ll;
+		return new Complex(xx, yy);
+	}
+
+	@Override
+	public String getHumanReadableFormula() {
+		return "experiment";
 	}
 }
