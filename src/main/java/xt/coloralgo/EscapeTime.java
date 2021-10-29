@@ -24,26 +24,26 @@ public class EscapeTime implements FractalColorAlgo {
 	private double degrade1_i[]   = { 1.0, 1.0, 1.0 };
 	private double degrade2_i[]   = { 0.0, 0.0, 0.0 };
 	private double degrade2_j[]   = { 0.1, 0.1, 0.1 };
-	private double bulle[]        = { 0.0, 0.0, 0.0 };
+	private double bulle[]        = { 0.2, 0.3, 0.4 };
 	private double inverse_i[]    = { 0.0, 0.0, 0.0 };
 	private double periode[]      = { 33.0, 33.0, 33.0 };
 	private double kphi[]         = { 0.0, 0.0, 0.0 };
 
-	private static int[] RVB =
-	{
-		//0x0D8C7E, // bleu canard
-		//0x5F351D, // chocolat
-		0xFF7700,
+	private static int[] RVB = {
+		/*
+		0x0D8C7E, // bleu canard
 		0x000000,
-		0xFF7700,
-		//0xC8AD7F, // beige		
-		0x00FF77,
-		0x000000,
-		0x00FF77,
-		0x7700FF,
-		0x000000,
-		0x7700FF,
+		0x5F351D, // chocolat
+		0xFFFFFF,
+		0xC8AD7F, // beige
+		0xFFFFFF,
+		*/
+		0x76AFF6, 0x76AFF6, 0x000000,
+		0xC4DE11, 0xC4DE11, 0xFFFFFF,
+		0xC0AA98, 0xC0AA98, 0xFFFFFF,
+		0xF43A49, 0xF43A49, 0x000000,
 	};
+
 	public EscapeTime(Function function, boolean juliaMode, double juliaX, double juliaY, int iMax, double iRef, boolean smoothMode)
 	{
 		this.function = function;
@@ -119,7 +119,7 @@ public class EscapeTime implements FractalColorAlgo {
 
 			i ++;
 		}
-		return Color.BLACK;
+		return Color.WHITE;
 	}
 	
 	public Color divergenceColorAlgo(int iteration, int iterationMax, double X,

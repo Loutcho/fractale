@@ -3,15 +3,9 @@ package xt.fractale;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import xt.coloralgo.*;
 import xt.function.*;
@@ -31,8 +25,8 @@ public class Drawer extends Graph
 	static final int        EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR = /* 8 */ /* 1 */ 3; /* A adapter */
 	static final int        MINIMAL_INTEGER_X = RESOLUTION_X / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
 	static final int        MINIMAL_INTEGER_Y = RESOLUTION_Y / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
-	static final double     DEFAULT_X_LENGTH    =  3.0 * ((double) MINIMAL_INTEGER_X) / ((double) MINIMAL_INTEGER_Y);
-	static final double     DEFAULT_Y_LENGTH    =  3.0;
+	static final double     DEFAULT_X_LENGTH    =  2.5 * ((double) MINIMAL_INTEGER_X) / ((double) MINIMAL_INTEGER_Y);
+	static final double     DEFAULT_Y_LENGTH    =  2.5;
 
 	static final double		DEFAULT_X_MIN		= DEFAULT_X_CENTER - DEFAULT_X_LENGTH / 2.0;
 	static final double		DEFAULT_X_MAX		= DEFAULT_X_CENTER + DEFAULT_X_LENGTH / 2.0;
@@ -65,26 +59,52 @@ public class Drawer extends Graph
 	
 	static DrawingMode drawingMode;
 
-	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, FractalColorAlgo colorAlgo)
-	{
-		drawingMode = DrawingMode.FRACTAL;
+	public static void function(double xMin, double yMin, double xMax, double yMax, Function function, ColorAlgo colorAlgo) {
 		zone = new RectangularZone(xMin, yMin, xMax, yMax);
-
-		//List<Complex> zeros = new ArrayList<>();
-		//List<Complex> poles = new ArrayList<>();
-		//poles.add(new Complex(0.0, 0.0));
-		//for (int n = 2; n <= 50; n ++) {
-		//	addAll(n, zeros, poles);
-		//}
-		// function = new Rational(zeros, poles);
-		// function = new Experiment();
-		// drawingMode = DrawingMode.FUNCTION;
-		// functionColorAlgo = new HueArg(true, true, true);
-		// functionColorAlgo = new AbsBlackAndWhite(0.5, false);
-		
+		drawingMode = DrawingMode.FUNCTION;
 		Drawer f = new Drawer();
 		f.init();
-		f.addKeyListener2(f.new MyKeyListener(function, colorAlgo));
+		f.addKeyListener2(new MyKeyListener(function, colorAlgo));
+		Graphics graphics = f.getGraphics2();
+
+		while (status != STATUS_QUIT)
+		{
+			switch (status)
+			{
+				case STATUS_DRAW:
+					draw(graphics, f.getRectangle(), function, colorAlgo);
+					if (status == STATUS_DRAW)
+					{
+						status = STATUS_WAIT;
+					}
+					break;
+				case STATUS_REDRAW:
+					status = STATUS_DRAW;
+					break;
+				case STATUS_WAIT:
+					try
+					{
+						Thread.sleep(500);
+					}
+					catch (InterruptedException e)
+					{
+						e.printStackTrace();
+					}
+					break;
+			}
+		}
+
+		f.done();
+		System.exit(0);
+	}
+
+	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, FractalColorAlgo colorAlgo)
+	{
+		zone = new RectangularZone(xMin, yMin, xMax, yMax);
+		drawingMode = DrawingMode.FRACTAL;
+		Drawer f = new Drawer();
+		f.init();
+		f.addKeyListener2(new MyKeyListener(function, colorAlgo));
 		Graphics graphics = f.getGraphics2();
 		
 		while (status != STATUS_QUIT)
@@ -228,108 +248,5 @@ public class Drawer extends Graph
 				}
 		} // end try/catch/finally
 	}
-	
-	private class MyKeyListener extends KeyAdapter {
 
-		private Function function;
-		private ColorAlgo colorAlgo;
-
-		public MyKeyListener(Function function, ColorAlgo colorAlgo) {
-			this.function = function;
-			this.colorAlgo = colorAlgo;
-		}
-
-		public void keyPressed(KeyEvent event)
-		{
-			System.out.print("keyPressed");
-			int key = event.getKeyCode();
-			System.out.println("[" + key + "]");
-
-			switch (key)
-			{
-			case KeyEvent.VK_ESCAPE:
-				status = STATUS_QUIT;
-				break;
-
-			case KeyEvent.VK_ENTER:
-				zone.centeredZoomOut(1.0666666666);
-				status = STATUS_REDRAW;
-				break;
-
-			case KeyEvent.VK_LEFT : zone.shift(-1, 0); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_RIGHT: zone.shift(+1, 0); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_UP   : zone.shift(0, +1); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_DOWN : zone.shift(0, -1); status = STATUS_REDRAW; break;
-
-			case KeyEvent.VK_NUMPAD7: zone.keep(-1, +1); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_NUMPAD8: zone.keep( 0, +1); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_NUMPAD9: zone.keep(+1, +1); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_NUMPAD4: zone.keep(-1,  0); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_NUMPAD5: zone.keep( 0,  0); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_NUMPAD6: zone.keep(+1,  0); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_NUMPAD1: zone.keep(-1, -1); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_NUMPAD2: zone.keep( 0, -1); status = STATUS_REDRAW; break;
-			case KeyEvent.VK_NUMPAD3: zone.keep(+1, -1); status = STATUS_REDRAW; break;
-
-			case KeyEvent.VK_COLON:
-				System.out.println("gotcha");
-				zone.vZoom(); status = STATUS_REDRAW; break;
-
-			case KeyEvent.VK_NUMPAD0:
-				zone = new RectangularZone(DEFAULT_X_MIN, DEFAULT_X_MAX, DEFAULT_Y_MIN, DEFAULT_Y_MAX);
-				status = STATUS_REDRAW;
-				break;
-
-			case KeyEvent.VK_S:
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-				String outFileName = "C:\\Users\\Luc\\Desktop\\" + sdf.format(new Date()) + ".png";
-				Graph.save(outFileName);
-				saveParameters(outFileName, function, colorAlgo);
-				break;
-
-			case KeyEvent.VK_G:
-				if (granularite_de_depart == GRANULARITE_LA_PLUS_FINE)
-				{
-					granularite_de_depart = GRANULARITE_LA_PLUS_GROSSIERE;
-				}
-				else
-				{
-					granularite_de_depart = GRANULARITE_LA_PLUS_FINE;
-				}
-				status = STATUS_REDRAW;
-				
-				break;
-			case KeyEvent.VK_J:
-				switch (drawingMode)
-				{
-				case FUNCTION:
-					break;
-				case FRACTAL: {
-					saveZone = zone;
-					FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
-					fractalColorAlgo.setJuliaX((zone.getxMin() + zone.getxMax()) / 2);
-					fractalColorAlgo.setJuliaY((zone.getyMin() + zone.getyMax()) / 2);
-					zone = new RectangularZone(DEFAULT_X_MIN, DEFAULT_X_MAX, DEFAULT_Y_MIN, DEFAULT_Y_MAX);
-					drawingMode = DrawingMode.FRACTAL_JULIA;
-					status = STATUS_REDRAW;
-					fractalColorAlgo.processKeyEvent(key);
-				}
-					break;
-				case FRACTAL_JULIA: {
-					zone = saveZone;
-					FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
-					drawingMode = DrawingMode.FRACTAL;
-					status = STATUS_REDRAW;
-					fractalColorAlgo.processKeyEvent(key);
-				}
-					break;
-				}
-				break;
-			default:
-				colorAlgo.processKeyEvent(key);
-				status = STATUS_REDRAW;
-				break;
-			}
-		}
-	}
 }

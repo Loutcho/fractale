@@ -32,7 +32,7 @@ public class HueArg implements ColorAlgo {
 			rvb[i] = MyMath.sqcosdemi(theta + i * 2.0 * Math.PI / 3.0);
 			if (absGradient)
 			{
-				rvb[i] = Math.pow(rvb[i], Math.pow(4.0, - Math.atan(Math.log(r)) / (Math.PI / 2.0)));
+				rvb[i] = Math.pow(rvb[i], 3.0 * Math.pow(4.0, - Math.atan(Math.log(r)) / (Math.PI / 2.0)));
 				//rvb[i] = Math.pow(rvb[i], Math.pow(4.0, - Math.atan(r) / (Math.PI / 2.0)));
 			}
 			if (argGrid)

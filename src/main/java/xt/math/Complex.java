@@ -74,21 +74,6 @@ public class Complex
 	
 	public static double arg(Complex z)
 	{
-		/*
-		if (z.im == 0.0)
-		{
-			if (z.re >= 0.0)
-			{
-				return 0.0;
-			}
-			else
-			{
-				return Math.PI;
-			}
-		}
-			
-		return Math.atan(z.im / z.re);
-		*/
 		return Math.atan2(z.im, z.re);
 	}
 	
