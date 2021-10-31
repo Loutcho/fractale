@@ -92,7 +92,7 @@ public class BMarelle implements Function {
 			case 11: b = b11(t, u); break;
 			default: b = 1.0;
 		}
-		return new Complex(b, 0);
+		return new Complex(b, b);
 	}
 
 	@Override
