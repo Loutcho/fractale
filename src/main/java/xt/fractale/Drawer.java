@@ -13,8 +13,8 @@ import xt.math.Complex;
 import xt.graph.Graph;
 import xt.sound.Sound;
 
-public class Drawer extends Graph
-{
+public class Drawer extends Graph {
+
 	static final long		serialVersionUID	= 1234;
 	
 	static final double     DEFAULT_X_CENTER    =  0.0;
@@ -67,14 +67,11 @@ public class Drawer extends Graph
 		f.addKeyListener2(new MyKeyListener(function, colorAlgo));
 		Graphics graphics = f.getGraphics2();
 
-		while (status != STATUS_QUIT)
-		{
-			switch (status)
-			{
+		while (status != STATUS_QUIT) {
+			switch (status) {
 				case STATUS_DRAW:
 					draw(graphics, f.getRectangle(), function, colorAlgo);
-					if (status == STATUS_DRAW)
-					{
+					if (status == STATUS_DRAW) {
 						status = STATUS_WAIT;
 					}
 					break;
@@ -82,12 +79,9 @@ public class Drawer extends Graph
 					status = STATUS_DRAW;
 					break;
 				case STATUS_WAIT:
-					try
-					{
+					try {
 						Thread.sleep(500);
-					}
-					catch (InterruptedException e)
-					{
+					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 					break;
@@ -98,8 +92,7 @@ public class Drawer extends Graph
 		System.exit(0);
 	}
 
-	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, FractalColorAlgo colorAlgo)
-	{
+	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, FractalColorAlgo colorAlgo) {
 		zone = new RectangularZone(xMin, yMin, xMax, yMax);
 		drawingMode = DrawingMode.FRACTAL;
 		Drawer f = new Drawer();
@@ -107,14 +100,11 @@ public class Drawer extends Graph
 		f.addKeyListener2(new MyKeyListener(function, colorAlgo));
 		Graphics graphics = f.getGraphics2();
 		
-		while (status != STATUS_QUIT)
-		{
-			switch (status)
-			{
+		while (status != STATUS_QUIT) {
+			switch (status) {
 			case STATUS_DRAW:
 				draw(graphics, f.getRectangle(), function, colorAlgo);
-				if (status == STATUS_DRAW)
-				{
+				if (status == STATUS_DRAW) {
 					status = STATUS_WAIT;
 				}
 				break;
@@ -122,12 +112,9 @@ public class Drawer extends Graph
 				status = STATUS_DRAW;
 				break;
 			case STATUS_WAIT:
-				try
-				{
+				try {
 					Thread.sleep(500);
-				}
-				catch (InterruptedException e)
-				{
+				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				break;
@@ -138,34 +125,29 @@ public class Drawer extends Graph
 		System.exit(0);
 	}
 
-	public static void draw(Graphics graphics, Rectangle rectangle, Function function, ColorAlgo colorAlgo)
-	{
+	public static void draw(Graphics graphics, Rectangle rectangle, Function function, ColorAlgo colorAlgo) {
 		int ix, iy;
 		int granu;
 		int cote, nx, ny;
 		int x, y;
 		
 		granu = granularite_de_depart;
-		while ((granu <= GRANULARITE_LA_PLUS_FINE) && (status == STATUS_DRAW))
-		{
+		while ((granu <= GRANULARITE_LA_PLUS_FINE) && (status == STATUS_DRAW)) {
 			cote = 1 << (EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR - granu); // cote du carre
 			
 			nx = MINIMAL_INTEGER_X * (1 << granu); // nombre de carres de cette taille
 			ny = MINIMAL_INTEGER_Y * (1 << granu);
 
 			ix = 0;
-			while ((ix < nx) && (status == STATUS_DRAW))
-			{
+			while ((ix < nx) && (status == STATUS_DRAW)) {
 				x = ix * cote;
 				graphics.setColor(Color.BLACK);
 				graphics.fillRect(x, 0, cote, rectangle.height);
-				for (iy = 0; iy < ny; iy++)
-				{
+				for (iy = 0; iy < ny; iy++) {
 					y = iy * cote;
 					Complex z = new Complex(zone.toX(x, rectangle), zone.toY(y, rectangle));
 					Color color = null;
-					switch (drawingMode)
-					{
+					switch (drawingMode) {
 					case FRACTAL:
 					case FRACTAL_JULIA:
 						color = colorAlgo.getColor(z);
@@ -185,20 +167,17 @@ public class Drawer extends Graph
 			granu++;
 		}
 
-		if (status == STATUS_DRAW)
-		{
+		if (status == STATUS_DRAW) {
 			new Sound().sound("toto.wav");
 		}
 	}
 	
 
 	
-	public static void saveParameters(String outFileName, Function function, ColorAlgo colorAlgo)
-	{
+	public static void saveParameters(String outFileName, Function function, ColorAlgo colorAlgo) {
 		BufferedWriter bw = null;
 
-		try
-		{
+		try {
 			bw = new BufferedWriter(new FileWriter("C:\\Users\\Luc\\Desktop\\" + "Coords.txt", true));
 			bw.write("filename = " + outFileName + ";\n");
 			bw.write(function.getHumanReadableFormula());
@@ -231,22 +210,17 @@ public class Drawer extends Graph
 			bw.newLine();
 			bw.flush();
 		}
-		catch (IOException ioe)
-		{
+		catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
-		finally
-		{ // always close the file
-			if (bw != null)
-				try
-				{
+		finally { // always close the file
+			if (bw != null) {
+				try {
 					bw.close();
-				}
-				catch (IOException ioe2)
-				{
+				} catch (IOException ioe2) {
 					// just ignore it
 				}
+			}
 		} // end try/catch/finally
 	}
-
 }
