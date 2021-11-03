@@ -64,8 +64,8 @@ public class Drawer extends Graph {
 		drawingMode = DrawingMode.FUNCTION;
 		Drawer f = new Drawer();
 		f.init();
-		f.addKeyListener2(new MyKeyListener(function, colorAlgo));
-		Graphics graphics = f.getGraphics2();
+		f.addKeyListener(new MyKeyListener(function, colorAlgo));
+		Graphics graphics = f.getGraphics();
 
 		while (status != STATUS_QUIT) {
 			switch (status) {
@@ -97,8 +97,8 @@ public class Drawer extends Graph {
 		drawingMode = DrawingMode.FRACTAL;
 		Drawer f = new Drawer();
 		f.init();
-		f.addKeyListener2(new MyKeyListener(function, colorAlgo));
-		Graphics graphics = f.getGraphics2();
+		f.addKeyListener(new MyKeyListener(function, colorAlgo));
+		Graphics graphics = f.getGraphics();
 		
 		while (status != STATUS_QUIT) {
 			switch (status) {

@@ -17,19 +17,17 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class Graph extends Frame
-{
-	static final long		serialVersionUID	= 1234;
-	
-	GraphicsDevice			device				  = null;
-	GraphicsConfiguration   graphicsConfiguration = null;
-	Frame                   mainFrame             = null;
-	BufferStrategy          bufferStrategy        = null;
-	Graphics                graphics              = null;
-	Rectangle               rectangle             = null;
-	
-	public void init()
-	{
+public class Graph {
+	static final long serialVersionUID = 1234;
+
+	GraphicsDevice device = null;
+	GraphicsConfiguration graphicsConfiguration = null;
+	Frame mainFrame = null;
+	BufferStrategy bufferStrategy = null;
+	Graphics graphics = null;
+	Rectangle rectangle = null;
+
+	public void init() {
 		GraphicsEnvironment env = null;
 		env = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		device = env.getDefaultScreenDevice();
@@ -45,45 +43,33 @@ public class Graph extends Frame
 		mainFrame.setFocusable(true);
 	}
 
-	public void done()
-	{
+	public void done() {
 		bufferStrategy.show();
 		graphics.dispose();
 		device.setFullScreenWindow(null);
 	}
 
-	public Graphics getGraphics2()
-	{
+	public Graphics getGraphics() {
 		return graphics;
 	}
-	
-	public Rectangle getRectangle()
-	{
+
+	public Rectangle getRectangle() {
 		return mainFrame.getBounds();
 	}
-	
-	public void addKeyListener2(KeyAdapter ka)
-	{
+
+	public void addKeyListener(KeyAdapter ka) {
 		mainFrame.addKeyListener(ka);
 	}
-	
-	public static void save(String outFileName)
-	{
+
+	public static void save(String outFileName) {
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = toolkit.getScreenSize();
 		Rectangle screenRect = new Rectangle(screenSize);
-		try
-		{
+		try {
 			Robot robot = new Robot();
 			BufferedImage image = robot.createScreenCapture(screenRect);
 			ImageIO.write(image, "png", new File(outFileName));
-		}
-		catch (AWTException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IOException e)
-		{
+		} catch (AWTException | IOException e) {
 			e.printStackTrace();
 		}
 	}
