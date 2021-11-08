@@ -78,30 +78,32 @@ public class RectangularZone {
 		yMin = yMoy - yAmp / 2.0; 
 	}
 	
-	public double toX(int x, Rectangle r)
-	{
+	public double toX(int x, Rectangle r) {
 		double xx = (double) x;
 		double rr = (double) (r.width);
 		double iix = (double) IX;
 		double nnx = (double) NX;
 		double result = xMin + (iix + xx / rr) * (xMax - xMin) / nnx;
-		
-		//System.out.println("x = " + x + ", r = " + r + " ==> toX = " + result);
-		
 		return result;
 	}
 
-	public double toY(int y, Rectangle r)
-	{
+	public double toY(int y, Rectangle r) {
 		double yy = (double) y;
 		double rr = (double) r.height;
 		double iiy = (double) IY;
 		double nny = (double) NY;
 		double result = yMax + (iiy + yy / rr) * (yMin - yMax) / nny;
-		
-		//System.out.println("y = " + y + ", r = " + r + " ==> toY = " + result);
-		
 		return result;
+	}
+	
+	public int fromX(double x, Rectangle r) {
+		// X = xMin + (IX + x / r.width ) * (xMax - xMin) / NX;
+		return (int) (r.width * (NX * (x - xMin) / (xMax - xMin) - IX));
+	}
+	
+	public int fromY(double y, Rectangle r) {
+		// Y = yMax + (IY + y / r.height) * (yMin - yMax) / NY;
+		return (int) (r.height * (NY * (y - yMax) / (yMin - yMax) - IY));
 	}
 	
 	public void centeredZoomOut(double coef)

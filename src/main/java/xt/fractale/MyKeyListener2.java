@@ -1,8 +1,5 @@
 package xt.fractale;
 
-import xt.coloralgo.ColorAlgo;
-import xt.coloralgo.FractalColorAlgo;
-import xt.function.Function;
 import xt.graph.Graph;
 
 import java.awt.event.KeyAdapter;
@@ -10,25 +7,18 @@ import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class MyKeyListener extends KeyAdapter {
+class MyKeyListener2 extends KeyAdapter {
 
-	private Function function;
-	private ColorAlgo colorAlgo;
-
-	public MyKeyListener(Function function, ColorAlgo colorAlgo) {
-		this.function = function;
-		this.colorAlgo = colorAlgo;
+	public MyKeyListener2() {
 	}
 
 	public void keyPressed(KeyEvent event) {
 		int key = event.getKeyCode();
-		/*
-		System.out.print("keyPressed");
-		System.out.println("[" + key + "]");
-		*/
 
 		switch (key) {
 			case KeyEvent.VK_ESCAPE:
+				System.out.print("keyPressed");
+				System.out.println("[" + key + "]");
 				Drawer.status = Drawer.STATUS_QUIT;
 				break;
 
@@ -106,47 +96,11 @@ class MyKeyListener extends KeyAdapter {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 				String outFileName = "C:\\Users\\Luc\\Desktop\\" + sdf.format(new Date()) + ".png";
 				Graph.save(outFileName);
-				Drawer.saveParameters(outFileName, function, colorAlgo);
 				break;
 
-			case KeyEvent.VK_G:
-				if (Drawer.granularite_de_depart == Drawer.GRANULARITE_LA_PLUS_FINE) {
-					Drawer.granularite_de_depart = Drawer.GRANULARITE_LA_PLUS_GROSSIERE;
-				} else {
-					Drawer.granularite_de_depart = Drawer.GRANULARITE_LA_PLUS_FINE;
-				}
-				Drawer.status = Drawer.STATUS_REDRAW;
-
-				break;
-			case KeyEvent.VK_J:
-				switch (Drawer.drawingMode) {
-					case FUNCTION:
-						break;
-					case FRACTAL: {
-						Drawer.saveZone = Drawer.zone;
-						FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
-						fractalColorAlgo.setJuliaX((Drawer.zone.getxMin() + Drawer.zone.getxMax()) / 2);
-						fractalColorAlgo.setJuliaY((Drawer.zone.getyMin() + Drawer.zone.getyMax()) / 2);
-						Drawer.zone = new RectangularZone(Drawer.DEFAULT_X_MIN, Drawer.DEFAULT_X_MAX, Drawer.DEFAULT_Y_MIN, Drawer.DEFAULT_Y_MAX);
-						Drawer.drawingMode = Drawer.DrawingMode.FRACTAL_JULIA;
-						Drawer.status = Drawer.STATUS_REDRAW;
-						fractalColorAlgo.processKeyEvent(key);
-					}
-					break;
-					case FRACTAL_JULIA: {
-						Drawer.zone = Drawer.saveZone;
-						FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
-						Drawer.drawingMode = Drawer.DrawingMode.FRACTAL;
-						Drawer.status = Drawer.STATUS_REDRAW;
-						fractalColorAlgo.processKeyEvent(key);
-					}
-					break;
-				}
-				break;
 			default:
 				System.out.print("keyPressed");
 				System.out.println("[" + key + "]");
-				colorAlgo.processKeyEvent(key);
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 		}

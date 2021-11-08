@@ -58,6 +58,96 @@ public class Drawer extends Graph {
 	};
 	
 	static DrawingMode drawingMode;
+	
+	public static void hexagonalTiling(double xMin, double yMin, double xMax, double yMax) {
+		zone = new RectangularZone(xMin, yMin, xMax, yMax);
+		Drawer f = new Drawer();
+		f.init();
+		f.addKeyListener(new MyKeyListener2());
+		Graphics graphics = f.getGraphics();
+		while (status != STATUS_QUIT) {
+			switch (status) {
+				case STATUS_DRAW:
+					draw1(graphics, f.getRectangle());
+					if (status == STATUS_DRAW) {
+						status = STATUS_WAIT;
+					}
+					break;
+				case STATUS_REDRAW:
+					status = STATUS_DRAW;
+					break;
+				case STATUS_WAIT:
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					break;
+			}
+		}
+
+		f.done();
+		System.exit(0);
+	}
+	
+	public static void draw1(Graphics graphics, Rectangle rectangle) {
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(0, 0, rectangle.width, rectangle.height);
+		graphics.setColor(Color.WHITE);
+		double[] hexX = new double[7];
+		double[] hexY = new double[7];
+		double[] newhexX = new double[7];
+		double[] newhexY = new double[7];
+		double[] genT = new double[2];
+		double[] genS = new double[2];
+		double[] trans = new double[2];
+		int k, l, kmax, lmax;
+		
+		double s3 = Math.sqrt(3.0);
+		hexX[0] = +1.5;
+		hexX[1] =  0.0;
+		hexX[2] = -1.5;
+		hexX[3] = -1.5;
+		hexX[4] =  0.0;
+		hexX[5] = +1.5;
+		hexX[6] = +1.5;
+		hexY[0] = s3 * +0.5;
+		hexY[1] = s3 * +1.0;
+		hexY[2] = s3 * +0.5;
+		hexY[3] = s3 * -0.5;
+		hexY[4] = s3 * -1.0;
+		hexY[5] = s3 * -0.5;
+		hexY[6] = s3 * +0.5;
+		genT[0] = 3.0;
+		genT[1] = 0.0;
+		genS[0] = 1.5;
+		genS[1] = s3 * 1.5;
+		kmax = 5;
+		lmax = 5;
+		k = -kmax;
+		
+		while ((k < kmax) && (status != STATUS_QUIT)) {
+			l = -lmax;
+			while ((l < lmax) && (status != STATUS_QUIT)) {
+				trans[0] = k * genT[0] + l * genS[0];
+				trans[1] = k * genT[1] + l * genS[1];
+				for (int i = 0; i <= 6; i ++) {
+					newhexX[i] = hexX[i] + trans[0];
+					newhexY[i] = hexY[i] + trans[1];
+				}
+				int[] x = new int[7];
+				int[] y = new int[7];
+				for (int i = 0; i <= 6; i ++) {
+					x[i] = zone.fromX(newhexX[i], rectangle);
+					y[i] = zone.fromY(newhexY[i], rectangle);
+				}
+				graphics.setColor(Color.GREEN);
+				graphics.drawPolyline(x, y, 7);
+				l ++;
+			}
+			k ++;
+		}
+	}
 
 	public static void function(double xMin, double yMin, double xMax, double yMax, Function function, ColorAlgo colorAlgo) {
 		zone = new RectangularZone(xMin, yMin, xMax, yMax);
@@ -171,9 +261,7 @@ public class Drawer extends Graph {
 			new Sound().sound("toto.wav");
 		}
 	}
-	
 
-	
 	public static void saveParameters(String outFileName, Function function, ColorAlgo colorAlgo) {
 		BufferedWriter bw = null;
 
