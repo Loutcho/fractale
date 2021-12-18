@@ -35,7 +35,8 @@ public class HueArg implements ColorAlgo {
 		double[] rvb = new double[3];
 		for (int i = 0; i < 3; i ++) {
 			rvb[i] = MyMath.sqcosdemi(paletteOrientation * (theta - thetaPaletteOffset) + i * 2.0 * Math.PI / 3.0);
-			if (rGradient) { rvb[i] = Math.pow(rvb[i], 5.0 * Math.pow(4.0, - Math.atan(Math.log(r)) / (Math.PI / 2.0))); }
+			// if (rGradient) { rvb[i] = Math.pow(rvb[i], 5.0 * Math.pow(4.0, - Math.atan(Math.log(r)) / (Math.PI / 2.0))); }
+			if (rGradient) { rvb[i] *= Math.atan(Math.log(r) / Math.E) / Math.PI + 0.5; }
 			if (thetaGrid) { rvb[i] = MyMath.baryseg(tt, 1.0, rvb[i]); }
 			if (rGrid    ) { rvb[i] = MyMath.baryseg(rr, 0.0, rvb[i]); }
 		}
