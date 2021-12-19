@@ -11,9 +11,7 @@ public class Exponential implements Function {
 		
 		double ex = Math.exp(x);
 		Complex eyi = Complex.ei(y);
-		Complex result = Complex.mul(ex, eyi);
-		
-		return result;
+		return Complex.mul(ex, eyi);
 	}
 
 	@Override
