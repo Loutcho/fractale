@@ -2,6 +2,7 @@ package xt.coloralgo;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 
 import xt.math.MyMath;
 import xt.math.Complex;
@@ -111,7 +112,7 @@ public class EscapeTime implements FractalColorAlgo {
 			z = function.apply(z);
 			z = Complex.add(z, c);
 			L = Complex.abs(z);
-			
+
 			if (L > 2.0)
 			{
 				return divergenceColorAlgo(i, iMax, z.re(), z.im(), L);
@@ -322,6 +323,24 @@ public class EscapeTime implements FractalColorAlgo {
 				juliaMode = ! juliaMode;
 				break;
 		}
+	}
 
+	@Override
+	public String toString() {
+		return "EscapeTime{" +
+				"juliaMode=" + juliaMode +
+				", juliaX=" + juliaX +
+				", juliaY=" + juliaY +
+				", iMax=" + iMax +
+				", iRef=" + iRef +
+				", smoothMode=" + smoothMode +
+				", degrade1_i=" + Arrays.toString(degrade1_i) +
+				", degrade2_i=" + Arrays.toString(degrade2_i) +
+				", degrade2_j=" + Arrays.toString(degrade2_j) +
+				", bulle=" + Arrays.toString(bulle) +
+				", inverse_i=" + Arrays.toString(inverse_i) +
+				", periode=" + Arrays.toString(periode) +
+				", kphi=" + Arrays.toString(kphi) +
+				'}';
 	}
 }
