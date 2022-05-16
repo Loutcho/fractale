@@ -31,18 +31,18 @@ public class EscapeTime implements FractalColorAlgo {
 	private double kphi[]         = { 0.0, 0.0, 0.0 };
 
 	private static int[] RVB = {
-		/*
 		0x0D8C7E, // bleu canard
 		0x000000,
 		0x5F351D, // chocolat
 		0xFFFFFF,
 		0xC8AD7F, // beige
 		0xFFFFFF,
-		*/
+		/*
 		0x76AFF6, 0x76AFF6, 0x000000,
 		0xC4DE11, 0xC4DE11, 0xFFFFFF,
 		0xC0AA98, 0xC0AA98, 0xFFFFFF,
 		0xF43A49, 0xF43A49, 0x000000,
+		*/
 	};
 
 	public EscapeTime(Function function, boolean juliaMode, double juliaX, double juliaY, int iMax, double iRef, boolean smoothMode)
