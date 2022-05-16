@@ -2,6 +2,8 @@ package xt.sound;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
@@ -18,9 +20,11 @@ public class Sound
 
 	public void sound(String filename)
 	{
-		File soundFile = new File(filename);
-		if (!soundFile.exists())
-		{
+		URL resource = getClass().getClassLoader().getResource(filename);
+		File soundFile = null;
+		try {
+			soundFile = new File(resource.toURI());
+		} catch (URISyntaxException e) {
 			System.err.println("Wave file not found: " + filename);
 			return;
 		}
