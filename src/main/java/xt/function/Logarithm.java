@@ -2,8 +2,6 @@ package xt.function;
 
 import xt.math.Complex;
 
-import java.awt.*;
-
 public class Logarithm implements Function {
 
 	@Override
