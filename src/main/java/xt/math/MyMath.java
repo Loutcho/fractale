@@ -32,7 +32,7 @@ public class MyMath {
 		double x = z.re();
 		double y = z.im();
 		double xx = Math.sin(x) * Math.cosh(y);
-		double yy = Math.cos(y) * Math.sinh(x);
+		double yy = Math.cos(x) * Math.sinh(y);
 		Complex zz = new Complex(xx, yy);
 		return zz;
 	}
