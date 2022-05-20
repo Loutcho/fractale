@@ -36,4 +36,17 @@ public class MyMath {
 		Complex zz = new Complex(xx, yy);
 		return zz;
 	}
+
+	public static Complex cos(Complex z) {
+		double x = z.re();
+		double y = z.im();
+		double xx = Math.cos(x) * Math.cosh(y);
+		double yy = - Math.sin(x) * Math.sinh(y);
+		Complex zz = new Complex(xx, yy);
+		return zz;
+	}
+	
+	public static Complex tan(Complex z) {
+		return Complex.div(MyMath.sin(z), MyMath.cos(z));
+	}
 }

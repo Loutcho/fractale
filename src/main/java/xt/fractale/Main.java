@@ -21,7 +21,7 @@ public class Main {
 		Drawer.fractal(xMin, xMax, yMin, yMax, f, c);
 
 		/*
-		ColorAlgo c = new AbsBlackAndWhite(5.0, true);
+		ColorAlgo c = new HueArg(true, true, true, 0.5);
 		Drawer.function(xMin, xMax, yMin, yMax, f, c);
 		*/
 

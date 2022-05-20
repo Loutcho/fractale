@@ -11,6 +11,7 @@ public class HueArg implements ColorAlgo {
 	private boolean rGrid;
 	private boolean thetaGrid;
 	private boolean rGradient;
+	private double rBase;
 	private double thetaPaletteOffset = 0.0;
 	private int nbThetaSlices = 6;
 	private double paletteOrientation = 1.0;
@@ -18,11 +19,12 @@ public class HueArg implements ColorAlgo {
 	private double thetaGridThickness = 0.1;
 	private static final double THETA_PALETTE_OFFSET_INCREMENT = Math.PI / 24.0;
 	
-	public HueArg(boolean absGrid, boolean argGrid, boolean absGradient)
+	public HueArg(boolean absGrid, boolean argGrid, boolean absGradient, double absBase)
 	{
 		this.rGrid = absGrid;
 		this.thetaGrid = argGrid;
 		this.rGradient = absGradient;
+		this.rBase = absBase;
 	}
 	
 	public Color getColor(Complex pixel) {
@@ -30,7 +32,7 @@ public class HueArg implements ColorAlgo {
 		double r = Complex.abs(pixel);
 		double theta = Complex.arg(pixel);
 		double tt = Math.pow(MyMath.sqcosdemi(nbThetaSlices * theta), thetaGridThickness);
-		double rr = Math.pow(MyMath.sqcosdemi(2.0 * Math.PI * Math.log(r)), rGridThickness);
+		double rr = Math.pow(MyMath.sqcosdemi(2.0 * Math.PI * Math.log(r) / Math.log(rBase)), rGridThickness);
 
 		double[] rvb = new double[3];
 		for (int i = 0; i < 3; i ++) {
@@ -55,7 +57,9 @@ public class HueArg implements ColorAlgo {
 			case KeyEvent.VK_H: rGridThickness /= 1.1; break;
 			case KeyEvent.VK_P: thetaGridThickness *= 1.1; break;
 			case KeyEvent.VK_M: thetaGridThickness /= 1.1; break;
-			case KeyEvent.VK_ADD: if (nbThetaSlices < 12) { nbThetaSlices++; } break;
+			case KeyEvent.VK_Q: rBase *= 1.1; break;
+			case KeyEvent.VK_W: rBase /= 1.1; break;
+			case KeyEvent.VK_ADD: nbThetaSlices++; break;
 			case KeyEvent.VK_SUBTRACT: if (nbThetaSlices > 0) { nbThetaSlices--; } break;
 		}
 	}
