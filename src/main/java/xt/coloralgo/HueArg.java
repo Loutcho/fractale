@@ -12,6 +12,8 @@ public class HueArg implements ColorAlgo {
 	private boolean thetaGrid;
 	private boolean rGradient;
 	private double rBase;
+	private boolean xGrid;
+	private boolean yGrid;
 	private double thetaPaletteOffset = 0.0;
 	private int nbThetaSlices = 6;
 	private double paletteOrientation = 1.0;
@@ -19,16 +21,20 @@ public class HueArg implements ColorAlgo {
 	private double thetaGridThickness = 0.1;
 	private static final double THETA_PALETTE_OFFSET_INCREMENT = Math.PI / 24.0;
 	
-	public HueArg(boolean absGrid, boolean argGrid, boolean absGradient, double absBase)
+	public HueArg(boolean absGrid, boolean argGrid, boolean absGradient, double absBase, boolean xGrid, boolean yGrid)
 	{
 		this.rGrid = absGrid;
 		this.thetaGrid = argGrid;
 		this.rGradient = absGradient;
 		this.rBase = absBase;
+		this.xGrid = xGrid;
+		this.yGrid = yGrid;
 	}
 	
 	public Color getColor(Complex pixel) {
 
+		double x = pixel.re();
+		double y = pixel.im();
 		double r = Complex.abs(pixel);
 		double theta = Complex.arg(pixel);
 		double tt = Math.pow(MyMath.sqcosdemi(nbThetaSlices * theta), thetaGridThickness);
@@ -41,6 +47,8 @@ public class HueArg implements ColorAlgo {
 			if (rGradient) { rvb[i] *= Math.atan(Math.log(r) / Math.E) / Math.PI + 0.5; }
 			if (thetaGrid) { rvb[i] = MyMath.baryseg(tt, 1.0, rvb[i]); }
 			if (rGrid    ) { rvb[i] = MyMath.baryseg(rr, 0.0, rvb[i]); }
+			if (xGrid    ) { rvb[i] = MyMath.baryseg(1.0 * MyMath.sq(x - Math.round(x)), rvb[i], 0.0); }
+			if (yGrid    ) { rvb[i] = MyMath.baryseg(1.0 * MyMath.sq(y - Math.round(y)), rvb[i], 0.0); }
 		}
 		
 		return new Color((int)(255.0 * rvb[0]), (int)(255.0 * rvb[1]), (int)(255.0 * rvb[2]));
