@@ -7,7 +7,7 @@ import xt.math.Complex;
 
 public class Jeanne implements Function {
 
-	private Rational r;
+	private RationalFraction r;
 	
 	public Jeanne()
 	{
@@ -53,7 +53,7 @@ public class Jeanne implements Function {
 		z.add(new Complex(1.0 + 0.707, 1 + 0.707)); // 45�
 		p.add(new Complex(1.0 + 0.866, 1 + 0.500)); // 60�
 		p.add(new Complex(1.0 + 0.966, 1 + 0.259)); // 75�	
-		r = new Rational(z, p);
+		r = new RationalFraction(z, p);
 	}
 	
 	public Complex apply(Complex z)

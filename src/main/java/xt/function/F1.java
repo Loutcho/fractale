@@ -9,7 +9,7 @@ import xt.math.Complex;
 
 public class F1 implements Function {
 
-	Rational r;
+	RationalFraction r;
 	
 	public F1()
 	{
@@ -31,7 +31,7 @@ public class F1 implements Function {
 		l.add(new Complex(-2.0, +1.0));
 		p.put(1, l);
 		
-		r = new Rational(p.get(0), p.get(1));
+		r = new RationalFraction(p.get(0), p.get(1));
 	}
 	
 	public Complex apply(Complex z)

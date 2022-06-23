@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class NaiveZeta implements Function {
 
-	Rational r;
+	RationalFraction r;
 
 	public NaiveZeta()
 	{
@@ -40,7 +40,7 @@ public class NaiveZeta implements Function {
 		l.add(new Complex(1.0, 0.0));
 		p.put(1, l);
 		
-		r = new Rational(p.get(0), p.get(1));
+		r = new RationalFraction(p.get(0), p.get(1));
 	}
 	
 	public Complex apply(Complex z)

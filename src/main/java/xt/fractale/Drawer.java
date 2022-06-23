@@ -266,7 +266,7 @@ public class Drawer extends Graph {
 		BufferedWriter bw = null;
 
 		try {
-			bw = new BufferedWriter(new FileWriter("C:\\Users\\Luc\\Desktop\\" + "Coords.txt", true));
+			bw = new BufferedWriter(new FileWriter("G:\\Fractales\\" + "Coords.txt", true));
 			bw.write("filename = " + outFileName + ";\n");
 			bw.write(function.getHumanReadableFormula());
 			bw.write(colorAlgo != null ? colorAlgo.toString() : "");

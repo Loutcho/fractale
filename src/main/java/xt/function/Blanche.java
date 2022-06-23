@@ -7,7 +7,7 @@ import xt.math.Complex;
 
 public class Blanche implements Function {
 
-	private Rational r;
+	private RationalFraction r;
 	
 	private final double DEG = Math.PI / 180.0;
 	
@@ -39,7 +39,7 @@ public class Blanche implements Function {
 			z.add(new Complex(0.0, 0.0));	
 		}
 		z.add(new Complex( 0.0, 0.0));
-		r = new Rational(z, p);
+		r = new RationalFraction(z, p);
 	}
 	
 	public Complex apply(Complex z)

@@ -4,12 +4,12 @@ import java.util.List;
 
 import xt.math.Complex;
 
-public class Rational implements Function {
+public class RationalFraction implements Function {
 
 	private List<Complex> zeros;
 	private List<Complex> poles;
 
-	public Rational(List<Complex> zeros, List<Complex> poles) {
+	public RationalFraction(List<Complex> zeros, List<Complex> poles) {
 		this.zeros = zeros;
 		this.poles = poles;
 	}

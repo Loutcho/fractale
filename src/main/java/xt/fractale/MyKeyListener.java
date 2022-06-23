@@ -104,7 +104,7 @@ class MyKeyListener extends KeyAdapter {
 
 			case KeyEvent.VK_S:
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-				String outFileName = "C:\\Users\\Luc\\Desktop\\" + sdf.format(new Date()) + ".png";
+				String outFileName = "G:\\Fractales\\" + sdf.format(new Date()) + ".png";
 				Graph.save(outFileName);
 				Drawer.saveParameters(outFileName, function, colorAlgo);
 				break;
