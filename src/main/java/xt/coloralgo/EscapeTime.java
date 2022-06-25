@@ -11,7 +11,7 @@ import xt.function.Function;
 public class EscapeTime implements FractalColorAlgo {
 
 	private static final double DKPHI = 0.05;
-	private static final int DEFAULT_I_MAX = 100;
+	private static final int DEFAULT_I_MAX = 500;
 	private static final double KGEOM_20R2 = 1.0352649238413775043477881942112;
 	
 	private Function function;

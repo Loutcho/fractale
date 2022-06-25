@@ -48,8 +48,8 @@ public class Drawer extends Graph {
 	static final int GRANULARITE_LA_PLUS_FINE = EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
 	static int granularite_de_depart = GRANULARITE_LA_PLUS_GROSSIERE;
 	
-	static RectangularZone zone = null;
-	static RectangularZone saveZone = null;
+	static MathZone zone = null;
+	static MathZone saveZone = null;
 
 	enum DrawingMode {
 		FUNCTION,
@@ -59,8 +59,9 @@ public class Drawer extends Graph {
 	
 	static DrawingMode drawingMode;
 	
+	/*
 	public static void hexagonalTiling(double xMin, double yMin, double xMax, double yMax) {
-		zone = new RectangularZone(xMin, yMin, xMax, yMax);
+		zone = new MathZone(xMin, yMin, xMax, yMax);
 		Drawer f = new Drawer();
 		f.init();
 		f.addKeyListener(new MyKeyListener2());
@@ -89,7 +90,9 @@ public class Drawer extends Graph {
 		f.done();
 		System.exit(0);
 	}
+	*/
 	
+	/*
 	public static void draw1(Graphics graphics, Rectangle rectangle) {
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(0, 0, rectangle.width, rectangle.height);
@@ -148,9 +151,10 @@ public class Drawer extends Graph {
 			k ++;
 		}
 	}
+	*/
 
 	public static void function(double xMin, double yMin, double xMax, double yMax, Function function, ColorAlgo colorAlgo) {
-		zone = new RectangularZone(xMin, yMin, xMax, yMax);
+		zone = new MathZone(new Complex(xMin + xMax, yMin + yMax), 1.0, 1.0, 0.0); //FIXME
 		drawingMode = DrawingMode.FUNCTION;
 		Drawer f = new Drawer();
 		f.init();
@@ -183,7 +187,7 @@ public class Drawer extends Graph {
 	}
 
 	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, FractalColorAlgo colorAlgo) {
-		zone = new RectangularZone(xMin, yMin, xMax, yMax);
+		zone = new MathZone(new Complex(xMin + xMax, yMin + yMax), 1.0, 1.0, 0.0); //FIXME
 		drawingMode = DrawingMode.FRACTAL;
 		Drawer f = new Drawer();
 		f.init();
@@ -235,7 +239,7 @@ public class Drawer extends Graph {
 				graphics.fillRect(x, 0, cote, rectangle.height);
 				for (iy = 0; iy < ny; iy++) {
 					y = iy * cote;
-					Complex z = new Complex(zone.toX(x, rectangle), zone.toY(y, rectangle));
+					Complex z = new Complex(0.0, 0.0); // new Complex(zone.toX(x, rectangle), zone.toY(y, rectangle)); //FIXME
 					Color color = null;
 					switch (drawingMode) {
 					case FRACTAL:

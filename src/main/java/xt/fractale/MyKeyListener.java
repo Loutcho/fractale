@@ -4,6 +4,7 @@ import xt.coloralgo.ColorAlgo;
 import xt.coloralgo.FractalColorAlgo;
 import xt.function.Function;
 import xt.graph.Graph;
+import xt.math.Complex;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -55,50 +56,70 @@ class MyKeyListener extends KeyAdapter {
 				break;
 
 			case KeyEvent.VK_NUMPAD7:
+				/*
 				Drawer.zone.keep(-1, +1);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 			case KeyEvent.VK_NUMPAD8:
+				/*
 				Drawer.zone.keep(0, +1);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 			case KeyEvent.VK_NUMPAD9:
+				/*
 				Drawer.zone.keep(+1, +1);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 			case KeyEvent.VK_NUMPAD4:
+				/*
 				Drawer.zone.keep(-1, 0);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 			case KeyEvent.VK_NUMPAD5:
+				/*
 				Drawer.zone.keep(0, 0);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 			case KeyEvent.VK_NUMPAD6:
+				/*
 				Drawer.zone.keep(+1, 0);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 			case KeyEvent.VK_NUMPAD1:
+				/*
 				Drawer.zone.keep(-1, -1);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 			case KeyEvent.VK_NUMPAD2:
+				/*
 				Drawer.zone.keep(0, -1);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 			case KeyEvent.VK_NUMPAD3:
+				/*
 				Drawer.zone.keep(+1, -1);
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 
 			case KeyEvent.VK_COLON:
 				System.out.println("gotcha");
+				/*
 				Drawer.zone.vZoom();
+				*/
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 
 			case KeyEvent.VK_NUMPAD0:
-				Drawer.zone = new RectangularZone(Drawer.DEFAULT_X_MIN, Drawer.DEFAULT_X_MAX, Drawer.DEFAULT_Y_MIN, Drawer.DEFAULT_Y_MAX);
+				Drawer.zone = new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0);
 				Drawer.status = Drawer.STATUS_REDRAW;
 				break;
 
@@ -125,9 +146,11 @@ class MyKeyListener extends KeyAdapter {
 					case FRACTAL: {
 						Drawer.saveZone = Drawer.zone;
 						FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
+						/*FIXME
 						fractalColorAlgo.setJuliaX((Drawer.zone.getxMin() + Drawer.zone.getxMax()) / 2);
 						fractalColorAlgo.setJuliaY((Drawer.zone.getyMin() + Drawer.zone.getyMax()) / 2);
-						Drawer.zone = new RectangularZone(Drawer.DEFAULT_X_MIN, Drawer.DEFAULT_X_MAX, Drawer.DEFAULT_Y_MIN, Drawer.DEFAULT_Y_MAX);
+						Drawer.zone = new MathZone(Drawer.DEFAULT_X_MIN, Drawer.DEFAULT_X_MAX, Drawer.DEFAULT_Y_MIN, Drawer.DEFAULT_Y_MAX);
+						*/
 						Drawer.drawingMode = Drawer.DrawingMode.FRACTAL_JULIA;
 						Drawer.status = Drawer.STATUS_REDRAW;
 						fractalColorAlgo.processKeyEvent(key);

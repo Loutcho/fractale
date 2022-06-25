@@ -4,21 +4,21 @@ import xt.coloralgo.EscapeTime;
 import xt.coloralgo.FractalColorAlgo;
 import xt.function.Function;
 import xt.function.ZPower;
+import xt.math.Complex;
 
 public class Main {
 
-	private static final double ASPECT_RATIO = 1920.0 / 1080.0;
-
 	public static void main(String[] args) {
 
-		double xMin = Drawer.DEFAULT_X_MIN;
-		double xMax = Drawer.DEFAULT_X_MAX;
-		double yMin = Drawer.DEFAULT_Y_MIN;
-		double yMax = Drawer.DEFAULT_Y_MAX;
 		Function f = new ZPower(2);
-
-		FractalColorAlgo c = new EscapeTime(f, false, 0.0, 0.0, 200, 200, true);
+		FractalColorAlgo escapeTimeAlgorithm = new EscapeTime(f, false, 0.0, 0.0, 5000, 5000, true);
+		MathZone mathZone = new MathZone(new Complex(-1.749798494, 0.000032663), 0.000000180, 0.000000120, 0.0);
+		FractalDrawer drawer = new FractalDrawer(escapeTimeAlgorithm, mathZone, "C:\\Users\\Luc\\Desktop\\test.png", 600, 400);
+		drawer.draw();
+		
+		/*
 		Drawer.fractal(xMin, xMax, yMin, yMax, f, c);
+		*/
 
 		/*
 		ColorAlgo c = new HueArg(true, true, true, 0.5, true, true);
