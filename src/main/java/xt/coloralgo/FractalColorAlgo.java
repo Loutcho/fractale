@@ -1,6 +1,7 @@
 package xt.coloralgo;
 
+import xt.math.Complex;
+
 public interface FractalColorAlgo extends ColorAlgo {
-	public void setJuliaX(double x);
-	public void setJuliaY(double y);
+	public void setJulia(Complex julia);
 }
