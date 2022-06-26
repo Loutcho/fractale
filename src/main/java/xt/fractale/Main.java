@@ -1,7 +1,6 @@
 package xt.fractale;
 
 import xt.coloralgo.EscapeTimeAlgorithm;
-import xt.coloralgo.FractalColorAlgo;
 import xt.coloralgo.GradientBubble;
 import xt.coloralgo.GradientWithArgument;
 import xt.coloralgo.GradientWithIteration;
@@ -11,72 +10,112 @@ import xt.math.Complex;
 
 public class Main {
 
-	private static void fractaleIntestinale() {
+	/*
+	 * 1) Intestins
+	 */
+	private static void fractale001() {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 5000, 5000, true, Palette.PALETTE_1, 50.0, 0.4,
+						new xt.function.ZPower(2), null, 5000, 5000, true, Palette.PALETTE_001, 50.0, 0.4,
 						new GradientWithIteration(false),
-						new GradientWithModulus(true, 0.5, 0.5, 0.0),
-						new GradientWithArgument(true, 0.0, 0.3, 0.0),
-						new GradientBubble(false, 0.0, 0.0, 0.0)),
+						new GradientWithModulus(true, 0.30, 0.30, 0.00),
+						new GradientWithArgument(true, 0.00, 0.15, 0.00),
+						new GradientBubble(true, 0.00, 0.00, 0.40)),
 				new MathZone(new Complex(-1.76208912, -0.01550358), 1.95E-7, 1.30E-7, 0.0),
-				"C:\\Users\\Luc\\Desktop\\fractaleIntestinale.png",
+				"C:\\Users\\Luc\\Desktop\\expo_001.png",
 				7200, 4800).draw();
 	}
 
-	private static void fractaleCourbevoie() {
+	/*
+	 * 2) Courbevoie
+	 */
+	private static void fractale002() {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 5000, 5000, true, Palette.PALETTE_2, 384.0, 0.333333333,
+						new xt.function.ZPower(2), null, 5000, 5000, true, Palette.PALETTE_002, 384.0, 0.333333333,
 						new GradientWithIteration(false),
 						new GradientWithModulus(false, 0.0, 0.0, 0.0),
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						new GradientBubble(false, 0.0, 0.0, 0.0)),
 				new MathZone(new Complex(0.364480, 0.315382), 6E-6, 4E-6, 0.0),
-				"C:\\Users\\Luc\\Desktop\\fractaleCourbevoie.png",
+				"C:\\Users\\Luc\\Desktop\\expo_002.png",
 				7200, 4800).draw();
 	}
 	
-	private static void fractaleHepatique() {
+	/*
+	 * 3) Foie
+	 */
+	private static void fractale003() {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 5000, 5000, true, Palette.PALETTE_3, 48.0, 0.9,
+						new xt.function.ZPower(2), null, 5000, 5000, true, Palette.PALETTE_003, 48.0, 0.9,
 						new GradientWithIteration(false),
 						new GradientWithModulus(false, 0.0, 0.0, 0.0),
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						new GradientBubble(false, 0.0, 0.0, 0.0)),
 				new MathZone(new Complex(-1.749798494, 0.000032655), 0.000000150, 0.000000100, 0.0),
-				"C:\\Users\\Luc\\Desktop\\fractaleHepatique.png",
+				"C:\\Users\\Luc\\Desktop\\expo_003.png",
 				7200, 4800).draw();
 	}
 	
-	private static void fractaleChenille() {
+	/*
+	 * 4) Chenille
+	 */
+	private static void fractale004() {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 15000, 15000, true, Palette.PALETTE_5, 226.0, 0.50,
+						new xt.function.ZPower(2), null, 15000, 15000, true, Palette.PALETTE_004, 226.0, 0.50,
 						new GradientWithIteration(false),
 						new GradientWithModulus(false, 0.0, 0.0, 0.0),
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						new GradientBubble(false, 0.0, 0.0, 0.0)),
 				new MathZone(new Complex(-1.250314, 0.01376), 0.000111, 0.000075, - Math.PI / 12.0),
-				"C:\\Users\\Luc\\Desktop\\fractaleChenille.png",
+				"C:\\Users\\Luc\\Desktop\\expo_004.png",
 				7200, 4800).draw();
 	}
 
-	private static void fractaleCerebrale() {
+	/*
+	 * 5) Cerveau
+	 */
+	private static void fractale005() {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
-						new xt.function.BurningShip(), new Complex(-0.03689236111111108, 0.28564453125), 3500, 3500, true, Palette.PALETTE_6, 28.73, 5.0 / 6.0,
+						new xt.function.BurningShip(), new Complex(-0.03689236111111108, 0.28564453125), 3500, 3500, true, Palette.PALETTE_005, 28.73, 5.0 / 6.0,
 						new GradientWithIteration(false),
 						new GradientWithModulus(false, 0.0, 0.0, 0.0),
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						new GradientBubble(false, 0.0, 0.0, 0.0)),
 				new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
-				"C:\\Users\\Luc\\Desktop\\fractaleCerebrale.png",
-				1440, 960).draw();
+				"C:\\Users\\Luc\\Desktop\\expo_005.png",
+				7200, 4800).draw();
+	}
+	
+	/*
+	 * 6) Vaisseau alien
+	 */
+	private static void fractale006() {
+		new FractalDrawer(
+				new EscapeTimeAlgorithm(
+						new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, 5000, true, Palette.PALETTE_006, 100.0, 0.95,
+						new GradientWithIteration(false),
+						new GradientWithModulus(false, 0.0, 0.0, 0.0),
+						new GradientWithArgument(false, 0.0, 0.0, 0.0),
+						new GradientBubble(false, 0.0, 0.0, 0.0)),
+				new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0),
+				"C:\\Users\\Luc\\Desktop\\expo_006.png",
+				7200, 4800).draw();
 	}
 	
 	public static void main(String[] args) {
-
+		int choice = 1;
+		// for (int choice = 1; choice <= 6; choice ++) {
+		switch (choice) {
+		case 1: fractale001(); break;
+		case 2: fractale002(); break;
+		case 3: fractale003(); break;
+		case 4: fractale004(); break;
+		case 5: fractale005(); break;
+		case 6: fractale006(); break;
+		}
 	}
 }
