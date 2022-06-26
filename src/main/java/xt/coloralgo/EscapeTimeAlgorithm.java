@@ -7,7 +7,7 @@ import xt.math.MyMath;
 import xt.math.Complex;
 import xt.function.Function;
 
-public class EscapeTime implements FractalColorAlgo {
+public class EscapeTimeAlgorithm implements FractalColorAlgo {
 
 	private static final double DKPHI = 0.05;
 	private static final int DEFAULT_I_MAX = 500;
@@ -27,7 +27,7 @@ public class EscapeTime implements FractalColorAlgo {
 	private double period;
 	private double kphi;
 
-	public EscapeTime(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, Palette palette, double period, double kphi,
+	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, Palette palette, double period, double kphi,
 			GradientWithIteration gIteration, GradientWithModulus gModulus, GradientWithArgument gArgument, GradientBubble gBizarre) {
 		this.function = function;
 		this.zJulia = zJulia;
