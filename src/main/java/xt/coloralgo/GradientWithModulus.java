@@ -2,8 +2,8 @@ package xt.coloralgo;
 
 public class GradientWithModulus {
 
-	boolean activated;
-	double attenuation[];
+	final boolean activated;
+	final double attenuation[];
 	
 	public GradientWithModulus(boolean activated, double redAttenuation, double greenAttenuation, double blueAttenuation) {
 		this.activated = activated;
@@ -17,11 +17,14 @@ public class GradientWithModulus {
 		return activated;
 	}
 
-	public void setActivated(boolean activated) {
-		this.activated = activated;
-	}
-	
 	public double getAttenuation(int iColor) {
 		return attenuation[iColor];
 	}
+	
+	private GradientWithModulus() {
+		activated = false;
+		attenuation = null;
+	}
+	
+	public static final GradientWithModulus NONE = new GradientWithModulus();
 }

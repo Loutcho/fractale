@@ -9,9 +9,9 @@ import xt.function.Function;
 
 public class EscapeTimeAlgorithm implements FractalColorAlgo {
 
-	private static final double DKPHI = 0.05;
+	// private static final double DKPHI = 0.05;
 	private static final int DEFAULT_I_MAX = 500;
-	private static final double KGEOM_20R2 = 1.0352649238413775043477881942112;
+	// private static final double KGEOM_20R2 = 1.0352649238413775043477881942112;
 	
 	private Function function;
 	private Complex zJulia;
@@ -20,27 +20,27 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 	private boolean smoothMode;
 	private Palette palette;
 
+	private Periodicity periodicity;
 	private GradientWithIteration gIteration;
 	private GradientWithModulus gModulus;
 	private GradientWithArgument gArgument;
-	private GradientBubble gBubble;
-	private double period;
-	private double kphi;
+	private BubbleEffect bubbleEffect;
+	private PowerEffect powerEffect;
 
-	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, Palette palette, double period, double kphi,
-			GradientWithIteration gIteration, GradientWithModulus gModulus, GradientWithArgument gArgument, GradientBubble gBizarre) {
+	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, Palette palette, Periodicity periodicity,
+			GradientWithIteration gIteration, GradientWithModulus gModulus, GradientWithArgument gArgument, BubbleEffect bubbleEffect, PowerEffect powerEffect) {
 		this.function = function;
 		this.zJulia = zJulia;
 		this.iMax = iMax;
 		this.iRef = iRef;
 		this.smoothMode = smoothMode;
 		this.palette = palette;
-		this.period = period;
-		this.kphi = kphi;
+		this.periodicity = periodicity;
 		this.gIteration = gIteration;
 		this.gModulus = gModulus;
 		this.gArgument = gArgument;
-		this.gBubble = gBizarre;
+		this.bubbleEffect = bubbleEffect;
+		this.powerEffect = powerEffect;
 	}
 	
 	public Color getColor(Complex pixel) {
@@ -103,8 +103,8 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		double x = 1.0;
 		double theta = Complex.arg(z);
 
-		if (period != 0.0) 	{
-			x *= fonction_1periodique_amplitude1(iColor, iReel / period + kphi);
+		if (periodicity.isActivated()) 	{
+			x *= fonction_1periodique_amplitude1(iColor, iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor));
 		}
 		
 		if (gIteration.isActivated()) {
@@ -119,20 +119,24 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 			x *= 1.0 - gArgument.getAttenuation(iColor) * (1.0 - MyMath.sqcosdemi(theta));
 		}
 
-		if (gBubble.isActivated()) {
-			x *= 1.0 - gBubble.getAttenuation(iColor) * (1.0 - modifiedDivergence * MyMath.sqcosdemi(theta));
+		if (bubbleEffect.isActivated() && periodicity.isActivated()) {
+			x *= Math.max(MyMath.sqcosdemi(theta), MyMath.sqcosdemi(Math.PI * (iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor))));
+		}
+		
+		if (powerEffect.isActivated()) {
+			x = Math.pow(x, powerEffect.getPower()); // to alter luminosity. 0.0 (everything becomes white) ... 1.0 (nothing changes) ... +oo (everything becomes darker)
 		}
 		
 		return (int)(255.0 * x);
 	}
 	
 	public double fonction_1periodique_amplitude1(int iColor, double x) {
-		int N = palette.getNbColors();
+		int n = palette.getNbColors();
 		int e = (int)x;
 		x -= e;
-		int i = (int)(N * x);
-		int j = (i + 1) % N;
-		double coef = N * x - i;
+		int i = (int)(n * x);
+		int j = (i + 1) % n;
+		double coef = n * x - i;
 		int mask;
 		switch (iColor)
 		{
@@ -148,6 +152,7 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		return (1.0 - coef) * alpha + coef * beta;
 	}
 	
+	/*
 	public void incKphi() {
 		kphi += DKPHI;
 		if (kphi >= 1.0) {
@@ -162,6 +167,7 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 			kphi += 1.0;
 		}
 	}
+	*/
 	
 	public void processKeyEvent(int key) {
 		switch (key) {
@@ -179,12 +185,14 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 			case KeyEvent.VK_DIVIDE:
 				iRef = iRef / 2;
 				break;
+			/*
 			case KeyEvent.VK_INSERT:
 				period *= 2.0;
 				break;
 			case KeyEvent.VK_DELETE:
 				period /= 2.0;
 				break;
+
 			case KeyEvent.VK_HOME:
 				period *= 2.0;
 				break;
@@ -209,6 +217,7 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 			case KeyEvent.VK_D:
 				decKphi();
 				break;
+			*/
 			case KeyEvent.VK_Z:
 				smoothMode = (! smoothMode);
 				break;
@@ -242,9 +251,8 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 				", degrade1_i=" + gIteration +
 				", degrade2_i=" + gModulus +
 				", gArgument= " + gArgument +
-				", gBubble=" + gBubble +
-				", period=" + period +
-				", kphi=" + kphi +
+				", gBubble=" + bubbleEffect +
+				", periodicity=" + periodicity +
 				'}';
 	}
 
