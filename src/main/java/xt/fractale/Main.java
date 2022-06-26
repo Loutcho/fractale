@@ -13,7 +13,7 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		int choice = 7;
+		int choice = 8;
 		switch (choice) {
 		case 1: fractale001(); break;
 		case 2: fractale002(); break;
@@ -22,6 +22,7 @@ public class Main {
 		case 5: fractale005(); break;
 		case 6: fractale006(); break;
 		case 7: fractale007(); break;
+		case 8: fractale008(); break;
 		}
 	}
 
@@ -134,7 +135,6 @@ public class Main {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 2000, 2000, false,
-						//Palette.PALETTE_007, new Periodicity(66.5, 0.000, 66.5, 0.333, 66.5, 0.666),
 						Palette.PALETTE_007, new Periodicity(33.5, 0.000, 37.0, 0.333, 33.0, 0.666),
 						new GradientWithIteration(false),
 						new GradientWithModulus(false, 0.0, 0.0, 0.0),
@@ -142,6 +142,23 @@ public class Main {
 						BubbleEffect.ON, new PowerEffect(0.7)),
 				new MathZone(new Complex(0.277250, -0.006947), 0.000033, 0.000022, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_007.png",
+				7200, 4800).draw();
+	}
+	
+	/*
+	 * 8) Julia rose et bleue
+	 */
+	private static void fractale008() {
+		new FractalDrawer(
+				new EscapeTimeAlgorithm(
+						new xt.function.ZPower(2), new Complex(-1.749272, -2.16E-4), 3000, 3000, true,
+						Palette.PALETTE_008, new Periodicity(50.0, 0.5),
+						new GradientWithIteration(false),
+						new GradientWithModulus(false, 0.0, 0.0, 0.0),
+						new GradientWithArgument(false, 0.0, 0.0, 0.0),
+						BubbleEffect.OFF, PowerEffect.OFF),
+				new MathZone(new Complex(0.0, 0.0), 0.150, 0.100, Math.PI / 2.0),
+				"C:\\Users\\Luc\\Desktop\\expo_008.png",
 				7200, 4800).draw();
 	}
 }
