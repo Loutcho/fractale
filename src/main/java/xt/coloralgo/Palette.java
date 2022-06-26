@@ -27,11 +27,11 @@ public class Palette {
 	public static final Palette PALETTE_1 = new Palette(
 			BLEU_NUIT, 0x0032CA, 0xFFFF00, NOIR, 0xFFFF00);
 
+	public static final Palette PALETTE_2 = new Palette(
+			BLANC, BEIGE, MARRON, NOIR, BLEU_NUIT, BLEU_CIEL);
+	
 	public static final Palette PALETTE_3 = new Palette(
 			AZUR, AZURIN, VERT_D_EAU, CHAMPAGNE, ORANGE, BLEU_NUIT);
-	
-	public static final Palette PALETTE_4 = new Palette(
-			BLANC, BEIGE, MARRON, NOIR, BLEU_NUIT, BLEU_CIEL);
 	
 	public static final Palette PALETTE_5 = new Palette(
 			EMERAUDE, NOIR, AMETHYSTE, AZURIN, BEIGE, COQ_DE_ROCHE, AMETHYSTE, AZURIN);
@@ -41,13 +41,6 @@ public class Palette {
 			MARRON, BLANC,
 			BEIGE, BLANC);
 
-	public static final Palette PALETTE_7 = new Palette(
-			BLEU_CIEL, BLEU_CIEL, NOIR,
-			CACA_D_OIE, CACA_D_OIE, BLANC,
-			GREGE, GREGE, BLANC,
-			GRENADINE, GRENADINE, NOIR);
-
-	
 	private int rgb[];
 	
 	public Palette(int...rgb) {

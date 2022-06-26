@@ -2,7 +2,6 @@ package xt.coloralgo;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.util.Arrays;
 
 import xt.math.MyMath;
 import xt.math.Complex;
@@ -15,7 +14,7 @@ public class EscapeTime implements FractalColorAlgo {
 	private static final double KGEOM_20R2 = 1.0352649238413775043477881942112;
 	
 	private Function function;
-	private Complex julia;
+	private Complex zJulia;
 	private int iMax = DEFAULT_I_MAX;
 	private double iRef = iMax;
 	private boolean smoothMode;
@@ -24,14 +23,14 @@ public class EscapeTime implements FractalColorAlgo {
 	private GradientWithIteration gIteration;
 	private GradientWithModulus gModulus;
 	private GradientWithArgument gArgument;
-	private double bulle[]        = { 0.0, 0.3, 0.1 };
+	private GradientBubble gBubble;
 	private double period;
 	private double kphi;
 
-	public EscapeTime(Function function, Complex julia, int iMax, double iRef, boolean smoothMode, Palette palette, double period, double kphi,
-			GradientWithIteration gIteration, GradientWithModulus gModulus, GradientWithArgument gArgument) {
+	public EscapeTime(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, Palette palette, double period, double kphi,
+			GradientWithIteration gIteration, GradientWithModulus gModulus, GradientWithArgument gArgument, GradientBubble gBizarre) {
 		this.function = function;
-		this.julia = julia;
+		this.zJulia = zJulia;
 		this.iMax = iMax;
 		this.iRef = iRef;
 		this.smoothMode = smoothMode;
@@ -41,40 +40,36 @@ public class EscapeTime implements FractalColorAlgo {
 		this.gIteration = gIteration;
 		this.gModulus = gModulus;
 		this.gArgument = gArgument;
+		this.gBubble = gBizarre;
 	}
 	
 	public Color getColor(Complex pixel) {
-		double L = 1.0;
-		int i = 0;
-
-		// Mandelbrot : z = 0, c = pixel (un seul ensemble de Mandelbrot existe)
-		// Julia : z = pixel, c = parametre (toute une famille d'ensembles de
-		// Julia existe)
+		// Mandelbrot : z = 0    , c = pixel     (un seul ensemble de Mandelbrot existe)
+		// Julia      : z = pixel, c = parametre (toute une famille d'ensembles de Julia existe)
 		
-		Complex z;
-		Complex c;
-		
-		if (julia == null) { // Mandelbrot:
+		Complex z, c;
+		if (zJulia == null) { // Mandelbrot:
 			z = new Complex(0, 0);
 			c = pixel;
 		} else { // Julia:
 			z = pixel;
-			c = julia;
+			c = zJulia;
 		}
 		
+		int i = 0;
 		while (i < iMax) {
 			z = function.apply(z);
 			z = Complex.add(z, c);
-			L = Complex.abs(z);
+			double L = Complex.abs(z);
 			if (L > 2.0) {
-				return divergenceColorAlgo(i, iMax, z.re(), z.im(), L);
+				return divergenceColorAlgo(i, iMax, z, L);
 			}
 			i ++;
 		}
 		return Color.WHITE;
 	}
 	
-	public Color divergenceColorAlgo(int iteration, int iterationMax, double X, double Y, double divergence) {
+	public Color divergenceColorAlgo(int iteration, int iterationMax, Complex z, double divergence) {
 		Color color = Color.BLACK;
 		int[] colors = new int[3];
 		int iColor;
@@ -91,7 +86,7 @@ public class EscapeTime implements FractalColorAlgo {
 		double modifiedDivergence = MyMath.ff((divergence - 2.0) / 2.0);
 
 		for (iColor = 0; iColor < 3; iColor ++) {
-			colors[iColor] = composanteCouleur(iColor, iReel, iRate, modifiedDivergence, X, Y);
+			colors[iColor] = composanteCouleur(iColor, iReel, iRate, modifiedDivergence, z);
 		}
 		
 		try {
@@ -103,10 +98,15 @@ public class EscapeTime implements FractalColorAlgo {
 		return color;
 	}
 	
-	private int composanteCouleur(int iColor, double iReel, double iRate, double modifiedDivergence, double X, double Y) {
+	private int composanteCouleur(int iColor, double iReel, double iRate, double modifiedDivergence, Complex z) {
 
 		double x = 1.0;
+		double theta = Complex.arg(z);
 
+		if (period != 0.0) 	{
+			x *= fonction_1periodique_amplitude1(iColor, iReel / period + kphi);
+		}
+		
 		if (gIteration.isActivated()) {
 			x *= 0.2 + 0.8 * Math.pow(1.0 - iRate, 15.0);
 		}
@@ -116,19 +116,11 @@ public class EscapeTime implements FractalColorAlgo {
 		}
 
 		if (gArgument.isActivated()) {
-			x *= 1.0 - gArgument.getAttenuation(iColor) * (1.0 - MyMath.sqcosdemi(Math.atan2(Y, X)));
-			// x *= (1.0 - degrade2_j[iColor]) + degrade2_j[iColor] * MyMath.sqcosdemi(Math.atan2(Y, X));
+			x *= 1.0 - gArgument.getAttenuation(iColor) * (1.0 - MyMath.sqcosdemi(theta));
 		}
 
-		if (period != 0.0) 	{
-			x *= fonction_1periodique_amplitude1(iColor, iReel / period + kphi);
-		}
-
-		if (bulle[iColor] != 0.0) {
-			x *=
-				(1.0 - bulle[iColor]) * 1.0
-				+
-				(bulle[iColor]) * modifiedDivergence * MyMath.sqcosdemi(Math.atan2(Y, X));
+		if (gBubble.isActivated()) {
+			x *= 1.0 - gBubble.getAttenuation(iColor) * (1.0 - modifiedDivergence * MyMath.sqcosdemi(theta));
 		}
 		
 		return (int)(255.0 * x);
@@ -243,14 +235,14 @@ public class EscapeTime implements FractalColorAlgo {
 	@Override
 	public String toString() {
 		return "EscapeTime{" +
-				"julia=" + julia +
+				"julia=" + zJulia +
 				", iMax=" + iMax +
 				", iRef=" + iRef +
 				", smoothMode=" + smoothMode +
 				", degrade1_i=" + gIteration +
 				", degrade2_i=" + gModulus +
-				", gArgument = " + gArgument +
-				", bulle=" + Arrays.toString(bulle) +
+				", gArgument= " + gArgument +
+				", gBubble=" + gBubble +
 				", period=" + period +
 				", kphi=" + kphi +
 				'}';
@@ -258,6 +250,6 @@ public class EscapeTime implements FractalColorAlgo {
 
 	@Override
 	public void setJulia(Complex julia) {
-		this.julia = julia;
+		this.zJulia = julia;
 	}
 }
