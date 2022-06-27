@@ -16,15 +16,14 @@ public class F4 implements Function {
 		List<Complex> l;
 	
 		l = new ArrayList<Complex>();
-		l.add(Complex.ei(0.0 * 2.0 * Math.PI / 5.0));
-		l.add(Complex.ei(2.0 * 2.0 * Math.PI / 5.0));
+		l.add(Complex.ei(0.0 * 2.0 * Math.PI / 6.0));
+		l.add(Complex.ei(3.0 * 2.0 * Math.PI / 6.0));
 		
 		p.put(0, l);
 	
 		l = new ArrayList<Complex>();
-		l.add(Complex.ei(1.0 * 2.0 * Math.PI / 5.0));
-		l.add(Complex.ei(3.0 * 2.0 * Math.PI / 5.0));
-		l.add(Complex.ei(4.0 * 2.0 * Math.PI / 5.0));
+		l.add(Complex.ei(1.0 * 2.0 * Math.PI / 6.0));
+		l.add(Complex.ei(4.0 * 2.0 * Math.PI / 6.0));
 		p.put(1, l);
 		
 		r = new RationalFraction(p.get(0), p.get(1));

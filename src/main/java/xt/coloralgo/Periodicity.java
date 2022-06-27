@@ -48,7 +48,7 @@ public class Periodicity {
 		activated = false;
 	}
 	
-	public static final Periodicity NONE = new Periodicity();
+	public static final Periodicity OFF = new Periodicity();
 	
 	public boolean isActivated() {
 		return activated;

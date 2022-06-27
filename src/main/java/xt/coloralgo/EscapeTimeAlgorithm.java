@@ -18,8 +18,8 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 	private int iMax = DEFAULT_I_MAX;
 	private double iRef = iMax;
 	private boolean smoothMode;
+	private int iMaxReachedColor;
 	private Palette palette;
-
 	private Periodicity periodicity;
 	private GradientWithIteration gIteration;
 	private GradientWithModulus gModulus;
@@ -27,12 +27,13 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 	private BubbleEffect bubbleEffect;
 	private PowerEffect powerEffect;
 
-	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, Palette palette, Periodicity periodicity,
+	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, int iMaxReachedColor, Palette palette, Periodicity periodicity,
 			GradientWithIteration gIteration, GradientWithModulus gModulus, GradientWithArgument gArgument, BubbleEffect bubbleEffect, PowerEffect powerEffect) {
 		this.function = function;
 		this.zJulia = zJulia;
 		this.iMax = iMax;
 		this.iRef = iRef;
+		this.iMaxReachedColor = iMaxReachedColor;
 		this.smoothMode = smoothMode;
 		this.palette = palette;
 		this.periodicity = periodicity;
@@ -66,7 +67,7 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 			}
 			i ++;
 		}
-		return Color.WHITE;
+		return new Color(iMaxReachedColor);
 	}
 	
 	public Color divergenceColorAlgo(int iteration, int iterationMax, Complex z, double divergence) {
