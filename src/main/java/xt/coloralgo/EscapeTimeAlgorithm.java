@@ -108,7 +108,9 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		}
 		
 		if (gIteration.isActivated()) {
-			x *= 0.2 + 0.8 * Math.pow(1.0 - iRate, 15.0);
+			double tau = 0.002;
+			double iBase = 130.0;
+			x *= Math.exp(- tau * (iReel - iBase));
 		}
 
 		if (gModulus.isActivated()) {
