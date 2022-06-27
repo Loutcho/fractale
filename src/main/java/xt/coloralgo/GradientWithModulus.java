@@ -5,8 +5,8 @@ public class GradientWithModulus {
 	final boolean activated;
 	final double attenuation[];
 	
-	public GradientWithModulus(boolean activated, double redAttenuation, double greenAttenuation, double blueAttenuation) {
-		this.activated = activated;
+	public GradientWithModulus(double redAttenuation, double greenAttenuation, double blueAttenuation) {
+		activated = true;
 		attenuation = new double[3];
 		attenuation[0] = redAttenuation;
 		attenuation[1] = greenAttenuation;
@@ -26,5 +26,5 @@ public class GradientWithModulus {
 		attenuation = null;
 	}
 	
-	public static final GradientWithModulus NONE = new GradientWithModulus();
+	public static final GradientWithModulus OFF = new GradientWithModulus();
 }

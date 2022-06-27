@@ -33,14 +33,11 @@ public class Main {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 5000, 5000, true,
-						Palette.PALETTE_001, new Periodicity(50.0, 0.6),
-						GradientWithIteration.OFF,
-						new GradientWithModulus(true, 0.00, 0.00, 0.00),
-						new GradientWithArgument(true, 0.00, 0.00, 0.00),
-						BubbleEffect.ON, new PowerEffect(1.00)),
+						Palette.PALETTE_001, new Periodicity(50.0, 0.55),
+						GradientWithIteration.OFF, GradientWithModulus.OFF, new GradientWithArgument(0.75, 0.75, 0.00), BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(-1.76208912, -0.01550358), 1.95E-7, 1.30E-7, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_001.png",
-				720, 480).draw();
+				7200, 4800).draw();
 	}
 
 	/*
@@ -51,10 +48,7 @@ public class Main {
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 5000, 5000, true,
 						Palette.PALETTE_002, new Periodicity(384.0, 0.333333333),
-						GradientWithIteration.OFF,
-						new GradientWithModulus(false, 0.0, 0.0, 0.0),
-						new GradientWithArgument(false, 0.0, 0.0, 0.0),
-						BubbleEffect.OFF, PowerEffect.OFF),
+						GradientWithIteration.OFF, GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(0.364480, 0.315382), 6E-6, 4E-6, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_002.png",
 				7200, 4800).draw();
@@ -68,10 +62,7 @@ public class Main {
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 5000, 5000, true,
 						Palette.PALETTE_003, new Periodicity(48.0, 0.9),
-						GradientWithIteration.OFF,
-						new GradientWithModulus(false, 0.0, 0.0, 0.0),
-						new GradientWithArgument(false, 0.0, 0.0, 0.0),
-						BubbleEffect.OFF, PowerEffect.OFF),
+						GradientWithIteration.OFF, GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(-1.749798494, 0.000032655), 0.000000150, 0.000000100, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_003.png",
 				7200, 4800).draw();
@@ -85,10 +76,7 @@ public class Main {
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 15000, 15000, true,
 						Palette.PALETTE_004, new Periodicity(226.0, 0.50),
-						GradientWithIteration.OFF,
-						new GradientWithModulus(false, 0.0, 0.0, 0.0),
-						new GradientWithArgument(false, 0.0, 0.0, 0.0),
-						BubbleEffect.OFF, PowerEffect.OFF),
+						GradientWithIteration.OFF, GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(-1.250314, 0.01376), 0.000111, 0.000075, - Math.PI / 12.0),
 				"C:\\Users\\Luc\\Desktop\\expo_004.png",
 				7200, 4800).draw();
@@ -102,10 +90,7 @@ public class Main {
 				new EscapeTimeAlgorithm(
 						new xt.function.BurningShip(), new Complex(-0.03689236111111108, 0.28564453125), 3500, 3500, true,
 						Palette.PALETTE_005, new Periodicity(28.73, 5.0 / 6.0),
-						GradientWithIteration.OFF,
-						new GradientWithModulus(false, 0.0, 0.0, 0.0),
-						new GradientWithArgument(false, 0.0, 0.0, 0.0),
-						BubbleEffect.OFF, PowerEffect.OFF),
+						GradientWithIteration.OFF, GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_005.png",
 				7200, 4800).draw();
@@ -119,10 +104,7 @@ public class Main {
 				new EscapeTimeAlgorithm(
 						new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, 5000, true,
 						Palette.PALETTE_006, new Periodicity(100.0, 0.95),
-						GradientWithIteration.OFF,
-						new GradientWithModulus(false, 0.0, 0.0, 0.0),
-						new GradientWithArgument(false, 0.0, 0.0, 0.0),
-						BubbleEffect.OFF, PowerEffect.OFF),
+						GradientWithIteration.OFF, GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_006.png",
 				7200, 4800).draw();
@@ -136,10 +118,7 @@ public class Main {
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 2000, 2000, true,
 						Palette.PALETTE_007, new Periodicity(14.0, 0.0, 16.0, 0.0, 20, 0.0),
-						new GradientWithIteration(0.004, 115.0),
-						new GradientWithModulus(false, 0.0, 0.0, 0.0),
-						new GradientWithArgument(false, 0.0, 0.0, 0.0),
-						BubbleEffect.ON, new PowerEffect(0.7)),
+						new GradientWithIteration(0.004, 115.0), GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.ON, new PowerEffect(0.7)),
 				new MathZone(new Complex(0.277250, -0.006947), 0.000033, 0.000022, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_007.png",
 				7200, 4800).draw();
@@ -153,10 +132,7 @@ public class Main {
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), new Complex(-1.749272, -2.16E-4), 3000, 3000, true,
 						Palette.PALETTE_008, new Periodicity(50.0, 0.5),
-						GradientWithIteration.OFF,
-						new GradientWithModulus(false, 0.0, 0.0, 0.0),
-						new GradientWithArgument(false, 0.0, 0.0, 0.0),
-						BubbleEffect.OFF, PowerEffect.OFF),
+						GradientWithIteration.OFF, GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.OFF, PowerEffect.OFF), 
 				new MathZone(new Complex(0.0, 0.0), 0.150, 0.100, Math.PI / 2.0),
 				"C:\\Users\\Luc\\Desktop\\expo_008.png",
 				7200, 4800).draw();

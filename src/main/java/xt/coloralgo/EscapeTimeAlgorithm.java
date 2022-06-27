@@ -86,7 +86,7 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		double modifiedDivergence = MyMath.ff((divergence - 2.0) / 2.0);
 
 		for (iColor = 0; iColor < 3; iColor ++) {
-			colors[iColor] = composanteCouleur(iColor, iReel, iRate, modifiedDivergence, z);
+			colors[iColor] = composanteCouleur(iColor, iteration, iReel, iRate, modifiedDivergence, z);
 		}
 		
 		try {
@@ -98,10 +98,9 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		return color;
 	}
 	
-	private int composanteCouleur(int iColor, double iReel, double iRate, double modifiedDivergence, Complex z) {
-
-		double x = 1.0;
+	private int composanteCouleur(int iColor, int iEntier, double iReel, double iRate, double modifiedDivergence, Complex z) {
 		double theta = Complex.arg(z);
+		double x = 1.0;
 
 		if (periodicity.isActivated()) 	{
 			x *= fonction_1periodique_amplitude1(iColor, iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor));
@@ -122,7 +121,7 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		}
 
 		if (gArgument.isActivated()) {
-			x *= 1.0 - gArgument.getAttenuation(iColor) * (1.0 - MyMath.sqcosdemi(theta));
+			x *= 1.0 - gArgument.getAttenuation(iColor)	* MyMath.sqcosdemi(theta);
 		}
 
 		if (bubbleEffect.isActivated() && periodicity.isActivated()) {

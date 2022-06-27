@@ -5,8 +5,8 @@ public class GradientWithArgument {
 	boolean activated;
 	double attenuation[];
 	
-	public GradientWithArgument(boolean activated, double redAttenuation, double greenAttenuation, double blueAttenuation) {
-		this.activated = activated;
+	public GradientWithArgument(double redAttenuation, double greenAttenuation, double blueAttenuation) {
+		activated = true;
 		attenuation = new double[3];
 		attenuation[0] = redAttenuation;
 		attenuation[1] = greenAttenuation;
@@ -24,4 +24,10 @@ public class GradientWithArgument {
 	public double getAttenuation(int iColor) {
 		return attenuation[iColor];
 	}
+	
+	private GradientWithArgument() {
+		activated = false;
+	}
+	
+	public static final GradientWithArgument OFF = new GradientWithArgument();
 }
