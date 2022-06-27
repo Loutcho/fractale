@@ -31,6 +31,7 @@ public class Palette {
 	public static final Palette PALETTE_006 = new Palette(NOIR, GRENADINE);
 	public static final Palette PALETTE_007 = new Palette(NOIR, BLANC);
 	public static final Palette PALETTE_008 = new Palette(CARNATION, NOIR, AZUR, BLANC);
+	public static final Palette PALETTE_009 = new Palette(BEIGE, CARNATION, MARRON, NOIR);
 
 	private int rgb[];
 	

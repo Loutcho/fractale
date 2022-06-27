@@ -13,7 +13,7 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		int choice = 1;
+		int choice = 9;
 		switch (choice) {
 		case 1: fractale001(); break;
 		case 2: fractale002(); break;
@@ -23,6 +23,7 @@ public class Main {
 		case 6: fractale006(); break;
 		case 7: fractale007(); break;
 		case 8: fractale008(); break;
+		case 9: fractale009(); break;
 		}
 	}
 
@@ -136,5 +137,19 @@ public class Main {
 				new MathZone(new Complex(0.0, 0.0), 0.150, 0.100, Math.PI / 2.0),
 				"C:\\Users\\Luc\\Desktop\\expo_008.png",
 				7200, 4800).draw();
+	}
+	
+	/*
+	 * 9) Nichons everywhere
+	 */
+	private static void fractale009() {
+		new FractalDrawer(
+				new EscapeTimeAlgorithm(
+						new xt.function.F4(), new Complex(0.44596354166666696, -0.0830078125), 3000, 3000, true,
+						Palette.PALETTE_009, new Periodicity(33.0, 0.1),
+						GradientWithIteration.OFF, new GradientWithModulus(0.6, 0.6, 0.6), GradientWithArgument.OFF, BubbleEffect.OFF, new PowerEffect(0.8)),
+				new MathZone(new Complex(0.2, 0.0), 0.27, 0.18, 0.0),
+				"C:\\Users\\Luc\\Desktop\\expo_009.png",
+				720, 480).draw();
 	}
 }
