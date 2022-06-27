@@ -38,7 +38,7 @@ public class Main {
 						new GradientWithArgument(true, 0.00, 0.15, 0.00),
 						BubbleEffect.ON, new PowerEffect(0.75)),
 				new MathZone(new Complex(-1.76208912, -0.01550358), 1.95E-7, 1.30E-7, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_001.png",
+				"C:\\tmp\\perso\\expo_001.png",
 				7200, 4800).draw();
 	}
 
@@ -55,7 +55,7 @@ public class Main {
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(0.364480, 0.315382), 6E-6, 4E-6, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_002.png",
+				"C:\\tmp\\perso\\expo_002.png",
 				7200, 4800).draw();
 	}
 	
@@ -72,7 +72,7 @@ public class Main {
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(-1.749798494, 0.000032655), 0.000000150, 0.000000100, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_003.png",
+				"C:\\tmp\\perso\\expo_003.png",
 				7200, 4800).draw();
 	}
 	
@@ -89,7 +89,7 @@ public class Main {
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(-1.250314, 0.01376), 0.000111, 0.000075, - Math.PI / 12.0),
-				"C:\\Users\\Luc\\Desktop\\expo_004.png",
+				"C:\\tmp\\perso\\expo_004.png",
 				7200, 4800).draw();
 	}
 
@@ -106,7 +106,7 @@ public class Main {
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_005.png",
+				"C:\\tmp\\perso\\expo_005.png",
 				7200, 4800).draw();
 	}
 	
@@ -123,7 +123,7 @@ public class Main {
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
 						BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_006.png",
+				"C:\\tmp\\perso\\expo_006.png",
 				7200, 4800).draw();
 	}
 	
@@ -133,15 +133,14 @@ public class Main {
 	private static void fractale007() {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 2000, 2000, false,
-						//Palette.PALETTE_007, new Periodicity(66.5, 0.000, 66.5, 0.333, 66.5, 0.666),
-						Palette.PALETTE_007, new Periodicity(33.5, 0.000, 37.0, 0.333, 33.0, 0.666),
-						new GradientWithIteration(false),
+						new xt.function.ZPower(2), null, 1000, 1000, true,
+						Palette.PALETTE_007, new Periodicity(14.0, 0.000, 16.0, 0.0, 20, 0.000),
+						new GradientWithIteration(true),
 						new GradientWithModulus(false, 0.0, 0.0, 0.0),
 						new GradientWithArgument(false, 0.0, 0.0, 0.0),
-						BubbleEffect.ON, new PowerEffect(0.7)),
+						BubbleEffect.ON, new PowerEffect(1.0)),
 				new MathZone(new Complex(0.277250, -0.006947), 0.000033, 0.000022, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_007.png",
-				7200, 4800).draw();
+				"C:\\tmp\\perso\\expo_007.png",
+				720, 480).draw();
 	}
 }
