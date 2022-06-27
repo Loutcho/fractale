@@ -108,9 +108,13 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		}
 		
 		if (gIteration.isActivated()) {
-			double tau = 0.002;
-			double iBase = 130.0;
-			x *= Math.exp(- tau * (iReel - iBase));
+			double tau = gIteration.getTau();
+			double iBase = gIteration.getiBase(); 
+			if (iReel < iBase) {
+				System.err.println("ARGL: (iBase = " + iBase + ") > (iReel = " + iReel + ")");
+			} else {
+				x *= Math.exp(- tau * (iReel - iBase));
+			}
 		}
 
 		if (gModulus.isActivated()) {
@@ -122,7 +126,9 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		}
 
 		if (bubbleEffect.isActivated() && periodicity.isActivated()) {
-			x *= Math.max(MyMath.sqcosdemi(theta), MyMath.sqcosdemi(Math.PI * (iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor))));
+			x *= Math.max(
+					MyMath.sqcosdemi(theta),
+					MyMath.sqcosdemi(Math.PI * (iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor))));
 		}
 		
 		if (powerEffect.isActivated()) {
