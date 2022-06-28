@@ -1,6 +1,10 @@
-package xt.coloralgo;
+package xt.coloralgo.effect;
 
-public class Periodicity {
+import xt.coloralgo.Effect;
+import xt.coloralgo.Palette;
+
+public class Periodicity implements Effect {
+
 	boolean activated;
 	double period[];
 	double phase[];
@@ -50,15 +54,34 @@ public class Periodicity {
 	
 	public static final Periodicity OFF = new Periodicity();
 	
-	public boolean isActivated() {
-		return activated;
+	@Override
+	public double apply(double x, Palette palette, int iColor, double iReel, double theta, double modifiedDivergence) {
+		if (activated) 	{
+			return x * fonction_1periodique_amplitude1(palette, iColor, iReel / period[iColor] + phase[iColor]);
+		} else {
+			return x;
+		}
 	}
 	
-	public double getPeriod(int iColor) {
-		return period[iColor];
-	}
-	
-	public double getPhase(int iColor) {
-		return phase[iColor];
+	private double fonction_1periodique_amplitude1(Palette palette, int iColor, double x) {
+		int n = palette.getNbColors();
+		int e = (int)x;
+		x -= e;
+		int i = (int)(n * x);
+		int j = (i + 1) % n;
+		double coef = n * x - i;
+		int mask;
+		switch (iColor)
+		{
+		case 0: mask = 0xFF0000; break;
+		case 1: mask = 0x00FF00; break;
+		case 2: mask = 0x0000FF; break;
+		default: mask = 0xFFFFFF;
+		}
+		int vali = (palette.getColor(i) & mask) >> (8 * (2 - iColor));
+		double alpha = ((double)vali) / 255.0;
+		int valj = (palette.getColor(j) & mask) >> (8 * (2 - iColor));
+		double beta = ((double)valj) / 255.0;
+		return (1.0 - coef) * alpha + coef * beta;
 	}
 }

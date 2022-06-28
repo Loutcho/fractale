@@ -2,6 +2,10 @@ package xt.coloralgo;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
+
+import xt.coloralgo.Effect;
 
 import xt.math.MyMath;
 import xt.math.Complex;
@@ -20,28 +24,21 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 	private boolean smoothMode;
 	private int iMaxReachedColor;
 	private Palette palette;
-	private Periodicity periodicity;
-	private GradientWithIteration gIteration;
-	private GradientWithModulus gModulus;
-	private GradientWithArgument gArgument;
-	private BubbleEffect bubbleEffect;
-	private PowerEffect powerEffect;
+	
+	private List<Effect> effects;
 
-	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, int iMaxReachedColor, Palette palette, Periodicity periodicity,
-			GradientWithIteration gIteration, GradientWithModulus gModulus, GradientWithArgument gArgument, BubbleEffect bubbleEffect, PowerEffect powerEffect) {
+	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, Color iMaxReachedColor, Palette palette, Effect... effects) {
 		this.function = function;
 		this.zJulia = zJulia;
 		this.iMax = iMax;
 		this.iRef = iRef;
-		this.iMaxReachedColor = iMaxReachedColor;
+		this.iMaxReachedColor = iMaxReachedColor.getRGB();
 		this.smoothMode = smoothMode;
 		this.palette = palette;
-		this.periodicity = periodicity;
-		this.gIteration = gIteration;
-		this.gModulus = gModulus;
-		this.gArgument = gArgument;
-		this.bubbleEffect = bubbleEffect;
-		this.powerEffect = powerEffect;
+		this.effects = new ArrayList<Effect>();
+		for (int i = 0; i < effects.length; i ++) {
+			this.effects.add(effects[i]);
+		}
 	}
 	
 	public Color getColor(Complex pixel) {
@@ -102,63 +99,13 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 	private int composanteCouleur(int iColor, int iEntier, double iReel, double iRate, double modifiedDivergence, Complex z) {
 		double theta = Complex.arg(z);
 		double x = 1.0;
-
-		if (periodicity.isActivated()) 	{
-			x *= fonction_1periodique_amplitude1(iColor, iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor));
+		for (Effect effect : effects) {
+			x = effect.apply(x, palette, iColor, iReel, theta, modifiedDivergence);
 		}
-		
-		if (gIteration.isActivated()) {
-			double tau = gIteration.getTau();
-			double iBase = gIteration.getiBase(); 
-			if (iReel < iBase) {
-				System.err.println("ARGL: (iBase = " + iBase + ") > (iReel = " + iReel + ")");
-			} else {
-				x *= Math.exp(- tau * (iReel - iBase));
-			}
-		}
-
-		if (gModulus.isActivated()) {
-			//x *= 1.0 - gModulus.getAttenuation(iColor) * (1.0 - modifiedDivergence);
-			// x *= (1.0 + MyMath.sqcosdemi(theta)) / 2.0 * (1.0 + modifiedDivergence);
-			x *= Math.max((1.0 + MyMath.sqcosdemi(theta + iColor * Math.PI / 2.0)) / 2.0, (1.0 + modifiedDivergence) / 2.0);
-		}
-
-		if (gArgument.isActivated()) {
-			x *= 1.0 - gArgument.getAttenuation(iColor)	* MyMath.sqcosdemi(theta);
-		}
-
-		if (bubbleEffect.isActivated() && periodicity.isActivated()) {
-			x *= Math.max(MyMath.sqcosdemi(theta), MyMath.sqcosdemi(Math.PI * (iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor))));
-		}
-		
-		if (powerEffect.isActivated()) {
-			x = Math.pow(x, powerEffect.getPower()); // to alter luminosity. 0.0 (everything becomes white) ... 1.0 (nothing changes) ... +oo (everything becomes darker)
-		}
-		
 		return (int)(255.0 * x);
 	}
 	
-	public double fonction_1periodique_amplitude1(int iColor, double x) {
-		int n = palette.getNbColors();
-		int e = (int)x;
-		x -= e;
-		int i = (int)(n * x);
-		int j = (i + 1) % n;
-		double coef = n * x - i;
-		int mask;
-		switch (iColor)
-		{
-		case 0: mask = 0xFF0000; break;
-		case 1: mask = 0x00FF00; break;
-		case 2: mask = 0x0000FF; break;
-		default: mask = 0xFFFFFF;
-		}
-		int vali = (palette.getColor(i) & mask) >> (8 * (2 - iColor));
-		double alpha = ((double)vali) / 255.0;
-		int valj = (palette.getColor(j) & mask) >> (8 * (2 - iColor));
-		double beta = ((double)valj) / 255.0;
-		return (1.0 - coef) * alpha + coef * beta;
-	}
+
 	
 	/*
 	public void incKphi() {
@@ -256,11 +203,7 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 				", iMax=" + iMax +
 				", iRef=" + iRef +
 				", smoothMode=" + smoothMode +
-				", degrade1_i=" + gIteration +
-				", degrade2_i=" + gModulus +
-				", gArgument= " + gArgument +
-				", gBubble=" + bubbleEffect +
-				", periodicity=" + periodicity +
+				", effects=" + effects +
 				'}';
 	}
 
