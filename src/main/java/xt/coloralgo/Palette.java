@@ -25,7 +25,7 @@ public class Palette {
 
 	public static final Palette PALETTE_001 = new Palette(BLEU_NUIT, BLEU_FLAMME_DE_SOUFRE, MANDARINE, NOIR, MANDARINE);
 	public static final Palette PALETTE_002 = new Palette(BLANC, BEIGE, MARRON, NOIR, BLEU_NUIT, BLEU_CIEL);
-	public static final Palette PALETTE_003 = new Palette(AZUR, AZURIN, VERT_D_EAU, CHAMPAGNE, ORANGE, BLEU_NUIT);
+	public static final Palette PALETTE_003 = new Palette(BLEU_FLAMME_DE_SOUFRE, AZUR, AZURIN, VERT_D_EAU, CHAMPAGNE, ORANGE, BLEU_NUIT);
 	public static final Palette PALETTE_004 = new Palette(EMERAUDE, NOIR, AMETHYSTE, AZURIN, BEIGE, COQ_DE_ROCHE, AMETHYSTE, AZURIN);
 	public static final Palette PALETTE_005 = new Palette(VERT_BLEU, NOIR, MARRON, BLANC, BEIGE, BLANC);
 	public static final Palette PALETTE_006 = new Palette(NOIR, GRENADINE);

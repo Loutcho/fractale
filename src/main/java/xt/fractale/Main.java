@@ -64,8 +64,8 @@ public class Main {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 5000, 5000, true,
-						Color.WHITE.getRGB(), Palette.PALETTE_003, new Periodicity(48.0, 0.9),
-						GradientWithIteration.OFF, GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.OFF, PowerEffect.OFF),
+						Color.WHITE.getRGB(), Palette.PALETTE_003, new Periodicity(48.0, 0.0),
+						GradientWithIteration.OFF, GradientWithModulus.OFF, GradientWithArgument.OFF, BubbleEffect.OFF, new PowerEffect(1.5)),
 				new MathZone(new Complex(-1.749798494, 0.000032655), 0.000000150, 0.000000100, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_003.png",
 				7200, 4800).draw();
@@ -149,7 +149,7 @@ public class Main {
 				new EscapeTimeAlgorithm(
 						new xt.function.F4(), new Complex(0.7638888888888888, 0.3125), 3000, 3000, true,
 						Color.BLACK.getRGB(), Palette.PALETTE_009, new Periodicity(33.0, 0.0),
-						new GradientWithIteration(0.015, 0), new GradientWithModulus(0.85, 1.0, 1.0), GradientWithArgument.OFF, BubbleEffect.OFF, new PowerEffect(0.8)),
+						new GradientWithIteration(0.015, 0), new GradientWithModulus(0.85, 1.0, 1.0), GradientWithArgument.OFF, BubbleEffect.OFF, new PowerEffect(0.4)),
 				new MathZone(new Complex(0.595, -0.190), 0.45, 0.30, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_009.png",
 				7200, 4800).draw();
