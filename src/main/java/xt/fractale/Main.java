@@ -15,7 +15,8 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		int choice = 9;
+		int choice = 1;
+		// for(int choice = 1; choice <= 9; choice ++)
 		switch (choice) {
 		case 1: fractale001(); break;
 		case 2: fractale002(); break;
@@ -35,9 +36,9 @@ public class Main {
 	private static void fractale001() {
 		new FractalDrawer(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 5000, 5000, true,
-						Color.WHITE.getRGB(), Palette.PALETTE_001, new Periodicity(50.0, 0.55),
-						GradientWithIteration.OFF, GradientWithModulus.OFF, new GradientWithArgument(0.75, 0.75, 0.00), BubbleEffect.OFF, PowerEffect.OFF),
+						new xt.function.ZPower(2), null, 120, 120, true,
+						Color.BLACK.getRGB(), Palette.PALETTE_001, new Periodicity(55.0, 0.65),
+						GradientWithIteration.OFF, new GradientWithModulus(1.0, 1.0, 1.0), GradientWithArgument.OFF, BubbleEffect.OFF, PowerEffect.OFF),
 				new MathZone(new Complex(-1.76208912, -0.01550358), 1.95E-7, 1.30E-7, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_001.png",
 				7200, 4800).draw();

@@ -15,15 +15,16 @@ public class Palette {
 	private static final int BLEU_FLAMME_DE_SOUFRE = 0x0032CA;
 	private static final int BLEU_NUIT = 0x091A48;
 	private static final int ORANGE = 0xFD7F00;
-	private static final int MANDARINE = 0xFEA347;
 	private static final int MARRON = 0x5F351D;
 	private static final int BEIGE = 0xC8AD7F;	 
 	private static final int CHAMPAGNE = 0xEDE3A4;
 	private static final int AMETHYSTE = 0x6E308F;
 	private static final int CARNATION = 0xFEC3AC;
+	private static final int OCRE = 0xEFC54C;
+	private static final int BLEU_FRANCE = 0x1375ED;
+	private static final int BLEU_MARINE = 0x03224C;
 	
-
-	public static final Palette PALETTE_001 = new Palette(BLEU_NUIT, BLEU_FLAMME_DE_SOUFRE, MANDARINE, NOIR, MANDARINE);
+	public static final Palette PALETTE_001 = new Palette(BLEU_MARINE, BLEU_FRANCE, OCRE, NOIR);
 	public static final Palette PALETTE_002 = new Palette(BLANC, BEIGE, MARRON, NOIR, BLEU_NUIT, BLEU_CIEL);
 	public static final Palette PALETTE_003 = new Palette(BLEU_FLAMME_DE_SOUFRE, AZUR, AZURIN, VERT_D_EAU, CHAMPAGNE, ORANGE, BLEU_NUIT);
 	public static final Palette PALETTE_004 = new Palette(EMERAUDE, NOIR, AMETHYSTE, AZURIN, BEIGE, COQ_DE_ROCHE, AMETHYSTE, AZURIN);

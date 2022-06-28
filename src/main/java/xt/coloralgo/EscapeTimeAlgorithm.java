@@ -118,7 +118,9 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		}
 
 		if (gModulus.isActivated()) {
-			x *= 1.0 - gModulus.getAttenuation(iColor) * (1.0 - modifiedDivergence);
+			//x *= 1.0 - gModulus.getAttenuation(iColor) * (1.0 - modifiedDivergence);
+			// x *= (1.0 + MyMath.sqcosdemi(theta)) / 2.0 * (1.0 + modifiedDivergence);
+			x *= Math.max((1.0 + MyMath.sqcosdemi(theta + iColor * Math.PI / 2.0)) / 2.0, (1.0 + modifiedDivergence) / 2.0);
 		}
 
 		if (gArgument.isActivated()) {
@@ -126,9 +128,7 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 		}
 
 		if (bubbleEffect.isActivated() && periodicity.isActivated()) {
-			x *= Math.max(
-					MyMath.sqcosdemi(theta),
-					MyMath.sqcosdemi(Math.PI * (iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor))));
+			x *= Math.max(MyMath.sqcosdemi(theta), MyMath.sqcosdemi(Math.PI * (iReel / periodicity.getPeriod(iColor) + periodicity.getPhase(iColor))));
 		}
 		
 		if (powerEffect.isActivated()) {
