@@ -11,7 +11,7 @@ import xt.math.MyMath;
 import xt.math.Complex;
 import xt.function.Function;
 
-public class EscapeTimeAlgorithm implements FractalColorAlgo {
+public class EscapeTimeAlgorithm implements ColorAlgo {
 
 	// private static final double DKPHI = 0.05;
 	private static final int DEFAULT_I_MAX = 500;
@@ -205,10 +205,5 @@ public class EscapeTimeAlgorithm implements FractalColorAlgo {
 				", smoothMode=" + smoothMode +
 				", effects=" + effects +
 				'}';
-	}
-
-	@Override
-	public void setJulia(Complex julia) {
-		this.zJulia = julia;
 	}
 }

@@ -7,18 +7,18 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import xt.coloralgo.FractalColorAlgo;
+import xt.coloralgo.ColorAlgo;
 import xt.math.Complex;
 
 public class FractalDrawer {
 	
-	private FractalColorAlgo colorAlgo;
+	private ColorAlgo colorAlgo;
 	private MathZone mathZone;
 	private String filename;
 	private int width;
 	private int height;
 	
-	public FractalDrawer(FractalColorAlgo colorAlgo, MathZone mathZone, String filename, int width, int height) {
+	public FractalDrawer(ColorAlgo colorAlgo, MathZone mathZone, String filename, int width, int height) {
 		this.colorAlgo = colorAlgo;
 		this.mathZone = mathZone;
 		this.filename = filename;

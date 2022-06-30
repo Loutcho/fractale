@@ -1,7 +1,6 @@
 package xt.fractale;
 
 import xt.coloralgo.ColorAlgo;
-import xt.coloralgo.FractalColorAlgo;
 import xt.function.Function;
 import xt.graph.Graph;
 import xt.math.Complex;
@@ -145,7 +144,6 @@ class MyKeyListener extends KeyAdapter {
 						break;
 					case FRACTAL: {
 						Drawer.saveZone = Drawer.zone;
-						FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
 						/*FIXME
 						fractalColorAlgo.setJuliaX((Drawer.zone.getxMin() + Drawer.zone.getxMax()) / 2);
 						fractalColorAlgo.setJuliaY((Drawer.zone.getyMin() + Drawer.zone.getyMax()) / 2);
@@ -153,15 +151,14 @@ class MyKeyListener extends KeyAdapter {
 						*/
 						Drawer.drawingMode = Drawer.DrawingMode.FRACTAL_JULIA;
 						Drawer.status = Drawer.STATUS_REDRAW;
-						fractalColorAlgo.processKeyEvent(key);
+						colorAlgo.processKeyEvent(key);
 					}
 					break;
 					case FRACTAL_JULIA: {
 						Drawer.zone = Drawer.saveZone;
-						FractalColorAlgo fractalColorAlgo = (FractalColorAlgo) colorAlgo;
 						Drawer.drawingMode = Drawer.DrawingMode.FRACTAL;
 						Drawer.status = Drawer.STATUS_REDRAW;
-						fractalColorAlgo.processKeyEvent(key);
+						colorAlgo.processKeyEvent(key);
 					}
 					break;
 				}

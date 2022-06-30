@@ -186,7 +186,7 @@ public class Drawer extends Graph {
 		System.exit(0);
 	}
 
-	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, FractalColorAlgo colorAlgo) {
+	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, ColorAlgo colorAlgo) {
 		zone = new MathZone(new Complex(xMin + xMax, yMin + yMax), 1.0, 1.0, 0.0); //FIXME
 		drawingMode = DrawingMode.FRACTAL;
 		Drawer f = new Drawer();
