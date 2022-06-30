@@ -12,6 +12,11 @@ public class MyMath {
 		return sq(Math.cos(x / 2.0));
 	}
 	
+	public static double sqsindemi(double x)
+	{
+		return sq(Math.sin(x / 2.0));
+	}
+	
 	public static double baryseg(double a, double f, double g)
 	{
 		return (1.0 - a) * f + a * g;

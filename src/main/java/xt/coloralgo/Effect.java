@@ -1,7 +1,7 @@
 package xt.coloralgo;
 
+import xt.math.Complex;
+
 public interface Effect {
-
-	public double apply(double x, Palette palette, int iColor, double iReel, double theta, double modifiedDivergence);
-
+	public double apply(Palette palette, int iColor, Complex z, double iReel);
 }

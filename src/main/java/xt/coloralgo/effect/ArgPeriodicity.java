@@ -2,18 +2,17 @@ package xt.coloralgo.effect;
 
 import xt.coloralgo.Effect;
 import xt.coloralgo.Palette;
+import xt.math.Complex;
 
-public class Periodicity implements Effect {
+public class ArgPeriodicity implements Effect {
 
-	boolean activated;
 	double period[];
 	double phase[];
 	
-	public Periodicity(
+	public ArgPeriodicity(
 			double redPeriod, double redPhase,
 			double greenPeriod, double greenPhase,
 			double bluePeriod, double bluePhase) {
-		activated = true;
 		period = new double[3];
 		phase = new double[3];
 		period[0] = redPeriod;
@@ -24,8 +23,7 @@ public class Periodicity implements Effect {
 		phase[2] = bluePhase;
 	}
 	
-	public Periodicity(double period) {
-		activated = true;
+	public ArgPeriodicity(double period) {
 		this.period = new double[3];
 		phase = new double[3];
 		this.period[0] = period;
@@ -36,8 +34,7 @@ public class Periodicity implements Effect {
 		phase[2] = 0.0;
 	}
 	
-	public Periodicity(double period, double phase) {
-		activated = true;
+	public ArgPeriodicity(double period, double phase) {
 		this.period = new double[3];
 		this.phase = new double[3];
 		this.period[0] = period;
@@ -48,25 +45,14 @@ public class Periodicity implements Effect {
 		this.phase[2] = phase;
 	}
 
-	private Periodicity() {
-		activated = false;
-	}
-	
-	public static final Periodicity OFF = new Periodicity();
-	
 	@Override
-	public double apply(double x, Palette palette, int iColor, double iReel, double theta, double modifiedDivergence) {
-		if (activated) 	{
-			return x * fonction_1periodique_amplitude1(palette, iColor, iReel / period[iColor] + phase[iColor]);
-		} else {
-			return x;
-		}
+	public double apply(Palette palette, int iColor, Complex z, double iReel) {
+		return fonction_1periodique_amplitude1(palette, iColor, Complex.arg(z) / (2.0 * Math.PI) / period[iColor] + phase[iColor]);
 	}
 	
 	private double fonction_1periodique_amplitude1(Palette palette, int iColor, double x) {
+		x -= Math.floor(x);
 		int n = palette.getNbColors();
-		int e = (int)x;
-		x -= e;
 		int i = (int)(n * x);
 		int j = (i + 1) % n;
 		double coef = n * x - i;

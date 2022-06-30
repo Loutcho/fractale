@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import xt.coloralgo.ColorAlgo;
 import xt.math.Complex;
 
-public class FractalDrawer {
+public class ImageFile {
 	
 	private ColorAlgo colorAlgo;
 	private MathZone mathZone;
@@ -18,7 +18,7 @@ public class FractalDrawer {
 	private int width;
 	private int height;
 	
-	public FractalDrawer(ColorAlgo colorAlgo, MathZone mathZone, String filename, int width, int height) {
+	public ImageFile(ColorAlgo colorAlgo, MathZone mathZone, String filename, int width, int height) {
 		this.colorAlgo = colorAlgo;
 		this.mathZone = mathZone;
 		this.filename = filename;
@@ -26,7 +26,7 @@ public class FractalDrawer {
 		this.height = height;
 	}
 	
-	public void draw() {
+	public void create() {
 
 		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		CoordinatesConverter cc = new CoordinatesConverter(mathZone, new PixelZone(width, height));

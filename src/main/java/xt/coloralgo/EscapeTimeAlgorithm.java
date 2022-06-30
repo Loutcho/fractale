@@ -2,14 +2,10 @@ package xt.coloralgo;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.List;
 
-import xt.coloralgo.Effect;
-
-import xt.math.MyMath;
-import xt.math.Complex;
 import xt.function.Function;
+import xt.math.Complex;
+import xt.math.MyMath;
 
 public class EscapeTimeAlgorithm implements ColorAlgo {
 
@@ -20,25 +16,21 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	private Function function;
 	private Complex zJulia;
 	private int iMax = DEFAULT_I_MAX;
-	private double iRef = iMax;
 	private boolean smoothMode;
-	private int iMaxReachedColor;
+	private Color iMaxReachedColor;
 	private Palette palette;
-	
-	private List<Effect> effects;
+	private Effect effect;
+	private double luminosityPower;
 
-	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, double iRef, boolean smoothMode, Color iMaxReachedColor, Palette palette, Effect... effects) {
+	public EscapeTimeAlgorithm(Function function, Complex zJulia, int iMax, boolean smoothMode, Color iMaxReachedColor, Palette palette, Effect effect, double luminosityPower) {
 		this.function = function;
 		this.zJulia = zJulia;
 		this.iMax = iMax;
-		this.iRef = iRef;
-		this.iMaxReachedColor = iMaxReachedColor.getRGB();
+		this.iMaxReachedColor = iMaxReachedColor;
 		this.smoothMode = smoothMode;
 		this.palette = palette;
-		this.effects = new ArrayList<Effect>();
-		for (int i = 0; i < effects.length; i ++) {
-			this.effects.add(effects[i]);
-		}
+		this.effect = effect;
+		this.luminosityPower = luminosityPower;
 	}
 	
 	public Color getColor(Complex pixel) {
@@ -64,7 +56,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 			}
 			i ++;
 		}
-		return new Color(iMaxReachedColor);
+		return iMaxReachedColor;
 	}
 	
 	public Color divergenceColorAlgo(int iteration, int iterationMax, Complex z, double divergence) {
@@ -76,15 +68,9 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		if (smoothMode) {
 			iReel += MyMath.smooth(divergence);			
 		}
-		double iRate = iReel / iRef;
-
-		if ((iRate > 1.0) || (iRate < 0.0))
-			return color;
-
-		double modifiedDivergence = MyMath.ff((divergence - 2.0) / 2.0);
 
 		for (iColor = 0; iColor < 3; iColor ++) {
-			colors[iColor] = composanteCouleur(iColor, iteration, iReel, iRate, modifiedDivergence, z);
+			colors[iColor] = composanteCouleur(iColor, iReel, z);
 		}
 		
 		try {
@@ -96,11 +82,10 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		return color;
 	}
 	
-	private int composanteCouleur(int iColor, int iEntier, double iReel, double iRate, double modifiedDivergence, Complex z) {
-		double theta = Complex.arg(z);
-		double x = 1.0;
-		for (Effect effect : effects) {
-			x = effect.apply(x, palette, iColor, iReel, theta, modifiedDivergence);
+	private int composanteCouleur(int iColor, double iReel, Complex z) {
+		double x = effect.apply(palette, iColor, z, iReel);
+		if (luminosityPower != 0.0) {
+			x = Math.pow(x, luminosityPower);
 		}
 		return (int)(255.0 * x);
 	}
@@ -128,17 +113,13 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		switch (key) {
 			case KeyEvent.VK_ADD:
 				iMax = iMax * 2;
-				iRef = iMax;
 				break;
 			case KeyEvent.VK_SUBTRACT:
 				iMax = iMax / 2;
-				iRef = iMax;
 				break;
 			case KeyEvent.VK_MULTIPLY:
-				iRef = iRef * 2;
 				break;
 			case KeyEvent.VK_DIVIDE:
-				iRef = iRef / 2;
 				break;
 			/*
 			case KeyEvent.VK_INSERT:
@@ -201,9 +182,8 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		return "EscapeTime{" +
 				"julia=" + zJulia +
 				", iMax=" + iMax +
-				", iRef=" + iRef +
 				", smoothMode=" + smoothMode +
-				", effects=" + effects +
+				", effect=" + effect +
 				'}';
 	}
 }
