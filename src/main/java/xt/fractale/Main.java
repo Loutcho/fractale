@@ -10,6 +10,9 @@ import xt.coloralgo.effect.ImaginaryPartGrid;
 import xt.coloralgo.effect.AbsArgGradient;
 import xt.coloralgo.effect.IterationGradient;
 import xt.coloralgo.effect.AbsGradient1;
+import xt.coloralgo.effect.AbsGrid;
+import xt.coloralgo.effect.ArgGradient;
+import xt.coloralgo.effect.ArgGrid;
 import xt.coloralgo.effect.ArgPeriodicity;
 import xt.coloralgo.effect.IterationPeriodicity;
 import xt.coloralgo.effect.Max;
@@ -20,8 +23,8 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		// int choice = 10;
-		for(int choice = 1; choice <= 10; choice ++)
+		int choice = 11;
+		// for(int choice = 1; choice <= 10; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -33,6 +36,7 @@ public class Main {
 		case  8: image008(); break;
 		case  9: image009(); break;
 		case 10: image010(); break;
+		case 11: image011(); break;
 		}
 	}
 
@@ -190,6 +194,20 @@ public class Main {
 						0.5),
 				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_010.png",
+				7200, 4800).create();
+	}
+
+	/*
+	 * 11) Parure d'améthystes
+	 */
+	private static void image011() {
+		new ImageFile(
+				new EscapeTimeAlgorithm(
+						new xt.function.F6(), new Complex(-0.9567547344519107, -0.7992297832788293), 1000, true, Color.BLACK, Palette.PALETTE_011,
+						new IterationPeriodicity(84.0, 0.7),
+						0.7),
+				new MathZone(new Complex(-0.44, 0.0), 1.2, 0.8, Math.PI / 2.0),
+				"C:\\Users\\Luc\\Desktop\\expo_011.png",
 				7200, 4800).create();
 	}
 }
