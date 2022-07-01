@@ -10,7 +10,6 @@ import xt.coloralgo.effect.ImaginaryPartGrid;
 import xt.coloralgo.effect.AbsArgGradient;
 import xt.coloralgo.effect.IterationGradient;
 import xt.coloralgo.effect.AbsGradient1;
-import xt.coloralgo.effect.AbsGrid;
 import xt.coloralgo.effect.ArgPeriodicity;
 import xt.coloralgo.effect.IterationPeriodicity;
 import xt.coloralgo.effect.Max;
@@ -21,8 +20,8 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		int choice = 10;
-		//for(int choice = 1; choice <= 10; choice ++)
+		// int choice = 10;
+		for(int choice = 1; choice <= 10; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -175,7 +174,7 @@ public class Main {
 	}
 	
 	/*
-	 * 10) Solaire
+	 * 10) Domain coloring 1
 	 */
 	private static void image010() {
 		new ImageFile(
