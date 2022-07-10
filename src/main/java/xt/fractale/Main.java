@@ -10,8 +10,6 @@ import xt.coloralgo.effect.ImaginaryPartGrid;
 import xt.coloralgo.effect.AbsArgGradient;
 import xt.coloralgo.effect.IterationGradient;
 import xt.coloralgo.effect.AbsGradient1;
-import xt.coloralgo.effect.AbsGrid;
-import xt.coloralgo.effect.ArgGradient;
 import xt.coloralgo.effect.ArgGrid;
 import xt.coloralgo.effect.ArgPeriodicity;
 import xt.coloralgo.effect.IterationPeriodicity;
@@ -23,7 +21,7 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		int choice = 11;
+		int choice = 12;
 		// for(int choice = 1; choice <= 10; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
@@ -37,6 +35,7 @@ public class Main {
 		case  9: image009(); break;
 		case 10: image010(); break;
 		case 11: image011(); break;
+		case 12: image012(); break;
 		}
 	}
 
@@ -203,11 +202,31 @@ public class Main {
 	private static void image011() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.F6(), new Complex(-0.9567547344519107, -0.7992297832788293), 1000, true, Color.BLACK, Palette.PALETTE_011,
+						new xt.function.Sylvestre(), new Complex(-0.9567547344519107, -0.7992297832788293), 1000, true, Color.BLACK, Palette.PALETTE_011,
 						new IterationPeriodicity(84.0, 0.7),
 						0.7),
 				new MathZone(new Complex(-0.44, 0.0), 1.2, 0.8, Math.PI / 2.0),
 				"C:\\Users\\Luc\\Desktop\\expo_011.png",
+				18000, 12000).create();
+	}
+	
+	/*
+	 * 12) Papillon
+	 */
+	private static void image012() {
+		new ImageFile(
+				new EscapeTimeAlgorithm(
+						new xt.function.Papillon(), new Complex(0.34722222222222215, 0.1171875), 200, true, Color.BLACK, Palette.PALETTE_003,
+						new Mul(
+								new IterationPeriodicity(8.0, 0.1),
+								new Max(
+										new ArgGrid(6, 1.0),
+										new ArgPeriodicity(1.0)
+								)
+						),
+						0.7),
+				new MathZone(new Complex(0.20, -0.25), 0.60, 0.40, - Math.PI / 4),
+				"C:\\Users\\Luc\\Desktop\\expo_012.png",
 				7200, 4800).create();
 	}
 }
