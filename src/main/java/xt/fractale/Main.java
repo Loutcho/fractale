@@ -227,6 +227,6 @@ public class Main {
 						0.7),
 				new MathZone(new Complex(0.160, -0.230), 0.585, 0.390, - 0.72),
 				"C:\\Users\\Luc\\Desktop\\expo_012.png",
-				18000, 12000).create();
+				7200, 4800).create();
 	}
 }
