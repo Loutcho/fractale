@@ -28,6 +28,7 @@ public class Palette {
 	private static final int VERT = 0x00FF00;
 	private static final int BLEU = 0x0000FF;
 	private static final int VIOLET = 0x660099;
+	private static final int BORDEAUX = 0x6D071A;
 	
 	public static final Palette PALETTE_001 = new Palette(BLEU_MARINE, BLEU_FRANCE, OCRE, NOIR);
 	public static final Palette PALETTE_002 = new Palette(BLANC, BEIGE, MARRON, NOIR, BLEU_NUIT, BLEU_CIEL);
@@ -40,6 +41,7 @@ public class Palette {
 	public static final Palette PALETTE_009 = new Palette(BEIGE, CARNATION, MARRON, NOIR);
 	public static final Palette PALETTE_010 = new Palette(BLEU, VIOLET, ROUGE, ORANGE, JAUNE, VERT);
 	public static final Palette PALETTE_011 = new Palette(AMETHYSTE, BLANC, AMETHYSTE, NOIR, NOIR, NOIR);
+	public static final Palette PALETTE_012 = new Palette(BLEU_FLAMME_DE_SOUFRE, AZUR, AZURIN, VERT_D_EAU, CHAMPAGNE, BORDEAUX, BLEU_NUIT);
 
 	private int rgb[];
 	

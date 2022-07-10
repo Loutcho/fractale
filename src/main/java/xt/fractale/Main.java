@@ -216,7 +216,7 @@ public class Main {
 	private static void image012() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.Papillon(), new Complex(0.34722222222222215, 0.1171875), 200, true, Color.BLACK, Palette.PALETTE_003,
+						new xt.function.Papillon(), new Complex(0.34722222222222215, 0.1171875), 200, true, Color.BLACK, Palette.PALETTE_012,
 						new Mul(
 								new IterationPeriodicity(8.0, 0.1),
 								new Max(
@@ -225,8 +225,8 @@ public class Main {
 								)
 						),
 						0.7),
-				new MathZone(new Complex(0.20, -0.25), 0.60, 0.40, - Math.PI / 4),
+				new MathZone(new Complex(0.160, -0.230), 0.585, 0.390, - 0.72),
 				"C:\\Users\\Luc\\Desktop\\expo_012.png",
-				7200, 4800).create();
+				18000, 12000).create();
 	}
 }
