@@ -21,7 +21,7 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		int choice = 12;
+		int choice = 13;
 		// for(int choice = 1; choice <= 10; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
@@ -36,6 +36,7 @@ public class Main {
 		case 10: image010(); break;
 		case 11: image011(); break;
 		case 12: image012(); break;
+		case 13: image013(); break;
 		}
 	}
 
@@ -45,7 +46,7 @@ public class Main {
 	private static void image001() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 120, true, Color.BLACK, Palette.PALETTE_001,
+						new xt.function.ZPower(2), null, 120, true, 2.0, Color.BLACK, Palette.PALETTE_001,
 						new Mul(
 								new IterationPeriodicity(55.0, 0.65),
 								new AbsArgGradient()
@@ -62,7 +63,7 @@ public class Main {
 	private static void image002() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 5000, true, Color.WHITE, Palette.PALETTE_002,
+						new xt.function.ZPower(2), null, 5000, true, 2.0, Color.WHITE, Palette.PALETTE_002,
 						new IterationPeriodicity(384.0, 0.333333333),
 						1.0),
 				new MathZone(new Complex(0.364480, 0.315382), 6E-6, 4E-6, 0.0),
@@ -76,7 +77,7 @@ public class Main {
 	private static void image003() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 5000, true, Color.WHITE, Palette.PALETTE_003,
+						new xt.function.ZPower(2), null, 5000, true, 2.0, Color.WHITE, Palette.PALETTE_003,
 						new IterationPeriodicity(48.0, 0.0),
 						1.5),
 				new MathZone(new Complex(-1.749798494, 0.000032655), 0.000000150, 0.000000100, 0.0),
@@ -90,7 +91,7 @@ public class Main {
 	private static void image004() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 15000, true, Color.WHITE, Palette.PALETTE_004,
+						new xt.function.ZPower(2), null, 15000, true, 2.0, Color.WHITE, Palette.PALETTE_004,
 						new IterationPeriodicity(226.0, 0.50),
 						1.0),
 				new MathZone(new Complex(-1.250314, 0.01376), 0.000111, 0.000075, - Math.PI / 12.0),
@@ -104,7 +105,7 @@ public class Main {
 	private static void image005() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.BurningShip(), new Complex(-0.03689236111111108, 0.28564453125), 3500, true, Color.WHITE, Palette.PALETTE_005,
+						new xt.function.BurningShip(), new Complex(-0.03689236111111108, 0.28564453125), 3500, true, 2.0, Color.WHITE, Palette.PALETTE_005,
 						new IterationPeriodicity(28.73, 5.0 / 6.0),
 						1.0),
 				new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
@@ -118,7 +119,7 @@ public class Main {
 	private static void image006() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, Color.WHITE, Palette.PALETTE_006,
+						new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, 2.0, Color.WHITE, Palette.PALETTE_006,
 						new IterationPeriodicity(100.0, 0.95),
 						1.0),
 				new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0),
@@ -132,7 +133,7 @@ public class Main {
 	private static void image007() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 2000, true, Color.WHITE, Palette.PALETTE_007,
+						new xt.function.ZPower(2), null, 2000, true, 2.0, Color.WHITE, Palette.PALETTE_007,
 						new Mul(
 								new IterationPeriodicity(14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
 								new Bubble(14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
@@ -150,7 +151,7 @@ public class Main {
 	private static void image008() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), new Complex(-1.749272, -2.16E-4), 3000, true, Color.WHITE, Palette.PALETTE_008,
+						new xt.function.ZPower(2), new Complex(-1.749272, -2.16E-4), 3000, true, 2.0, Color.WHITE, Palette.PALETTE_008,
 						new IterationPeriodicity(50.0, 0.5),
 						1.0), 
 				new MathZone(new Complex(0.0, 0.0), 0.150, 0.100, Math.PI / 2.0),
@@ -164,7 +165,7 @@ public class Main {
 	private static void image009() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.F4(), new Complex(0.7638888888888888, 0.3125), 3000, true, Color.BLACK, Palette.PALETTE_009,
+						new xt.function.F4(), new Complex(0.7638888888888888, 0.3125), 3000, true, 2.0, Color.BLACK, Palette.PALETTE_009,
 						new Mul(
 								new IterationPeriodicity(33.0, 0.0),
 								new IterationGradient(0.015, 0),
@@ -202,12 +203,12 @@ public class Main {
 	private static void image011() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(), new Complex(-0.9567547344519107, -0.7992297832788293), 1000, true, Color.BLACK, Palette.PALETTE_011,
+						new xt.function.Sylvestre(), new Complex(-0.9567547344519107, -0.7992297832788293), 1000, true, 2.0, Color.BLACK, Palette.PALETTE_011,
 						new IterationPeriodicity(84.0, 0.7),
 						0.7),
 				new MathZone(new Complex(-0.44, 0.0), 1.2, 0.8, Math.PI / 2.0),
 				"C:\\Users\\Luc\\Desktop\\expo_011.png",
-				18000, 12000).create();
+				7200, 4800).create();
 	}
 	
 	/*
@@ -216,7 +217,7 @@ public class Main {
 	private static void image012() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.Papillon(), new Complex(0.34722222222222215, 0.1171875), 200, true, Color.BLACK, Palette.PALETTE_012,
+						new xt.function.Papillon(), new Complex(0.34722222222222215, 0.1171875), 200, true, 2.0, Color.BLACK, Palette.PALETTE_012,
 						new Mul(
 								new IterationPeriodicity(8.0, 0.1),
 								new Max(
@@ -227,6 +228,23 @@ public class Main {
 						0.7),
 				new MathZone(new Complex(0.160, -0.230), 0.585, 0.390, - 0.72),
 				"C:\\Users\\Luc\\Desktop\\expo_012.png",
+				7200, 4800).create();
+	}
+
+	/*
+	 * 13) Collatz
+	 */
+	private static void image013() {
+		new ImageFile(
+				new EscapeTimeAlgorithm(
+						new xt.function.Collatz(), new Complex(0, 0), 1000, true, 40.0, Color.BLACK, Palette.PALETTE_013,
+						new Mul(
+								new IterationPeriodicity(8.0, 0.0),
+								new ArgPeriodicity(0.5, 0.333)
+						),
+						1.0),
+				new MathZone(new Complex(-0.398, 0.2755), 0.0018, 0.0012, Math.PI / 16.0),
+				"C:\\Users\\Luc\\Desktop\\expo_013.png",
 				7200, 4800).create();
 	}
 }
