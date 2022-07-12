@@ -243,7 +243,7 @@ public class Main {
 								new ArgPeriodicity(0.5, 0.333)
 						),
 						1.0),
-				new MathZone(new Complex(-0.398, 0.2755), 0.0018, 0.0012, Math.PI / 16.0),
+				new MathZone(new Complex(-0.39962, 0.27487), 0.0018, 0.0012, 0.21),
 				"C:\\Users\\Luc\\Desktop\\expo_013.png",
 				7200, 4800).create();
 	}
