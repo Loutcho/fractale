@@ -21,7 +21,7 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		int choice = 13;
+		int choice = 14;
 		// for(int choice = 1; choice <= 10; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
@@ -37,6 +37,7 @@ public class Main {
 		case 11: image011(); break;
 		case 12: image012(); break;
 		case 13: image013(); break;
+		case 14: image014(); break;
 		}
 	}
 
@@ -245,6 +246,24 @@ public class Main {
 						1.0),
 				new MathZone(new Complex(-0.39962, 0.27487), 0.0018, 0.0012, 0.21),
 				"C:\\Users\\Luc\\Desktop\\expo_013.png",
+				7200, 4800).create();
+	}
+
+	/*
+	 * 14) Vauban
+	 */
+	private static void image014() {
+		new ImageFile(
+				new EscapeTimeAlgorithm(
+						new xt.function.BurningShip(), new Complex(-0.5429169536138998, 0.18388394957417598), 3500, false, 2.0, Color.WHITE, Palette.PALETTE_014,
+						new Max(
+								new IterationPeriodicity(40.0, 0.15),
+								new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
+								new RealPartGrid(0.2, 0.2, 0.2, 0.8)
+						),
+						1.0),
+				new MathZone(new Complex(0.0, 0.4655), 0.0039, 0.0026, Math.PI),
+				"C:\\Users\\Luc\\Desktop\\expo_014.png",
 				7200, 4800).create();
 	}
 }
