@@ -20,12 +20,11 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	private Color iMaxReachedColor;
 	private Palette palette;
 	private Effect effect;
-	private double luminosityPower;
 	private double Lmax;
 
 	public EscapeTimeAlgorithm(
 			Function function, Complex zJulia, int iMax, boolean smoothMode, double Lmax, 
-			Color iMaxReachedColor, Palette palette, Effect effect, double luminosityPower) {
+			Color iMaxReachedColor, Palette palette, Effect effect) {
 		this.function = function;
 		this.zJulia = zJulia;
 		this.iMax = iMax;
@@ -34,8 +33,6 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		this.smoothMode = smoothMode;
 		this.palette = palette;
 		this.effect = effect;
-		this.luminosityPower = luminosityPower;
-		
 	}
 	
 	public Color getColor(Complex pixel) {
@@ -89,13 +86,8 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	
 	private int composanteCouleur(int iColor, double iReel, Complex z) {
 		double x = effect.apply(palette, iColor, z, iReel);
-		if (luminosityPower != 0.0) {
-			x = Math.pow(x, luminosityPower);
-		}
 		return (int)(255.0 * x);
 	}
-	
-
 	
 	/*
 	public void incKphi() {

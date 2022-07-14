@@ -10,13 +10,11 @@ public class DomainColoring implements ColorAlgo {
 	private Function function;
 	private Palette palette;
 	private Effect effect;
-	private double luminosityPower;
 	
-	public DomainColoring(Function function, Palette palette, Effect effect, double luminosityPower) {
+	public DomainColoring(Function function, Palette palette, Effect effect) {
 		this.function = function;
 		this.palette = palette;
 		this.effect = effect;
-		this.luminosityPower = luminosityPower;
 	}
 	
 	@Override
@@ -38,9 +36,6 @@ public class DomainColoring implements ColorAlgo {
 	
 	private int composanteCouleur(int iColor, Complex z) {
 		double x = effect.apply(palette, iColor, z, 0.0);
-		if (luminosityPower != 0.0) {
-			x = Math.pow(x, luminosityPower);
-		}
 		return (int)(255.0 * x);
 	}
 
