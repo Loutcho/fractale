@@ -6,6 +6,7 @@ import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.Palette;
 import xt.coloralgo.effect.Bubble;
+import xt.coloralgo.effect.ConstantColor;
 import xt.coloralgo.effect.ImaginaryPartGrid;
 import xt.coloralgo.effect.AbsArgGradient;
 import xt.coloralgo.effect.IterationGradient;
@@ -23,8 +24,8 @@ import xt.math.Complex;
 public class Main {
 
 	public static void main(String[] args) {
-		int choice = 15;
-		// for(int choice = 1; choice <= 15; choice ++)
+		int choice = 16;
+		// for(int choice = 1; choice <= 16; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -41,6 +42,7 @@ public class Main {
 		case 13: image013(); break;
 		case 14: image014(); break;
 		case 15: image015(); break;
+		case 16: image016(); break;
 		}
 	}
 
@@ -299,6 +301,20 @@ public class Main {
 				),
 				new MathZone(new Complex(0.0, 0.0), 1.95, 1.30, 0.0),
 				"C:\\Users\\Luc\\Desktop\\expo_015.png",
+				7200, 4800).create();
+	}
+	
+	/*
+	 * 16) Hiroshima
+	 */
+	private static void image016() {
+		new ImageFile(
+				new EscapeTimeAlgorithm(
+						new xt.function.Hiroshima(), null, 10000, false, 200.0, Color.BLACK, Palette.PALETTE_016,
+						new ConstantColor(1.0, 0.0, 0.0)
+				),
+				new MathZone(new Complex(-1.10175, -0.71818), 0.00270, 0.00180, 0.56),
+				"C:\\Users\\Luc\\Desktop\\expo_016.png",
 				7200, 4800).create();
 	}
 }
