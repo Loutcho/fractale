@@ -310,11 +310,11 @@ public class Main {
 	private static void image016() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.Hiroshima(), null, 10000, false, 200.0, Color.BLACK, Palette.PALETTE_016,
+						new xt.function.Hiroshima(), null, 16000, false, 200.0, Color.BLACK, Palette.PALETTE_016,
 						new ConstantColor(1.0, 0.0, 0.0)
 				),
 				new MathZone(new Complex(-1.10175, -0.71818), 0.00270, 0.00180, 0.56),
 				"C:\\Users\\Luc\\Desktop\\expo_016.png",
-				7200, 4800).create();
+				12000, 8000).create();
 	}
 }
