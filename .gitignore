@@ -1,4 +1,7 @@
+.classpath
+.project
 target/
 .idea/
 out/
+.settings/
 src/main/main.iml
