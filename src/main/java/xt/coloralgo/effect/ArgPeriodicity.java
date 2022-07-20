@@ -47,7 +47,7 @@ public class ArgPeriodicity implements Effect {
 
 	@Override
 	public double apply(Palette palette, int iColor, Complex z, double iReel) {
-		return fonction_1periodique_amplitude1(palette, iColor, Complex.arg(z) / (2.0 * Math.PI) / period[iColor] + phase[iColor]);
+		return fonction_1periodique_amplitude1(palette, iColor, z.arg() / (2.0 * Math.PI) / period[iColor] + phase[iColor]);
 	}
 	
 	private double fonction_1periodique_amplitude1(Palette palette, int iColor, double x) {

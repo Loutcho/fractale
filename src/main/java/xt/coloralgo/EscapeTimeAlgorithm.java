@@ -52,7 +52,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		while (i < iMax) {
 			z = function.apply(z);
 			z = Complex.add(z, c);
-			double L = Complex.abs(z);
+			double L = z.abs();
 			if (L > Lmax) {
 				return divergenceColorAlgo(i, iMax, z, L);
 			}

@@ -41,7 +41,7 @@ public class ImageFile {
 				int g = color.getGreen();
 				int b = color.getBlue();
 				int rgb = (r << 16) | (g << 8) | b;
-				img.setRGB(xxx, yyy, rgb);				
+				img.setRGB(xxx, yyy, rgb);
 			}
 		}
 		

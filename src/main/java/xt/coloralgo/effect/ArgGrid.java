@@ -17,6 +17,6 @@ public class ArgGrid implements Effect {
 	
 	@Override
 	public double apply(Palette palette, int iColor, Complex z, double iReel) {
-		return Math.pow(MyMath.sqcosdemi(nbSlices * Complex.arg(z)), thickness);
+		return Math.pow(MyMath.sqcosdemi(nbSlices * z.arg()), thickness);
 	}
 }

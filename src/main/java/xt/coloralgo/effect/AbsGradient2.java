@@ -8,6 +8,6 @@ public class AbsGradient2 implements Effect {
 
 	@Override
 	public double apply(Palette palette, int iColor, Complex z, double iReel) {
-		return (Math.atan(Math.log(Complex.abs(z)) / Math.E) / Math.PI + 0.5);
+		return (Math.atan(Math.log(z.abs()) / Math.E) / Math.PI + 0.5);
 	}
 }

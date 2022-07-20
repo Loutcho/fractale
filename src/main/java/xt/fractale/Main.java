@@ -22,10 +22,12 @@ import xt.coloralgo.effect.RealPartGrid;
 import xt.math.Complex;
 
 public class Main {
+	
+	private static final String PATH = "C:\\tmp\\perso\\";
 
 	public static void main(String[] args) {
-		int choice = 16;
-		// for(int choice = 1; choice <= 16; choice ++)
+		int choice = 17;
+		// for(int choice = 1; choice <= 17; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -43,6 +45,7 @@ public class Main {
 		case 14: image014(); break;
 		case 15: image015(); break;
 		case 16: image016(); break;
+		case 17: image017(); break;
 		}
 	}
 
@@ -59,7 +62,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(-1.76208912, -0.01550358), 1.95E-7, 1.30E-7, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_001.png",
+				PATH + "expo_001.png",
 				7200, 4800).create();
 	}
 
@@ -73,7 +76,7 @@ public class Main {
 						new IterationPeriodicity(384.0, 0.333333333)
 				),
 				new MathZone(new Complex(0.364480, 0.315382), 6E-6, 4E-6, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_002.png",
+				PATH + "expo_002.png",
 				7200, 4800).create();
 	}
 	
@@ -89,7 +92,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(-1.749798494, 0.000032655), 0.000000150, 0.000000100, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_003.png",
+				PATH + "expo_003.png",
 				7200, 4800).create();
 	}
 	
@@ -103,7 +106,7 @@ public class Main {
 						new IterationPeriodicity(226.0, 0.50)
 				),
 				new MathZone(new Complex(-1.250314, 0.01376), 0.000111, 0.000075, - Math.PI / 12.0),
-				"C:\\Users\\Luc\\Desktop\\expo_004.png",
+				PATH + "expo_004.png",
 				7200, 4800).create();
 	}
 
@@ -117,7 +120,7 @@ public class Main {
 						new IterationPeriodicity(28.73, 5.0 / 6.0)
 				),
 				new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_005.png",
+				PATH + "expo_005.png",
 				7200, 4800).create();
 	}
 	
@@ -131,7 +134,7 @@ public class Main {
 						new IterationPeriodicity(100.0, 0.95)
 				),
 				new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_006.png",
+				PATH + "expo_006.png",
 				7200, 4800).create();
 	}
 	
@@ -151,7 +154,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(0.277250, -0.006947), 0.000033, 0.000022, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_007.png",
+				PATH + "expo_007.png",
 				7200, 4800).create();
 	}
 	
@@ -165,7 +168,7 @@ public class Main {
 						new IterationPeriodicity(50.0, 0.5)
 				), 
 				new MathZone(new Complex(0.0, 0.0), 0.150, 0.100, Math.PI / 2.0),
-				"C:\\Users\\Luc\\Desktop\\expo_008.png",
+				PATH + "expo_008.png",
 				7200, 4800).create();
 	}
 	
@@ -185,7 +188,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(0.595, -0.190), 0.45, 0.30, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_009.png",
+				PATH + "expo_009.png",
 				7200, 4800).create();
 	}
 	
@@ -207,7 +210,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_010.png",
+				PATH + "expo_010.png",
 				7200, 4800).create();
 	}
 
@@ -223,7 +226,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(-0.44, 0.0), 1.2, 0.8, Math.PI / 2.0),
-				"C:\\Users\\Luc\\Desktop\\expo_011.png",
+				PATH + "expo_011.png",
 				7200, 4800).create();
 	}
 	
@@ -245,7 +248,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(0.160, -0.230), 0.585, 0.390, - 0.72),
-				"C:\\Users\\Luc\\Desktop\\expo_012.png",
+				PATH + "expo_012.png",
 				7200, 4800).create();
 	}
 
@@ -262,7 +265,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(-0.39962, 0.27487), 0.0018, 0.0012, 0.21),
-				"C:\\Users\\Luc\\Desktop\\expo_013.png",
+				PATH + "expo_013.png",
 				7200, 4800).create();
 	}
 
@@ -280,7 +283,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(0.0, 0.4655), 0.0039, 0.0026, Math.PI),
-				"C:\\Users\\Luc\\Desktop\\expo_014.png",
+				PATH + "expo_014.png",
 				7200, 4800).create();
 	}
 
@@ -300,7 +303,7 @@ public class Main {
 						)
 				),
 				new MathZone(new Complex(0.0, 0.0), 1.95, 1.30, 0.0),
-				"C:\\Users\\Luc\\Desktop\\expo_015.png",
+				PATH + "expo_015.png",
 				7200, 4800).create();
 	}
 	
@@ -314,7 +317,17 @@ public class Main {
 						new ConstantColor(1.0, 0.0, 0.0)
 				),
 				new MathZone(new Complex(-1.10175, -0.71818), 0.00270, 0.00180, 0.56),
-				"C:\\Users\\Luc\\Desktop\\expo_016.png",
+				PATH + "expo_016.png",
 				12000, 8000).create();
+	}
+	
+	/*
+	 * 17) Indra
+	 */
+	private static void image017() {
+		new IndraFile(
+				new MathZone(new Complex(0.0, 0.0), 9.0, 6.0, 0.0),
+				PATH + "expo_017.png",
+				1440, 960).create();
 	}
 }

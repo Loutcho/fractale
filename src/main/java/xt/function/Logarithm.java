@@ -9,7 +9,7 @@ public class Logarithm implements Function {
 		double x = z.re();
 		double y = z.im();
 
-		double r = Complex.abs(z);
+		double r = z.abs();
 		double a = Math.atan2(y, x + r);
 		Complex zz = new Complex(Math.log(r), 2.0 * a);
 		if ((y == 0.0) && (x < 0.0)) {

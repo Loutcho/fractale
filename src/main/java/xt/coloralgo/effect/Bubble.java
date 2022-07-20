@@ -23,6 +23,6 @@ public class Bubble implements Effect {
 	
 	@Override
 	public double apply(Palette palette, int iColor, Complex z, double iReel) {
-		return Math.max(MyMath.sqcosdemi(Complex.arg(z)), MyMath.sqcosdemi(Math.PI * (iReel / period[iColor] + phase[iColor])));
+		return Math.max(MyMath.sqcosdemi(z.arg()), MyMath.sqcosdemi(Math.PI * (iReel / period[iColor] + phase[iColor])));
 	}
 }
