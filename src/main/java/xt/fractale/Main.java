@@ -23,7 +23,7 @@ import xt.math.Complex;
 
 public class Main {
 	
-	private static final String PATH = "C:\\tmp\\perso\\";
+	private static final String PATH = "C:\\Users\\Luc\\Desktop\\";
 
 	public static void main(String[] args) {
 		int choice = 17;
@@ -322,12 +322,29 @@ public class Main {
 	}
 	
 	/*
-	 * 17) Indra
+	 * 17) 14 Juillet
 	 */
 	private static void image017() {
+		new ImageFile(
+				new EscapeTimeAlgorithm(
+					new xt.function.QuatorzeJuillet(), new Complex(0.0, 1.8), 100, false, 2.0, Color.BLACK, Palette.PALETTE_017,
+					new Mul(
+						new ArgPeriodicity(1.0, 1.0 / 12.0),
+						new IterationGradient(0.05, 0.0)
+					)
+				),
+				new MathZone(new Complex(0.0, 0.24), 0.48, 0.32, 0.0),
+				PATH + "expo_017.png",
+				7200, 4800).create();
+	}
+	
+	/*
+	 * Experimental
+	private static void image018() {
 		new IndraFile(
-				new MathZone(new Complex(0.0, 0.0), 9.0, 6.0, 0.0),
+				new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0),
 				PATH + "expo_017.png",
 				1440, 960).create();
 	}
+	*/
 }

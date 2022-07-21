@@ -5,11 +5,11 @@ import java.util.List;
 
 import xt.math.Complex;
 
-public class Experiment implements Function {
+public class QuatorzeJuillet implements Function {
 	
 	private RationalFraction r;
 
-	public Experiment() {
+	public QuatorzeJuillet() {
 		List<Complex> z = new ArrayList<>();
 		List<Complex> p  = new ArrayList<>();
 
@@ -22,7 +22,7 @@ public class Experiment implements Function {
 
 	@Override
 	public String getHumanReadableFormula() {
-		return "experiment";
+		return r.getHumanReadableFormula();
 	}
 
 	@Override

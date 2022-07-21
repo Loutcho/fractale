@@ -26,18 +26,27 @@ public class Moebius {
 	}
 	
 	public Circle onCircle(Circle circle) {
-		Complex center = circle.getCenter();
-		double radius = circle.getRadius();
-		Complex r = new Complex(radius, 1.0);
-		Complex z = Complex.sub(center, Complex.div(new Complex(radius * radius, 0.0), (Complex.add(center, Complex.div(d, c))).conj()));
+		// Page 91
+		Complex P = circle.getCenter();
+		Complex r = new Complex(circle.getRadius(), 0.0);
+		Complex dc = Complex.div(d, c);
+		Complex dcP = Complex.add(dc, P);
+		Complex cdPconj = dcP.conj();
+		Complex z = Complex.sub(P,
+				Complex.div(Complex.mul(r, r),
+				cdPconj));
 		Complex center2 = Complex.div(Complex.add(Complex.mul(a, z), b), Complex.add(Complex.mul(c, z), d));
 		double radius2 = Complex.sub(
 				center2,
 				Complex.div(
-						Complex.add(Complex.mul(a, Complex.add(center, r)), b),
-						Complex.add(Complex.mul(c, Complex.add(center, r)), d)
+						Complex.add(Complex.mul(a, Complex.add(P, r)), b),
+						Complex.add(Complex.mul(c, Complex.add(P, r)), d)
 				)
 		).abs();
 		return new Circle(center2, radius2);
+	}
+	
+	public Moebius inv() {
+		return new Moebius(d, c.neg(), b.neg(), a);
 	}
 }

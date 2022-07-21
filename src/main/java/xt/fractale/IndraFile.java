@@ -47,7 +47,7 @@ public class IndraFile {
 	private void drawMathCircle(CoordinatesConverter cc, Graphics2D g, Circle mathCircle, int i, int j) {
 		// centre ==> centre'
 		// centre + r ==> centre' + z                 such that      |z| = r'
-		
+		System.out.println(String.format("i=%d, j=%d, %s", i, j, mathCircle.toString()));
 		
 		Complex mathCenter = mathCircle.getCenter();
 		double mathRadius = mathCircle.getRadius();
@@ -73,36 +73,46 @@ public class IndraFile {
 		Map<Integer, Moebius> gens = new TreeMap<>();
 		Map<Integer, Moebius> group = new TreeMap<>();
 		Map<Integer, Circle> circ = new TreeMap<>();
-		int lev, levmax = 5;
+		int lev, levmax = 2;
 		Map<Integer, Integer> inv = new TreeMap<>();
 		Map<Integer, Integer> num = new TreeMap<>();
 		Map<Integer, Integer> tag = new TreeMap<>();
 
-		// a :=   1 (1-i)
-		//        0   1
-
-		// A :=   1   0
-		//      (i-1) 1
-		Moebius a = new Moebius(new Complex(1.0, 0.0), new Complex(1.0, -1.0), new Complex(0.0, 0.0), new Complex(1.0, 0.0));
-		Moebius A = new Moebius(new Complex(1.0, 0.0), new Complex(0.0, 0.0), new Complex(-1.0, 1.0), new Complex(1.0, 0.0));
+		// Indra's pearls, page 170/171
+		// x = sqrt(2), y = 1
+		// u = sqrt(2), v = 1, k = 1
+		Complex I = new Complex(0.0, 1.0);
+		Complex x = new Complex(Math.sqrt(2.0), 0.0);
+		Complex y = new Complex(1.0, 0.0);
+		Complex u = new Complex(Math.sqrt(2.0), 0.0);
+		Complex v = new Complex(1.0, 0.0);
+		Complex k = new Complex(1.0, 0.0);
 		
-		Moebius b = new Moebius(new Complex(0.0, 1.0), new Complex(0.0, 0.0), new Complex(0.0, 0.0), new Complex(0.0, -1.0));
-		Moebius B = new Moebius(new Complex(0.0, -1.0), new Complex(0.0, 0.0), new Complex(0.0, 0.0), new Complex(0.0, 1.0));
+		Moebius a = new Moebius(u, Complex.mul(I, Complex.mul(v, k)), Complex.mul(I, Complex.div(v, k)).neg(), u);
+		Moebius A = a.inv();
+		Moebius b = new Moebius(x, y, y, x);
+		Moebius B = b.inv();
 		
 		gens.put(1, a);
 		gens.put(2, b);
 		gens.put(3, A);
 		gens.put(4, B);
 		
-		Circle ca = new Circle(new Complex(-1.0, +1.0), 0.8);
-		Circle cb = new Circle(new Complex(-1.0, -1.0), 0.8);
+		Circle cB = new Circle(Complex.div(x, y).neg(), 1.0 / y.re());
+		Circle cb = new Circle(Complex.div(x, y), 1.0 / y.re());
+		Circle cA = new Circle(Complex.mul(I, Complex.mul(k, Complex.div(u, v))).neg(), k.re() / v.re());
+		Circle ca = new Circle(Complex.mul(I, Complex.mul(k, Complex.div(u, v))), k.re() / v.re());
+
+		
+		System.out.println("cA = " + cA);
+		System.out.println("ca = " + ca);
+		System.out.println("a(cA) = " + a.onCircle(cA));
+		
+		/*
 		circ.put(1, ca);
 		circ.put(2, cb);
-		
-		System.out.println(b.onCircle(cb));
-		
-		circ.put(3, new Circle(new Complex(+1.0, +1.0), 0.8));
-		circ.put(4, new Circle(new Complex(+1.0, -1.0), 0.8));
+		circ.put(3, cA);
+		circ.put(4, cB);
 		
 		inv.put(1,  3);
 		inv.put(3,  1);
@@ -140,9 +150,10 @@ public class IndraFile {
 					continue;
 				}
 				Circle newcirc = group.get(i).onCircle(circ.get(j));
-				System.out.println(String.format("i=%d, j=%d, %s", i, j, newcirc.toString()));
+				
 				drawMathCircle(cc, g, newcirc, i, j);
 			}
 		}
+		*/
 	}
 }
