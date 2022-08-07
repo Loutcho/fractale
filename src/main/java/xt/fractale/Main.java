@@ -26,8 +26,8 @@ public class Main {
 	private static final String PATH = "C:\\Users\\Luc\\Desktop\\";
 
 	public static void main(String[] args) {
-		int choice = 17;
-		// for(int choice = 1; choice <= 17; choice ++)
+		int choice = 18;
+		// for(int choice = 1; choice <= 18; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -46,6 +46,7 @@ public class Main {
 		case 15: image015(); break;
 		case 16: image016(); break;
 		case 17: image017(); break;
+		case 18: image018(); break;
 		}
 	}
 
@@ -339,12 +340,16 @@ public class Main {
 	}
 	
 	/*
-	 * Experimental
+	 * 18) Fleur
+	 */
 	private static void image018() {
-		new IndraFile(
-				new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0),
-				PATH + "expo_017.png",
-				1440, 960).create();
+		new ImageFile(
+				new EscapeTimeAlgorithm(
+					new xt.function.Fleur(), new Complex(0.0, 0.0), 7, false, 2.0E11, Color.BLACK, Palette.PALETTE_018,
+					new IterationPeriodicity(3.0)
+				),
+				new MathZone(new Complex(0.0, 0.0), 1.35, 0.90, Math.PI / 2.0),
+				PATH + "expo_018.png",
+				14400, 9600).create();
 	}
-	*/
 }
