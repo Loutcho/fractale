@@ -23,11 +23,14 @@ import xt.math.Complex;
 
 public class Main {
 	
+	private static final int DIMENSION_X = 300;
+	private static final int DIMENSION_Y = 200;
+	
 	private static final String PATH = "C:\\Users\\Luc\\Desktop\\";
 
 	public static void main(String[] args) {
-		int choice = 18;
-		// for(int choice = 1; choice <= 18; choice ++)
+		// int choice = 12;
+		for(int choice = 1; choice <= 18; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -64,7 +67,7 @@ public class Main {
 				),
 				new MathZone(new Complex(-1.76208912, -0.01550358), 1.95E-7, 1.30E-7, 0.0),
 				PATH + "expo_001.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 
 	/*
@@ -78,11 +81,11 @@ public class Main {
 				),
 				new MathZone(new Complex(0.364480, 0.315382), 6E-6, 4E-6, 0.0),
 				PATH + "expo_002.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
-	 * 3) Foie
+	 * 3) Fegatello
 	 */
 	private static void image003() {
 		new ImageFile(
@@ -94,7 +97,7 @@ public class Main {
 				),
 				new MathZone(new Complex(-1.749798494, 0.000032655), 0.000000150, 0.000000100, 0.0),
 				PATH + "expo_003.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
@@ -108,11 +111,11 @@ public class Main {
 				),
 				new MathZone(new Complex(-1.250314, 0.01376), 0.000111, 0.000075, - Math.PI / 12.0),
 				PATH + "expo_004.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 
 	/*
-	 * 5) Cerveau
+	 * 5) Bouclier cérébral
 	 */
 	private static void image005() {
 		new ImageFile(
@@ -122,7 +125,7 @@ public class Main {
 				),
 				new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
 				PATH + "expo_005.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
@@ -136,11 +139,11 @@ public class Main {
 				),
 				new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0),
 				PATH + "expo_006.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
-	 * 7) Conques
+	 * 7) Vitrail de conques
 	 */
 	private static void image007() {
 		new ImageFile(
@@ -156,11 +159,11 @@ public class Main {
 				),
 				new MathZone(new Complex(0.277250, -0.006947), 0.000033, 0.000022, 0.0),
 				PATH + "expo_007.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
-	 * 8) Julia rose et bleue
+	 * 8) Nimbocumulus
 	 */
 	private static void image008() {
 		new ImageFile(
@@ -170,11 +173,11 @@ public class Main {
 				), 
 				new MathZone(new Complex(0.0, 0.0), 0.150, 0.100, Math.PI / 2.0),
 				PATH + "expo_008.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
-	 * 9) Des nichons partout
+	 * 9) Obsession
 	 */
 	private static void image009() {
 		new ImageFile(
@@ -190,11 +193,11 @@ public class Main {
 				),
 				new MathZone(new Complex(0.595, -0.190), 0.45, 0.30, 0.0),
 				PATH + "expo_009.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
-	 * 10) Domain coloring 1
+	 * 10) Délire hallucinatoire
 	 */
 	private static void image010() {
 		new ImageFile(
@@ -212,7 +215,7 @@ public class Main {
 				),
 				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
 				PATH + "expo_010.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 
 	/*
@@ -228,7 +231,7 @@ public class Main {
 				),
 				new MathZone(new Complex(-0.44, 0.0), 1.2, 0.8, Math.PI / 2.0),
 				PATH + "expo_011.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
@@ -250,11 +253,11 @@ public class Main {
 				),
 				new MathZone(new Complex(0.160, -0.230), 0.585, 0.390, - 0.72),
 				PATH + "expo_012.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 
 	/*
-	 * 13) Collatz
+	 * 13) Syracuse
 	 */
 	private static void image013() {
 		new ImageFile(
@@ -267,11 +270,11 @@ public class Main {
 				),
 				new MathZone(new Complex(-0.39962, 0.27487), 0.0018, 0.0012, 0.21),
 				PATH + "expo_013.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 
 	/*
-	 * 14) Vauban
+	 * 14) Fortification à la Vauban
 	 */
 	private static void image014() {
 		new ImageFile(
@@ -285,11 +288,11 @@ public class Main {
 				),
 				new MathZone(new Complex(0.0, 0.4655), 0.0039, 0.0026, Math.PI),
 				PATH + "expo_014.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 
 	/*
-	 * 15) Solaire
+	 * 15) Rayonnement solaire
 	 */
 	private static void image015() {
 		new ImageFile(
@@ -305,7 +308,7 @@ public class Main {
 				),
 				new MathZone(new Complex(0.0, 0.0), 1.95, 1.30, 0.0),
 				PATH + "expo_015.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
@@ -319,11 +322,11 @@ public class Main {
 				),
 				new MathZone(new Complex(-1.10175, -0.71818), 0.00270, 0.00180, 0.56),
 				PATH + "expo_016.png",
-				12000, 8000).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
-	 * 17) 14 Juillet
+	 * 17) Quatorze Juillet
 	 */
 	private static void image017() {
 		new ImageFile(
@@ -336,11 +339,11 @@ public class Main {
 				),
 				new MathZone(new Complex(0.0, 0.24), 0.48, 0.32, 0.0),
 				PATH + "expo_017.png",
-				7200, 4800).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 	
 	/*
-	 * 18) Fleur
+	 * 18) Composition florale
 	 */
 	private static void image018() {
 		new ImageFile(
@@ -350,6 +353,6 @@ public class Main {
 				),
 				new MathZone(new Complex(0.0, 0.0), 1.35, 0.90, Math.PI / 2.0),
 				PATH + "expo_018.png",
-				14400, 9600).create();
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 }
