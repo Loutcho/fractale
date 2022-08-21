@@ -14,7 +14,7 @@ public class Collatz implements Function {
 		Complex deuxpluscinqz = Complex.add(deux, cinqz);
 		Complex deuxplusseptz = Complex.add(deux, septz);
 		Complex zz = Complex.mul(deuxpluscinqz, MyMath.cos(piz));
-		zz = z.neg();
+		zz = zz.neg();
 		zz = Complex.add(zz, deuxplusseptz);
 		return Complex.mul(0.25, zz);
 	}
