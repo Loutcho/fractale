@@ -23,14 +23,14 @@ import xt.math.Complex;
 
 public class Main {
 	
-	private static final int DIMENSION_X = 300;
-	private static final int DIMENSION_Y = 200;
+	private static final int DIMENSION_X = 7200;
+	private static final int DIMENSION_Y = 4800;
 	
 	private static final String PATH = "C:\\Users\\Luc\\Desktop\\";
 
 	public static void main(String[] args) {
-		// int choice = 12;
-		for(int choice = 1; choice <= 18; choice ++)
+		int choice = 19;
+		// for(int choice = 1; choice <= 19; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -50,6 +50,7 @@ public class Main {
 		case 16: image016(); break;
 		case 17: image017(); break;
 		case 18: image018(); break;
+		case 19: image019(); break;
 		}
 	}
 
@@ -279,7 +280,7 @@ public class Main {
 	private static void image014() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.BurningShip(), new Complex(-0.5429169536138998, 0.18388394957417598), 3500, false, 2.0, Color.WHITE, Palette.PALETTE_014,
+						new xt.function.BurningShip(), new Complex(-0.5429, 0.1839), 3500, false, 2.0, Color.WHITE, Palette.PALETTE_014,
 						new Max(
 								new IterationPeriodicity(40.0, 0.15),
 								new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
@@ -355,4 +356,27 @@ public class Main {
 				PATH + "expo_018.png",
 				DIMENSION_X, DIMENSION_Y).create();
 	}
+	
+	/*
+	 * 19) 
+	 */
+	private static void image019() {
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+						new xt.function.ZPower(2), null, 10000, true, 20.0, Color.BLACK, Palette.PALETTE_019,
+						new Max(
+							new Mul(
+									new Bubble(12.0, 0.0000000, 12.0, 0.3333333, 12.0, 0.6666666),
+									new Bubble(12.0, 0.6666666, 12.0, 0.0000000, 12.0, 0.3333333)
+							),
+							new Max(
+								new AbsGradient1(1.0, 1.0, 1.0),
+								new ArgPeriodicity(0.125)
+							)
+						)
+					),
+					new MathZone(new Complex(0.3032, 0.0222), 0.0036, 0.0024, 0.0),
+					PATH + "expo_019.png",
+					DIMENSION_X, DIMENSION_Y).create();
+		}
 }

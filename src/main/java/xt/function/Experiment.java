@@ -13,9 +13,10 @@ public class Experiment implements Function {
 		List<Complex> z = new ArrayList<>();
 		List<Complex> p  = new ArrayList<>();
 
-		p.add(new Complex(-1.0, 0.0));
-		p.add(new Complex( 0.0, 1.0));
-		p.add(new Complex(+1.0, 0.0));
+		p.add(new Complex(-1.0,  0.0));
+		p.add(new Complex( 0.0, +1.0));
+		p.add(new Complex(+1.0,  0.0));
+		z.add(new Complex( 0.0, -1.0));
 		
 		r = new RationalFraction(z, p);
 	}
@@ -25,8 +26,13 @@ public class Experiment implements Function {
 		return "experiment";
 	}
 
+	private static final double C = 2.0;
+	private static final double K = 4.0;
+	
 	@Override
 	public Complex apply(Complex z) {
-		return r.apply(z);
+		double r = z.abs();
+		double t = z.arg();
+		return Complex.polar(C * Math.cos(r) * Math.cos(K * t), C * Math.sin(r) * Math.sin(K * t));
 	}
 }
