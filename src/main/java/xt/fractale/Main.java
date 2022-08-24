@@ -29,8 +29,8 @@ public class Main {
 	private static final String PATH = "C:\\Users\\Luc\\Desktop\\";
 
 	public static void main(String[] args) {
-		int choice = 19;
-		// for(int choice = 1; choice <= 19; choice ++)
+		int choice = 20;
+		// for(int choice = 1; choice <= 20; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -51,6 +51,7 @@ public class Main {
 		case 17: image017(); break;
 		case 18: image018(); break;
 		case 19: image019(); break;
+		case 20: image020(); break;
 		}
 	}
 
@@ -378,5 +379,23 @@ public class Main {
 					new MathZone(new Complex(0.3032, 0.0222), 0.0036, 0.0024, 0.0),
 					PATH + "expo_019.png",
 					DIMENSION_X, DIMENSION_Y).create();
-		}
+	}
+
+	/*
+	 * 20) Aïe j'ai mal
+	 */
+	private static void image020() {
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+						new xt.function.AieJAiMal(), null, 1000, true, 200.0, new Color(0x091A48), Palette.PALETTE_020,
+						new Max(
+							new Bubble(12.0, 0.0000000, 12.0, 0.3333333, 12.0, 0.6666666),
+							new AbsGradient1(1.0, 1.0, 1.0),
+							new ArgPeriodicity(0.125)
+						)
+					),
+					new MathZone(new Complex(-0.9, 2.4), 3.6, 2.4, 0.0),
+					PATH + "expo_020.png",
+					DIMENSION_X, DIMENSION_Y).create();
+	}
 }
