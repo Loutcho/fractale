@@ -6,7 +6,7 @@ public class AieJAiMal implements Function {
 	
 	@Override
 	public String getHumanReadableFormula() {
-		return "BaleineMourante(z)";
+		return "AieJAiMal(z)";
 	}
 
 	private static final double C = 2.0;
