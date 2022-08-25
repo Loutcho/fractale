@@ -11,6 +11,7 @@ import xt.coloralgo.effect.ImaginaryPartGrid;
 import xt.coloralgo.effect.AbsArgGradient;
 import xt.coloralgo.effect.IterationGradient;
 import xt.coloralgo.effect.AbsGradient1;
+import xt.coloralgo.effect.ArgGradient;
 import xt.coloralgo.effect.ArgGrid;
 import xt.coloralgo.effect.ArgPeriodicity;
 import xt.coloralgo.effect.IterationPeriodicity;
@@ -29,8 +30,8 @@ public class Main {
 	private static final String PATH = "C:\\Users\\Luc\\Desktop\\";
 	
 	public static void main(String[] args) {
-		int choice = 21;
-		// for(int choice = 1; choice <= 21; choice ++)
+		int choice = 22;
+		// for(int choice = 1; choice <= 22; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -53,6 +54,7 @@ public class Main {
 		case 19: image019(); break;
 		case 20: image020(); break;
 		case 21: image021(); break;
+		case 22: image022(); break;
 		}
 	}
 
@@ -419,6 +421,25 @@ public class Main {
 					),
 					new MathZone(new Complex(0.0, 0.0), 2.70, 1.80, 1.5),
 					PATH + "expo_021.png",
+					DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 22) Vampire
+	 */
+	private static void image022() {
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+						new xt.function.NidDeMonstres(), new Complex(-0.0090, 0.0385), 1000, true, 3.0E5, Color.BLACK, Palette.PALETTE_022,
+						new Pow(0.8,
+							new Max(
+									new IterationPeriodicity(66.0, 0.33),
+									new ArgGradient(1.0, 0.80, 0.75)
+							)
+						)
+					),
+					new MathZone(new Complex(0.0, -0.15), 1.05, /* 0.70 */ 0.37, 0.0),
+					PATH + "expo_022.png",
 					DIMENSION_X, DIMENSION_Y).create();
 	}
 }
