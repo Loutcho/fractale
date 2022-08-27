@@ -55,6 +55,7 @@ public class Palette {
 	public static final Palette PALETTE_020 = new Palette(BLANC, BLEU_FLAMME_DE_SOUFRE, BLANC, NOIR);
 	public static final Palette PALETTE_021 = new Palette(BLEU, AZURIN, BLANC);
 	public static final Palette PALETTE_022 = new Palette(ROUGE, NOIR, BLANC);
+	public static final Palette PALETTE_023 = new Palette(NOIR, BLEU_FRANCE, BLANC);
 	
 	private int rgb[];
 	

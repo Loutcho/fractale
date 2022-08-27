@@ -2,11 +2,11 @@ package xt.function;
 
 import xt.math.Complex;
 
-public class Experiment implements Function {
+public class F7 implements Function {
 	
 	@Override
 	public String getHumanReadableFormula() {
-		return "experiment";
+		return "F7(z)";
 	}
 
 	private static final Complex A = new Complex(0.0, 3.0);
