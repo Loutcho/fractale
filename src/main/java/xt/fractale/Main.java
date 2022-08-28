@@ -30,8 +30,8 @@ public class Main {
 	private static final String PATH = "C:\\Users\\Luc\\Desktop\\";
 	
 	public static void main(String[] args) {
-		int choice = 23;
-		// for(int choice = 1; choice <= 23; choice ++)
+		int choice = 24;
+		// for(int choice = 1; choice <= 24; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -56,6 +56,7 @@ public class Main {
 		case 21: image021(); break;
 		case 22: image022(); break;
 		case 23: image023(); break;
+		case 24: image024(); break;
 		}
 	}
 
@@ -460,6 +461,20 @@ public class Main {
 					),
 					new MathZone(new Complex(0.14, 0.35), 0.3, 0.2, 0.0),
 					PATH + "expo_023.png",
+					DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 24) Bzzz
+	 */
+	private static void image024() {
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+						new xt.function.Bzzz(), new Complex(0.0, 0.0), 1000, true, 1E12, Color.BLACK, Palette.PALETTE_024,
+						new IterationPeriodicity(15.0, 0.05)
+					),
+					new MathZone(new Complex(-0.95, 0.0), 1.65, 1.10, 0.0),
+					PATH + "expo_024.png",
 					DIMENSION_X, DIMENSION_Y).create();
 	}
 }
