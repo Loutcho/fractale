@@ -1,7 +1,6 @@
 package xt.coloralgo.effect;
 
 import xt.coloralgo.Effect;
-import xt.coloralgo.Palette;
 import xt.math.Complex;
 import xt.math.MyMath;
 
@@ -22,7 +21,7 @@ public class Bubble implements Effect {
 	}
 	
 	@Override
-	public double apply(Palette palette, int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, double iReel) {
 		return Math.max(MyMath.sqcosdemi(z.arg()), MyMath.sqcosdemi(Math.PI * (iReel / period[iColor] + phase[iColor])));
 	}
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xt.coloralgo.Effect;
-import xt.coloralgo.Palette;
 import xt.math.Complex;
 
 public class Max implements Effect {
@@ -19,13 +18,13 @@ public class Max implements Effect {
 	}
 
 	@Override
-	public double apply(Palette palette, int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, double iReel) {
 		if (effects.isEmpty()) {
 			return 1.0;
 		}
 		double max = 0.0;
 		for (Effect effect : effects) {
-			double k = effect.apply(palette, iColor, z, iReel);
+			double k = effect.apply(iColor, z, iReel);
 			if (k > max) {
 				max = k;
 			}

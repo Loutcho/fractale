@@ -1,7 +1,6 @@
 package xt.coloralgo.effect;
 
 import xt.coloralgo.Effect;
-import xt.coloralgo.Palette;
 import xt.math.Complex;
 
 public class ConstantColor implements Effect {
@@ -16,7 +15,7 @@ public class ConstantColor implements Effect {
 	}
 
 	@Override
-	public double apply(Palette palette, int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, double iReel) {
 		return tab[iColor];
 	}
 }

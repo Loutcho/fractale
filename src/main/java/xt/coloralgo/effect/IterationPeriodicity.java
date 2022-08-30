@@ -6,13 +6,16 @@ import xt.math.Complex;
 
 public class IterationPeriodicity implements Effect {
 
-	double period[];
-	double phase[];
+	private Palette palette;
+	private double period[];
+	private double phase[];
 	
 	public IterationPeriodicity(
+			Palette palette,
 			double redPeriod, double redPhase,
 			double greenPeriod, double greenPhase,
 			double bluePeriod, double bluePhase) {
+		this.palette = palette;
 		period = new double[3];
 		phase = new double[3];
 		period[0] = redPeriod;
@@ -23,7 +26,8 @@ public class IterationPeriodicity implements Effect {
 		phase[2] = bluePhase;
 	}
 	
-	public IterationPeriodicity(double period) {
+	public IterationPeriodicity(Palette palette, double period) {
+		this.palette = palette;
 		this.period = new double[3];
 		phase = new double[3];
 		this.period[0] = period;
@@ -34,7 +38,8 @@ public class IterationPeriodicity implements Effect {
 		phase[2] = 0.0;
 	}
 	
-	public IterationPeriodicity(double period, double phase) {
+	public IterationPeriodicity(Palette palette, double period, double phase) {
+		this.palette = palette;
 		this.period = new double[3];
 		this.phase = new double[3];
 		this.period[0] = period;
@@ -46,7 +51,7 @@ public class IterationPeriodicity implements Effect {
 	}
 
 	@Override
-	public double apply(Palette palette, int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, double iReel) {
 		return fonction_1periodique_amplitude1(palette, iColor, iReel / period[iColor] + phase[iColor]);
 	}
 	

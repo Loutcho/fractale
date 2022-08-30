@@ -19,20 +19,18 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	private int iMax = DEFAULT_I_MAX;
 	private boolean smoothMode;
 	private Color iMaxReachedColor;
-	private Palette palette;
 	private Effect effect;
 	private Predicate<Complex> stopCriterion;
 
 	public EscapeTimeAlgorithm(
 			Function function, Complex zJulia, int iMax, boolean smoothMode, Predicate<Complex> stopCriterion, 
-			Color iMaxReachedColor, Palette palette, Effect effect) {
+			Color iMaxReachedColor, Effect effect) {
 		this.function = function;
 		this.zJulia = zJulia;
 		this.iMax = iMax;
 		this.stopCriterion = stopCriterion;
 		this.iMaxReachedColor = iMaxReachedColor;
 		this.smoothMode = smoothMode;
-		this.palette = palette;
 		this.effect = effect;
 	}
 	
@@ -85,7 +83,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	}
 	
 	private int composanteCouleur(int iColor, double iReel, Complex z) {
-		double x = effect.apply(palette, iColor, z, iReel);
+		double x = effect.apply(iColor, z, iReel);
 		return (int)(255.0 * x);
 	}
 	

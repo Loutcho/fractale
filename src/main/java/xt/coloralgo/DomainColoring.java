@@ -8,12 +8,10 @@ import xt.math.Complex;
 public class DomainColoring implements ColorAlgo {
 
 	private Function function;
-	private Palette palette;
 	private Effect effect;
 	
-	public DomainColoring(Function function, Palette palette, Effect effect) {
+	public DomainColoring(Function function, Effect effect) {
 		this.function = function;
-		this.palette = palette;
 		this.effect = effect;
 	}
 	
@@ -35,7 +33,7 @@ public class DomainColoring implements ColorAlgo {
 	}
 	
 	private int composanteCouleur(int iColor, Complex z) {
-		double x = effect.apply(palette, iColor, z, 0.0);
+		double x = effect.apply(iColor, z, 0.0);
 		return (int)(255.0 * x);
 	}
 

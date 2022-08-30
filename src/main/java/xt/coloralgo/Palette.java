@@ -49,7 +49,7 @@ public class Palette {
 	public static final Palette PALETTE_013 = new Palette(ORANGE, NOIR, BLANC);
 	public static final Palette PALETTE_014 = new Palette(NOIR, BLANC, ROUGE);
 	public static final Palette PALETTE_015 = new Palette(CITRON, EMERAUDE, VERT_BLEU, BLEU_CIEL, AMETHYSTE, COQ_DE_ROCHE);
-	public static final Palette PALETTE_016 = new Palette();
+	// Il n'y a pas de PALETTE_016! :)
 	public static final Palette PALETTE_017 = new Palette(GRENADINE, ROUGE, BLANC, BLEU_FRANCE, BLEU_FLAMME_DE_SOUFRE, BLANC);
 	public static final Palette PALETTE_018 = new Palette(PISTACHE, BLEU_CIEL, CAPUCINE);
 	public static final Palette PALETTE_019 = new Palette(BLEU, PISTACHE, ORANGE);
