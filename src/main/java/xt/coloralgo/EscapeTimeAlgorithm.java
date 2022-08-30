@@ -2,6 +2,7 @@ package xt.coloralgo;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.function.Predicate;
 
 import xt.function.Function;
 import xt.math.Complex;
@@ -20,15 +21,15 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	private Color iMaxReachedColor;
 	private Palette palette;
 	private Effect effect;
-	private double Lmax;
+	private Predicate<Complex> stopCriterion;
 
 	public EscapeTimeAlgorithm(
-			Function function, Complex zJulia, int iMax, boolean smoothMode, double Lmax, 
+			Function function, Complex zJulia, int iMax, boolean smoothMode, Predicate<Complex> stopCriterion, 
 			Color iMaxReachedColor, Palette palette, Effect effect) {
 		this.function = function;
 		this.zJulia = zJulia;
 		this.iMax = iMax;
-		this.Lmax = Lmax;
+		this.stopCriterion = stopCriterion;
 		this.iMaxReachedColor = iMaxReachedColor;
 		this.smoothMode = smoothMode;
 		this.palette = palette;
@@ -52,23 +53,22 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		while (i < iMax) {
 			z = function.apply(z);
 			z = Complex.add(z, c);
-			double L = z.abs();
-			if (L > Lmax) {
-				return divergenceColorAlgo(i, iMax, z, L);
+			if (stopCriterion.test(z)) {
+				return divergenceColorAlgo(i, iMax, z);
 			}
 			i ++;
 		}
 		return iMaxReachedColor;
 	}
 	
-	public Color divergenceColorAlgo(int iteration, int iterationMax, Complex z, double divergence) {
+	public Color divergenceColorAlgo(int iteration, int iterationMax, Complex z) {
 		Color color = Color.BLACK;
 		int[] colors = new int[3];
 		int iColor;
 		
 		double iReel = (double) iteration;
 		if (smoothMode) {
-			iReel += MyMath.smooth(divergence);			
+			iReel += MyMath.smooth(z.abs());
 		}
 
 		for (iColor = 0; iColor < 3; iColor ++) {

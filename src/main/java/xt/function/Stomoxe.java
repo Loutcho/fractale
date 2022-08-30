@@ -3,7 +3,7 @@ package xt.function;
 import xt.math.Complex;
 import xt.math.MyMath;
 
-public class Bzzz implements Function {
+public class Stomoxe implements Function {
 	
 	@Override
 	public String getHumanReadableFormula() {
