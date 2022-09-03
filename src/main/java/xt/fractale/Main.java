@@ -35,8 +35,8 @@ public class Main {
 	private static final Predicate<Complex> ABS_GREATER_THAN_2 = new AbsGreaterThan(2.0);
 	
 	public static void main(String[] args) {
-		// int choice = 26;
-		for(int choice = 1; choice <= 26; choice ++)
+		int choice = 29;
+		// for(int choice = 1; choice <= 29; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -64,6 +64,9 @@ public class Main {
 		case 24: image024(); break;
 		case 25: image025(); break;
 		case 26: image026(); break;
+		case 27: image027(); break;
+		case 28: image028(); break;
+		case 29: image029(); break;
 		}
 	}
 
@@ -514,5 +517,72 @@ public class Main {
 					new MathZone(new Complex(13.5, 21.5), 0.5, 0.5, 0.0),
 					PATH + "expo_026.png",
 					DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 27) 100 images pour une video
+	 */
+	private static void image027() {
+		int n = 100;
+		for (int i = 0; i < n; i ++) {
+			double theta = i * 2.0 * Math.PI / n;
+			double dx = 3E-2 * Math.cos(theta);
+			double dy = 3E-2 * Math.sin(theta);
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+						new xt.function.Sylvestre(), new Complex(-0.87 + dx, -0.90 + dy), 100, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new IterationPeriodicity(Palette.PALETTE_027, 100.0, 0.40)
+					),
+					new MathZone(new Complex(-0.38, 0.0), 1.35, 0.80, - Math.PI / 2.0),
+					PATH + String.format("tmp\\expo_027_%02d.png", i),
+					DIMENSION_X, DIMENSION_Y).create();
+		}
+	}
+	
+	/*
+	 * 28) 100 images pour une video
+	 */
+	private static void image028() {
+		int n = 100;
+		for (int i = 0; i < n; i ++) {
+			System.out.println("----- " + i);
+			double t = (double) i / (double) n;
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+							new xt.function.ZPower(2), null, 2000, true, ABS_GREATER_THAN_2, Color.WHITE,
+							new Pow(0.6,
+									new Mul(
+											new IterationPeriodicity(Palette.PALETTE_007, 14.0, -t, 16.0, -2.0 * t, 20.0, -3.0 * t),
+											new Bubble(14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
+											new IterationGradient(0.004, 115.0)
+									)
+							)
+					),
+					new MathZone(new Complex(0.277250, -0.006947), 0.000033, 0.000022, 0.0),
+					PATH + String.format("tmp\\expo_028_%02d.png", i),
+					DIMENSION_X, DIMENSION_Y).create();
+		}
+	}
+	
+	/*
+	 * 29) 100 images pour une video
+	 */
+	private static void image029() {
+		final double K = 5.628559053;
+		int n = 100;
+		for (int i = 0; i < n; i ++) {
+			double t = (double) i / (double) n;
+			System.out.println("----- " + i);
+			double c = Math.exp(- K * t);
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+							new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, ABS_GREATER_THAN_2, Color.WHITE,
+							new IterationPeriodicity(Palette.PALETTE_006, 100.0, 0.95 - 0.06 * t)
+					),
+					new MathZone(new Complex(0.0 - 0.0001 * t, 1.237 + 0.000339 * t), 0.0192 * c, 0.0128 * c, -1.18 * t),
+					// new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0) --> new MathZone(new Complex(-0.0001, 1.237339), 0.000069, 0.000046, -1.18),
+					PATH + String.format("tmp\\expo_029_%02d.png", i),
+					DIMENSION_X, DIMENSION_Y).create();
+		}
 	}
 }

@@ -32,7 +32,10 @@ public class ImageFile {
 		CoordinatesConverter cc = new CoordinatesConverter(mathZone, new PixelZone(width, height));
 
 		for (int xxx = 0; xxx < width; xxx ++) {
-			System.out.println("|" + xxx);
+			if (xxx % 10 == 0) {
+				System.out.println(xxx);
+			}
+			
 			for (int yyy = 0; yyy < height; yyy ++) {
 				Complex zzz = new Complex(xxx, yyy);
 				Complex z = cc.fromPixelToMath(zzz);
