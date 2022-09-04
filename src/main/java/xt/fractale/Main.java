@@ -24,6 +24,7 @@ import xt.coloralgo.effect.RealPartGrid;
 import xt.coloralgo.stopcriterion.AbsGreaterThan;
 import xt.coloralgo.stopcriterion.AbsLessThan;
 import xt.math.Complex;
+import xt.math.MyMath;
 
 public class Main {
 	
@@ -35,8 +36,8 @@ public class Main {
 	private static final Predicate<Complex> ABS_GREATER_THAN_2 = new AbsGreaterThan(2.0);
 	
 	public static void main(String[] args) {
-		int choice = 29;
-		// for(int choice = 1; choice <= 29; choice ++)
+		int choice = 31;
+		// for(int choice = 1; choice <= 31; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -67,6 +68,8 @@ public class Main {
 		case 27: image027(); break;
 		case 28: image028(); break;
 		case 29: image029(); break;
+		case 30: image030(); break;
+		case 31: image031(); break;
 		}
 	}
 
@@ -520,11 +523,13 @@ public class Main {
 	}
 	
 	/*
-	 * 27) 100 images pour une video
+	 * 27) Méduse
+	 * 100 images pour une video cyclique
 	 */
 	private static void image027() {
 		int n = 100;
 		for (int i = 0; i < n; i ++) {
+			// Le paramètre c de Julia décrit un cercle :
 			double theta = i * 2.0 * Math.PI / n;
 			double dx = 3E-2 * Math.cos(theta);
 			double dy = 3E-2 * Math.sin(theta);
@@ -540,7 +545,8 @@ public class Main {
 	}
 	
 	/*
-	 * 28) 100 images pour une video
+	 * 28) Vitral de conques, palette changeante
+	 * 100 images pour une video cyclique
 	 */
 	private static void image028() {
 		int n = 100;
@@ -552,6 +558,7 @@ public class Main {
 							new xt.function.ZPower(2), null, 2000, true, ABS_GREATER_THAN_2, Color.WHITE,
 							new Pow(0.6,
 									new Mul(
+											// déphasages de palette
 											new IterationPeriodicity(Palette.PALETTE_007, 14.0, -t, 16.0, -2.0 * t, 20.0, -3.0 * t),
 											new Bubble(14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
 											new IterationGradient(0.004, 115.0)
@@ -565,7 +572,8 @@ public class Main {
 	}
 	
 	/*
-	 * 29) 100 images pour une video
+	 * 29) Vaisseau alien, zoom jusqu'à plus petit vaisseau alien
+	 * 100 images pour une video imparfaitement-cyclique
 	 */
 	private static void image029() {
 		final double K = 5.628559053;
@@ -583,6 +591,64 @@ public class Main {
 					// new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0) --> new MathZone(new Complex(-0.0001, 1.237339), 0.000069, 0.000046, -1.18),
 					PATH + String.format("tmp\\expo_029_%02d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
+		}
+	}
+	
+	/*
+	 * 30) Transformation du "bouclier cérébral" en "fortifications" 
+	 * 401 images pour une video
+	 */
+	private static void image030() {
+
+		// approche barycentrique
+		Complex c1 = new Complex(-0.03689236111111108, 0.28564453125);
+		Complex c2 = new Complex(-0.5429, 0.1839);
+
+		int n = 400;
+		for (int i = 0; i <= n; i ++) {
+			double t = (double) i / (double) n;
+			double s = 1.0 - t;
+			Complex c = Complex.add(Complex.mul(s, c1), Complex.mul(t, c2));
+			System.out.println("----- " + i);
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+							new xt.function.BurningShip(), c, 3500, true, ABS_GREATER_THAN_2, Color.WHITE,
+							new Max(
+									new IterationPeriodicity(Palette.PALETTE_014, s * 28.73 + t * 40.0, s * 5.0 / 6.0 + t * 0.15),
+									new Min(
+											new ConstantColor(t, t, t),
+											new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
+											new RealPartGrid(0.2, 0.2, 0.2, 0.8)											
+									)
+							)
+					),
+					new MathZone(new Complex(0.0, s * 0.58 + t * 0.4655), s * 0.225 + t * 0.0039, s * 0.150 + t * 0.0026, s * 0.0 + t * Math.PI),
+					PATH + String.format("tmp\\expo_030_%03d.png", i),
+					DIMENSION_X, DIMENSION_Y).create();
+		}
+	}
+	
+	/*
+	 * 31) Composition florale en mouvement
+	 * 600 images pour une video cyclique
+	 */
+	private static void image031() {
+		int n = 600;
+		for (int i = 0; i < n; i ++) {
+			// Le paramètre c de Julia décrit une lemniscate de Bernoulli
+			double theta = i * 2.0 * Math.PI / n;
+			double k = Math.sqrt(2.0) * Math.sin(theta) / (1.0 + MyMath.sq(Math.cos(theta)));
+			double dx = 1.0 * k;
+			double dy = dx * Math.cos(theta);
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+							new xt.function.Fleur(), new Complex(0.0 + dx, 0.0 + dy), 7, false, new AbsGreaterThan(2E11), Color.BLACK,
+							new IterationPeriodicity(Palette.PALETTE_018, 3.0)
+						),
+						new MathZone(new Complex(0.0, 0.0), 1.35, 0.90, Math.PI / 2.0),
+					PATH + String.format("tmp\\expo_031_%03d.png", i),
+					DIMENSION_X, DIMENSION_Y).create();
+			
 		}
 	}
 }
