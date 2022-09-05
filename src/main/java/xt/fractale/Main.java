@@ -74,7 +74,7 @@ public class Main {
 	}
 
 	/*
-	 * 1) Intestins
+	 * 1) Propagation
 	 */
 	private static void image001() {
 		new ImageFile(
@@ -140,7 +140,7 @@ public class Main {
 	private static void image005() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.BurningShip(), new Complex(-0.03689236111111108, 0.28564453125), 3500, true, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.BurningShip(), new Complex(-0.0369, 0.2856), 3500, true, ABS_GREATER_THAN_2, Color.WHITE,
 						new IterationPeriodicity(Palette.PALETTE_005, 28.73, 5.0 / 6.0)
 				),
 				new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
@@ -202,7 +202,7 @@ public class Main {
 	private static void image009() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.F4(), new Complex(0.7638888888888888, 0.3125), 3000, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new xt.function.F4(), new Complex(0.7639, 0.3125), 3000, true, ABS_GREATER_THAN_2, Color.BLACK,
 						new Pow(0.4,
 								new Mul(
 										new IterationPeriodicity(Palette.PALETTE_009, 33.0, 0.0),
@@ -244,7 +244,7 @@ public class Main {
 	private static void image011() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(), new Complex(-0.9567547344519107, -0.7992297832788293), 1000, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new xt.function.Sylvestre(), new Complex(-0.9568, -0.7992), 1000, true, ABS_GREATER_THAN_2, Color.BLACK,
 						new Pow(0.7,
 								new IterationPeriodicity(Palette.PALETTE_011, 84.0, 0.7)
 						)
@@ -260,7 +260,7 @@ public class Main {
 	private static void image012() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.Papillon(), new Complex(0.34722222222222215, 0.1171875), 200, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new xt.function.Papillon(), new Complex(0.3472, 0.1172), 200, true, ABS_GREATER_THAN_2, Color.BLACK,
 						new Pow(0.7,
 								new Mul(
 										new IterationPeriodicity(Palette.PALETTE_012, 8.0, 0.1),
@@ -294,7 +294,7 @@ public class Main {
 	}
 
 	/*
-	 * 14) Fortification à la Vauban
+	 * 14) Fortifications
 	 */
 	private static void image014() {
 		new ImageFile(
