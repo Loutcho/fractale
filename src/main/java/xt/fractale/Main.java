@@ -36,7 +36,7 @@ public class Main {
 	private static final Predicate<Complex> ABS_GREATER_THAN_2 = new AbsGreaterThan(2.0);
 	
 	public static void main(String[] args) {
-		int choice = 31;
+		int choice = 30;
 		// for(int choice = 1; choice <= 31; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
@@ -596,17 +596,15 @@ public class Main {
 	
 	/*
 	 * 30) Transformation du "bouclier cérébral" en "fortifications" 
-	 * 401 images pour une video
+	 * 451 images pour une video
 	 */
 	private static void image030() {
 
-		// approche barycentrique
 		Complex c1 = new Complex(-0.03689236111111108, 0.28564453125);
 		Complex c2 = new Complex(-0.5429, 0.1839);
-
-		int n = 400;
-		for (int i = 0; i <= n; i ++) {
-			double t = (double) i / (double) n;
+		int i = 0;
+		while (i <= 400) {
+			double t = (double) i / (double) 400.0;
 			double s = 1.0 - t;
 			Complex c = Complex.add(Complex.mul(s, c1), Complex.mul(t, c2));
 			System.out.println("----- " + i);
@@ -625,6 +623,25 @@ public class Main {
 					new MathZone(new Complex(0.0, s * 0.58 + t * 0.4655), s * 0.225 + t * 0.0039, s * 0.150 + t * 0.0026, s * 0.0 + t * Math.PI),
 					PATH + String.format("tmp\\expo_030_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
+			i ++;
+		}
+		while (i <= 450) {
+			double t = (double) (i - 400) / 50.0;
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+							new xt.function.BurningShip(), c2, 3500, true, ABS_GREATER_THAN_2, Color.WHITE,
+							new Max(
+									new IterationPeriodicity(Palette.PALETTE_014, 40.0, 0.15 + t),
+									new Min(
+											new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
+											new RealPartGrid(0.2, 0.2, 0.2, 0.8)											
+									)
+							)
+					),
+					new MathZone(new Complex(0.0, 0.4655), 0.0039, 0.0026, Math.PI),
+					PATH + String.format("tmp\\expo_030_%03d.png", i),
+					DIMENSION_X, DIMENSION_Y).create();
+			i ++;
 		}
 	}
 	
