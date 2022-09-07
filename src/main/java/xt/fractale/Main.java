@@ -1,7 +1,6 @@
 package xt.fractale;
 
 import java.awt.Color;
-import java.util.function.Predicate;
 
 import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
@@ -33,11 +32,9 @@ public class Main {
 	
 	private static String PATH = System.getenv("FRACTALE_HOME");
 
-	private static final Predicate<Complex> ABS_GREATER_THAN_2 = new AbsGreaterThan(2.0);
-	
 	public static void main(String[] args) {
-		int choice = 30;
-		// for(int choice = 1; choice <= 31; choice ++)
+		int choice = 32;
+		// for(int choice = 1; choice <= 32; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -70,6 +67,7 @@ public class Main {
 		case 29: image029(); break;
 		case 30: image030(); break;
 		case 31: image031(); break;
+		case 32: image032(); break;
 		}
 	}
 
@@ -79,7 +77,7 @@ public class Main {
 	private static void image001() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 120, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new xt.function.ZPower(2), null, 120, true, new AbsGreaterThan(2.0), Color.BLACK,
 						new Mul(
 								new IterationPeriodicity(Palette.PALETTE_001, 55.0, 0.65),
 								new AbsArgGradient()
@@ -96,7 +94,7 @@ public class Main {
 	private static void image002() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 5000, true, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.ZPower(2), null, 5000, true, new AbsGreaterThan(2.0), Color.WHITE,
 						new IterationPeriodicity(Palette.PALETTE_002, 384.0, 0.333333333)
 				),
 				new MathZone(new Complex(0.364480, 0.315382), 6E-6, 4E-6, 0.0),
@@ -110,7 +108,7 @@ public class Main {
 	private static void image003() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 5000, true, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.ZPower(2), null, 5000, true, new AbsGreaterThan(2.0), Color.WHITE,
 						new Pow(1.5,
 								new IterationPeriodicity(Palette.PALETTE_003, 48.0, 0.0)
 						)
@@ -126,7 +124,7 @@ public class Main {
 	private static void image004() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 15000, true, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.ZPower(2), null, 15000, true, new AbsGreaterThan(2.0), Color.WHITE,
 						new IterationPeriodicity(Palette.PALETTE_004, 226.0, 0.50)
 				),
 				new MathZone(new Complex(-1.250314, 0.01376), 0.000111, 0.000075, - Math.PI / 12.0),
@@ -140,7 +138,7 @@ public class Main {
 	private static void image005() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.BurningShip(), new Complex(-0.0369, 0.2856), 3500, true, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.BurningShip(), new Complex(-0.0369, 0.2856), 3500, true, new AbsGreaterThan(2.0), Color.WHITE,
 						new IterationPeriodicity(Palette.PALETTE_005, 28.73, 5.0 / 6.0)
 				),
 				new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
@@ -154,7 +152,7 @@ public class Main {
 	private static void image006() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, new AbsGreaterThan(2.0), Color.WHITE,
 						new IterationPeriodicity(Palette.PALETTE_006, 100.0, 0.95)
 				),
 				new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0),
@@ -168,7 +166,7 @@ public class Main {
 	private static void image007() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 2000, true, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.ZPower(2), null, 2000, true, new AbsGreaterThan(2.0), Color.WHITE,
 						new Pow(0.7,
 								new Mul(
 										new IterationPeriodicity(Palette.PALETTE_007, 14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
@@ -188,7 +186,7 @@ public class Main {
 	private static void image008() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), new Complex(-1.749272, -2.16E-4), 3000, true, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.ZPower(2), new Complex(-1.749272, -2.16E-4), 3000, true, new AbsGreaterThan(2.0), Color.WHITE,
 						new IterationPeriodicity(Palette.PALETTE_008, 50.0, 0.5)
 				), 
 				new MathZone(new Complex(0.0, 0.0), 0.150, 0.100, Math.PI / 2.0),
@@ -202,7 +200,7 @@ public class Main {
 	private static void image009() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.F4(), new Complex(0.7639, 0.3125), 3000, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new xt.function.F4(), new Complex(0.7639, 0.3125), 3000, true, new AbsGreaterThan(2.0), Color.BLACK,
 						new Pow(0.4,
 								new Mul(
 										new IterationPeriodicity(Palette.PALETTE_009, 33.0, 0.0),
@@ -244,7 +242,7 @@ public class Main {
 	private static void image011() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(), new Complex(-0.9568, -0.7992), 1000, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new xt.function.Sylvestre(), new Complex(-0.9568, -0.7992), 1000, true, new AbsGreaterThan(2.0), Color.BLACK,
 						new Pow(0.7,
 								new IterationPeriodicity(Palette.PALETTE_011, 84.0, 0.7)
 						)
@@ -260,7 +258,7 @@ public class Main {
 	private static void image012() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.Papillon(), new Complex(0.3472, 0.1172), 200, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new xt.function.Papillon(), new Complex(0.3472, 0.1172), 200, true, new AbsGreaterThan(2.0), Color.BLACK,
 						new Pow(0.7,
 								new Mul(
 										new IterationPeriodicity(Palette.PALETTE_012, 8.0, 0.1),
@@ -299,7 +297,7 @@ public class Main {
 	private static void image014() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-						new xt.function.BurningShip(), new Complex(-0.5429, 0.1839), 3500, false, ABS_GREATER_THAN_2, Color.WHITE,
+						new xt.function.BurningShip(), new Complex(-0.5429, 0.1839), 3500, false, new AbsGreaterThan(2.0), Color.WHITE,
 						new Max(
 								new IterationPeriodicity(Palette.PALETTE_014, 40.0, 0.15),
 								new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
@@ -351,7 +349,7 @@ public class Main {
 	private static void image017() {
 		new ImageFile(
 				new EscapeTimeAlgorithm(
-					new xt.function.QuatorzeJuillet(), new Complex(0.0, 1.8), 100, false, ABS_GREATER_THAN_2, Color.BLACK,
+					new xt.function.QuatorzeJuillet(), new Complex(0.0, 1.8), 100, false, new AbsGreaterThan(2.0), Color.BLACK,
 					new Mul(
 						new ArgPeriodicity(Palette.PALETTE_017, 1.0, 1.0 / 12.0),
 						new IterationGradient(0.05, 0.0)
@@ -535,7 +533,7 @@ public class Main {
 			double dy = 3E-2 * Math.sin(theta);
 			new ImageFile(
 					new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(), new Complex(-0.87 + dx, -0.90 + dy), 100, true, ABS_GREATER_THAN_2, Color.BLACK,
+						new xt.function.Sylvestre(), new Complex(-0.87 + dx, -0.90 + dy), 100, true, new AbsGreaterThan(2.0), Color.BLACK,
 						new IterationPeriodicity(Palette.PALETTE_027, 100.0, 0.40)
 					),
 					new MathZone(new Complex(-0.38, 0.0), 1.35, 0.80, - Math.PI / 2.0),
@@ -555,7 +553,7 @@ public class Main {
 			double t = (double) i / (double) n;
 			new ImageFile(
 					new EscapeTimeAlgorithm(
-							new xt.function.ZPower(2), null, 2000, true, ABS_GREATER_THAN_2, Color.WHITE,
+							new xt.function.ZPower(2), null, 2000, true, new AbsGreaterThan(2.0), Color.WHITE,
 							new Pow(0.6,
 									new Mul(
 											// déphasages de palette
@@ -584,7 +582,7 @@ public class Main {
 			double c = Math.exp(- K * t);
 			new ImageFile(
 					new EscapeTimeAlgorithm(
-							new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, ABS_GREATER_THAN_2, Color.WHITE,
+							new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, new AbsGreaterThan(2.0), Color.WHITE,
 							new IterationPeriodicity(Palette.PALETTE_006, 100.0, 0.95 - 0.06 * t)
 					),
 					new MathZone(new Complex(0.0 - 0.0001 * t, 1.237 + 0.000339 * t), 0.0192 * c, 0.0128 * c, -1.18 * t),
@@ -596,23 +594,36 @@ public class Main {
 	
 	/*
 	 * 30) Transformation du "bouclier cérébral" en "fortifications" 
-	 * 451 images pour une video
+	 * 500 images pour une video
 	 */
 	private static void image030() {
 
 		Complex c1 = new Complex(-0.03689236111111108, 0.28564453125);
 		Complex c2 = new Complex(-0.5429, 0.1839);
 		int i = 0;
-		while (i <= 400) {
-			double t = (double) i / (double) 400.0;
-			double s = 1.0 - t;
-			Complex c = Complex.add(Complex.mul(s, c1), Complex.mul(t, c2));
+		while (i < 50) {
 			System.out.println("----- " + i);
+			double t = (double) (i - 50) / 50.0;
 			new ImageFile(
 					new EscapeTimeAlgorithm(
-							new xt.function.BurningShip(), c, 3500, true, ABS_GREATER_THAN_2, Color.WHITE,
+							new xt.function.BurningShip(), c1, 3500, true, new AbsGreaterThan(2.0), Color.WHITE,
+							new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, 0x007700), 28.73, 5.0 / 6.0 + t)
+					),
+					new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0),
+					PATH + String.format("tmp\\expo_030_%03d.png", i),
+					DIMENSION_X, DIMENSION_Y).create();
+			i ++;
+		}
+		while (i < 450) {
+			System.out.println("----- " + i);
+			double t = (double) (i - 50) / (double) 400.0;
+			double s = 1.0 - t;
+			Complex c = Complex.add(Complex.mul(s, c1), Complex.mul(t, c2));
+			new ImageFile(
+					new EscapeTimeAlgorithm(
+							new xt.function.BurningShip(), c, 3500, true, new AbsGreaterThan(2.0), Color.WHITE,
 							new Max(
-									new IterationPeriodicity(Palette.PALETTE_014, s * 28.73 + t * 40.0, s * 5.0 / 6.0 + t * 0.15),
+									new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, ((int) (t * 0xFF)) << 2), s * 28.73 + t * 40.0, s * 5.0 / 6.0 + t * 0.15),
 									new Min(
 											new ConstantColor(t, t, t),
 											new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
@@ -625,13 +636,14 @@ public class Main {
 					DIMENSION_X, DIMENSION_Y).create();
 			i ++;
 		}
-		while (i <= 450) {
-			double t = (double) (i - 400) / 50.0;
+		while (i < 500) {
+			System.out.println("----- " + i);
+			double t = (double) (i - 450) / 50.0;
 			new ImageFile(
 					new EscapeTimeAlgorithm(
-							new xt.function.BurningShip(), c2, 3500, true, ABS_GREATER_THAN_2, Color.WHITE,
+							new xt.function.BurningShip(), c2, 3500, true, new AbsGreaterThan(2.0), Color.WHITE,
 							new Max(
-									new IterationPeriodicity(Palette.PALETTE_014, 40.0, 0.15 + t),
+									new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, 0xFF0000), 40.0, 0.15 + t),
 									new Min(
 											new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
 											new RealPartGrid(0.2, 0.2, 0.2, 0.8)											
@@ -667,5 +679,22 @@ public class Main {
 					DIMENSION_X, DIMENSION_Y).create();
 			
 		}
+	}
+	
+	/*
+	 * 32) Bêtises de Cambrai
+	 */
+	private static void image032() {
+		new ImageFile(
+				new EscapeTimeAlgorithm(
+						new xt.function.Collatz2(), new Complex(0.0, -0.0025), 2000, true, new AbsGreaterThan(1.75), Color.BLACK,
+						new Mul(
+								new IterationPeriodicity(Palette.PALETTE_032, 33.0),
+								new Bubble(50.0, 0.0, 50.0, 0.2, 50.0, 1.0)
+						)
+				),
+				new MathZone(new Complex(-0.00820, 0.00786), 0.0054, 0.0036, 0.4),
+				PATH + "expo_032.png",
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 }

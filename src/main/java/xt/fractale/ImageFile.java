@@ -32,7 +32,7 @@ public class ImageFile {
 		CoordinatesConverter cc = new CoordinatesConverter(mathZone, new PixelZone(width, height));
 
 		for (int xxx = 0; xxx < width; xxx ++) {
-			if (xxx % 10 == 0) {
+			if (xxx % 100 == 0) {
 				System.out.println(xxx);
 			}
 			
