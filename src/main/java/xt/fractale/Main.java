@@ -19,8 +19,8 @@ public class Main {
 	private static String PATH = System.getenv("FRACTALE_HOME");
 
 	public static void main(String[] args) {
-		int choice = 38;
-		// for(int choice = 1; choice <= 38; choice ++)
+		int choice = 39;
+		// for(int choice = 1; choice <= 39; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -60,6 +60,7 @@ public class Main {
 		case 36: image036(); break;
 		case 37: image037(); break;
 		case 38: image038(); break;
+		case 39: image039(); break;
 		}
 	}
 
@@ -753,9 +754,39 @@ public class Main {
 	 */
 	private static void image038() {
 		new ImageFile(
-				new DomainColoring(new xt.function.ZPower(2), new SpecialColorFunction1()),
+				new DomainColoring(new xt.function.F2(), new SpecialColorFunction1()),
 				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
 				PATH + "expo_038.png",
 				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 39) Délire hallucinatoire : changement de fonction de coloriage par transition barycentrique
+	 * 101 images pour une video non cyclique 
+	 */
+	private static void image039() {
+		int n = 100;
+		for (int i = 0; i <= n; i ++) {
+			double t = (double) i / (double) n;
+			double s = 1.0 - t;
+			new ImageFile(
+					new DomainColoring(new xt.function.F2(),
+							new Barycenter(
+									s, new Pow(0.5,
+										new Mul(
+												new ArgPeriodicity(Palette.PALETTE_010, 0.5),
+												new Max(
+														new RealPartGrid(0.05, 1.0, 1.0, 1.0),
+														new ImaginaryPartGrid(0.05, 1.0, 1.0, 1.0)
+												)
+										)
+									),
+									t, new SpecialColorFunction1()
+							)
+					),
+					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+					PATH + String.format("tmp\\expo_039_%03d.png", i),
+					DIMENSION_X, DIMENSION_Y).create();
+		}
 	}
 }
