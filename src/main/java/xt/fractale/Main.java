@@ -5,21 +5,7 @@ import java.awt.Color;
 import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.Palette;
-import xt.coloralgo.effect.Bubble;
-import xt.coloralgo.effect.ConstantColor;
-import xt.coloralgo.effect.ImaginaryPartGrid;
-import xt.coloralgo.effect.AbsArgGradient;
-import xt.coloralgo.effect.IterationGradient;
-import xt.coloralgo.effect.AbsGradient1;
-import xt.coloralgo.effect.ArgGradient;
-import xt.coloralgo.effect.ArgGrid;
-import xt.coloralgo.effect.ArgPeriodicity;
-import xt.coloralgo.effect.IterationPeriodicity;
-import xt.coloralgo.effect.Max;
-import xt.coloralgo.effect.Min;
-import xt.coloralgo.effect.Mul;
-import xt.coloralgo.effect.Pow;
-import xt.coloralgo.effect.RealPartGrid;
+import xt.coloralgo.effect.*;
 import xt.coloralgo.stopcriterion.AbsGreaterThan;
 import xt.coloralgo.stopcriterion.AbsLessThan;
 import xt.math.Complex;
@@ -33,8 +19,8 @@ public class Main {
 	private static String PATH = System.getenv("FRACTALE_HOME");
 
 	public static void main(String[] args) {
-		int choice = 32;
-		// for(int choice = 1; choice <= 32; choice ++)
+		int choice = 38;
+		// for(int choice = 1; choice <= 38; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -68,6 +54,12 @@ public class Main {
 		case 30: image030(); break;
 		case 31: image031(); break;
 		case 32: image032(); break;
+		case 33: image033(); break;
+		case 34: image034(); break;
+		case 35: image035(); break;
+		case 36: image036(); break;
+		case 37: image037(); break;
+		case 38: image038(); break;
 		}
 	}
 
@@ -695,6 +687,75 @@ public class Main {
 				),
 				new MathZone(new Complex(-0.00820, 0.00786), 0.0054, 0.0036, 0.4),
 				PATH + "expo_032.png",
+				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 33) Special Color Function 1 - identité (= légende)
+	 */
+	private static void image033() {
+		new ImageFile(
+				new DomainColoring(
+						new xt.function.Identity(),
+						new SpecialColorFunction1()
+				),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_033.png",
+				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 34) Special Color Function 1 - cosinus
+	 */
+	private static void image034() {
+		new ImageFile(
+				new DomainColoring(new xt.function.Cos(), new SpecialColorFunction1()),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_034.png",
+				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 35) Special Color Function 1 - sinus
+	 */
+	private static void image035() {
+		new ImageFile(
+				new DomainColoring(new xt.function.Sin(), new SpecialColorFunction1()),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_035.png",
+				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 36) Special Color Function 1 - tangente
+	 */
+	private static void image036() {
+		new ImageFile(
+				new DomainColoring(new xt.function.Tan(), new SpecialColorFunction1()),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_036.png",
+				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 37) Special Color Function 1 - exponentielle
+	 */
+	private static void image037() {
+		new ImageFile(
+				new DomainColoring(new xt.function.Exponential(), new SpecialColorFunction1()),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_037.png",
+				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 38) Special Color Function 1 - carré
+	 */
+	private static void image038() {
+		new ImageFile(
+				new DomainColoring(new xt.function.ZPower(2), new SpecialColorFunction1()),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_038.png",
 				DIMENSION_X, DIMENSION_Y).create();
 	}
 }
