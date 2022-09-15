@@ -1,7 +1,6 @@
 package xt.fractale;
 
 import xt.coloralgo.ColorAlgo;
-import xt.function.Function;
 import xt.graph.Graph;
 import xt.math.Complex;
 
@@ -9,13 +8,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.function.Function;
 
 class MyKeyListener extends KeyAdapter {
 
-	private Function function;
+	private Function<Complex, Complex> function;
 	private ColorAlgo colorAlgo;
 
-	public MyKeyListener(Function function, ColorAlgo colorAlgo) {
+	public MyKeyListener(Function<Complex, Complex> function, ColorAlgo colorAlgo) {
 		this.function = function;
 		this.colorAlgo = colorAlgo;
 	}

@@ -1,8 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class F3 implements Function {
+public class F3 implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {
@@ -14,10 +16,5 @@ public class F3 implements Function {
 			return new Complex(0.0, 0.0);
 		}
 		return Complex.mul(z, new Complex(sx / Math.log(Math.atan(Math.abs(x)) / (Math.PI / 2.0)), sy / Math.log(Math.atan(Math.abs(y)) / (Math.PI / 2.0))));
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "f3(z)";
 	}
 }

@@ -19,8 +19,8 @@ public class Main {
 	private static String PATH = System.getenv("FRACTALE_HOME");
 
 	public static void main(String[] args) {
-		int choice = 39;
-		// for(int choice = 1; choice <= 39; choice ++)
+		int choice = 42;
+		// for(int choice = 1; choice <= 42; choice ++)
 		switch (choice) {
 		case  1: image001(); break;
 		case  2: image002(); break;
@@ -61,6 +61,9 @@ public class Main {
 		case 37: image037(); break;
 		case 38: image038(); break;
 		case 39: image039(); break;
+		case 40: image040(); break;
+		case 41: image041(); break;
+		case 42: image042(); break;
 		}
 	}
 
@@ -754,7 +757,7 @@ public class Main {
 	 */
 	private static void image038() {
 		new ImageFile(
-				new DomainColoring(new xt.function.F2(), new SpecialColorFunction1()),
+				new DomainColoring(new xt.function.ZPower(2), new SpecialColorFunction1()),
 				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
 				PATH + "expo_038.png",
 				DIMENSION_X, DIMENSION_Y).create();
@@ -788,5 +791,38 @@ public class Main {
 					PATH + String.format("tmp\\expo_039_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 		}
+	}
+	
+	/*
+	 * 40) Special Color Function 1 - fonction "Sylvestre" 
+	 */
+	private static void image040() {
+		new ImageFile(
+				new DomainColoring(new xt.function.Sylvestre(), new SpecialColorFunction1()),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_040.png",
+				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 41) Special Color Function 1 - fonction "Papillon" 
+	 */
+	private static void image041() {
+		new ImageFile(
+				new DomainColoring(new xt.function.Papillon(), new SpecialColorFunction1()),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_041.png",
+				DIMENSION_X, DIMENSION_Y).create();
+	}
+	
+	/*
+	 * 42) Special Color Function 1 - fonction "NidDeMonstres" 
+	 */
+	private static void image042() {
+		new ImageFile(
+				new DomainColoring(new xt.function.NidDeMonstres(), new SpecialColorFunction1()),
+				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0),
+				PATH + "expo_042.png",
+				DIMENSION_X, DIMENSION_Y).create();
 	}
 }

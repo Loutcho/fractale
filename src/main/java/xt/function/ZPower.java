@@ -1,8 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class ZPower implements Function {
+public class ZPower implements Function<Complex, Complex> {
 
 	private Integer n;
 	private Double nn;
@@ -36,10 +38,4 @@ public class ZPower implements Function {
 			return Complex.mul(r, Complex.ei(t));
 		}
 	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return String.format("z^%d", n);
-	}
-
 }

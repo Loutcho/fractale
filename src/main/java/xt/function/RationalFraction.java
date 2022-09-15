@@ -1,10 +1,11 @@
 package xt.function;
 
 import java.util.List;
+import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class RationalFraction implements Function {
+public class RationalFraction implements Function<Complex, Complex> {
 
 	private List<Complex> zeros;
 	private List<Complex> poles;
@@ -24,21 +25,5 @@ public class RationalFraction implements Function {
 			accu = Complex.div(accu, Complex.sub(z, pole));
 		}
 		return accu;
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("(");
-		for (Complex pole: poles) {
-			sb.append(String.format("(z - (%s))", pole.toString()));
-		}
-		sb.append(") / (");
-		for (Complex zero: zeros) {
-
-			sb.append(String.format("(z - (%s))", zero.toString()));
-		}
-		sb.append(")");
-		return sb.toString();
 	}
 }

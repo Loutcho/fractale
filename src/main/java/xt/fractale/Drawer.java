@@ -6,9 +6,9 @@ import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.function.Function;
 
 import xt.coloralgo.*;
-import xt.function.*;
 import xt.math.Complex;
 import xt.graph.Graph;
 import xt.sound.Sound;
@@ -153,7 +153,7 @@ public class Drawer extends Graph {
 	}
 	*/
 
-	public static void function(double xMin, double yMin, double xMax, double yMax, Function function, ColorAlgo colorAlgo) {
+	public static void function(double xMin, double yMin, double xMax, double yMax, Function<Complex, Complex> function, ColorAlgo colorAlgo) {
 		zone = new MathZone(new Complex(xMin + xMax, yMin + yMax), 1.0, 1.0, 0.0); //FIXME
 		drawingMode = DrawingMode.FUNCTION;
 		Drawer f = new Drawer();
@@ -186,7 +186,7 @@ public class Drawer extends Graph {
 		System.exit(0);
 	}
 
-	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function function, ColorAlgo colorAlgo) {
+	public static void fractal(double xMin, double yMin, double xMax, double yMax, Function<Complex, Complex> function, ColorAlgo colorAlgo) {
 		zone = new MathZone(new Complex(xMin + xMax, yMin + yMax), 1.0, 1.0, 0.0); //FIXME
 		drawingMode = DrawingMode.FRACTAL;
 		Drawer f = new Drawer();
@@ -219,7 +219,7 @@ public class Drawer extends Graph {
 		System.exit(0);
 	}
 
-	public static void draw(Graphics graphics, Rectangle rectangle, Function function, ColorAlgo colorAlgo) {
+	public static void draw(Graphics graphics, Rectangle rectangle, Function<Complex, Complex> function, ColorAlgo colorAlgo) {
 		int ix, iy;
 		int granu;
 		int cote, nx, ny;
@@ -266,13 +266,13 @@ public class Drawer extends Graph {
 		}
 	}
 
-	public static void saveParameters(String outFileName, Function function, ColorAlgo colorAlgo) {
+	public static void saveParameters(String outFileName, Function<Complex, Complex> function, ColorAlgo colorAlgo) {
 		BufferedWriter bw = null;
 
 		try {
 			bw = new BufferedWriter(new FileWriter("G:\\Fractales\\" + "Coords.txt", true));
 			bw.write("filename = " + outFileName + ";\n");
-			bw.write(function.getHumanReadableFormula());
+			bw.write(function.toString());
 			bw.write(colorAlgo != null ? colorAlgo.toString() : "");
 			//bw.write(functionColorAlgo.toString());
 			/*

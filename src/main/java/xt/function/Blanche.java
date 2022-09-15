@@ -2,17 +2,17 @@ package xt.function;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class Blanche implements Function {
+public class Blanche implements Function<Complex, Complex> {
 
 	private RationalFraction r;
 	
 	private final double DEG = Math.PI / 180.0;
 	
-	public Blanche()
-	{
+	public Blanche() {
 		List<Complex> z = new ArrayList<>();
 		List<Complex> p  = new ArrayList<>();
 		
@@ -45,10 +45,5 @@ public class Blanche implements Function {
 	public Complex apply(Complex z)
 	{
 		return r.apply(z);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return r.getHumanReadableFormula();
 	}
 }

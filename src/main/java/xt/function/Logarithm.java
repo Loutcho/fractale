@@ -1,8 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class Logarithm implements Function {
+public class Logarithm implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {
@@ -16,10 +18,5 @@ public class Logarithm implements Function {
 			return new Complex(Math.log(r), Math.PI);
 		}
 		return zz;
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "log(z)";
 	}
 }

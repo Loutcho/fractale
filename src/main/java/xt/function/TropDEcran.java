@@ -1,13 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class TropDEcran implements Function {
-	
-	@Override
-	public String getHumanReadableFormula() {
-		return "TropDEcran(z)";
-	}
+public class TropDEcran implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {

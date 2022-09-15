@@ -1,8 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class Sylvestre implements Function {
+public class Sylvestre implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {
@@ -11,10 +13,5 @@ public class Sylvestre implements Function {
 		r = r * r;
 		theta = Math.PI * Math.cos(theta / 2.0);
 		return Complex.polar(r, theta);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "Sylvestre(z)";
 	}
 }

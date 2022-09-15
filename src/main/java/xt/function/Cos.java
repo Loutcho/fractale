@@ -1,17 +1,14 @@
 package xt.function;
 
-import xt.math.MyMath;
-import xt.math.Complex;
+import java.util.function.Function;
 
-public class Cos implements Function {
+import xt.math.Complex;
+import xt.math.MyMath;
+
+public class Cos implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {
 		return MyMath.cos(z);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "cos(z)";
 	}
 }

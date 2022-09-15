@@ -1,14 +1,11 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class AieJAiMal implements Function {
+public class AieJAiMal implements Function<Complex, Complex> {
 	
-	@Override
-	public String getHumanReadableFormula() {
-		return "AieJAiMal(z)";
-	}
-
 	private static final double C = 2.0;
 	private static final double K = 4.0;
 	

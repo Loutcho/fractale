@@ -1,8 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class Heart implements Function {
+public class Heart implements Function<Complex, Complex> {
 
 	public Complex apply(Complex z) {
 		Complex un = new Complex(1.0, 0.0);
@@ -10,10 +12,5 @@ public class Heart implements Function {
 		Logarithm log = new Logarithm();
 		Complex zz = log.apply(Complex.add(un, exp.apply(z)));
 		return zz;
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "heart(z)";
 	}
 }

@@ -2,10 +2,11 @@ package xt.function;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class Hiroshima implements Function {
+public class Hiroshima implements Function<Complex, Complex> {
 
 	RationalFraction r;
 	
@@ -20,10 +21,5 @@ public class Hiroshima implements Function {
 	
 	public Complex apply(Complex z) {
 		return r.apply(z);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "Hiroshima(z)";
 	}
 }

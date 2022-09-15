@@ -2,10 +2,11 @@ package xt.function;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class F5 implements Function {
+public class F5 implements Function<Complex, Complex> {
 
 	private RationalFraction r;
 
@@ -32,10 +33,5 @@ public class F5 implements Function {
 	@Override
 	public Complex apply(Complex z) {
 		return r.apply(z);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "F5(z)";
 	}
 }

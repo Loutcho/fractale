@@ -1,8 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class MoebiusTenthRootOfUnity implements Function {
+public class MoebiusTenthRootOfUnity implements Function<Complex, Complex> {
 
 	public Complex apply(Complex z) {
 		Complex accu = new Complex(1.0, 0.0);
@@ -32,10 +34,5 @@ public class MoebiusTenthRootOfUnity implements Function {
 			accu = Complex.div(accu, Complex.sub(z, z0));
 		}
 		return accu;
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "experiment";
 	}
 }

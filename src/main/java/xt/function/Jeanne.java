@@ -2,15 +2,15 @@ package xt.function;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class Jeanne implements Function {
+public class Jeanne implements Function<Complex, Complex> {
 
 	private RationalFraction r;
 	
-	public Jeanne()
-	{
+	public Jeanne() {
 		List<Complex> z = new ArrayList<>();
 		List<Complex> p  = new ArrayList<>();
 		
@@ -56,13 +56,7 @@ public class Jeanne implements Function {
 		r = new RationalFraction(z, p);
 	}
 	
-	public Complex apply(Complex z)
-	{
+	public Complex apply(Complex z) {
 		return r.apply(z);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return r.getHumanReadableFormula();
 	}
 }

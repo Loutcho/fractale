@@ -2,10 +2,11 @@ package xt.function;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class QuatorzeJuillet implements Function {
+public class QuatorzeJuillet implements Function<Complex, Complex> {
 	
 	private RationalFraction r;
 
@@ -18,11 +19,6 @@ public class QuatorzeJuillet implements Function {
 		p.add(new Complex(+1.0, 0.0));
 		
 		r = new RationalFraction(z, p);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return r.getHumanReadableFormula();
 	}
 
 	@Override

@@ -1,9 +1,12 @@
 package xt.function;
 
 import xt.math.MyMath;
+
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class Collatz implements Function {
+public class Collatz implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {
@@ -17,10 +20,5 @@ public class Collatz implements Function {
 		zz = zz.neg();
 		zz = Complex.add(zz, deuxplusseptz);
 		return Complex.mul(0.25, zz);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "Collatz(z)";
 	}
 }

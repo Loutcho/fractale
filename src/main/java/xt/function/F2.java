@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class F2 implements Function {
+public class F2 implements Function<Complex, Complex> {
 
 	RationalFraction r;
 	
-	public F2()
-	{
+	public F2() {
 		Map<Integer, List<Complex>> p = new HashMap<Integer, List<Complex>>();
 		List<Complex> l;
 
@@ -36,13 +36,7 @@ public class F2 implements Function {
 		r = new RationalFraction(p.get(0), p.get(1));
 	}
 	
-	public Complex apply(Complex z)
-	{
+	public Complex apply(Complex z) {
 		return r.apply(z);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return r.getHumanReadableFormula();
 	}
 }

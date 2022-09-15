@@ -1,15 +1,12 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 import xt.math.MyMath;
 
-public class Stomoxe implements Function {
+public class Stomoxe implements Function<Complex, Complex> {
 	
-	@Override
-	public String getHumanReadableFormula() {
-		return "Bzzz(z)";
-	}
-
 	private static final Complex One = new Complex(1.0, 0.0);
 	
 	private static Complex t(Complex z) {

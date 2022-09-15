@@ -1,17 +1,15 @@
 package xt.function;
 
 import xt.math.MyMath;
+
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class Sin implements Function {
+public class Sin implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {
 		return MyMath.sin(z);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "sin(z)";
 	}
 }

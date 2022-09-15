@@ -1,14 +1,11 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 import xt.math.MyMath;
 
-public class Demonologie implements Function {
-	
-	@Override
-	public String getHumanReadableFormula() {
-		return "Demonologie(z)";
-	}
+public class Demonologie implements Function<Complex, Complex> {
 
 	private static final Complex One = new Complex(1.0, 0.0);
 	

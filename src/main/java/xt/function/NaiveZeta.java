@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
-public class NaiveZeta implements Function {
+public class NaiveZeta implements Function<Complex, Complex> {
 
 	RationalFraction r;
 
-	public NaiveZeta()
-	{
+	public NaiveZeta() {
 		Map<Integer, List<Complex>> p = new HashMap<Integer, List<Complex>>();
 		List<Complex> l;
 
@@ -43,13 +43,7 @@ public class NaiveZeta implements Function {
 		r = new RationalFraction(p.get(0), p.get(1));
 	}
 	
-	public Complex apply(Complex z)
-	{
+	public Complex apply(Complex z) {
 		return r.apply(z);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return r.getHumanReadableFormula();
 	}
 }

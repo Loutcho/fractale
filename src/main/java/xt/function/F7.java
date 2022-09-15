@@ -1,13 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class F7 implements Function {
-	
-	@Override
-	public String getHumanReadableFormula() {
-		return "F7(z)";
-	}
+public class F7 implements Function<Complex, Complex> {
 
 	private static final Complex A = new Complex(0.0, 3.0);
 	private static final Complex One = new Complex(1.0, 0.0); 

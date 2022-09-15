@@ -2,9 +2,9 @@ package xt.coloralgo;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
-import xt.function.Function;
 import xt.math.Complex;
 import xt.math.MyMath;
 
@@ -14,7 +14,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	private static final int DEFAULT_I_MAX = 500;
 	// private static final double KGEOM_20R2 = 1.0352649238413775043477881942112;
 	
-	private Function function;
+	private Function<Complex, Complex> function;
 	private Complex zJulia;
 	private int iMax = DEFAULT_I_MAX;
 	private boolean smoothMode;
@@ -23,7 +23,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	private Predicate<Complex> stopCriterion;
 
 	public EscapeTimeAlgorithm(
-			Function function, Complex zJulia, int iMax, boolean smoothMode, Predicate<Complex> stopCriterion, 
+			Function<Complex, Complex> function, Complex zJulia, int iMax, boolean smoothMode, Predicate<Complex> stopCriterion, 
 			Color iMaxReachedColor, Effect effect) {
 		this.function = function;
 		this.zJulia = zJulia;

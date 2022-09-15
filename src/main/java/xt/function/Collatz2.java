@@ -1,20 +1,17 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 import xt.math.MyMath;
 
-public class Collatz2 implements Function {
+public class Collatz2 implements Function<Complex, Complex> {
 	
 	// Barycentric approach: f(z) = (1 - t(z)) * (z / 2) + t(z) * (3 * z + 1)
 	
 	private static final Complex ONE = new Complex(1.0, 0.0);
 	private static final Complex I = new Complex(0.0, 1.0);
-	
-	@Override
-	public String getHumanReadableFormula() {
-		return "Collatz2";
-	}
-	
+
 	// constraints:
 	// f1(z) = 0 whenever z is an integer of the 2n form
 	// f1(z) = 1 whenever z is an integer of the 2n+1 form

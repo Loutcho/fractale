@@ -1,16 +1,16 @@
 package xt.coloralgo;
 
 import java.awt.Color;
+import java.util.function.Function;
 
-import xt.function.Function;
 import xt.math.Complex;
 
 public class DomainColoring implements ColorAlgo {
 
-	private Function function;
+	private Function<Complex, Complex> function;
 	private Effect effect;
 	
-	public DomainColoring(Function function, Effect effect) {
+	public DomainColoring(Function<Complex, Complex> function, Effect effect) {
 		this.function = function;
 		this.effect = effect;
 	}

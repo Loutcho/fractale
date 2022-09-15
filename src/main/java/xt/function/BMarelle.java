@@ -1,12 +1,14 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
 /*
  * Dénominateur de b(n)/(1+t),
  * le numérateur étant : prod(k=1,floor(n/2),(t+u+2*cos((2*k-1)*Pi/n)))
  */
-public class BMarelle implements Function {
+public class BMarelle implements Function<Complex, Complex> {
 
 	private int n;
 
@@ -93,10 +95,5 @@ public class BMarelle implements Function {
 			default: b = 1.0;
 		}
 		return new Complex(b, b);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "BMarelle(" + n + ")";
 	}
 }

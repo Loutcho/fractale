@@ -1,8 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class Papillon implements Function {
+public class Papillon implements Function<Complex, Complex> {
 
 	public Complex apply(Complex z) {
 		double r = z.abs();
@@ -10,10 +12,5 @@ public class Papillon implements Function {
 		double rr = r + Math.sin(t);
 		double tt = t + Math.cos(t) / r;
 		return Complex.polar(rr, tt);
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "Papillon(z)";
 	}
 }

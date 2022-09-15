@@ -1,13 +1,10 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class F6 implements Function {
-	
-	@Override
-	public String getHumanReadableFormula() {
-		return "experiment";
-	}
+public class F6 implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {

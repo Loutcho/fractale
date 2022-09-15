@@ -1,15 +1,12 @@
 package xt.function;
 
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class BurningShip implements Function {
+public class BurningShip implements Function<Complex, Complex> {
 
-	public BurningShip()
-	{
-	}
-	
-	public Complex apply(Complex z)
-	{
+	public Complex apply(Complex z) {
 		double x = z.re();
 		double y = z.im();
 		
@@ -18,11 +15,4 @@ public class BurningShip implements Function {
 		Complex zz = new Complex(xx, yy);
 		return Complex.mul(zz, zz);
 	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "(|re(z)| + I*|im(z)|)^2";
-	}
-
-
 }

@@ -1,14 +1,13 @@
 package xt.function;
 
 import xt.math.MyMath;
+
+import java.util.function.Function;
+
 import xt.math.Complex;
 
-public class PrimeHyperbola implements Function {
+public class PrimeHyperbola implements Function<Complex, Complex> {
 
-	public PrimeHyperbola()
-	{
-	}
-	
 	@Override
 	public Complex apply(Complex z) {
 		double n = z.re();
@@ -23,10 +22,5 @@ public class PrimeHyperbola implements Function {
 		//Complex zz = new Complex(xx, yy);
 		Complex zz = Complex.mul(rho, Complex.ei(0.0)); 
 		return zz;
-	}
-
-	@Override
-	public String getHumanReadableFormula() {
-		return "PrimeHyperbola";
 	}
 }
