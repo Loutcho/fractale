@@ -6,5 +6,4 @@ import xt.math.Complex;
 
 public interface ColorAlgo {
 	public Color getColor(Complex pixel);
-	public void processKeyEvent(int key);
 }

@@ -17,5 +17,16 @@ public class Pow implements Effect {
 	public double apply(int iColor, Complex z, double iReel) {
 		return Math.pow(effect.apply(iColor, z, iReel), power);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new Pow(");
+		builder.append(power);
+		builder.append(", ");
+		builder.append(effect);
+		builder.append(")");
+		return builder.toString();
+	}
 	
 }

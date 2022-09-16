@@ -37,7 +37,5 @@ public class DomainColoring implements ColorAlgo {
 		return (int)(255.0 * x);
 	}
 
-	@Override
-	public void processKeyEvent(int key) {
-	}
+
 }

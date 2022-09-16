@@ -1,7 +1,6 @@
 package xt.coloralgo;
 
 import java.awt.Color;
-import java.awt.event.KeyEvent;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -10,13 +9,9 @@ import xt.math.MyMath;
 
 public class EscapeTimeAlgorithm implements ColorAlgo {
 
-	// private static final double DKPHI = 0.05;
-	private static final int DEFAULT_I_MAX = 500;
-	// private static final double KGEOM_20R2 = 1.0352649238413775043477881942112;
-	
 	private Function<Complex, Complex> function;
 	private Complex zJulia;
-	private int iMax = DEFAULT_I_MAX;
+	private int iMax;
 	private boolean smoothMode;
 	private Color iMaxReachedColor;
 	private Effect effect;
@@ -32,6 +27,27 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		this.iMaxReachedColor = iMaxReachedColor;
 		this.smoothMode = smoothMode;
 		this.effect = effect;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new EscapeTimeAlgorithm(");
+		builder.append(function);
+		builder.append(", ");
+		builder.append(zJulia);
+		builder.append(", ");
+		builder.append(iMax);
+		builder.append(", ");
+		builder.append(smoothMode);
+		builder.append(", ");
+		builder.append(stopCriterion);
+		builder.append(", ");
+		builder.append(iMaxReachedColor);
+		builder.append(", ");
+		builder.append(effect);
+		builder.append(";");
+		return builder.toString();
 	}
 	
 	public Color getColor(Complex pixel) {
@@ -86,7 +102,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		double x = effect.apply(iColor, z, iReel);
 		return (int)(255.0 * x);
 	}
-	
+
 	/*
 	public void incKphi() {
 		kphi += DKPHI;
@@ -103,7 +119,9 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		}
 	}
 	*/
-	
+
+	/*
+	@Override
 	public void processKeyEvent(int key) {
 		switch (key) {
 			case KeyEvent.VK_ADD:
@@ -116,14 +134,12 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 				break;
 			case KeyEvent.VK_DIVIDE:
 				break;
-			/*
 			case KeyEvent.VK_INSERT:
 				period *= 2.0;
 				break;
 			case KeyEvent.VK_DELETE:
 				period /= 2.0;
 				break;
-
 			case KeyEvent.VK_HOME:
 				period *= 2.0;
 				break;
@@ -148,37 +164,25 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 			case KeyEvent.VK_D:
 				decKphi();
 				break;
-			*/
 			case KeyEvent.VK_Z:
 				smoothMode = (! smoothMode);
 				break;
 			case KeyEvent.VK_W:
-				/*
 				degrade2_i[0] = (degrade2_i[0] + 0.1) % 1;
 				degrade2_i[1] = (degrade2_i[1] + 0.1) % 1;
 				degrade2_i[2] = (degrade2_i[2] + 0.1) % 1;
-				*/
 				break;
 			case KeyEvent.VK_X:
-				/*
 				degrade2_j[0] = (degrade2_j[0] + 0.1) % 1;
 				degrade2_j[1] = (degrade2_j[1] + 0.1) % 1;
 				degrade2_j[2] = (degrade2_j[2] + 0.1) % 1;
-				*/
 				break;
 			case KeyEvent.VK_J:
 				// FIXME: juliaMode = ! juliaMode;
 				break;
 		}
 	}
+	*/
 
-	@Override
-	public String toString() {
-		return "EscapeTime{" +
-				"julia=" + zJulia +
-				", iMax=" + iMax +
-				", smoothMode=" + smoothMode +
-				", effect=" + effect +
-				'}';
-	}
+
 }

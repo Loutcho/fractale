@@ -18,6 +18,20 @@ public class ZPower implements Function<Complex, Complex> {
 		this.n = null;
 		this.nn = nn;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new xt.function.ZPower(");
+		if (n != null) {
+			builder.append(n);
+		}
+		if (nn != null) {
+			builder.append(nn);
+		}
+		builder.append(")");
+		return builder.toString();
+	}
 	
 	@Override
 	public Complex apply(Complex z) {

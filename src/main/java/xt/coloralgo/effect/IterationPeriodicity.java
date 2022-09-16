@@ -25,6 +25,27 @@ public class IterationPeriodicity implements Effect {
 		phase[1] = greenPhase;
 		phase[2] = bluePhase;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new IterationPeriodicity(");
+		builder.append(palette);
+		builder.append(", ");
+		builder.append(period[0]);
+		builder.append(", ");
+		builder.append(phase[0]);
+		builder.append(", ");
+		builder.append(period[1]);
+		builder.append(", ");
+		builder.append(phase[1]);
+		builder.append(", ");
+		builder.append(period[2]);
+		builder.append(", ");
+		builder.append(phase[2]);
+		builder.append(")");
+		return builder.toString();
+	}	
 	
 	public IterationPeriodicity(Palette palette, double period) {
 		this.palette = palette;

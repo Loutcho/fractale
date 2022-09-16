@@ -4,39 +4,70 @@ import xt.math.Complex;
 
 public class MathZone {
 
+	private Complex initialZCenter;
+	private double initialXSemiLength;
+	private double initialYSemiLength;
+	private double initialRotationAngle;
+	
 	private Complex zCenter;
 	private double xSemiLength;
 	private double ySemiLength;
 	private double rotationAngle;
 	
-	public MathZone(Complex zCenter, double xSemiLength, double ySemiLength, double rotationAngle)
-	{
-		this.zCenter = zCenter;
-		this.xSemiLength = xSemiLength;
-		this.ySemiLength = ySemiLength;
-		this.rotationAngle = rotationAngle;
+	public MathZone(Complex zCenter, double xSemiLength, double ySemiLength, double rotationAngle) {
+		this.initialZCenter        = zCenter;
+		this.initialXSemiLength    = xSemiLength;
+		this.initialYSemiLength    = ySemiLength;
+		this.initialRotationAngle  = rotationAngle;
+		init();
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new MathZone(");
+		builder.append(zCenter);
+		builder.append(", ");
+		builder.append(xSemiLength);
+		builder.append(", ");
+		builder.append(ySemiLength);
+		builder.append(", ");
+		builder.append(rotationAngle);
+		builder.append(")");
+		return builder.toString();
+	}	
 	
-	
-	/*
-	public void keep(int x, int y)
-	{
-		switch (x)
-		{
-		case -1: xMax = (xMin + xMax) / 2.0; break;
-		case  0: double D = (xMax - xMin) / 4.0; xMin += D; xMax -= D; break;
-		case +1: xMin = (xMin + xMax) / 2.0; break;
-		}
-		
-		switch (y)
-		{
-		case -1: yMax = (yMin + yMax) / 2.0; break;
-		case  0: double D = (yMax - yMin) / 4.0; yMin += D; yMax -= D; break;
-		case +1: yMin = (yMin + yMax) / 2.0; break;
-		}
+	private void init() {
+		this.zCenter       = this.initialZCenter;
+		this.xSemiLength   = this.initialXSemiLength;
+		this.ySemiLength   = this.initialYSemiLength;
+		this.rotationAngle = this.initialRotationAngle;
+	}
+
+	public void reinit() {
+		init();
 	}
 	
+	public void keep(int x, int y) {
+		xSemiLength /= 3.0;
+		ySemiLength /= 3.0;
+
+		double xCenter = zCenter.re();
+		double yCenter = zCenter.im();
+		switch (x) {
+		case -1: xCenter -= 2.0 * xSemiLength; break;
+		case  0: break;
+		case +1: xCenter += 2.0 * xSemiLength; break;
+		}
+		switch (y) {
+		case -1: yCenter -= 2.0 * ySemiLength; break;
+		case  0: break;
+		case +1: yCenter += 2.0 * ySemiLength; break;
+		}
+		zCenter = new Complex(xCenter, yCenter);
+	}
+
+	/*
 	public void vZoom() {
 		double yMoy = (yMax + yMin) / 2.0;
 		double yAmp = (yMax - yMin);
@@ -61,49 +92,33 @@ public class MathZone {
 		this.rotationAngle += rotationAngle;
 	}
 
-
-
 	public Complex getzCenter() {
 		return zCenter;
 	}
-
-
 
 	public void setzCenter(Complex zCenter) {
 		this.zCenter = zCenter;
 	}
 
-
-
 	public double getxSemiLength() {
 		return xSemiLength;
 	}
-
-
 
 	public void setxSemiLength(double xSemiLength) {
 		this.xSemiLength = xSemiLength;
 	}
 
-
-
 	public double getySemiLength() {
 		return ySemiLength;
 	}
-
-
 
 	public void setySemiLength(double ySemiLength) {
 		this.ySemiLength = ySemiLength;
 	}
 
-
-
 	public double getRotationAngle() {
 		return rotationAngle;
 	}
-
-
 
 	public void setRotationAngle(double rotationAngle) {
 		this.rotationAngle = rotationAngle;
