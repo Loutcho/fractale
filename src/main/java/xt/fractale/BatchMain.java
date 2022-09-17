@@ -5,19 +5,7 @@ import java.awt.Color;
 import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.Palette;
-import xt.coloralgo.effect.ArgPeriodicity;
-import xt.coloralgo.effect.Barycenter;
-import xt.coloralgo.effect.Bubble;
-import xt.coloralgo.effect.ConstantColor;
-import xt.coloralgo.effect.ImaginaryPartGrid;
-import xt.coloralgo.effect.IterationGradient;
-import xt.coloralgo.effect.IterationPeriodicity;
-import xt.coloralgo.effect.Max;
-import xt.coloralgo.effect.Min;
-import xt.coloralgo.effect.Mul;
-import xt.coloralgo.effect.Pow;
-import xt.coloralgo.effect.RealPartGrid;
-import xt.coloralgo.effect.ColorFunction1;
+import xt.coloralgo.effect.*;
 import xt.coloralgo.stopcriterion.AbsGreaterThan;
 import xt.math.Complex;
 import xt.math.MyMath;
@@ -30,7 +18,7 @@ public class BatchMain {
 	private static String PATH = System.getenv("FRACTALE_HOME");
 
 	public static void main(String[] args) {
-		int choice = 42;
+		int choice = 0;
 		switch (choice) {
 		case 27: video027(); break;
 		case 28: video028(); break;
@@ -44,7 +32,6 @@ public class BatchMain {
 			new ImageFile(image, filename, DIMENSION_X, DIMENSION_Y).create();
 			break;
 		}
-
 	}
 	
 	/*

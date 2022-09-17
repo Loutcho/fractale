@@ -6,22 +6,7 @@ import xt.coloralgo.ColorAlgo;
 import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.Palette;
-import xt.coloralgo.effect.AbsArgGradient;
-import xt.coloralgo.effect.AbsGradient1;
-import xt.coloralgo.effect.ArgGradient;
-import xt.coloralgo.effect.ArgGrid;
-import xt.coloralgo.effect.ArgPeriodicity;
-import xt.coloralgo.effect.Bubble;
-import xt.coloralgo.effect.ConstantColor;
-import xt.coloralgo.effect.ImaginaryPartGrid;
-import xt.coloralgo.effect.IterationGradient;
-import xt.coloralgo.effect.IterationPeriodicity;
-import xt.coloralgo.effect.Max;
-import xt.coloralgo.effect.Min;
-import xt.coloralgo.effect.Mul;
-import xt.coloralgo.effect.Pow;
-import xt.coloralgo.effect.RealPartGrid;
-import xt.coloralgo.effect.ColorFunction1;
+import xt.coloralgo.effect.*;
 import xt.coloralgo.stopcriterion.AbsGreaterThan;
 import xt.coloralgo.stopcriterion.AbsLessThan;
 import xt.math.Complex;
@@ -65,7 +50,8 @@ public class Image {
 		IMAGE[0] = new Image(
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 256, true, new AbsGreaterThan(2.0), Color.BLACK,
-						new IterationPeriodicity(Palette.PALETTE_000, 40.0, 0.95)
+						new IterationPeriodicity(Palette.PALETTE_000, 40.0, 0.0)
+						// new LogIterationPalette(Palette.PALETTE_000, 3.0, false)
 				),
 				new MathZone(new Complex(-0.7, 0.0), 1.725, 1.150, 0.0)
 		);
