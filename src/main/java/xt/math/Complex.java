@@ -13,10 +13,6 @@ public class Complex {
 		return Complex.mul(rho, Complex.ei(theta));
 	}
 	
-	public String toString() {
-		return "(" + re + ", " + im + ")";
-	}
-
 	public double re() {
 		return re;
 	}
@@ -82,5 +78,16 @@ public class Complex {
 			theta = n * theta;
 			return polar(rho, theta);
 		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new Complex(");
+		builder.append(re);
+		builder.append(", ");
+		builder.append(im);
+		builder.append(")");
+		return builder.toString();
 	}
 }

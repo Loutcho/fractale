@@ -3,7 +3,6 @@ package xt.coloralgo.effect;
 import java.util.ArrayList;
 import java.util.List;
 
-import xt.coloralgo.Effect;
 import xt.math.Complex;
 
 public class Min implements Effect {

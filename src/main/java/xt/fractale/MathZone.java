@@ -67,16 +67,6 @@ public class MathZone {
 		zCenter = new Complex(xCenter, yCenter);
 	}
 
-	/*
-	public void vZoom() {
-		double yMoy = (yMax + yMin) / 2.0;
-		double yAmp = (yMax - yMin);
-		yAmp /= 2.0;
-		yMax = yMoy + yAmp / 2.0;
-		yMin = yMoy - yAmp / 2.0; 
-	}
-	*/
-	
 	public void centeredZoomOut(double coef) {
 		xSemiLength *= coef;
 		ySemiLength *= coef;

@@ -1,10 +1,9 @@
 package xt.coloralgo.effect;
 
-import xt.coloralgo.Effect;
 import xt.math.Complex;
 import xt.math.MyMath;
 
-public class SpecialColorFunction1 implements Effect {
+public class ColorFunction1 implements Effect {
 
 	private double f(double x) {
 		return 1.0 / (1.0 + x * x);
@@ -43,5 +42,12 @@ public class SpecialColorFunction1 implements Effect {
 		q = MyMath.sq(x - y);
 		q = Math.max(q, proximity(iColor, z));
 		return q;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new ColorFunction1()");
+		return builder.toString();
 	}
 }

@@ -13,4 +13,11 @@ public class Papillon implements Function<Complex, Complex> {
 		double tt = t + Math.cos(t) / r;
 		return Complex.polar(rr, tt);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new Papillon()");
+		return builder.toString();
+	}
 }

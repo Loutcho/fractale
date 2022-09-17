@@ -1,4 +1,4 @@
-package xt.coloralgo;
+package xt.coloralgo.effect;
 
 import xt.math.Complex;
 

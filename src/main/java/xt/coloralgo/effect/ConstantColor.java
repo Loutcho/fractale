@@ -1,6 +1,5 @@
 package xt.coloralgo.effect;
 
-import xt.coloralgo.Effect;
 import xt.math.Complex;
 
 public class ConstantColor implements Effect {

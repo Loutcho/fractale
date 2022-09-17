@@ -1,6 +1,5 @@
 package xt.coloralgo.effect;
 
-import xt.coloralgo.Effect;
 import xt.coloralgo.Palette;
 import xt.math.Complex;
 

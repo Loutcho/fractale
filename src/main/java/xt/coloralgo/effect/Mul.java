@@ -3,7 +3,6 @@ package xt.coloralgo.effect;
 import java.util.ArrayList;
 import java.util.List;
 
-import xt.coloralgo.Effect;
 import xt.math.Complex;
 
 public class Mul implements Effect {
@@ -25,5 +24,18 @@ public class Mul implements Effect {
 		}
 		return product;
 	}
-	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new Mul(");
+		for (int i = 0; i < effects.size(); i ++) {
+			if (i < 0) {
+				builder.append(", ");
+			}
+			builder.append(effects.get(i).toString());
+		}
+		builder.append(")");
+		return builder.toString();
+	}
 }

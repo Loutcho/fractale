@@ -1,6 +1,7 @@
 package xt.fractale;
 
 import xt.coloralgo.ColorAlgo;
+import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.graph.Graph;
 
 import java.awt.event.KeyAdapter;
@@ -10,13 +11,11 @@ import java.util.Date;
 
 class MyKeyListener extends KeyAdapter {
 
-	private MathZone mathZone;
-	private ColorAlgo colorAlgo;
+	private Image image;
 	private DrawStatus drawStatus;
 
-	public MyKeyListener(MathZone mathZone, ColorAlgo colorAlgo) {
-		this.mathZone = mathZone;
-		this.colorAlgo = colorAlgo;
+	public MyKeyListener(Image image) {
+		this.image = image;
 		this.drawStatus = DrawStatus.DRAW;
 	}
 
@@ -29,53 +28,83 @@ class MyKeyListener extends KeyAdapter {
 	}
 
 	public void keyPressed(KeyEvent event) {
-		int key = event.getKeyCode();
-		/*
-		System.out.print("keyPressed");
-		System.out.println("[" + key + "]");
-		*/
 
+		int key = event.getKeyCode();
 		switch (key) {
 			case KeyEvent.VK_ESCAPE : quit(); break;
-			case KeyEvent.VK_ENTER  : mathZone.centeredZoomOut(1.0666666666); redraw(); break;
-			case KeyEvent.VK_LEFT   : mathZone.shift(-1,  0); redraw(); break;
-			case KeyEvent.VK_RIGHT  : mathZone.shift(+1,  0); redraw(); break;
-			case KeyEvent.VK_UP     : mathZone.shift( 0, +1); redraw(); break;
-			case KeyEvent.VK_DOWN   : mathZone.shift( 0, -1); redraw(); break;
-			case KeyEvent.VK_NUMPAD7: mathZone.keep (-1, +1); redraw(); break;
-			case KeyEvent.VK_NUMPAD8: mathZone.keep ( 0, +1); redraw(); break;
-			case KeyEvent.VK_NUMPAD9: mathZone.keep (+1, +1); redraw(); break;
-			case KeyEvent.VK_NUMPAD4: mathZone.keep (-1,  0); redraw(); break;
-			case KeyEvent.VK_NUMPAD5: mathZone.keep ( 0,  0); redraw(); break;
-			case KeyEvent.VK_NUMPAD6: mathZone.keep (+1,  0); redraw(); break;
-			case KeyEvent.VK_NUMPAD1: mathZone.keep (-1, -1); redraw(); break;
-			case KeyEvent.VK_NUMPAD2: mathZone.keep ( 0, -1); redraw(); break;
-			case KeyEvent.VK_NUMPAD3: mathZone.keep (+1, -1); redraw(); break;
-
-			case KeyEvent.VK_COLON:
-				/*
-				Drawer.zone.vZoom();
-				*/
-				redraw();
+			case KeyEvent.VK_ENTER  : image.getMathZone().centeredZoomOut(1.0666666666); redraw(); break;
+			case KeyEvent.VK_LEFT   : image.getMathZone().shift(-1,  0); redraw(); break;
+			case KeyEvent.VK_RIGHT  : image.getMathZone().shift(+1,  0); redraw(); break;
+			case KeyEvent.VK_UP     : image.getMathZone().shift( 0, +1); redraw(); break;
+			case KeyEvent.VK_DOWN   : image.getMathZone().shift( 0, -1); redraw(); break;
+			case KeyEvent.VK_NUMPAD7: image.getMathZone().keep (-1, +1); redraw(); break;
+			case KeyEvent.VK_NUMPAD8: image.getMathZone().keep ( 0, +1); redraw(); break;
+			case KeyEvent.VK_NUMPAD9: image.getMathZone().keep (+1, +1); redraw(); break;
+			case KeyEvent.VK_NUMPAD4: image.getMathZone().keep (-1,  0); redraw(); break;
+			case KeyEvent.VK_NUMPAD5: image.getMathZone().keep ( 0,  0); redraw(); break;
+			case KeyEvent.VK_NUMPAD6: image.getMathZone().keep (+1,  0); redraw(); break;
+			case KeyEvent.VK_NUMPAD1: image.getMathZone().keep (-1, -1); redraw(); break;
+			case KeyEvent.VK_NUMPAD2: image.getMathZone().keep ( 0, -1); redraw(); break;
+			case KeyEvent.VK_NUMPAD3: image.getMathZone().keep (+1, -1); redraw(); break;
+			case KeyEvent.VK_NUMPAD0: image.getMathZone().reinit(); redraw(); break;
+			
+			case KeyEvent.VK_ADD:
+				{
+					ColorAlgo colorAlgo = image.getColorAlgo();
+					if (colorAlgo instanceof EscapeTimeAlgorithm) {
+						EscapeTimeAlgorithm escapeTimeAlgorithm = (EscapeTimeAlgorithm) colorAlgo;
+						int iMax = escapeTimeAlgorithm.getiMax();
+						if (iMax <= (1 << 13)) {
+							iMax *= 2;
+							System.out.println("iMax := " + iMax);
+							escapeTimeAlgorithm.setiMax(iMax);
+							redraw();
+						}
+					}
+				}
+				break;
+			case KeyEvent.VK_SUBTRACT:
+				{
+					ColorAlgo colorAlgo = image.getColorAlgo();
+					if (colorAlgo instanceof EscapeTimeAlgorithm) {
+						EscapeTimeAlgorithm escapeTimeAlgorithm = (EscapeTimeAlgorithm) colorAlgo;
+						int iMax = escapeTimeAlgorithm.getiMax();
+						if (iMax % 2 == 0) {
+							iMax /= 2;
+							System.out.println("iMax := " + iMax);
+							escapeTimeAlgorithm.setiMax(iMax);
+							redraw();
+						}
+					}
+				}
 				break;
 
-			case KeyEvent.VK_NUMPAD0:
-				mathZone.reinit();
-				redraw();
-				break;
-
+			case KeyEvent.VK_Z:
+			{
+				ColorAlgo colorAlgo = image.getColorAlgo();
+				if (colorAlgo instanceof EscapeTimeAlgorithm) {
+					EscapeTimeAlgorithm escapeTimeAlgorithm = (EscapeTimeAlgorithm) colorAlgo;
+					boolean smoothMode = escapeTimeAlgorithm.isSmoothMode();
+					smoothMode = (! smoothMode);
+					System.out.println("smoothMode := " + smoothMode);
+					escapeTimeAlgorithm.setSmoothMode(smoothMode);
+					redraw();
+				}
+			}
+			break;
+			
 			case KeyEvent.VK_S:
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 				String outFileName = "G:\\Fractales\\" + sdf.format(new Date()) + ".png";
 				Graph.save(outFileName);
-				Drawer.saveParameters(outFileName, colorAlgo, mathZone);
+				InteractiveMain.saveParameters(outFileName, image);
 				break;
 
 			case KeyEvent.VK_G:
-				if (Drawer.granularite_de_depart == Drawer.GRANULARITE_LA_PLUS_FINE) {
-					Drawer.granularite_de_depart = Drawer.GRANULARITE_LA_PLUS_GROSSIERE;
+				if (InteractiveMain.granularite_de_depart == InteractiveMain.GRANULARITE_LA_PLUS_FINE) {
+					InteractiveMain.granularite_de_depart = InteractiveMain.GRANULARITE_LA_PLUS_GROSSIERE;
 				} else {
-					Drawer.granularite_de_depart = Drawer.GRANULARITE_LA_PLUS_FINE;
+					InteractiveMain.granularite_de_depart = InteractiveMain.GRANULARITE_LA_PLUS_FINE;
 				}
 				redraw();
 				break;

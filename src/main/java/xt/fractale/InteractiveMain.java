@@ -7,56 +7,42 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import xt.coloralgo.ColorAlgo;
-import xt.coloralgo.EscapeTimeAlgorithm;
-import xt.coloralgo.Palette;
-import xt.coloralgo.effect.Bubble;
-import xt.coloralgo.effect.ConstantColor;
-import xt.coloralgo.effect.IterationPeriodicity;
-import xt.coloralgo.effect.Mul;
-import xt.coloralgo.effect.Pow;
-import xt.coloralgo.stopcriterion.AbsGreaterThan;
 import xt.math.Complex;
 import xt.graph.Graph;
 import xt.sound.Sound;
 
-public class Drawer extends Graph {
+public class InteractiveMain extends Graph {
 
-	static final long		serialVersionUID	= 1234;
+	static final long serialVersionUID	= 1234;
 	
-	static final int        RESOLUTION_X = 1920;
-	static final int        RESOLUTION_Y = 1080;
-	static final int        PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR = /* 256 */ /* 2 */ 8; /* A adapter */
-	static final int        EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR = /* 8 */ /* 1 */ 3; /* A adapter */
-	static final int        MINIMAL_INTEGER_X = RESOLUTION_X / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
-	static final int        MINIMAL_INTEGER_Y = RESOLUTION_Y / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
+	static final int RESOLUTION_X = 1536;
+	static final int RESOLUTION_Y = 1024;
+	static final int PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR = 512;
+	static final int EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR = 9;
+	static final int MINIMAL_INTEGER_X = RESOLUTION_X / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
+	static final int MINIMAL_INTEGER_Y = RESOLUTION_Y / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
 
 	static final int GRANULARITE_LA_PLUS_GROSSIERE = 0;
 	static final int GRANULARITE_LA_PLUS_FINE = EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
 	static int granularite_de_depart = GRANULARITE_LA_PLUS_GROSSIERE;
 	
 	public static void main(String[] args) {
-		draw(
-				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 3000, true, new AbsGreaterThan(2.0), Color.BLACK,
-						new ConstantColor(1.0, 1.0, 1.0)
-					),
-					new MathZone(new Complex(-0.5, 0.0), 1.1 * 1.920, 1.1 * 1.080, 0)
-		);
+		draw(Image.IMAGE[0]);
 	}
 	
-	public static void draw(ColorAlgo colorAlgo, MathZone mathZone) {
-		PixelZone pixelZone = new PixelZone(1920, 1080);
-		Drawer f = new Drawer();
+	public static void draw(Image image) {
+		PixelZone pixelZone = new PixelZone(RESOLUTION_X, RESOLUTION_Y);
+		InteractiveMain f = new InteractiveMain();
 		f.init();
-		MyKeyListener ka = new MyKeyListener(mathZone, colorAlgo);
+		MyKeyListener ka = new MyKeyListener(image);
 		f.addKeyListener(ka);
 		Graphics graphics = f.getGraphics();
-		CoordinatesConverter cc = new CoordinatesConverter(mathZone, pixelZone);
+		CoordinatesConverter cc = new CoordinatesConverter(image.getMathZone(), pixelZone);
 		
 		while (ka.getDrawStatus() != DrawStatus.QUIT) {
 			switch (ka.getDrawStatus()) {
 			case DRAW:
-				draw(ka, graphics, cc, colorAlgo);
+				draw(ka, graphics, cc, image.getColorAlgo());
 				if (ka.getDrawStatus() == DrawStatus.DRAW) {
 					ka.setDrawStatus(DrawStatus.WAIT);
 				}
@@ -93,10 +79,10 @@ public class Drawer extends Graph {
 			nx = MINIMAL_INTEGER_X * (1 << granu); // nombre de carres de cette taille
 			ny = MINIMAL_INTEGER_Y * (1 << granu);
 
-			ix = 0;
+			ix = 1;
 			while ((ix < nx) && (ka.getDrawStatus() == DrawStatus.DRAW)) {
 				x = ix * cote;
-				for (iy = 0; iy < ny; iy++) {
+				for (iy = 1; iy < ny; iy++) {
 					y = iy * cote;
 					Complex z = cc.fromPixelToMath(new Complex(x, y));
 					Color color = null;
@@ -116,14 +102,13 @@ public class Drawer extends Graph {
 		}
 	}
 
-	public static void saveParameters(String outFileName, ColorAlgo colorAlgo, MathZone mathZone) {
+	public static void saveParameters(String outFileName, Image image) {
 		try (
 				FileWriter fileWriter = new FileWriter("G:\\Fractales\\" + "Coords.txt", true);
 				BufferedWriter bw = new BufferedWriter(fileWriter)
 		) {
 			bw.write("filename = " + outFileName + ";\n");
-			bw.write(colorAlgo.toString());
-			bw.write(mathZone.toString());
+			bw.write(image.toString());
 			bw.newLine();
 			bw.flush();
 		}

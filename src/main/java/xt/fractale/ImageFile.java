@@ -7,20 +7,17 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import xt.coloralgo.ColorAlgo;
 import xt.math.Complex;
 
 public class ImageFile {
 	
-	private ColorAlgo colorAlgo;
-	private MathZone mathZone;
+	private Image image;
 	private String filename;
 	private int width;
 	private int height;
 	
-	public ImageFile(ColorAlgo colorAlgo, MathZone mathZone, String filename, int width, int height) {
-		this.colorAlgo = colorAlgo;
-		this.mathZone = mathZone;
+	public ImageFile(Image image, String filename, int width, int height) {
+		this.image = image;
 		this.filename = filename;
 		this.width = width;
 		this.height = height;
@@ -29,7 +26,7 @@ public class ImageFile {
 	public void create() {
 
 		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-		CoordinatesConverter cc = new CoordinatesConverter(mathZone, new PixelZone(width, height));
+		CoordinatesConverter cc = new CoordinatesConverter(image.getMathZone(), new PixelZone(width, height));
 
 		for (int xxx = 0; xxx < width; xxx ++) {
 			if (xxx % 100 == 0) {
@@ -39,7 +36,7 @@ public class ImageFile {
 			for (int yyy = 0; yyy < height; yyy ++) {
 				Complex zzz = new Complex(xxx, yyy);
 				Complex z = cc.fromPixelToMath(zzz);
-				Color color = colorAlgo.getColor(z);
+				Color color = image.getColorAlgo().getColor(z);
 				int r = color.getRed();
 				int g = color.getGreen();
 				int b = color.getBlue();

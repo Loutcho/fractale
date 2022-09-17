@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import xt.coloralgo.effect.Effect;
 import xt.math.Complex;
 import xt.math.MyMath;
 
@@ -46,7 +47,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		builder.append(iMaxReachedColor);
 		builder.append(", ");
 		builder.append(effect);
-		builder.append(";");
+		builder.append(")");
 		return builder.toString();
 	}
 	
@@ -103,6 +104,22 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		return (int)(255.0 * x);
 	}
 
+	public int getiMax() {
+		return iMax;
+	}
+
+	public void setiMax(int iMax) {
+		this.iMax = iMax;
+	}
+
+	public boolean isSmoothMode() {
+		return smoothMode;
+	}
+
+	public void setSmoothMode(boolean smoothMode) {
+		this.smoothMode = smoothMode;
+	}
+	
 	/*
 	public void incKphi() {
 		kphi += DKPHI;
@@ -124,16 +141,6 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	@Override
 	public void processKeyEvent(int key) {
 		switch (key) {
-			case KeyEvent.VK_ADD:
-				iMax = iMax * 2;
-				break;
-			case KeyEvent.VK_SUBTRACT:
-				iMax = iMax / 2;
-				break;
-			case KeyEvent.VK_MULTIPLY:
-				break;
-			case KeyEvent.VK_DIVIDE:
-				break;
 			case KeyEvent.VK_INSERT:
 				period *= 2.0;
 				break;
@@ -164,9 +171,6 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 			case KeyEvent.VK_D:
 				decKphi();
 				break;
-			case KeyEvent.VK_Z:
-				smoothMode = (! smoothMode);
-				break;
 			case KeyEvent.VK_W:
 				degrade2_i[0] = (degrade2_i[0] + 0.1) % 1;
 				degrade2_i[1] = (degrade2_i[1] + 0.1) % 1;
@@ -183,6 +187,4 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		}
 	}
 	*/
-
-
 }

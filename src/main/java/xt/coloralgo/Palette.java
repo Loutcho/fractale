@@ -33,7 +33,7 @@ public class Palette {
 	private static final int VIOLET = 0x660099;
 	private static final int CITRON = 0xF6F924;
 	
-	
+	public static final Palette PALETTE_000 = new Palette(BLEU_MARINE, BLANC, BEIGE, MARRON);
 	public static final Palette PALETTE_001 = new Palette(BLEU_MARINE, BLEU_FRANCE, OCRE, NOIR);
 	public static final Palette PALETTE_002 = new Palette(BLANC, BEIGE, MARRON, NOIR, BLEU_NUIT, BLEU_CIEL);
 	public static final Palette PALETTE_003 = new Palette(BLEU_FLAMME_DE_SOUFRE, AZUR, AZURIN, VERT_D_EAU, CHAMPAGNE, ORANGE, BLEU_NUIT);
@@ -79,5 +79,20 @@ public class Palette {
 	
 	public int getColor(int i) {
 		return rgb[i];
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new Palette(");
+		for (int i = 0; i < rgb.length; i ++) {
+			if (i > 0) {
+				builder.append(", ");
+			}
+			int c = rgb[i];
+			builder.append(String.format("0x%06X", c));
+		}
+		builder.append(")");
+		return builder.toString();
 	}
 }

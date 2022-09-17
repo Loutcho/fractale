@@ -3,6 +3,7 @@ package xt.coloralgo;
 import java.awt.Color;
 import java.util.function.Function;
 
+import xt.coloralgo.effect.Effect;
 import xt.math.Complex;
 
 public class DomainColoring implements ColorAlgo {
@@ -14,7 +15,18 @@ public class DomainColoring implements ColorAlgo {
 		this.function = function;
 		this.effect = effect;
 	}
-	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new DomainColoring(");
+		builder.append(function);
+		builder.append(", ");
+		builder.append(effect);
+		builder.append(")");
+		return builder.toString();
+	}
+
 	@Override
 	public Color getColor(Complex pixel) {
 		Complex z = function.apply(pixel);
@@ -36,6 +48,4 @@ public class DomainColoring implements ColorAlgo {
 		double x = effect.apply(iColor, z, 0.0);
 		return (int)(255.0 * x);
 	}
-
-
 }

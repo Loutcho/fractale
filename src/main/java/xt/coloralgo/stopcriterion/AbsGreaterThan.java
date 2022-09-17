@@ -17,4 +17,12 @@ public class AbsGreaterThan implements Predicate<Complex> {
 		return (t.abs() > threshold);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("new AbsGreaterThan(");
+		builder.append(threshold);
+		builder.append(")");
+		return builder.toString();
+	}
 }
