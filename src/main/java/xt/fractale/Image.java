@@ -40,7 +40,7 @@ public class Image {
 		return mathZone;
 	}
 	
-	private static final int numLastImage = 42;
+	private static final int numLastImage = 49;
 	public static final Image[] IMAGE = new Image[1 + numLastImage];
 	
 	static {
@@ -511,11 +511,67 @@ public class Image {
 		);
 		
 		/*
-		 * 42)  Color Function 1 - fonction "NidDeMonstres" 
+		 * 42)  Color Function 2 - fonction "NidDeMonstres" 
 		 */
 		IMAGE[42] = new Image(
 					new DomainColoring(new xt.function.NidDeMonstres(), new ColorFunction1()),
 					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
+		);
+
+		/*
+		 * 43)  Color Function 2 - identité 
+		 */
+		IMAGE[43] = new Image(
+					new DomainColoring(new xt.function.Identity(), new ColorFunction2(true, true)),
+					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
+		);
+
+		/*
+		 * 44)  Color Function 2 - fonction z^3 
+		 */
+		IMAGE[44] = new Image(
+					new DomainColoring(new xt.function.ZPower(3), new ColorFunction2(true, true)),
+					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
+		);
+
+		/*
+		 * 45)  Color Function 2 - fonction exponentielle 
+		 */
+		IMAGE[45] = new Image(
+					new DomainColoring(new xt.function.Exponential(), new ColorFunction2(true, true)),
+					new MathZone(new Complex(0.0, Math.PI), 1.5 * Math.PI, Math.PI, 0.0)
+		);
+
+		/*
+		 * 46)  Color Function 2 - cosinus 
+		 */
+		IMAGE[46] = new Image(
+					new DomainColoring(new xt.function.Cos(), new ColorFunction2(true, true)),
+					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
+		);
+
+		/*
+		 * 47)  Color Function 2 - sinus 
+		 */
+		IMAGE[47] = new Image(
+					new DomainColoring(new xt.function.Sin(), new ColorFunction2(true, true)),
+					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
+		);
+
+		/*
+		 * 48)  Color Function 2 - tangente 
+		 */
+		IMAGE[48] = new Image(
+					new DomainColoring(new xt.function.Tan(), new ColorFunction2(true, true)),
+					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
+		);
+
+		/*
+		 * 49)  Color Function 2 - fonction "Sylvestre" 
+		 */
+		IMAGE[49] = new Image(
+					new DomainColoring(new xt.function.Sylvestre(), new ColorFunction2(true, true)),
+					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		);
 	}
 }
