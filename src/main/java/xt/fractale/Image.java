@@ -180,7 +180,7 @@ public class Image {
 							new xt.function.F2(),
 							new Pow(0.5,
 									new Mul(
-											new ArgPeriodicity(Palette.PALETTE_010, 0.5),
+											new ArgPalette(Palette.PALETTE_010, 0.5, 0.0),
 											new Max(
 													new RealPartGrid(0.05, 1.0, 1.0, 1.0),
 													new ImaginaryPartGrid(0.05, 1.0, 1.0, 1.0)
@@ -215,7 +215,7 @@ public class Image {
 											new IterationPeriodicity(Palette.PALETTE_012, 8.0, 0.1),
 											new Max(
 													new ArgGrid(6, 1.0),
-													new ArgPeriodicity(Palette.PALETTE_012, 1.0)
+													new ArgPalette(Palette.PALETTE_012, 1.0, 0.0)
 											)
 									)
 							)
@@ -231,7 +231,7 @@ public class Image {
 							new xt.function.Collatz(), new Complex(0, 0), 1000, true, new AbsGreaterThan(40.0), Color.BLACK, 
 							new Mul(
 									new IterationPeriodicity(Palette.PALETTE_013, 8.0, 0.0),
-									new ArgPeriodicity(Palette.PALETTE_013, 0.5, 0.333)
+									new ArgPalette(Palette.PALETTE_013, 0.5, 0.333)
 							)
 					),
 					new MathZone(new Complex(-0.39962, 0.27487), 0.0018, 0.0012, 0.21)
@@ -259,7 +259,7 @@ public class Image {
 					new DomainColoring(
 							new xt.function.F5(),
 							new Max(
-									new ArgPeriodicity(Palette.PALETTE_015, 0.5),
+									new ArgPalette(Palette.PALETTE_015, 0.5, 0.0),
 									new Min(
 											new RealPartGrid(0.2, 1.0, 1.0, 1.0),
 											new ImaginaryPartGrid(0.2, 1.0, 1.0, 1.0)
@@ -287,7 +287,7 @@ public class Image {
 					new EscapeTimeAlgorithm(
 						new xt.function.QuatorzeJuillet(), new Complex(0.0, 1.8), 100, false, new AbsGreaterThan(2.0), Color.BLACK,
 						new Mul(
-							new ArgPeriodicity(Palette.PALETTE_017, 1.0, 1.0 / 12.0),
+							new ArgPalette(Palette.PALETTE_017, 1.0, 1.0 / 12.0),
 							new IterationGradient(0.05, 0.0)
 						)
 					),
@@ -318,7 +318,7 @@ public class Image {
 								),
 								new Max(
 									new AbsGradient1(1.0, 1.0, 1.0),
-									new ArgPeriodicity(Palette.PALETTE_019, 0.125)
+									new ArgPalette(Palette.PALETTE_019, 0.125, 0.0)
 								)
 							)
 						),
@@ -334,7 +334,7 @@ public class Image {
 							new Max(
 								new Bubble(12.0, 0.0000000, 12.0, 0.3333333, 12.0, 0.6666666),
 								new AbsGradient1(1.0, 1.0, 1.0),
-								new ArgPeriodicity(Palette.PALETTE_020, 0.125)
+								new ArgPalette(Palette.PALETTE_020, 0.125, 0.0)
 							)
 						),
 						new MathZone(new Complex(-0.9, 2.4), 3.6, 2.4, 0.0)
@@ -522,7 +522,7 @@ public class Image {
 		 * 43)  Color Function 2 - identité 
 		 */
 		IMAGE[43] = new Image(
-					new DomainColoring(new xt.function.Identity(), new ColorFunction2(true, true)),
+					new DomainColoring(new xt.function.Identity(), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		);
 
@@ -530,7 +530,7 @@ public class Image {
 		 * 44)  Color Function 2 - fonction z^3 
 		 */
 		IMAGE[44] = new Image(
-					new DomainColoring(new xt.function.ZPower(3), new ColorFunction2(true, true)),
+					new DomainColoring(new xt.function.ZPower(3), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		);
 
@@ -538,7 +538,7 @@ public class Image {
 		 * 45)  Color Function 2 - fonction exponentielle 
 		 */
 		IMAGE[45] = new Image(
-					new DomainColoring(new xt.function.Exponential(), new ColorFunction2(true, true)),
+					new DomainColoring(new xt.function.Exponential(), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, Math.PI), 1.5 * Math.PI, Math.PI, 0.0)
 		);
 
@@ -546,7 +546,7 @@ public class Image {
 		 * 46)  Color Function 2 - cosinus 
 		 */
 		IMAGE[46] = new Image(
-					new DomainColoring(new xt.function.Cos(), new ColorFunction2(true, true)),
+					new DomainColoring(new xt.function.Cos(), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		);
 
@@ -554,7 +554,7 @@ public class Image {
 		 * 47)  Color Function 2 - sinus 
 		 */
 		IMAGE[47] = new Image(
-					new DomainColoring(new xt.function.Sin(), new ColorFunction2(true, true)),
+					new DomainColoring(new xt.function.Sin(), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		);
 
@@ -562,15 +562,15 @@ public class Image {
 		 * 48)  Color Function 2 - tangente 
 		 */
 		IMAGE[48] = new Image(
-					new DomainColoring(new xt.function.Tan(), new ColorFunction2(true, true)),
-					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
+					new DomainColoring(new xt.function.Tan(), new ColorFunction2(true, true, true)),
+					new MathZone(new Complex(0.0, 0.0), Math.PI, Math.PI / 1.5, 0.0)
 		);
 
 		/*
 		 * 49)  Color Function 2 - fonction "Sylvestre" 
 		 */
 		IMAGE[49] = new Image(
-					new DomainColoring(new xt.function.Sylvestre(), new ColorFunction2(true, true)),
+					new DomainColoring(new xt.function.Sylvestre(), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		);
 	}

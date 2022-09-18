@@ -5,10 +5,12 @@ import xt.math.Complex;
 public class ColorFunction2 implements Effect {
 
 	private static final double THRESHOLD = 0.995;
+	private boolean color; 
 	private boolean radialSeparation;
 	private boolean angularSeparation;
 	
-	public ColorFunction2(boolean radialSeparation, boolean angularSeparation) {
+	public ColorFunction2(boolean color, boolean radialSeparation, boolean angularSeparation) {
+		this.color = color;
 		this.radialSeparation = radialSeparation;
 		this.angularSeparation = angularSeparation;
 	}
@@ -46,7 +48,8 @@ public class ColorFunction2 implements Effect {
 			return 1.0;
 		}
 		int b = (int) Math.floor(n * theta / (2.0 * Math.PI));
-		return (isBitSet(r, b) && (r % 3 == iColor) ? 1.0 : 0.0);
+		boolean q = color ? (r % 3 == iColor) : true;
+		return (isBitSet(r, b) && q ? 1.0 : 0.0);
 	}
 
 	@Override

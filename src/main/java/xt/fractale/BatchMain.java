@@ -216,7 +216,7 @@ public class BatchMain {
 								new Barycenter(
 										s, new Pow(0.5,
 											new Mul(
-													new ArgPeriodicity(Palette.PALETTE_010, 0.5),
+													new ArgPalette(Palette.PALETTE_010, 0.5, 0.0),
 													new Max(
 															new RealPartGrid(0.05, 1.0, 1.0, 1.0),
 															new ImaginaryPartGrid(0.05, 1.0, 1.0, 1.0)

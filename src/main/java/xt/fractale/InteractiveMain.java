@@ -14,13 +14,16 @@ import xt.sound.Sound;
 public class InteractiveMain extends Graph {
 
 	static final long serialVersionUID	= 1234;
-	
-	static final int RESOLUTION_X = 1536;
-	static final int RESOLUTION_Y = 1024;
+
+	static final int SCREEN_X = 1920;
+	static final int SCREEN_Y = 1080;
+	static final int DEFINITION_X = 1536;
+	static final int DEFINITION_Y = 1024;
+
 	static final int PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR = 512;
 	static final int EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR = 9;
-	static final int MINIMAL_INTEGER_X = RESOLUTION_X / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
-	static final int MINIMAL_INTEGER_Y = RESOLUTION_Y / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
+	static final int MINIMAL_INTEGER_X = DEFINITION_X / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
+	static final int MINIMAL_INTEGER_Y = DEFINITION_Y / PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
 
 	static final int GRANULARITE_LA_PLUS_GROSSIERE = 0;
 	static final int GRANULARITE_LA_PLUS_FINE = EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
@@ -31,13 +34,15 @@ public class InteractiveMain extends Graph {
 	}
 	
 	public static void draw(Image image) {
-		PixelZone pixelZone = new PixelZone(RESOLUTION_X, RESOLUTION_Y);
+		PixelZone pixelZone = new PixelZone(DEFINITION_X, DEFINITION_Y);
 		InteractiveMain f = new InteractiveMain();
 		f.init();
 		MyKeyListener ka = new MyKeyListener(image);
 		f.addKeyListener(ka);
 		Graphics graphics = f.getGraphics();
 		CoordinatesConverter cc = new CoordinatesConverter(image.getMathZone(), pixelZone);
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(0, 0, SCREEN_X, SCREEN_Y);
 		
 		while (ka.getDrawStatus() != DrawStatus.QUIT) {
 			switch (ka.getDrawStatus()) {
