@@ -427,8 +427,6 @@ public class Image {
 						new MathZone(new Complex(13.5, 21.5), 0.5, 0.5, 0.0)
 		);
 		
-
-		
 		/*
 		 * 32) Bêtises de Cambrai
 		 */
@@ -482,7 +480,7 @@ public class Image {
 		 * 37)  Color Function 1 - exponentielle
 		 */
 		IMAGE[37] = new Image(
-					new DomainColoring(new xt.function.Exponential(), new ColorFunction1()),
+					new DomainColoring(new xt.function.Exp(), new ColorFunction1()),
 					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
 		);
 		
@@ -538,7 +536,7 @@ public class Image {
 		 * 45)  Color Function 2 - fonction exponentielle 
 		 */
 		IMAGE[45] = new Image(
-					new DomainColoring(new xt.function.Exponential(), new ColorFunction2(true, true, true)),
+					new DomainColoring(new xt.function.Exp(), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, Math.PI), 1.5 * Math.PI, Math.PI, 0.0)
 		);
 
