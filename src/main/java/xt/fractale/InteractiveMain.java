@@ -1,12 +1,15 @@
 package xt.fractale;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import xt.coloralgo.ColorAlgo;
 import xt.math.Complex;
 import xt.graph.Graph;
 import xt.sound.Sound;
@@ -40,14 +43,13 @@ public class InteractiveMain extends Graph {
 		MyKeyListener ka = new MyKeyListener(image);
 		f.addKeyListener(ka);
 		Graphics graphics = f.getGraphics();
-		CoordinatesConverter cc = new CoordinatesConverter(image.getMathZone(), pixelZone);
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(0, 0, SCREEN_X, SCREEN_Y);
 		
 		while (ka.getDrawStatus() != DrawStatus.QUIT) {
 			switch (ka.getDrawStatus()) {
 			case DRAW:
-				draw(ka, graphics, cc, image.getColorAlgo());
+				draw(ka, graphics, image, pixelZone);
 				if (ka.getDrawStatus() == DrawStatus.DRAW) {
 					ka.setDrawStatus(DrawStatus.WAIT);
 				}
@@ -71,11 +73,41 @@ public class InteractiveMain extends Graph {
 		System.exit(0);
 	}
 
-	public static void draw(MyKeyListener ka, Graphics graphics, CoordinatesConverter cc, ColorAlgo colorAlgo) {
+	private static final int FIRST_LINE = 1036;
+	private static final int LINE_INCREMENT = 10;
+	private static final int NB_CHARS_PER_LINE = 220;
+	private static void writeCaption(Graphics graphics, Image image) {
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(0, 1024, 1920, 56);
+		graphics.setColor(Color.WHITE);
+		Font font = new Font("Courier New", Font.PLAIN, 11);
+		graphics.setFont(font);
+		String string = image.toString();
+		int line = FIRST_LINE;
+		while (! string.isEmpty()) {
+			String toPrint;
+			if (string.length() > NB_CHARS_PER_LINE) {
+				toPrint = string.substring(0, NB_CHARS_PER_LINE);
+				string = string.substring(NB_CHARS_PER_LINE);
+			} else {
+				toPrint = string;
+				string = "";
+			}
+			graphics.drawString(toPrint, 0, line);
+			line += LINE_INCREMENT;
+		}
+		Date now = new Date();
+		DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss z");
+		graphics.drawString(df.format(now), 0, line);
+	}
+	
+	public static void draw(MyKeyListener ka, Graphics graphics, Image image, PixelZone pixelZone) {
 		int ix, iy;
 		int granu;
 		int cote, nx, ny;
 		int x, y;
+
+		writeCaption(graphics, image);
 		
 		granu = granularite_de_depart;
 		while ((granu <= GRANULARITE_LA_PLUS_FINE) && (ka.getDrawStatus() == DrawStatus.DRAW)) {
@@ -89,9 +121,9 @@ public class InteractiveMain extends Graph {
 				x = ix * cote;
 				for (iy = 1; iy < ny; iy++) {
 					y = iy * cote;
-					Complex z = cc.fromPixelToMath(new Complex(x, y));
+					Complex z = new CoordinatesConverter(image.getMathZone(), pixelZone).fromPixelToMath(new Complex(x, y));
 					Color color = null;
-					color = colorAlgo.getColor(z);
+					color = image.getColorAlgo().getColor(z);
 					graphics.setColor(color);
 					graphics.fillRect(x, y, cote, cote);
 				}

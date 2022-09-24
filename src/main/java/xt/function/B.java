@@ -6,11 +6,11 @@ import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class Jeanne implements Function<Complex, Complex> {
+public class B implements Function<Complex, Complex> {
 
 	private RationalFraction r;
 	
-	public Jeanne() {
+	public B() {
 		List<Complex> z = new ArrayList<>();
 		List<Complex> p  = new ArrayList<>();
 		
@@ -58,5 +58,12 @@ public class Jeanne implements Function<Complex, Complex> {
 	
 	public Complex apply(Complex z) {
 		return r.apply(z);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("B");
+		return builder.toString();
 	}
 }

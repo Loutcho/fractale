@@ -17,7 +17,7 @@ public class Papillon implements Function<Complex, Complex> {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new Papillon()");
+		builder.append("Papillon");
 		return builder.toString();
 	}
 }

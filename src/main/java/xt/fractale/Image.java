@@ -1,7 +1,6 @@
 package xt.fractale;
 
-import java.awt.Color;
-
+import xt.coloralgo.Color;
 import xt.coloralgo.ColorAlgo;
 import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
@@ -9,6 +8,7 @@ import xt.coloralgo.Palette;
 import xt.coloralgo.effect.*;
 import xt.coloralgo.stopcriterion.AbsGreaterThan;
 import xt.coloralgo.stopcriterion.AbsLessThan;
+import xt.coloralgo.stopcriterion.FancyStopCriterion001;
 import xt.math.Complex;
 
 public class Image {
@@ -24,7 +24,7 @@ public class Image {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new Image(");
+		builder.append("Image(");
 		builder.append(colorAlgo);
 		builder.append(", ");
 		builder.append(mathZone);
@@ -39,8 +39,12 @@ public class Image {
 	public MathZone getMathZone() {
 		return mathZone;
 	}
-	
-	private static final int numLastImage = 49;
+
+	public void setMathZone(MathZone mathZone) {
+		this.mathZone = mathZone;
+	}
+
+	private static final int numLastImage = 52;
 	public static final Image[] IMAGE = new Image[1 + numLastImage];
 	
 	static {
@@ -182,8 +186,8 @@ public class Image {
 									new Mul(
 											new ArgPalette(Palette.PALETTE_010, 0.5, 0.0),
 											new Max(
-													new RealPartGrid(0.05, 1.0, 1.0, 1.0),
-													new ImaginaryPartGrid(0.05, 1.0, 1.0, 1.0)
+													new GridRe(0.05, 1.0, 1.0, 1.0),
+													new GridIm(0.05, 1.0, 1.0, 1.0)
 											)
 									)
 							)
@@ -245,8 +249,8 @@ public class Image {
 							new xt.function.BurningShip(), new Complex(-0.5429, 0.1839), 3500, false, new AbsGreaterThan(2.0), Color.WHITE,
 							new Max(
 									new IterationPeriodicity(Palette.PALETTE_014, 40.0, 0.15),
-									new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
-									new RealPartGrid(0.2, 0.2, 0.2, 0.8)
+									new GridIm(0.2, 1.0, 1.0, 0.8),
+									new GridRe(0.2, 0.2, 0.2, 0.8)
 							)
 					),
 					new MathZone(new Complex(0.0, 0.4655), 0.0039, 0.0026, Math.PI)
@@ -261,8 +265,8 @@ public class Image {
 							new Max(
 									new ArgPalette(Palette.PALETTE_015, 0.5, 0.0),
 									new Min(
-											new RealPartGrid(0.2, 1.0, 1.0, 1.0),
-											new ImaginaryPartGrid(0.2, 1.0, 1.0, 1.0)
+											new GridRe(0.2, 1.0, 1.0, 1.0),
+											new GridIm(0.2, 1.0, 1.0, 1.0)
 									)
 							)
 					),
@@ -350,8 +354,8 @@ public class Image {
 								new Mul(
 									new IterationPeriodicity(Palette.PALETTE_021, 3.0),
 									new Min(
-											new RealPartGrid(0.3, 0.5, 1.0, 1.0),
-											new ImaginaryPartGrid(0.3, 1.0, 1.0, 0.5)
+											new GridRe(0.3, 0.5, 1.0, 1.0),
+											new GridIm(0.3, 1.0, 1.0, 0.5)
 									)
 								)
 							)
@@ -570,6 +574,16 @@ public class Image {
 		IMAGE[49] = new Image(
 					new DomainColoring(new xt.function.Sylvestre(), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
+		);
+		
+		/*
+		 * 52) Rubans et fourches
+		 */
+		IMAGE[52] = new Image(
+					new EscapeTimeAlgorithm(new xt.function.F8(), null, 200, true, new FancyStopCriterion001(), Color.BLACK,
+						new xt.coloralgo.effect.ColorFunction0()
+					),
+					new MathZone(new Complex(-1.210, -0.381), 0.216, 0.144, 0.0)
 		);
 	}
 }

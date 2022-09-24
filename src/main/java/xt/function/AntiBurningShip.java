@@ -14,4 +14,11 @@ public class AntiBurningShip implements Function<Complex, Complex> {
 		Complex zz = new Complex(xx, -yy);
 		return Complex.mul(zz, zz);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("AntiBurningShip");
+		return builder.toString();
+	}
 }

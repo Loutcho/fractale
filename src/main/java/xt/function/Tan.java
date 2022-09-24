@@ -12,4 +12,11 @@ public class Tan implements Function<Complex, Complex> {
 	public Complex apply(Complex z) {
 		return MyMath.tan(z);
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Tan");
+		return builder.toString();
+	}
 }

@@ -96,4 +96,13 @@ public class BMarelle implements Function<Complex, Complex> {
 		}
 		return new Complex(b, b);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("BMarelle(");
+		builder.append(n);
+		builder.append(")");
+		return builder.toString();
+	}
 }

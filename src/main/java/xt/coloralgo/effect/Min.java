@@ -30,5 +30,18 @@ public class Min implements Effect {
 		}
 		return min;
 	}
-	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Min(");
+		for (int i = 0; i < effects.size(); i ++) {
+			if (i > 0) {
+				builder.append(", ");
+			}
+			builder.append(effects.get(i).toString());
+		}
+		builder.append(")");
+		return builder.toString();
+	}
 }

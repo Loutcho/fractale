@@ -26,4 +26,15 @@ public class RationalFraction implements Function<Complex, Complex> {
 		}
 		return accu;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("RationalFraction(");
+		builder.append(zeros);
+		builder.append("/");
+		builder.append(poles);
+		builder.append(")");
+		return builder.toString();
+	}
 }

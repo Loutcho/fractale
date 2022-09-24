@@ -25,7 +25,7 @@ public class MathZone {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new MathZone(");
+		builder.append("MathZone(");
 		builder.append(zCenter);
 		builder.append(", ");
 		builder.append(xSemiLength);

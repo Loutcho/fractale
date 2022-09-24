@@ -18,4 +18,11 @@ public class NidDeMonstres implements Function<Complex, Complex> {
 		t = 2.0 * t;
 		return Complex.mul(r, Complex.ei(t));
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("NidDeMonstres");
+		return builder.toString();
+	}
 }

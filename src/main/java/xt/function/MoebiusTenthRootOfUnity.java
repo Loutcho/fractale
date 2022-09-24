@@ -35,4 +35,11 @@ public class MoebiusTenthRootOfUnity implements Function<Complex, Complex> {
 		}
 		return accu;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("MoebiusTenthRootOfUnity");
+		return builder.toString();
+	}
 }

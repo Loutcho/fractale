@@ -25,4 +25,11 @@ public class Fleur implements Function<Complex, Complex> {
 	public Complex apply(Complex z) {
 		return Complex.mul(MyMath.cos(z), r.apply(z));
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Fleur");
+		return builder.toString();
+	}
 }

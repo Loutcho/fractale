@@ -11,4 +11,11 @@ public class Cos implements Function<Complex, Complex> {
 	public Complex apply(Complex z) {
 		return MyMath.cos(z);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Cos");
+		return builder.toString();
+	}
 }

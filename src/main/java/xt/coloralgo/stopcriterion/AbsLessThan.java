@@ -20,7 +20,7 @@ public class AbsLessThan implements Predicate<Complex> {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new AbsLessThan(");
+		builder.append("AbsLessThan(");
 		builder.append(threshold);
 		builder.append(")");
 		return builder.toString();

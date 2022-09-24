@@ -1,5 +1,7 @@
 package xt.coloralgo.effect;
 
+import java.util.Arrays;
+
 import xt.math.Complex;
 import xt.math.MyMath;
 
@@ -22,5 +24,16 @@ public class Bubble implements Effect {
 	@Override
 	public double apply(int iColor, Complex z, double iReel) {
 		return Math.max(MyMath.sqcosdemi(z.arg()), MyMath.sqcosdemi(Math.PI * (iReel / period[iColor] + phase[iColor])));
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Bubble [period=");
+		builder.append(Arrays.toString(period));
+		builder.append(", phase=");
+		builder.append(Arrays.toString(phase));
+		builder.append("]");
+		return builder.toString();
 	}
 }

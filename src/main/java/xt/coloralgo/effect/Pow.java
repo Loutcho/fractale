@@ -20,7 +20,7 @@ public class Pow implements Effect {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new Pow(");
+		builder.append("Pow(");
 		builder.append(power);
 		builder.append(", ");
 		builder.append(effect);

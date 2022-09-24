@@ -14,4 +14,11 @@ public class AbsArgGradient implements Effect {
 		double modifiedAbs = MyMath.ff((z.abs() - 2.0) / 2.0);
 		return Math.max((1.0 + MyMath.sqcosdemi(theta + iColor * Math.PI / 2.0)) / 2.0, (1.0 + modifiedAbs) / 2.0);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("AbsArgGradient");
+		return builder.toString();
+	}
 }

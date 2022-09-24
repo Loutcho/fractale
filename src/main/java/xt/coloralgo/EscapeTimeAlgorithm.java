@@ -1,6 +1,5 @@
 package xt.coloralgo;
 
-import java.awt.Color;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -33,7 +32,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new EscapeTimeAlgorithm(");
+		builder.append("EscapeTimeAlgorithm(");
 		builder.append(function);
 		builder.append(", ");
 		builder.append(zJulia);
@@ -77,7 +76,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	}
 	
 	public Color divergenceColorAlgo(int iteration, int iterationMax, Complex z) {
-		Color color = Color.BLACK;
+		Color color = new Color(0x000000);
 		int[] colors = new int[3];
 		int iColor;
 		
@@ -118,6 +117,14 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 
 	public void setSmoothMode(boolean smoothMode) {
 		this.smoothMode = smoothMode;
+	}
+
+	public Complex getzJulia() {
+		return zJulia;
+	}
+
+	public void setzJulia(Complex zJulia) {
+		this.zJulia = zJulia;
 	}
 	
 	/*
@@ -180,9 +187,6 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 				degrade2_j[0] = (degrade2_j[0] + 0.1) % 1;
 				degrade2_j[1] = (degrade2_j[1] + 0.1) % 1;
 				degrade2_j[2] = (degrade2_j[2] + 0.1) % 1;
-				break;
-			case KeyEvent.VK_J:
-				// FIXME: juliaMode = ! juliaMode;
 				break;
 		}
 	}

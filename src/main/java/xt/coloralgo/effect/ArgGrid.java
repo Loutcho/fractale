@@ -17,4 +17,17 @@ public class ArgGrid implements Effect {
 	public double apply(int iColor, Complex z, double iReel) {
 		return Math.pow(MyMath.sqcosdemi(nbSlices * z.arg()), thickness);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ArgGrid(");
+		builder.append(nbSlices);
+		builder.append(", ");
+		builder.append(thickness);
+		builder.append(")");
+		return builder.toString();
+	}
+	
+	
 }

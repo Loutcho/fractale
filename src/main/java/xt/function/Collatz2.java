@@ -56,4 +56,11 @@ public class Collatz2 implements Function<Complex, Complex> {
 		Complex s = Complex.sub(ONE, t);
 		return Complex.add(Complex.mul(s, a(z)), Complex.mul(t, b(z)));
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Collatz2");
+		return builder.toString();
+	}
 }

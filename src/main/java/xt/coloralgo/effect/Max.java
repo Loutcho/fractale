@@ -30,5 +30,18 @@ public class Max implements Effect {
 		}
 		return max;
 	}
-	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Max(");
+		for (int i = 0; i < effects.size(); i ++) {
+			if (i > 0) {
+				builder.append(", ");
+			}
+			builder.append(effects.get(i).toString());
+		}
+		builder.append(")");
+		return builder.toString();
+	}
 }

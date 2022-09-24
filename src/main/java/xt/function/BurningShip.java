@@ -15,4 +15,11 @@ public class BurningShip implements Function<Complex, Complex> {
 		Complex zz = new Complex(xx, yy);
 		return Complex.mul(zz, zz);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("BurningShip");
+		return builder.toString();
+	}
 }

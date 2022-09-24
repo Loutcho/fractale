@@ -21,4 +21,11 @@ public class Collatz implements Function<Complex, Complex> {
 		zz = Complex.add(zz, deuxplusseptz);
 		return Complex.mul(0.25, zz);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Collatz");
+		return builder.toString();
+	}
 }

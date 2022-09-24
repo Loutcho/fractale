@@ -18,7 +18,7 @@ public class ArgPalette implements Effect {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new ArgPalette(");
+		builder.append("ArgPalette(");
 		builder.append(palette);
 		builder.append(", ");
 		builder.append(period);

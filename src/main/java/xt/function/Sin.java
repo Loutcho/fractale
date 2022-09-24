@@ -12,4 +12,11 @@ public class Sin implements Function<Complex, Complex> {
 	public Complex apply(Complex z) {
 		return MyMath.sin(z);
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Sin");
+		return builder.toString();
+	}
 }

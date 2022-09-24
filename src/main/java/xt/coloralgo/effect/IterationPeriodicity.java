@@ -28,7 +28,7 @@ public class IterationPeriodicity implements Effect {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new IterationPeriodicity(");
+		builder.append("IterationPeriodicity(");
 		builder.append(palette);
 		builder.append(", ");
 		builder.append(period[0]);

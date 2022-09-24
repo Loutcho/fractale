@@ -34,4 +34,11 @@ public class F4 implements Function<Complex, Complex> {
 	public Complex apply(Complex z) {
 		return r.apply(z);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("F4");
+		return builder.toString();
+	}
 }

@@ -22,7 +22,7 @@ public class ZPower implements Function<Complex, Complex> {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new xt.function.ZPower(");
+		builder.append("ZPower(");
 		if (n != null) {
 			builder.append(n);
 		}

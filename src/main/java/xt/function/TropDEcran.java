@@ -17,4 +17,11 @@ public class TropDEcran implements Function<Complex, Complex> {
 		z = new Complex(xxx * yy, yyy * xx);
 		return z;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("TropDEcran");
+		return builder.toString();
+	}
 }

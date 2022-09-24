@@ -17,4 +17,11 @@ public class F3 implements Function<Complex, Complex> {
 		}
 		return Complex.mul(z, new Complex(sx / Math.log(Math.atan(Math.abs(x)) / (Math.PI / 2.0)), sy / Math.log(Math.atan(Math.abs(y)) / (Math.PI / 2.0))));
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("F3");
+		return builder.toString();
+	}
 }

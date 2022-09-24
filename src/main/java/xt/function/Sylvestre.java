@@ -14,4 +14,11 @@ public class Sylvestre implements Function<Complex, Complex> {
 		theta = Math.PI * Math.cos(theta / 2.0);
 		return Complex.polar(r, theta);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Sylvestre");
+		return builder.toString();
+	}
 }

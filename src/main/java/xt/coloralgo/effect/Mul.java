@@ -28,9 +28,9 @@ public class Mul implements Effect {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new Mul(");
+		builder.append("Mul(");
 		for (int i = 0; i < effects.size(); i ++) {
-			if (i < 0) {
+			if (i > 0) {
 				builder.append(", ");
 			}
 			builder.append(effects.get(i).toString());

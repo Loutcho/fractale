@@ -19,7 +19,7 @@ public class DomainColoring implements ColorAlgo {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new DomainColoring(");
+		builder.append("DomainColoring(");
 		builder.append(function);
 		builder.append(", ");
 		builder.append(effect);

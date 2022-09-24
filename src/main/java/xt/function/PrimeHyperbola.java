@@ -23,4 +23,11 @@ public class PrimeHyperbola implements Function<Complex, Complex> {
 		Complex zz = Complex.mul(rho, Complex.ei(0.0)); 
 		return zz;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("PrimeHyperbola");
+		return builder.toString();
+	}
 }

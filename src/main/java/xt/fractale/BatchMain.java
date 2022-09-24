@@ -1,7 +1,6 @@
 package xt.fractale;
 
-import java.awt.Color;
-
+import xt.coloralgo.Color;
 import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.Palette;
@@ -18,7 +17,7 @@ public class BatchMain {
 	private static String PATH = System.getenv("FRACTALE_HOME");
 
 	public static void main(String[] args) {
-		int choice = 51;
+		int choice = 52;
 		switch (choice) {
 		case 27: video027(); break;
 		case 28: video028(); break;
@@ -146,8 +145,8 @@ public class BatchMain {
 									new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, ((int) (t * 0xFF)) << 2), s * 28.73 + t * 40.0, s * 5.0 / 6.0 + t * 0.15),
 									new Min(
 											new ConstantColor(t, t, t),
-											new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
-											new RealPartGrid(0.2, 0.2, 0.2, 0.8)											
+											new GridIm(0.2, 1.0, 1.0, 0.8),
+											new GridRe(0.2, 0.2, 0.2, 0.8)											
 									)
 							)
 					),
@@ -166,8 +165,8 @@ public class BatchMain {
 							new Max(
 									new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, 0xFF0000), 40.0, 0.15 + t),
 									new Min(
-											new ImaginaryPartGrid(0.2, 1.0, 1.0, 0.8),
-											new RealPartGrid(0.2, 0.2, 0.2, 0.8)											
+											new GridIm(0.2, 1.0, 1.0, 0.8),
+											new GridRe(0.2, 0.2, 0.2, 0.8)											
 									)
 							)
 					),
@@ -220,8 +219,8 @@ public class BatchMain {
 											new Mul(
 													new ArgPalette(Palette.PALETTE_010, 0.5, 0.0),
 													new Max(
-															new RealPartGrid(0.05, 1.0, 1.0, 1.0),
-															new ImaginaryPartGrid(0.05, 1.0, 1.0, 1.0)
+															new GridRe(0.05, 1.0, 1.0, 1.0),
+															new GridIm(0.05, 1.0, 1.0, 1.0)
 													)
 											)
 										),

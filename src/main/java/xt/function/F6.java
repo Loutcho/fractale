@@ -12,4 +12,11 @@ public class F6 implements Function<Complex, Complex> {
 		double t = z.arg();
 		return Complex.polar(r * r - 2.0, 2.0 * t);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("F6");
+		return builder.toString();
+	}
 }

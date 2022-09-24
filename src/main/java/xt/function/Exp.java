@@ -11,4 +11,11 @@ public class Exp implements Function<Complex, Complex> {
 	public Complex apply(Complex z) {
 		return MyMath.exp(z);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Exp");
+		return builder.toString();
+	}
 }

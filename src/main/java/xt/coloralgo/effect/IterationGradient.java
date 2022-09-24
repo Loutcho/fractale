@@ -20,4 +20,15 @@ public class IterationGradient implements Effect {
 		}
 		return Math.exp(- tau * (iReel - iBase));
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("IterationGradient(");
+		builder.append(tau);
+		builder.append(", ");
+		builder.append(iBase);
+		builder.append(")");
+		return builder.toString();
+	}
 }

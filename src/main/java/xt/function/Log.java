@@ -4,7 +4,7 @@ import java.util.function.Function;
 
 import xt.math.Complex;
 
-public class Logarithm implements Function<Complex, Complex> {
+public class Log implements Function<Complex, Complex> {
 
 	@Override
 	public Complex apply(Complex z) {
@@ -18,5 +18,13 @@ public class Logarithm implements Function<Complex, Complex> {
 			return new Complex(Math.log(r), Math.PI);
 		}
 		return zz;
+	}
+	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Log");
+		return builder.toString();
 	}
 }

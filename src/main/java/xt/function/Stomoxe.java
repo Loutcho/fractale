@@ -27,4 +27,11 @@ public class Stomoxe implements Function<Complex, Complex> {
 		
 		return Complex.add(Complex.mul(p, z1), Complex.mul(q, z2));
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Stomoxe");
+		return builder.toString();
+	}
 }

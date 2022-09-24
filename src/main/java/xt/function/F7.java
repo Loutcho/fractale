@@ -21,4 +21,12 @@ public class F7 implements Function<Complex, Complex> {
 			return new Complex(x / 2.0, y / 2.0);
 		}
 	}
+	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("F6");
+		return builder.toString();
+	}
 }

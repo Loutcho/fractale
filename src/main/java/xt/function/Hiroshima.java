@@ -22,4 +22,11 @@ public class Hiroshima implements Function<Complex, Complex> {
 	public Complex apply(Complex z) {
 		return r.apply(z);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Hiroshima");
+		return builder.toString();
+	}
 }

@@ -84,7 +84,7 @@ public class Palette {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new Palette(");
+		builder.append("Palette(");
 		for (int i = 0; i < rgb.length; i ++) {
 			if (i > 0) {
 				builder.append(", ");

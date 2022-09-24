@@ -82,11 +82,23 @@ public class Complex {
 
 	@Override
 	public String toString() {
+		int xx = (int) re;
+		double x = (double) xx;
+		int yy = (int) im;
+		double y = (double) yy;
 		StringBuilder builder = new StringBuilder();
-		builder.append("new Complex(");
-		builder.append(re);
+		builder.append("(");
+		if (x == re) {
+			builder.append(xx);
+		} else {
+			builder.append(re);
+		}
 		builder.append(", ");
-		builder.append(im);
+		if (y == im) {
+			builder.append(yy);
+		} else {
+			builder.append(im);
+		}
 		builder.append(")");
 		return builder.toString();
 	}

@@ -16,7 +16,7 @@ public class Sinh implements Function<Complex, Complex> {
 		this.w = Complex.ei(theta);
 	}
 	
-	public Sinh(double theta) {
+	public Sinh(double theta) { // experimental variant
 		this.theta = theta;
 		this.w = Complex.ei(theta);
 	}
@@ -28,5 +28,12 @@ public class Sinh implements Function<Complex, Complex> {
 		} else {
 			return Complex.div(MyMath.sinh(Complex.mul(w, z)), w);
 		}
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Sinh");
+		return builder.toString();
 	}
 }

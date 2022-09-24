@@ -17,4 +17,17 @@ public class ConstantColor implements Effect {
 	public double apply(int iColor, Complex z, double iReel) {
 		return tab[iColor];
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ConstantColor(");
+		builder.append(tab[0]);
+		builder.append(", ");
+		builder.append(tab[1]);
+		builder.append(", ");
+		builder.append(tab[2]);
+		builder.append(")");
+		return builder.toString();
+	}
 }
