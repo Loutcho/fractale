@@ -1,5 +1,6 @@
 package xt.fractale;
 
+import xt.coloralgo.ApplyTestOrder;
 import xt.coloralgo.Color;
 import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
@@ -17,7 +18,7 @@ public class BatchMain {
 	private static String PATH = System.getenv("FRACTALE_HOME");
 
 	public static void main(String[] args) {
-		int choice = 52;
+		int choice = 54;
 		switch (choice) {
 		case 27: video027(); break;
 		case 28: video028(); break;
@@ -28,7 +29,7 @@ public class BatchMain {
 		case 50: video050(); break;
 		case 51: video051(); break;
 		default:
-			Image image = Image.IMAGE[choice];
+			Image image = Image.get(choice);
 			String filename = String.format("%sexpo_%03d.png", PATH, choice);
 			new ImageFile(image, filename, DIMENSION_X, DIMENSION_Y).create();
 			break;
@@ -49,7 +50,7 @@ public class BatchMain {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(), new Complex(-0.87 + dx, -0.90 + dy), 100, true, new AbsGreaterThan(2.0), Color.BLACK,
+						new xt.function.Sylvestre(), new Complex(-0.87 + dx, -0.90 + dy), 100, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 						new IterationPeriodicity(Palette.PALETTE_027, 100.0, 0.40)
 					),
 					new MathZone(new Complex(-0.38, 0.0), 1.35, 0.80, - Math.PI / 2.0)),
@@ -70,7 +71,7 @@ public class BatchMain {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.ZPower(2), null, 2000, true, new AbsGreaterThan(2.0), Color.WHITE,
+							new xt.function.ZPower(2), null, 2000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Pow(0.6,
 									new Mul(
 											// déphasages de palette
@@ -100,7 +101,7 @@ public class BatchMain {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, new AbsGreaterThan(2.0), Color.WHITE,
+							new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new IterationPeriodicity(Palette.PALETTE_006, 100.0, 0.95 - 0.06 * t)
 					),
 					new MathZone(new Complex(0.0 - 0.0001 * t, 1.237 + 0.000339 * t), 0.0192 * c, 0.0128 * c, -1.18 * t)),
@@ -124,7 +125,7 @@ public class BatchMain {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.BurningShip(), c1, 3500, true, new AbsGreaterThan(2.0), Color.WHITE,
+							new xt.function.BurningShip(), c1, 3500, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, 0x007700), 28.73, 5.0 / 6.0 + t)
 					),
 					new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0)),
@@ -140,7 +141,7 @@ public class BatchMain {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.BurningShip(), c, 3500, true, new AbsGreaterThan(2.0), Color.WHITE,
+							new xt.function.BurningShip(), c, 3500, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Max(
 									new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, ((int) (t * 0xFF)) << 2), s * 28.73 + t * 40.0, s * 5.0 / 6.0 + t * 0.15),
 									new Min(
@@ -161,7 +162,7 @@ public class BatchMain {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.BurningShip(), c2, 3500, true, new AbsGreaterThan(2.0), Color.WHITE,
+							new xt.function.BurningShip(), c2, 3500, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Max(
 									new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, 0xFF0000), 40.0, 0.15 + t),
 									new Min(
@@ -192,7 +193,7 @@ public class BatchMain {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.Fleur(), new Complex(0.0 + dx, 0.0 + dy), 7, false, new AbsGreaterThan(2E11), Color.BLACK,
+							new xt.function.Fleur(), new Complex(0.0 + dx, 0.0 + dy), 7, false, new AbsGreaterThan(2E11), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new IterationPeriodicity(Palette.PALETTE_018, 3.0)
 						),
 						new MathZone(new Complex(0.0, 0.0), 1.35, 0.90, Math.PI / 2.0)),

@@ -33,7 +33,7 @@ public class InteractiveMain extends Graph {
 	static int granularite_de_depart = GRANULARITE_LA_PLUS_GROSSIERE;
 	
 	public static void main(String[] args) {
-		draw(Image.IMAGE[0]);
+		draw(Image.get(55));
 	}
 	
 	public static void draw(Image image) {

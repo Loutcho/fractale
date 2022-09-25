@@ -16,16 +16,24 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	private Color iMaxReachedColor;
 	private Effect effect;
 	private Predicate<Complex> stopCriterion;
+	private ApplyTestOrder order;
 
 	public EscapeTimeAlgorithm(
-			Function<Complex, Complex> function, Complex zJulia, int iMax, boolean smoothMode, Predicate<Complex> stopCriterion, 
-			Color iMaxReachedColor, Effect effect) {
+			Function<Complex, Complex> function,
+			Complex zJulia,
+			int iMax,
+			boolean smoothMode,
+			Predicate<Complex> stopCriterion,
+			Color iMaxReachedColor,
+			ApplyTestOrder order,
+			Effect effect) {
 		this.function = function;
 		this.zJulia = zJulia;
 		this.iMax = iMax;
 		this.stopCriterion = stopCriterion;
 		this.iMaxReachedColor = iMaxReachedColor;
 		this.smoothMode = smoothMode;
+		this.order = order;
 		this.effect = effect;
 	}
 
@@ -44,6 +52,8 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		builder.append(stopCriterion);
 		builder.append(", ");
 		builder.append(iMaxReachedColor);
+		builder.append(", ");
+		builder.append(order);
 		builder.append(", ");
 		builder.append(effect);
 		builder.append(")");
@@ -65,10 +75,21 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		
 		int i = 0;
 		while (i < iMax) {
-			z = function.apply(z);
-			z = Complex.add(z, c);
-			if (stopCriterion.test(z)) {
-				return divergenceColorAlgo(i, iMax, z);
+			switch (order) {
+			case FIRST_APPLY_THEN_TEST:
+				z = function.apply(z);
+				z = Complex.add(z, c);
+				if (stopCriterion.test(z)) {
+					return divergenceColorAlgo(i, iMax, z);
+				}
+				break;
+			case FIRST_TEST_THEN_APPLY:
+				if (stopCriterion.test(z)) {
+					return divergenceColorAlgo(i, iMax, z);
+				}
+				z = function.apply(z);
+				z = Complex.add(z, c);
+				break;
 			}
 			i ++;
 		}
