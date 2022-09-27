@@ -63,7 +63,7 @@ public class Image {
 		IMAGE.put(0, new Image(
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 256, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-						new IterationPeriodicity(Palette.PALETTE_000, 40.0, 0.0)
+						new IterationPalette(Palette.PALETTE_000, 40.0, 0.0)
 						// new LogIterationPalette(Palette.PALETTE_000, 3.0, false)
 				),
 				new MathZone(new Complex(-0.7, 0.0), 1.725, 1.150, 0.0)
@@ -76,7 +76,7 @@ public class Image {
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 120, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 						new Mul(
-								new IterationPeriodicity(Palette.PALETTE_001, 55.0, 0.65),
+								new IterationPalette(Palette.PALETTE_001, 55.0, 0.65),
 								new AbsArgGradient()
 						)
 				),
@@ -89,7 +89,7 @@ public class Image {
 		IMAGE.put(2, new Image(
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 5000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-						new IterationPeriodicity(Palette.PALETTE_002, 384.0, 0.333333333)
+						new IterationPalette(Palette.PALETTE_002, 384.0, 0.333333333)
 				),
 				new MathZone(new Complex(0.364480, 0.315382), 6E-6, 4E-6, 0.0)
 		));
@@ -101,7 +101,7 @@ public class Image {
 				new EscapeTimeAlgorithm(
 						new xt.function.ZPower(2), null, 5000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 						new Pow(1.5,
-								new IterationPeriodicity(Palette.PALETTE_003, 48.0, 0.0)
+								new IterationPalette(Palette.PALETTE_003, 48.0, 0.0)
 						)
 				),
 				new MathZone(new Complex(-1.749798494, 0.000032655), 0.000000150, 0.000000100, 0.0)
@@ -113,7 +113,7 @@ public class Image {
 		IMAGE.put(4, new Image(
 					new EscapeTimeAlgorithm(
 							new xt.function.ZPower(2), null, 15000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(Palette.PALETTE_004, 226.0, 0.50)
+							new IterationPalette(Palette.PALETTE_004, 226.0, 0.50)
 					),
 					new MathZone(new Complex(-1.250314, 0.01376), 0.000111, 0.000075, - Math.PI / 12.0)
 		));
@@ -124,7 +124,7 @@ public class Image {
 		IMAGE.put(5, new Image(
 					new EscapeTimeAlgorithm(
 							new xt.function.BurningShip(), new Complex(-0.0369, 0.2856), 3500, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(Palette.PALETTE_005, 28.73, 5.0 / 6.0)
+							new IterationPalette(Palette.PALETTE_005, 28.73, 5.0 / 6.0)
 					),
 					new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0)
 		));
@@ -135,7 +135,7 @@ public class Image {
 		IMAGE.put(6, new Image(
 					new EscapeTimeAlgorithm(
 							new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(Palette.PALETTE_006, 100.0, 0.95)
+							new IterationPalette(Palette.PALETTE_006, 100.0, 0.95)
 					),
 					new MathZone(new Complex(0.0, 1.237), 0.0192, 0.0128, 0.0)
 		));
@@ -148,7 +148,7 @@ public class Image {
 							new xt.function.ZPower(2), null, 2000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Pow(0.7,
 									new Mul(
-											new IterationPeriodicity(Palette.PALETTE_007, 14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
+											new IterationPalette(Palette.PALETTE_007, 14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
 											new Bubble(14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
 											new IterationGradient(0.004, 115.0)
 									)
@@ -163,7 +163,7 @@ public class Image {
 		IMAGE.put(8, new Image(
 					new EscapeTimeAlgorithm(
 							new xt.function.ZPower(2), new Complex(-1.749272, -2.16E-4), 3000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(Palette.PALETTE_008, 50.0, 0.5)
+							new IterationPalette(Palette.PALETTE_008, 50.0, 0.5)
 					), 
 					new MathZone(new Complex(0.0, 0.0), 0.150, 0.100, Math.PI / 2.0)
 		));
@@ -176,7 +176,7 @@ public class Image {
 							new xt.function.F4(), new Complex(0.7639, 0.3125), 3000, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Pow(0.4,
 									new Mul(
-											new IterationPeriodicity(Palette.PALETTE_009, 33.0, 0.0),
+											new IterationPalette(Palette.PALETTE_009, 33.0, 0.0),
 											new IterationGradient(0.015, 0),
 											new AbsGradient1(0.85, 1.0, 1.0)
 									)
@@ -211,7 +211,7 @@ public class Image {
 					new EscapeTimeAlgorithm(
 							new xt.function.Sylvestre(), new Complex(-0.9568, -0.7992), 1000, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Pow(0.7,
-									new IterationPeriodicity(Palette.PALETTE_011, 84.0, 0.7)
+									new IterationPalette(Palette.PALETTE_011, 84.0, 0.7)
 							)
 					),
 					new MathZone(new Complex(-0.44, 0.0), 1.2, 0.8, Math.PI / 2.0)
@@ -225,7 +225,7 @@ public class Image {
 							new xt.function.Papillon(), new Complex(0.3472, 0.1172), 200, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Pow(0.7,
 									new Mul(
-											new IterationPeriodicity(Palette.PALETTE_012, 8.0, 0.1),
+											new IterationPalette(Palette.PALETTE_012, 8.0, 0.1),
 											new Max(
 													new ArgGrid(6, 1.0),
 													new ArgPalette(Palette.PALETTE_012, 1.0, 0.0)
@@ -243,7 +243,7 @@ public class Image {
 					new EscapeTimeAlgorithm(
 							new xt.function.Collatz(), new Complex(0, 0), 1000, true, new AbsGreaterThan(40.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST, 
 							new Mul(
-									new IterationPeriodicity(Palette.PALETTE_013, 8.0, 0.0),
+									new IterationPalette(Palette.PALETTE_013, 8.0, 0.0),
 									new ArgPalette(Palette.PALETTE_013, 0.5, 0.333)
 							)
 					),
@@ -257,7 +257,7 @@ public class Image {
 					new EscapeTimeAlgorithm(
 							new xt.function.BurningShip(), new Complex(-0.5429, 0.1839), 3500, false, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Max(
-									new IterationPeriodicity(Palette.PALETTE_014, 40.0, 0.15),
+									new IterationPalette(Palette.PALETTE_014, 40.0, 0.15),
 									new GridIm(0.2, 1.0, 1.0, 0.8),
 									new GridRe(0.2, 0.2, 0.2, 0.8)
 							)
@@ -313,7 +313,7 @@ public class Image {
 		IMAGE.put(18, new Image(
 					new EscapeTimeAlgorithm(
 						new xt.function.Fleur(), new Complex(0.0, 0.0), 7, false, new AbsGreaterThan(2E11), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-						new IterationPeriodicity(Palette.PALETTE_018, 3.0)
+						new IterationPalette(Palette.PALETTE_018, 3.0)
 					),
 					new MathZone(new Complex(0.0, 0.0), 1.35, 0.90, Math.PI / 2.0)
 		));
@@ -359,9 +359,9 @@ public class Image {
 		IMAGE.put(21, new Image(
 						new EscapeTimeAlgorithm(
 							new xt.function.F6(), new Complex(1.6, -0.1), 1000, true, new AbsGreaterThan(2.71), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new Pow(0.5,
+							new Inverse(
 								new Mul(
-									new IterationPeriodicity(Palette.PALETTE_021, 3.0),
+									new IterationPalette(Palette.PALETTE_021, 3.0),
 									new Min(
 											new GridRe(0.3, 0.5, 1.0, 1.0),
 											new GridIm(0.3, 1.0, 1.0, 0.5)
@@ -380,7 +380,7 @@ public class Image {
 							new xt.function.NidDeMonstres(), new Complex(-0.0090, 0.0385), 1000, true, new AbsGreaterThan(3E5), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Pow(0.8,
 								new Max(
-										new IterationPeriodicity(Palette.PALETTE_022, 66.0, 0.33),
+										new IterationPalette(Palette.PALETTE_022, 66.0, 0.33),
 										new ArgGradient(1.0, 0.80, 0.75)
 								)
 							)
@@ -395,9 +395,9 @@ public class Image {
 						new EscapeTimeAlgorithm(
 							new xt.function.F7(), new Complex(0.1, 0.1), 1000, true, new AbsGreaterThan(2.4), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Max(
-									new IterationPeriodicity(Palette.PALETTE_023, 3.0, 0.800000),
-									new IterationPeriodicity(Palette.PALETTE_023, 4.0, 0.133333),
-									new IterationPeriodicity(Palette.PALETTE_023, 5.0, 0.466666)
+									new IterationPalette(Palette.PALETTE_023, 3.0, 0.800000),
+									new IterationPalette(Palette.PALETTE_023, 4.0, 0.133333),
+									new IterationPalette(Palette.PALETTE_023, 5.0, 0.466666)
 							)
 							
 						),
@@ -410,7 +410,7 @@ public class Image {
 		IMAGE.put(24, new Image(
 						new EscapeTimeAlgorithm(
 							new xt.function.Stomoxe(), new Complex(0.0, 0.0), 1000, true, new AbsGreaterThan(1E12), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(Palette.PALETTE_024, 15.0, 0.05)
+							new IterationPalette(Palette.PALETTE_024, 15.0, 0.05)
 						),
 						new MathZone(new Complex(-0.95, 0.0), 1.65, 1.10, 0.0)
 		));
@@ -422,7 +422,7 @@ public class Image {
 						new EscapeTimeAlgorithm(
 							new xt.function.Demonologie(), null, 10000, true, new AbsGreaterThan(3.8), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Mul(
-									new IterationPeriodicity(Palette.PALETTE_025, 7.0, 0.8),
+									new IterationPalette(Palette.PALETTE_025, 7.0, 0.8),
 									new Bubble(2.0, 0.5, 2.0, 0.0, 2.0, 0.5)
 							)
 						),
@@ -435,7 +435,7 @@ public class Image {
 		IMAGE.put(26, new Image(
 						new EscapeTimeAlgorithm(
 							new xt.function.TropDEcran(), new Complex(0.0, 0.0), 10000, false, new AbsLessThan(0.25), Color.BLUE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(Palette.PALETTE_026, 4.0, 0.0)
+							new IterationPalette(Palette.PALETTE_026, 4.0, 0.0)
 						),
 						new MathZone(new Complex(13.5, 21.5), 0.5, 0.5, 0.0)
 		));
@@ -447,7 +447,7 @@ public class Image {
 					new EscapeTimeAlgorithm(
 							new xt.function.Collatz2(), new Complex(0.0, -0.0025), 2000, true, new AbsGreaterThan(1.75), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Mul(
-									new IterationPeriodicity(Palette.PALETTE_032, 33.0),
+									new IterationPalette(Palette.PALETTE_032, 33.0),
 									new Bubble(50.0, 0.0, 50.0, 0.2, 50.0, 1.0)
 							)
 					),
@@ -596,7 +596,7 @@ public class Image {
 		));
 
 		/*
-		 * 53) Domain Coloring, Color Function 3 - identié
+		 * 53) Domain Coloring, Color Function 3 - identité
 		 */
 		IMAGE.put(53, new Image(
 					new DomainColoring(new xt.function.Identity(), new xt.coloralgo.effect.ColorFunction3()),
@@ -604,7 +604,7 @@ public class Image {
 		));
 		
 		/*
-		 * 54) Domain Coloring, pas très joli mais pédagogique
+		 * 54) Domain Coloring, pas très joli mais pédagogique : doublement d'angle
 		 */
 		IMAGE.put(54, new Image(
 					new DomainColoring(new xt.function.F9(), new xt.coloralgo.effect.ColorFunction3()),
@@ -612,13 +612,39 @@ public class Image {
 		));
 		
 		/*
-		 * 55) Fractale, pas très jolie mais pédagogique
+		 * 55) Fractale, pas très jolie mais pédagogique : doublement d'angle
 		 */
 		IMAGE.put(55, new Image(
 					new EscapeTimeAlgorithm(new xt.function.F9(), new Complex(0.0, 0.0), 2000, true, new ReLessThan(0.0), Color.BLACK, ApplyTestOrder.FIRST_TEST_THEN_APPLY,
 						new xt.coloralgo.effect.ColorFunction3()
 					),
 					new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
+		));
+		
+		/*
+		 * 56) Un EscapeTimeAlgorithm et un DomainColoring peuvent donner exactement le même résultat : comparer 56 et 57
+		 */
+		IMAGE.put(56, new Image(
+					new EscapeTimeAlgorithm(new xt.function.F10(), new Complex(0.0, 0.0), 2000, false, new AbsLessThan(1.0), Color.BLACK, ApplyTestOrder.FIRST_TEST_THEN_APPLY,
+						new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_056, 4.0)
+					),
+					new MathZone(new Complex(0.0, 0.0), 30.0, 20.0, 0.0)
+		));
+		
+		/*
+		 * 57) Un EscapeTimeAlgorithm et un DomainColoring peuvent donner exactement le même résultat : comparer 56 et 57
+		 */
+		IMAGE.put(57, new Image(
+					new DomainColoring(new xt.function.F11(), new AbsPalette(Palette.PALETTE_056, 4.0, 0.0)),
+					new MathZone(new Complex(0.0, 0.0), 30.0, 20.0, 0.0)
+		));
+		
+		/*
+		 * 58) Version non discrétisée du 57
+		 */
+		IMAGE.put(58, new Image(
+					new DomainColoring(new xt.function.Identity(), new AbsPalette(Palette.PALETTE_056, 4.0, 0.0)),
+					new MathZone(new Complex(0.0, 0.0), 30.0, 20.0, 0.0)
 		));
 	}
 }

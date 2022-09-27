@@ -1,15 +1,16 @@
 package xt.coloralgo.effect;
 
+import xt.coloralgo.CyclicPalette;
 import xt.coloralgo.Palette;
 import xt.math.Complex;
 
-public class IterationPeriodicity implements Effect {
+public class IterationPalette implements Effect {
 
 	private Palette palette;
 	private double period[];
 	private double phase[];
 	
-	public IterationPeriodicity(
+	public IterationPalette(
 			Palette palette,
 			double redPeriod, double redPhase,
 			double greenPeriod, double greenPhase,
@@ -28,7 +29,7 @@ public class IterationPeriodicity implements Effect {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("IterationPeriodicity(");
+		builder.append("IterationPalette(");
 		builder.append(palette);
 		builder.append(", ");
 		builder.append(period[0]);
@@ -46,7 +47,7 @@ public class IterationPeriodicity implements Effect {
 		return builder.toString();
 	}	
 	
-	public IterationPeriodicity(Palette palette, double period) {
+	public IterationPalette(Palette palette, double period) {
 		this.palette = palette;
 		this.period = new double[3];
 		phase = new double[3];
@@ -58,7 +59,7 @@ public class IterationPeriodicity implements Effect {
 		phase[2] = 0.0;
 	}
 	
-	public IterationPeriodicity(Palette palette, double period, double phase) {
+	public IterationPalette(Palette palette, double period, double phase) {
 		this.palette = palette;
 		this.period = new double[3];
 		this.phase = new double[3];
@@ -72,27 +73,6 @@ public class IterationPeriodicity implements Effect {
 
 	@Override
 	public double apply(int iColor, Complex z, double iReel) {
-		return fonction_1periodique_amplitude1(palette, iColor, iReel / period[iColor] + phase[iColor]);
-	}
-	
-	private double fonction_1periodique_amplitude1(Palette palette, int iColor, double x) {
-		x -= Math.floor(x);
-		int n = palette.getNbColors();
-		int i = (int)(n * x);
-		int j = (i + 1) % n;
-		double coef = n * x - i;
-		int mask;
-		switch (iColor)
-		{
-		case 0: mask = 0xFF0000; break;
-		case 1: mask = 0x00FF00; break;
-		case 2: mask = 0x0000FF; break;
-		default: mask = 0xFFFFFF;
-		}
-		int vali = (palette.getColor(i) & mask) >> (8 * (2 - iColor));
-		double alpha = ((double)vali) / 255.0;
-		int valj = (palette.getColor(j) & mask) >> (8 * (2 - iColor));
-		double beta = ((double)valj) / 255.0;
-		return (1.0 - coef) * alpha + coef * beta;
+		return CyclicPalette.apply(palette, iColor, iReel / period[iColor] + phase[iColor]);
 	}
 }

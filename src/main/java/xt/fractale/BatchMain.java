@@ -51,7 +51,7 @@ public class BatchMain {
 					new Image(
 					new EscapeTimeAlgorithm(
 						new xt.function.Sylvestre(), new Complex(-0.87 + dx, -0.90 + dy), 100, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-						new IterationPeriodicity(Palette.PALETTE_027, 100.0, 0.40)
+						new IterationPalette(Palette.PALETTE_027, 100.0, 0.40)
 					),
 					new MathZone(new Complex(-0.38, 0.0), 1.35, 0.80, - Math.PI / 2.0)),
 					PATH + String.format("tmp\\expo_027_%02d.png", i),
@@ -75,7 +75,7 @@ public class BatchMain {
 							new Pow(0.6,
 									new Mul(
 											// déphasages de palette
-											new IterationPeriodicity(Palette.PALETTE_007, 14.0, -t, 16.0, -2.0 * t, 20.0, -3.0 * t),
+											new IterationPalette(Palette.PALETTE_007, 14.0, -t, 16.0, -2.0 * t, 20.0, -3.0 * t),
 											new Bubble(14.0, 0.0, 16.0, 0.0, 20.0, 0.0),
 											new IterationGradient(0.004, 115.0)
 									)
@@ -102,7 +102,7 @@ public class BatchMain {
 					new Image(
 					new EscapeTimeAlgorithm(
 							new xt.function.AntiBurningShip(), new Complex(0.4849, 0.7498), 5000, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(Palette.PALETTE_006, 100.0, 0.95 - 0.06 * t)
+							new IterationPalette(Palette.PALETTE_006, 100.0, 0.95 - 0.06 * t)
 					),
 					new MathZone(new Complex(0.0 - 0.0001 * t, 1.237 + 0.000339 * t), 0.0192 * c, 0.0128 * c, -1.18 * t)),
 					PATH + String.format("tmp\\expo_029_%02d.png", i),
@@ -126,7 +126,7 @@ public class BatchMain {
 					new Image(
 					new EscapeTimeAlgorithm(
 							new xt.function.BurningShip(), c1, 3500, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, 0x007700), 28.73, 5.0 / 6.0 + t)
+							new IterationPalette(new Palette(0x000000, 0xFFFFFF, 0x007700), 28.73, 5.0 / 6.0 + t)
 					),
 					new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0)),
 					PATH + String.format("tmp\\expo_030_%03d.png", i),
@@ -143,7 +143,7 @@ public class BatchMain {
 					new EscapeTimeAlgorithm(
 							new xt.function.BurningShip(), c, 3500, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Max(
-									new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, ((int) (t * 0xFF)) << 2), s * 28.73 + t * 40.0, s * 5.0 / 6.0 + t * 0.15),
+									new IterationPalette(new Palette(0x000000, 0xFFFFFF, ((int) (t * 0xFF)) << 2), s * 28.73 + t * 40.0, s * 5.0 / 6.0 + t * 0.15),
 									new Min(
 											new ConstantColor(t, t, t),
 											new GridIm(0.2, 1.0, 1.0, 0.8),
@@ -164,7 +164,7 @@ public class BatchMain {
 					new EscapeTimeAlgorithm(
 							new xt.function.BurningShip(), c2, 3500, true, new AbsGreaterThan(2.0), Color.WHITE, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Max(
-									new IterationPeriodicity(new Palette(0x000000, 0xFFFFFF, 0xFF0000), 40.0, 0.15 + t),
+									new IterationPalette(new Palette(0x000000, 0xFFFFFF, 0xFF0000), 40.0, 0.15 + t),
 									new Min(
 											new GridIm(0.2, 1.0, 1.0, 0.8),
 											new GridRe(0.2, 0.2, 0.2, 0.8)											
@@ -194,7 +194,7 @@ public class BatchMain {
 					new Image(
 					new EscapeTimeAlgorithm(
 							new xt.function.Fleur(), new Complex(0.0 + dx, 0.0 + dy), 7, false, new AbsGreaterThan(2E11), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new IterationPeriodicity(Palette.PALETTE_018, 3.0)
+							new IterationPalette(Palette.PALETTE_018, 3.0)
 						),
 						new MathZone(new Complex(0.0, 0.0), 1.35, 0.90, Math.PI / 2.0)),
 					PATH + String.format("tmp\\expo_031_%03d.png", i),
