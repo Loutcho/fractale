@@ -646,5 +646,15 @@ public class Image {
 					new DomainColoring(new xt.function.Identity(), new AbsPalette(Palette.PALETTE_056, 4.0, 0.0)),
 					new MathZone(new Complex(0.0, 0.0), 30.0, 20.0, 0.0)
 		));
+		
+		/*
+		 * 59)
+		 */
+		IMAGE.put(59, new Image(
+					new EscapeTimeAlgorithm(new xt.function.Sylvestre(), new Complex(-0.96873, -0.64454), 1000, true, new AbsGreaterThan(1E4), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_059, 84.0, 0.7)
+					),
+					new MathZone(new Complex(-0.435, 0.000), 1.10, 0.72, - Math.PI / 2.0)
+		));
 	}
 }

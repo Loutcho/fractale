@@ -18,7 +18,7 @@ public class BatchMain {
 	private static String PATH = System.getenv("FRACTALE_HOME");
 
 	public static void main(String[] args) {
-		int choice = 54;
+		int choice = 0;
 		switch (choice) {
 		case 27: video027(); break;
 		case 28: video028(); break;
@@ -30,7 +30,7 @@ public class BatchMain {
 		case 51: video051(); break;
 		default:
 			Image image = Image.get(choice);
-			String filename = String.format("%sexpo_%03d.png", PATH, choice);
+			String filename = String.format("%simage_%03d.png", PATH, choice);
 			new ImageFile(image, filename, DIMENSION_X, DIMENSION_Y).create();
 			break;
 		}
@@ -54,7 +54,7 @@ public class BatchMain {
 						new IterationPalette(Palette.PALETTE_027, 100.0, 0.40)
 					),
 					new MathZone(new Complex(-0.38, 0.0), 1.35, 0.80, - Math.PI / 2.0)),
-					PATH + String.format("tmp\\expo_027_%02d.png", i),
+					PATH + String.format("tmp\\image_027_%02d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 		}
 	}
@@ -82,7 +82,7 @@ public class BatchMain {
 							)
 					),
 					new MathZone(new Complex(0.277250, -0.006947), 0.000033, 0.000022, 0.0)),
-					PATH + String.format("tmp\\expo_028_%02d.png", i),
+					PATH + String.format("tmp\\image_028_%02d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 		}
 	}
@@ -105,7 +105,7 @@ public class BatchMain {
 							new IterationPalette(Palette.PALETTE_006, 100.0, 0.95 - 0.06 * t)
 					),
 					new MathZone(new Complex(0.0 - 0.0001 * t, 1.237 + 0.000339 * t), 0.0192 * c, 0.0128 * c, -1.18 * t)),
-					PATH + String.format("tmp\\expo_029_%02d.png", i),
+					PATH + String.format("tmp\\image_029_%02d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 		}
 	}
@@ -129,7 +129,7 @@ public class BatchMain {
 							new IterationPalette(new Palette(0x000000, 0xFFFFFF, 0x007700), 28.73, 5.0 / 6.0 + t)
 					),
 					new MathZone(new Complex(0.0, 0.58), 0.225, 0.150, 0.0)),
-					PATH + String.format("tmp\\expo_030_%03d.png", i),
+					PATH + String.format("tmp\\image_030_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 			i ++;
 		}
@@ -152,7 +152,7 @@ public class BatchMain {
 							)
 					),
 					new MathZone(new Complex(0.0, s * 0.58 + t * 0.4655), s * 0.225 + t * 0.0039, s * 0.150 + t * 0.0026, s * 0.0 + t * Math.PI)),
-					PATH + String.format("tmp\\expo_030_%03d.png", i),
+					PATH + String.format("tmp\\image_030_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 			i ++;
 		}
@@ -172,7 +172,7 @@ public class BatchMain {
 							)
 					),
 					new MathZone(new Complex(0.0, 0.4655), 0.0039, 0.0026, Math.PI)),
-					PATH + String.format("tmp\\expo_030_%03d.png", i),
+					PATH + String.format("tmp\\image_030_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 			i ++;
 		}
@@ -197,7 +197,7 @@ public class BatchMain {
 							new IterationPalette(Palette.PALETTE_018, 3.0)
 						),
 						new MathZone(new Complex(0.0, 0.0), 1.35, 0.90, Math.PI / 2.0)),
-					PATH + String.format("tmp\\expo_031_%03d.png", i),
+					PATH + String.format("tmp\\image_031_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 			
 		}
@@ -230,7 +230,7 @@ public class BatchMain {
 						),
 						new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
 					),
-					PATH + String.format("tmp\\expo_039_%03d.png", i),
+					PATH + String.format("tmp\\image_039_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 		}
 	}
@@ -249,7 +249,7 @@ public class BatchMain {
 							new DomainColoring(new xt.function.Sinh(theta), new ColorFunction1()),
 							new MathZone(new Complex(0.0, 0.0), 1.5 * Math.PI, Math.PI, 0.0)
 					),
-					PATH + String.format("tmp\\expo_050_%03d.png", i),
+					PATH + String.format("tmp\\image_050_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 		}
 	}
@@ -268,7 +268,7 @@ public class BatchMain {
 							new DomainColoring(z -> Complex.div(MyMath.sinh(z), Complex.ei(theta)), new ColorFunction3()),
 							new MathZone(new Complex(0.0, 0.0), 1.2 * Math.PI, 0.8 * Math.PI, Math.PI / 2.0)
 					),
-					PATH + String.format("tmp\\expo_051_%03d.png", i),
+					PATH + String.format("tmp\\image_051_%03d.png", i),
 					DIMENSION_X, DIMENSION_Y).create();
 		}
 	}
