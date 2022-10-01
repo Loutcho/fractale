@@ -209,7 +209,7 @@ public class Image {
 		 */
 		IMAGE.put(11, new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.Sylvestre(), new Complex(-0.9568, -0.7992), 1000, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+							new xt.function.Sylvestre(1), new Complex(-0.9568, -0.7992), 1000, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Pow(0.7,
 									new IterationPalette(Palette.PALETTE_011, 84.0, 0.7)
 							)
@@ -509,7 +509,7 @@ public class Image {
 		 * 40)  Color Function 1 - fonction "Sylvestre" 
 		 */
 		IMAGE.put(40, new Image(
-					new DomainColoring(new xt.function.Sylvestre(), new ColorFunction1()),
+					new DomainColoring(new xt.function.Sylvestre(1), new ColorFunction1()),
 					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
 		));
 		
@@ -581,7 +581,7 @@ public class Image {
 		 * 49)  Color Function 2 - fonction "Sylvestre" 
 		 */
 		IMAGE.put(49, new Image(
-					new DomainColoring(new xt.function.Sylvestre(), new ColorFunction2(true, true, true)),
+					new DomainColoring(new xt.function.Sylvestre(1), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		));
 		
@@ -651,7 +651,7 @@ public class Image {
 		 * 59)
 		 */
 		IMAGE.put(59, new Image(
-					new EscapeTimeAlgorithm(new xt.function.Sylvestre(), new Complex(-0.96873, -0.64454), 1000, true, new AbsGreaterThan(1E4), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+					new EscapeTimeAlgorithm(new xt.function.Sylvestre(1), new Complex(-0.96873, -0.64454), 1000, true, new AbsGreaterThan(1E4), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_059, 84.0, 0.7)
 					),
 					new MathZone(new Complex(-0.435, 0.000), 1.10, 0.72, - Math.PI / 2.0)
@@ -661,10 +661,26 @@ public class Image {
 		 * 60)
 		 */
 		IMAGE.put(60, new Image(
-					new EscapeTimeAlgorithm(new xt.function.Sylvestre2(), new Complex(-0.2241, -0.2049), 2000, true, new AbsGreaterThan(1E5), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+					new EscapeTimeAlgorithm(new xt.function.Sylvestre(2), new Complex(-0.2241, -0.2049), 2000, true, new AbsGreaterThan(1E5), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_060, 126.0, 0.7)
 					),
 					new MathZone(new Complex(0.04, 0.), 1.17, 0.56, Math.PI / 2.0)
+		));
+		
+		/*
+		 * 61) Lettre J
+		 */
+		IMAGE.put(61, new Image(
+					new DomainColoring(new xt.function.J(), new ColorFunction0()),
+					new MathZone(new Complex(0.0, 1.0), 6.0, 4.0, 0.0)
+		));
+		
+		/*
+		 * 62) Lettre B
+		 */
+		IMAGE.put(62, new Image(
+					new DomainColoring(new xt.function.B(), new ColorFunction0()),
+					new MathZone(new Complex(1.0, 2.0), 6.0, 4.0, 0.0)
 		));
 	}
 }

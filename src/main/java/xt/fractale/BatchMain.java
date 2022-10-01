@@ -50,7 +50,7 @@ public class BatchMain {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(), new Complex(-0.87 + dx, -0.90 + dy), 100, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+						new xt.function.Sylvestre(1), new Complex(-0.87 + dx, -0.90 + dy), 100, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 						new IterationPalette(Palette.PALETTE_027, 100.0, 0.40)
 					),
 					new MathZone(new Complex(-0.38, 0.0), 1.35, 0.80, - Math.PI / 2.0)),
