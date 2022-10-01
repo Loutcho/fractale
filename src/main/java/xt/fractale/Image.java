@@ -656,5 +656,15 @@ public class Image {
 					),
 					new MathZone(new Complex(-0.435, 0.000), 1.10, 0.72, - Math.PI / 2.0)
 		));
+		
+		/*
+		 * 60)
+		 */
+		IMAGE.put(60, new Image(
+					new EscapeTimeAlgorithm(new xt.function.Sylvestre2(), new Complex(-0.2241, -0.2049), 2000, true, new AbsGreaterThan(1E5), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_060, 126.0, 0.7)
+					),
+					new MathZone(new Complex(0.04, 0.), 1.17, 0.56, Math.PI / 2.0)
+		));
 	}
 }
