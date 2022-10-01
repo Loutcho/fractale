@@ -32,6 +32,8 @@ public class InteractiveMain extends Graph {
 	static final int GRANULARITE_LA_PLUS_FINE = EXPOSANT_PLUS_GRANDE_PUISSANCE_DE_2_COMMUN_DIVISEUR;
 	static int granularite_de_depart = GRANULARITE_LA_PLUS_GROSSIERE;
 	
+	private static String PATH = System.getenv("FRACTALE_HOME");
+	
 	public static void main(String[] args) {
 		draw(Image.get(0));
 	}
@@ -40,7 +42,7 @@ public class InteractiveMain extends Graph {
 		PixelZone pixelZone = new PixelZone(DEFINITION_X, DEFINITION_Y);
 		InteractiveMain f = new InteractiveMain();
 		f.init();
-		MyKeyListener ka = new MyKeyListener(image);
+		MyKeyListener ka = new MyKeyListener(image, PATH);
 		f.addKeyListener(ka);
 		Graphics graphics = f.getGraphics();
 		graphics.setColor(Color.BLACK);
@@ -141,7 +143,7 @@ public class InteractiveMain extends Graph {
 
 	public static void saveParameters(String outFileName, Image image) {
 		try (
-				FileWriter fileWriter = new FileWriter("G:\\Fractales\\" + "Coords.txt", true);
+				FileWriter fileWriter = new FileWriter(PATH + "Coords.txt", true);
 				BufferedWriter bw = new BufferedWriter(fileWriter)
 		) {
 			bw.write("filename = " + outFileName + ";\n");

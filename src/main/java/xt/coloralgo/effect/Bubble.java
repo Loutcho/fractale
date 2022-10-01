@@ -36,4 +36,18 @@ public class Bubble implements Effect {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	@Override
+	public void multiplyPeriod(double coef) {
+		period[0] *= coef;
+		period[1] *= coef;
+		period[2] *= coef;
+	}
+	
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		period[0] = (period[0] + deltaPhase) % 1.0;
+		period[1] = (period[1] + deltaPhase) % 1.0;
+		period[2] = (period[2] + deltaPhase) % 1.0;
+	}
 }

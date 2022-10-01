@@ -75,4 +75,18 @@ public class IterationPalette implements Effect {
 	public double apply(int iColor, Complex z, double iReel) {
 		return CyclicPalette.apply(palette, iColor, iReel / period[iColor] + phase[iColor]);
 	}
+
+	@Override
+	public void multiplyPeriod(double coef) {
+		period[0] *= coef;
+		period[1] *= coef;
+		period[2] *= coef;
+	}
+
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		phase[0] = (phase[0] + deltaPhase) % 1.0;
+		phase[1] = (phase[1] + deltaPhase) % 1.0;
+		phase[2] = (phase[2] + deltaPhase) % 1.0;
+	}
 }

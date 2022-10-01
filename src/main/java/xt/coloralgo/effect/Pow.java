@@ -27,5 +27,14 @@ public class Pow implements Effect {
 		builder.append(")");
 		return builder.toString();
 	}
+
+	@Override
+	public void multiplyPeriod(double coef) {
+		effect.multiplyPeriod(coef);
+	}
 	
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		effect.incrementPhase(deltaPhase);
+	}
 }

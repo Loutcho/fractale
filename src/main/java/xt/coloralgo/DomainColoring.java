@@ -48,4 +48,14 @@ public class DomainColoring implements ColorAlgo {
 		double x = effect.apply(iColor, z, 0.0);
 		return (int)(255.0 * x);
 	}
+
+	@Override
+	public void multiplyPeriod(double coef) {
+		effect.multiplyPeriod(coef);
+	}
+
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		effect.incrementPhase(deltaPhase);
+	}
 }

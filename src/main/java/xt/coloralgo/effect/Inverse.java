@@ -14,4 +14,14 @@ public class Inverse implements Effect {
 	public double apply(int iColor, Complex z, double iReel) {
 		return 1.0 - effect.apply(iColor, z, iReel);
 	}
+
+	@Override
+	public void multiplyPeriod(double coef) {
+		effect.multiplyPeriod(coef);
+	}
+
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		effect.incrementPhase(deltaPhase);
+	}
 }

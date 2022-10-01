@@ -48,6 +48,14 @@ public class Image {
 	public void setMathZone(MathZone mathZone) {
 		this.mathZone = mathZone;
 	}
+	
+	public void multiplyPeriod(double coef) {
+		colorAlgo.multiplyPeriod(coef);
+	}
+	
+	public void incrementPhase(double deltaPhase) {
+		colorAlgo.incrementPhase(deltaPhase);
+	}
 
 	private static final Map<Integer, Image> IMAGE;
 	public static Image get(Integer n) {

@@ -35,6 +35,4 @@ public class GridIm implements Effect {
 		builder.append(")");
 		return builder.toString();
 	}
-	
-	
 }

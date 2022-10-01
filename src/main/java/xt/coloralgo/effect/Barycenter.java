@@ -4,7 +4,6 @@ import xt.math.Complex;
 
 public class Barycenter implements Effect {
 
-	
 	private double ka;
 	private Effect a;
 	private double kb;
@@ -22,5 +21,17 @@ public class Barycenter implements Effect {
 		double va = a.apply(iColor, z, iReel);
 		double vb = b.apply(iColor, z, iReel);
 		return ka * va + kb * vb;
+	}
+
+	@Override
+	public void multiplyPeriod(double coef) {
+		a.multiplyPeriod(coef);
+		b.multiplyPeriod(coef);
+	}
+	
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		a.incrementPhase(deltaPhase);
+		b.incrementPhase(deltaPhase);
 	}
 }

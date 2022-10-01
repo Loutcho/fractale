@@ -147,69 +147,14 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	public void setzJulia(Complex zJulia) {
 		this.zJulia = zJulia;
 	}
-	
-	/*
-	public void incKphi() {
-		kphi += DKPHI;
-		if (kphi >= 1.0) {
-			kphi -= 1.0;
-		}
-	}
-	
-	public void decKphi() {
-		kphi -= DKPHI;
-		if (kphi <= 0.0)
-		{
-			kphi += 1.0;
-		}
-	}
-	*/
 
-	/*
 	@Override
-	public void processKeyEvent(int key) {
-		switch (key) {
-			case KeyEvent.VK_INSERT:
-				period *= 2.0;
-				break;
-			case KeyEvent.VK_DELETE:
-				period /= 2.0;
-				break;
-			case KeyEvent.VK_HOME:
-				period *= 2.0;
-				break;
-			case KeyEvent.VK_END:
-				period /= 2.0;
-				break;
-			case KeyEvent.VK_PAGE_UP:
-				period *= 2.0;
-				break;
-			case KeyEvent.VK_PAGE_DOWN:
-				period /= 2.0;
-				break;
-			case KeyEvent.VK_A:
-				period *= KGEOM_20R2;
-				break;
-			case KeyEvent.VK_Q:
-				period /= KGEOM_20R2;
-				break;
-			case KeyEvent.VK_E:
-				incKphi();
-				break;
-			case KeyEvent.VK_D:
-				decKphi();
-				break;
-			case KeyEvent.VK_W:
-				degrade2_i[0] = (degrade2_i[0] + 0.1) % 1;
-				degrade2_i[1] = (degrade2_i[1] + 0.1) % 1;
-				degrade2_i[2] = (degrade2_i[2] + 0.1) % 1;
-				break;
-			case KeyEvent.VK_X:
-				degrade2_j[0] = (degrade2_j[0] + 0.1) % 1;
-				degrade2_j[1] = (degrade2_j[1] + 0.1) % 1;
-				degrade2_j[2] = (degrade2_j[2] + 0.1) % 1;
-				break;
-		}
+	public void multiplyPeriod(double coef) {
+		effect.multiplyPeriod(coef);
 	}
-	*/
+
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		effect.incrementPhase(deltaPhase);
+	}
 }

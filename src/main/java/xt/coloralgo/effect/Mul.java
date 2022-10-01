@@ -38,4 +38,18 @@ public class Mul implements Effect {
 		builder.append(")");
 		return builder.toString();
 	}
+	
+	@Override
+	public void multiplyPeriod(double coef) {
+		for (int i = 0; i < effects.size(); i ++) {
+			effects.get(i).multiplyPeriod(coef);
+		}
+	}
+	
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		for (int i = 0; i < effects.size(); i ++) {
+			effects.get(i).incrementPhase(deltaPhase);
+		}
+	}
 }

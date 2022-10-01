@@ -15,11 +15,13 @@ class MyKeyListener extends KeyAdapter {
 	private static final double D_THETA = Math.PI / 32.0;
 	
 	private Image image;
+	private String directory;
 	private DrawStatus drawStatus;
 	private MathZone savedMandelbrotMathZone;
 
-	public MyKeyListener(Image image) {
+	public MyKeyListener(Image image, String directory) {
 		this.image = image;
+		this.directory = directory;
 		this.drawStatus = DrawStatus.DRAW;
 	}
 
@@ -100,7 +102,7 @@ class MyKeyListener extends KeyAdapter {
 			
 			case KeyEvent.VK_S:
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-				String outFileName = "G:\\Fractales\\" + sdf.format(new Date()) + ".png";
+				String outFileName = directory + sdf.format(new Date()) + ".png";
 				Graph.save(outFileName);
 				InteractiveMain.saveParameters(outFileName, image);
 				break;
@@ -135,6 +137,16 @@ class MyKeyListener extends KeyAdapter {
 				}
 			}
 			break;
+			
+			case KeyEvent.VK_F1: image.multiplyPeriod(0.50000000000000000000000000000000000000); redraw(); break;
+			case KeyEvent.VK_F2: image.multiplyPeriod(0.96593632892484555106514431292046389939); redraw(); break;
+			case KeyEvent.VK_F3: image.multiplyPeriod(1.03526492384137750434778819421124619770); redraw(); break;
+			case KeyEvent.VK_F4: image.multiplyPeriod(2.00000000000000000000000000000000000000); redraw(); break;
+			
+			case KeyEvent.VK_F5: image.incrementPhase(-0.2500000000000000000000000000000000000); redraw(); break;
+			case KeyEvent.VK_F6: image.incrementPhase(-0.0333333333333333333333333333333333333); redraw(); break;
+			case KeyEvent.VK_F7: image.incrementPhase(+0.0333333333333333333333333333333333333); redraw(); break;
+			case KeyEvent.VK_F8: image.incrementPhase(+0.2500000000000000000000000000000000000); redraw(); break;
 
 			default:
 				System.out.print("keyPressed");

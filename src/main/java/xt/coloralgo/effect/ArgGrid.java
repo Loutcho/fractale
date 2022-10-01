@@ -28,6 +28,4 @@ public class ArgGrid implements Effect {
 		builder.append(")");
 		return builder.toString();
 	}
-	
-	
 }

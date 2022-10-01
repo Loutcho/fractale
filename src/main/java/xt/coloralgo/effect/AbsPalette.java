@@ -33,4 +33,14 @@ public class AbsPalette implements Effect {
 	public double apply(int iColor, Complex z, double iReel) {
 		return CyclicPalette.apply(palette, iColor, z.abs() / period + phase);
 	}
+
+	@Override
+	public void multiplyPeriod(double coef) {
+		period *= coef;
+	}
+	
+	@Override
+	public void incrementPhase(double deltaPhase) {
+		phase = (phase + deltaPhase) % 1.0;
+	}
 }
