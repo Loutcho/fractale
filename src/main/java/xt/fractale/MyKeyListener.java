@@ -41,7 +41,8 @@ class MyKeyListener extends KeyAdapter {
 		switch (key) {
 			case KeyEvent.VK_ESCAPE  : quit(); break;
 			case KeyEvent.VK_NUMPAD0 : image.getMathZone().reinit(); redraw(); break;
-			case KeyEvent.VK_ENTER   : image.getMathZone().centeredZoomOut(1.0666666666); redraw(); break;
+			case KeyEvent.VK_ENTER   : image.getMathZone().centeredZoomOut(1.066666666666666666); redraw(); break;
+			case KeyEvent.VK_DECIMAL : image.getMathZone().centeredZoomOut(0.967500000000000000); redraw(); break;
 			case KeyEvent.VK_LEFT    : image.getMathZone().shift(-1,  0); redraw(); break;
 			case KeyEvent.VK_RIGHT   : image.getMathZone().shift(+1,  0); redraw(); break;
 			case KeyEvent.VK_UP      : image.getMathZone().shift( 0, +1); redraw(); break;
