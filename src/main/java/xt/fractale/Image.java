@@ -703,5 +703,15 @@ public class Image {
 					),
 					new MathZone(new Complex(1.17977, 0.24834), 0.01155, 0.00770, 0.0)
 		));
+		
+		/*
+		 * 64)
+		 */
+		IMAGE.put(64, new Image(
+					new EscapeTimeAlgorithm(new xt.function.F12(), new Complex(-0.735, -0.046), 2000, false, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+							new xt.coloralgo.effect.ColorFunction0()
+					),
+					new MathZone(new Complex(0.125, -0.100), 0.225, 0.150, 0.0)
+		));
 	}
 }
