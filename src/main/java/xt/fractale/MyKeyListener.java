@@ -148,6 +148,11 @@ class MyKeyListener extends KeyAdapter {
 			case KeyEvent.VK_F6: image.incrementPhase(-0.0333333333333333333333333333333333333); redraw(); break;
 			case KeyEvent.VK_F7: image.incrementPhase(+0.0333333333333333333333333333333333333); redraw(); break;
 			case KeyEvent.VK_F8: image.incrementPhase(+0.2500000000000000000000000000000000000); redraw(); break;
+			
+			case KeyEvent.VK_F9: image.multiplyThreshold(0.50000000000000000000000000000000000000); redraw(); break;
+			case KeyEvent.VK_F10: image.multiplyThreshold(1.0 / 1.01); redraw(); break;
+			case KeyEvent.VK_F11: image.multiplyThreshold(1.01); redraw(); break;
+			case KeyEvent.VK_F12: image.multiplyThreshold(2.00000000000000000000000000000000000000); redraw(); break;
 
 			default:
 				System.out.print("keyPressed");

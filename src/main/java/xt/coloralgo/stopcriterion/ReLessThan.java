@@ -1,10 +1,8 @@
 package xt.coloralgo.stopcriterion;
 
-import java.util.function.Predicate;
-
 import xt.math.Complex;
 
-public class ReLessThan implements Predicate<Complex> {
+public class ReLessThan implements StopCriterion {
 
 	private double threshold;
 	
@@ -13,7 +11,7 @@ public class ReLessThan implements Predicate<Complex> {
 	}
 	
 	@Override
-	public boolean test(Complex t) {
+	public boolean stopsAt(Complex t) {
 		return (t.re() < threshold);
 	}
 

@@ -1,9 +1,9 @@
 package xt.coloralgo;
 
 import java.util.function.Function;
-import java.util.function.Predicate;
 
 import xt.coloralgo.effect.Effect;
+import xt.coloralgo.stopcriterion.StopCriterion;
 import xt.math.Complex;
 import xt.math.MyMath;
 
@@ -15,7 +15,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	private boolean smoothMode;
 	private Color iMaxReachedColor;
 	private Effect effect;
-	private Predicate<Complex> stopCriterion;
+	private StopCriterion stopCriterion;
 	private ApplyTestOrder order;
 
 	public EscapeTimeAlgorithm(
@@ -23,7 +23,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 			Complex zJulia,
 			int iMax,
 			boolean smoothMode,
-			Predicate<Complex> stopCriterion,
+			StopCriterion stopCriterion,
 			Color iMaxReachedColor,
 			ApplyTestOrder order,
 			Effect effect) {
@@ -79,12 +79,12 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 			case FIRST_APPLY_THEN_TEST:
 				z = function.apply(z);
 				z = Complex.add(z, c);
-				if (stopCriterion.test(z)) {
+				if (stopCriterion.stopsAt(z)) {
 					return divergenceColorAlgo(i, iMax, z);
 				}
 				break;
 			case FIRST_TEST_THEN_APPLY:
-				if (stopCriterion.test(z)) {
+				if (stopCriterion.stopsAt(z)) {
 					return divergenceColorAlgo(i, iMax, z);
 				}
 				z = function.apply(z);
@@ -156,5 +156,10 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	@Override
 	public void incrementPhase(double deltaPhase) {
 		effect.incrementPhase(deltaPhase);
+	}
+	
+	@Override
+	public void multiplyThreshold(double coef) {
+		stopCriterion.multiplyThreshold(coef);
 	}
 }

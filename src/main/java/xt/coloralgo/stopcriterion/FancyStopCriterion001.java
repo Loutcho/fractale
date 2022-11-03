@@ -1,13 +1,11 @@
 package xt.coloralgo.stopcriterion;
 
-import java.util.function.Predicate;
-
 import xt.math.Complex;
 
-public class FancyStopCriterion001 implements Predicate<Complex> {
+public class FancyStopCriterion001 implements StopCriterion {
 
 	@Override
-	public boolean test(Complex z) {
+	public boolean stopsAt(Complex z) {
 		double r = z.abs();
 		return Math.abs(r - 1.0) < 0.05 || Math.abs(z.arg()) < 0.05;
 	}

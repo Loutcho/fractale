@@ -56,6 +56,10 @@ public class Image {
 	public void incrementPhase(double deltaPhase) {
 		colorAlgo.incrementPhase(deltaPhase);
 	}
+	
+	public void multiplyThreshold(double d) {
+		colorAlgo.multiplyThreshold(d);
+	}
 
 	private static final Map<Integer, Image> IMAGE;
 	public static Image get(Integer n) {
@@ -70,9 +74,8 @@ public class Image {
 		 */
 		IMAGE.put(0, new Image(
 				new EscapeTimeAlgorithm(
-						new xt.function.ZPower(2), null, 256, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+						new xt.function.ZPower(2), null, 256, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_TEST_THEN_APPLY,
 						new IterationPalette(Palette.PALETTE_000, 40.0, 0.0)
-						// new LogIterationPalette(Palette.PALETTE_000, 3.0, false)
 				),
 				new MathZone(new Complex(-0.7, 0.0), 1.725, 1.150, 0.0)
 		));
@@ -249,7 +252,7 @@ public class Image {
 		 */
 		IMAGE.put(13, new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.Collatz(), new Complex(0, 0), 1000, true, new AbsGreaterThan(40.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST, 
+							new xt.function.Collatz(), new Complex(0, 0), 1000, true, new AbsGreaterThan(40.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Mul(
 									new IterationPalette(Palette.PALETTE_013, 8.0, 0.0),
 									new ArgPalette(Palette.PALETTE_013, 0.5, 0.333)
@@ -306,7 +309,7 @@ public class Image {
 		 */
 		IMAGE.put(17, new Image(
 					new EscapeTimeAlgorithm(
-						new xt.function.QuatorzeJuillet(), new Complex(0.0, 1.8), 100, false, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+						new xt.function.QuatorzeJuillet(), new Complex(0.0, 1.8), 100, false, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_TEST_THEN_APPLY,
 						new Mul(
 							new ArgPalette(Palette.PALETTE_017, 1.0, 1.0 / 12.0),
 							new IterationGradient(0.05, 0.0)
