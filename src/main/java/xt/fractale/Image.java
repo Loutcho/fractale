@@ -713,5 +713,15 @@ public class Image {
 					),
 					new MathZone(new Complex(0.125, -0.100), 0.225, 0.150, 0.0)
 		));
+		
+		/*
+		 * 65) Des empreintes dans la neige
+		 */
+		IMAGE.put(65, new Image(
+					new EscapeTimeAlgorithm(new xt.function.F13(), null, 32000, true, new AbsGreaterThan(2.7), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_065, 30.91, 0.0)
+					),
+					new MathZone(new Complex(-0.674387, 0.002552), 6E-5, 4E-5, 0.0)
+		));
 	}
 }
