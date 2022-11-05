@@ -740,5 +740,17 @@ public class Image {
 		IMAGE.put(67, new Image(new DomainColoring(new xt.function.F15(), new ColorFunction1()),
 					new MathZone(new Complex(0.0, 16.0), 27.0, 18.0, 0.0)
 		));
+		
+		/*
+		 * 68) Mouche Toutankhamon
+		 */
+		IMAGE.put(68,
+				new Image(
+						new EscapeTimeAlgorithm(new xt.function.F16(), new Complex(0.0, 0.0), 4000, false,
+								new AbsLessThan(2.0), new Color(20, 0, 0), ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+								new Max(
+										new xt.coloralgo.effect.ArgPalette(Palette.PALETTE_068, 1.0, 0.0),
+										new Min(new GridRe(0.4, 1.0, 1.0, 0.95), new GridIm(0.4, 1.0, 1.0, 0.95)))),
+						new MathZone(new Complex(-3.2, 0.0), 4.2, 2.4, Math.PI / 2.0)));
 	}
 }

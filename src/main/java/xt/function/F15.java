@@ -11,19 +11,22 @@ public class F15 implements Function<Complex, Complex> {
 		double x = z.re();
 		double y = z.im();
 		double w = x * x + 4.0 * y;
-		Complex ww;
-		if (w < 0.0) {
-			if (x < 0.0) {
-				ww = new Complex(0.0, -Math.sqrt(-w));
-			} else {
-				ww = new Complex(0.0, Math.sqrt(-w));
-			}
+		double ww, xx, yy;
+		if (w >= 0.0) {
+			ww = Math.sqrt(w);
+			xx = (ww + x) / 2.0;
+			yy = (ww - x) / 2.0;
 		} else {
-			ww = new Complex(Math.sqrt(w), 0.0);
+			ww = Math.sqrt(-w);
+			xx = (x - ww) / 2.0;
+			yy = (ww - x) / 2.0;
+			if (x * x + 2.0 * y > 0.0 && x > 0.0) {
+				double tmp = xx; xx = yy; yy = tmp; 
+				// xx = -xx;
+				// yy = -yy;
+			}
 		}
-		Complex xx = Complex.mul(0.5, Complex.add(new Complex(x, 0.0), ww));
-		Complex yy = Complex.mul(0.5, Complex.sub(new Complex(x, 0.0), ww));
-		return Complex.add(xx, Complex.mul(yy, Complex.I));
+		return new Complex(xx, yy);
 	}
 
 	@Override

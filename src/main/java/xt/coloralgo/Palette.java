@@ -68,6 +68,7 @@ public class Palette {
 	public static final Palette PALETTE_063 = new Palette(BLEU_CIEL, BLANC, CARNATION, BLANC);
 	public static final Palette PALETTE_065 = new Palette(BLANC, AZURIN, AZUR, AZURIN);
 	public static final Palette PALETTE_066 = new Palette(BLEU_CIEL, BLANC, OCRE);
+	public static final Palette PALETTE_068 = new Palette(AZUR, OCRE, BLANC, OCRE);
 	
 	private int rgb[];
 	
