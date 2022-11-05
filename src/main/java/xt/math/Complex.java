@@ -3,6 +3,9 @@ package xt.math;
 public class Complex {
 	private double re;
 	private double im;
+	
+	public static final Complex ZERO = new Complex(0.0, 0.0);
+	public static final Complex I = new Complex(0.0, 1.0);
 
 	public Complex(double re, double im) {
 		this.re = re;

@@ -60,7 +60,7 @@ public class BatchMain {
 	}
 	
 	/*
-	 * 28) Vitral de conques, palette changeante
+	 * 28) Vitrail de conques, palette changeante
 	 * 100 images pour une video cyclique
 	 */
 	private static void video028() {

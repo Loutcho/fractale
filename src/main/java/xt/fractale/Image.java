@@ -723,5 +723,22 @@ public class Image {
 					),
 					new MathZone(new Complex(-0.674387, 0.002552), 6E-5, 4E-5, 0.0)
 		));
+		
+		/*
+		 * 66)
+		 */
+		IMAGE.put(66, new Image(
+					new EscapeTimeAlgorithm(new xt.function.F14(), new Complex(0.0, 0.0), 1000, true, new AbsGreaterThan(320.0), new Color(20, 0, 0), ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_066, 32.0, 0.25)
+					),
+					new MathZone(new Complex(0.0, 0.0), 6.6, 4.4, 0.0)
+		));
+
+		/*
+		 * 67) Marelle
+		 */
+		IMAGE.put(67, new Image(new DomainColoring(new xt.function.F15(), new ColorFunction1()),
+					new MathZone(new Complex(0.0, 16.0), 27.0, 18.0, 0.0)
+		));
 	}
 }
