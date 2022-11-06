@@ -601,7 +601,7 @@ public class Image {
 		 */
 		IMAGE.put(52, new Image(
 					new EscapeTimeAlgorithm(new xt.function.F8(), null, 200, true, new FancyStopCriterion001(), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-						new xt.coloralgo.effect.ColorFunction0()
+						new ColorFunction0()
 					),
 					new MathZone(new Complex(-1.210, -0.381), 0.216, 0.144, 0.0)
 		));
@@ -610,7 +610,7 @@ public class Image {
 		 * 53) Domain Coloring, Color Function 3 - identité
 		 */
 		IMAGE.put(53, new Image(
-					new DomainColoring(new xt.function.Identity(), new xt.coloralgo.effect.ColorFunction3()),
+					new DomainColoring(new xt.function.Identity(), new ColorFunction3()),
 					new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
 		));
 		
@@ -618,7 +618,7 @@ public class Image {
 		 * 54) Domain Coloring, pas très joli mais pédagogique : doublement d'angle
 		 */
 		IMAGE.put(54, new Image(
-					new DomainColoring(new xt.function.F9(), new xt.coloralgo.effect.ColorFunction3()),
+					new DomainColoring(new xt.function.F9(), new ColorFunction3()),
 					new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
 		));
 		
@@ -627,7 +627,7 @@ public class Image {
 		 */
 		IMAGE.put(55, new Image(
 					new EscapeTimeAlgorithm(new xt.function.F9(), new Complex(0.0, 0.0), 2000, true, new ReLessThan(0.0), Color.BLACK, ApplyTestOrder.FIRST_TEST_THEN_APPLY,
-						new xt.coloralgo.effect.ColorFunction3()
+						new ColorFunction3()
 					),
 					new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
 		));
@@ -637,7 +637,7 @@ public class Image {
 		 */
 		IMAGE.put(56, new Image(
 					new EscapeTimeAlgorithm(new xt.function.F10(), new Complex(0.0, 0.0), 2000, false, new AbsLessThan(1.0), Color.BLACK, ApplyTestOrder.FIRST_TEST_THEN_APPLY,
-						new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_056, 4.0)
+						new IterationPalette(Palette.PALETTE_056, 4.0)
 					),
 					new MathZone(new Complex(0.0, 0.0), 30.0, 20.0, 0.0)
 		));
@@ -663,7 +663,7 @@ public class Image {
 		 */
 		IMAGE.put(59, new Image(
 					new EscapeTimeAlgorithm(new xt.function.Sylvestre(1), new Complex(-0.96873, -0.64454), 1000, true, new AbsGreaterThan(1E4), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_059, 84.0, 0.7)
+							new IterationPalette(Palette.PALETTE_059, 84.0, 0.7)
 					),
 					new MathZone(new Complex(-0.435, 0.000), 1.10, 0.72, - Math.PI / 2.0)
 		));
@@ -673,7 +673,7 @@ public class Image {
 		 */
 		IMAGE.put(60, new Image(
 					new EscapeTimeAlgorithm(new xt.function.Sylvestre(2), new Complex(-0.2241, -0.2049), 2000, true, new AbsGreaterThan(1E5), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_060, 126.0, 0.7)
+							new IterationPalette(Palette.PALETTE_060, 126.0, 0.7)
 					),
 					new MathZone(new Complex(0.04, 0.), 1.17, 0.56, Math.PI / 2.0)
 		));
@@ -699,7 +699,7 @@ public class Image {
 		 */
 		IMAGE.put(63, new Image(
 					new EscapeTimeAlgorithm(new xt.function.Sylvestre(3), new Complex(1.114, -0.128), 1000, true, new AbsGreaterThan(1E5), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_063, 126.0, 0.7)
+							new IterationPalette(Palette.PALETTE_063, 126.0, 0.7)
 					),
 					new MathZone(new Complex(1.17977, 0.24834), 0.01155, 0.00770, 0.0)
 		));
@@ -709,7 +709,7 @@ public class Image {
 		 */
 		IMAGE.put(64, new Image(
 					new EscapeTimeAlgorithm(new xt.function.F12(), new Complex(-0.735, -0.046), 2000, false, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new xt.coloralgo.effect.ColorFunction0()
+							new ColorFunction0()
 					),
 					new MathZone(new Complex(0.125, -0.100), 0.225, 0.150, 0.0)
 		));
@@ -719,7 +719,7 @@ public class Image {
 		 */
 		IMAGE.put(65, new Image(
 					new EscapeTimeAlgorithm(new xt.function.F13(), null, 32000, true, new AbsGreaterThan(2.7), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_065, 30.91, 0.0)
+							new IterationPalette(Palette.PALETTE_065, 30.91, 0.0)
 					),
 					new MathZone(new Complex(-0.674387, 0.002552), 6E-5, 4E-5, 0.0)
 		));
@@ -729,7 +729,7 @@ public class Image {
 		 */
 		IMAGE.put(66, new Image(
 					new EscapeTimeAlgorithm(new xt.function.F14(), new Complex(0.0, 0.0), 1000, true, new AbsGreaterThan(320.0), new Color(20, 0, 0), ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new xt.coloralgo.effect.IterationPalette(Palette.PALETTE_066, 32.0, 0.25)
+							new IterationPalette(Palette.PALETTE_066, 32.0, 0.25)
 					),
 					new MathZone(new Complex(0.0, 0.0), 6.6, 4.4, 0.0)
 		));
@@ -749,8 +749,15 @@ public class Image {
 						new EscapeTimeAlgorithm(new xt.function.F16(), new Complex(0.0, 0.0), 4000, false,
 								new AbsLessThan(2.0), new Color(20, 0, 0), ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 								new Max(
-										new xt.coloralgo.effect.ArgPalette(Palette.PALETTE_068, 1.0, 0.0),
+										new ArgPalette(Palette.PALETTE_068, 1.0, 0.0),
 										new Min(new GridRe(0.4, 1.0, 1.0, 0.95), new GridIm(0.4, 1.0, 1.0, 0.95)))),
 						new MathZone(new Complex(-3.2, 0.0), 4.2, 2.4, Math.PI / 2.0)));
+
+		/*
+		 * 69) Marelle
+		 */
+		IMAGE.put(69, new Image(new DomainColoring(new xt.function.F15(), new ColorFunction4()),
+					new MathZone(new Complex(0.0, 13.0), 27.0, 18.0, 0.0)
+		));
 	}
 }

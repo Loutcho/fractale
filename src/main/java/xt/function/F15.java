@@ -19,12 +19,7 @@ public class F15 implements Function<Complex, Complex> {
 		} else {
 			ww = Math.sqrt(-w);
 			xx = (x - ww) / 2.0;
-			yy = (ww - x) / 2.0;
-			if (x * x + 2.0 * y > 0.0 && x > 0.0) {
-				double tmp = xx; xx = yy; yy = tmp; 
-				// xx = -xx;
-				// yy = -yy;
-			}
+			yy = (x + ww) / 2.0;
 		}
 		return new Complex(xx, yy);
 	}
