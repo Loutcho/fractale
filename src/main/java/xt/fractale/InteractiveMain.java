@@ -16,6 +16,12 @@ import xt.sound.Sound;
 
 public class InteractiveMain extends Graph {
 
+	private static final int NUMERO_IMAGE = 0;
+	
+	public static void main(String[] args) {
+		draw(PredefinedImages.get(NUMERO_IMAGE));
+	}
+	
 	static final long serialVersionUID	= 1234;
 
 	static final int SCREEN_X = 1920;
@@ -33,10 +39,6 @@ public class InteractiveMain extends Graph {
 	static int granularite_de_depart = GRANULARITE_LA_PLUS_GROSSIERE;
 	
 	private static String PATH = System.getenv("FRACTALE_HOME");
-	
-	public static void main(String[] args) {
-		draw(Image.get(0));
-	}
 	
 	public static void draw(Image image) {
 		PixelZone pixelZone = new PixelZone(DEFINITION_X, DEFINITION_Y);
