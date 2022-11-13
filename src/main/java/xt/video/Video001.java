@@ -33,7 +33,7 @@ public class Video001 {
 					new Image(
 					new EscapeTimeAlgorithm(
 						new xt.function.Sylvestre(1), new Complex(-0.87 + dx, -0.90 + dy), 100, true, new AbsGreaterThan(2.0), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-						new IterationPalette(Palette.PALETTE_027, 100.0, 0.40)
+						new IterationPalette(Palette.PALETTE_VIDEO_001, 100.0, 0.40)
 					),
 					new MathZone(new Complex(-0.38, 0.0), 1.35, 0.80, - Math.PI / 2.0)),
 					PATH + String.format("frames\\frame_001_%03d.png", i),

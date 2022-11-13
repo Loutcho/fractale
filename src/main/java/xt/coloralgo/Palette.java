@@ -60,7 +60,7 @@ public class Palette {
 	public static final Palette PALETTE_024 = new Palette(CARNATION, MARRON2, BLANC, BLEU_NUIT, NOIR);
 	public static final Palette PALETTE_025 = new Palette(NOIR, BLEU_FRANCE, BLANC, NOIR, BLANC, ORANGE, BLANC);
 	public static final Palette PALETTE_026 = new Palette(VERT, NOIR, BLANC, NOIR);
-	public static final Palette PALETTE_027 = new Palette(BLEU, BLANC);
+	public static final Palette PALETTE_027 = new Palette(BLEU_FRANCE, BLANC, CAPUCINE, BLANC);
 	public static final Palette PALETTE_032 = new Palette(BLEU_NUIT, BLANC, NOIR, BEIGE);
 	public static final Palette PALETTE_056 = new Palette(NOIR, BLEU_FRANCE, BLANC, ORANGE);
 	public static final Palette PALETTE_059 = new Palette(BLEU_NUIT, NOIR, OCRE, BLANC, BLANC, BLANC);
@@ -69,6 +69,8 @@ public class Palette {
 	public static final Palette PALETTE_065 = new Palette(BLANC, AZURIN, AZUR, AZURIN);
 	public static final Palette PALETTE_066 = new Palette(BLEU_CIEL, BLANC, OCRE);
 	public static final Palette PALETTE_068 = new Palette(AZUR, OCRE, BLANC, OCRE);
+	
+	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	
 	private int rgb[];
 	

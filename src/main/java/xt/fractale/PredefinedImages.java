@@ -14,6 +14,7 @@ import xt.coloralgo.effect.AbsPalette;
 import xt.coloralgo.effect.ArgGradient;
 import xt.coloralgo.effect.ArgGrid;
 import xt.coloralgo.effect.ArgPalette;
+import xt.coloralgo.effect.Barycenter;
 import xt.coloralgo.effect.Bubble;
 import xt.coloralgo.effect.ColorFunction0;
 import xt.coloralgo.effect.ColorFunction1;
@@ -425,6 +426,23 @@ public class PredefinedImages {
 						new MathZone(new Complex(13.5, 21.5), 0.5, 0.5, 0.0)
 		));
 		
+		/*
+		 * 27)
+		 */
+		IMAGE.put(27, new Image(
+						new EscapeTimeAlgorithm(
+							new xt.function.F17(), null, 2000, false, new AbsGreaterThan(6.0), Color.BLACK, ApplyTestOrder.FIRST_TEST_THEN_APPLY,
+							new Mul(
+								new IterationPalette(Palette.PALETTE_027, 47.0, 0.25),
+								new Barycenter(
+										0.75, new ConstantColor(1.0, 1.0, 1.0),
+										0.25, new Bubble(1.0, 0.0, 1.0, 0.333, 1.0, 0.666)
+								)
+							)
+						),
+						new MathZone(new Complex(-1.321, 0.288), 0.0555, 0.0370, 0.25)
+		));
+
 		/*
 		 * 32) Bêtises de Cambrai
 		 */
