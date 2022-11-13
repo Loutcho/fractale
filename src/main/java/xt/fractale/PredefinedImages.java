@@ -8,32 +8,11 @@ import xt.coloralgo.Color;
 import xt.coloralgo.DomainColoring;
 import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.Palette;
-import xt.coloralgo.effect.AbsArgGradient;
-import xt.coloralgo.effect.AbsGradient1;
-import xt.coloralgo.effect.AbsPalette;
-import xt.coloralgo.effect.ArgGradient;
-import xt.coloralgo.effect.ArgGrid;
-import xt.coloralgo.effect.ArgPalette;
-import xt.coloralgo.effect.Barycenter;
-import xt.coloralgo.effect.Bubble;
-import xt.coloralgo.effect.ColorFunction0;
-import xt.coloralgo.effect.ColorFunction1;
-import xt.coloralgo.effect.ColorFunction2;
-import xt.coloralgo.effect.ColorFunction3;
-import xt.coloralgo.effect.ColorFunction4;
-import xt.coloralgo.effect.ConstantColor;
-import xt.coloralgo.effect.GridIm;
-import xt.coloralgo.effect.GridRe;
-import xt.coloralgo.effect.Inverse;
-import xt.coloralgo.effect.IterationGradient;
-import xt.coloralgo.effect.IterationPalette;
-import xt.coloralgo.effect.Max;
-import xt.coloralgo.effect.Min;
-import xt.coloralgo.effect.Mul;
-import xt.coloralgo.effect.Pow;
+import xt.coloralgo.effect.*;
 import xt.coloralgo.stopcriterion.AbsGreaterThan;
 import xt.coloralgo.stopcriterion.AbsLessThan;
 import xt.coloralgo.stopcriterion.FancyStopCriterion001;
+import xt.coloralgo.stopcriterion.FancyStopCriterion002;
 import xt.coloralgo.stopcriterion.ReLessThan;
 import xt.math.Complex;
 
@@ -441,6 +420,21 @@ public class PredefinedImages {
 							)
 						),
 						new MathZone(new Complex(-1.321, 0.288), 0.0555, 0.0370, 0.25)
+		));
+
+		/*
+		 * 28)
+		 */
+		IMAGE.put(28, new Image(
+						new EscapeTimeAlgorithm(
+							new xt.function.F18(), new Complex(0.0, 0.0), 64, false,
+							new FancyStopCriterion002(), Color.BLACK, ApplyTestOrder.FIRST_TEST_THEN_APPLY,
+							new Mul(
+									new IterationPalette(Palette.PALETTE_028, 2.0),
+									new FancyAbsGradient()
+							)
+						),
+						new MathZone(new Complex(2.930, -2.930), 1.5 * 0.041, 0.041, 2.360)
 		));
 
 		/*
