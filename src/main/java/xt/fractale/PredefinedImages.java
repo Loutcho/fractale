@@ -13,6 +13,7 @@ import xt.coloralgo.stopcriterion.AbsGreaterThan;
 import xt.coloralgo.stopcriterion.AbsLessThan;
 import xt.coloralgo.stopcriterion.FancyStopCriterion001;
 import xt.coloralgo.stopcriterion.FancyStopCriterion002;
+import xt.coloralgo.stopcriterion.FancyStopCriterion003;
 import xt.coloralgo.stopcriterion.ReLessThan;
 import xt.math.Complex;
 
@@ -406,7 +407,7 @@ public class PredefinedImages {
 		));
 		
 		/*
-		 * 27)
+		 * 27) Eclipse de trou noir
 		 */
 		IMAGE.put(27, new Image(
 						new EscapeTimeAlgorithm(
@@ -423,7 +424,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 28)
+		 * 28) Comique et cosmique
 		 */
 		IMAGE.put(28, new Image(
 						new EscapeTimeAlgorithm(
@@ -435,6 +436,21 @@ public class PredefinedImages {
 							)
 						),
 						new MathZone(new Complex(2.930, -2.930), 1.5 * 0.041, 0.041, 2.360)
+		));
+
+		/*
+		 * 29)
+		 */
+		IMAGE.put(29, new Image(
+						new EscapeTimeAlgorithm(
+							new xt.function.MoebiusTenthRootOfUnity(), new Complex(-0.035, -0.794), 64, false,
+							new FancyStopCriterion003(0.02), new Color(0x00001B), ApplyTestOrder.FIRST_APPLY_THEN_TEST,
+							new Mul(
+									new IterationPalette(Palette.PALETTE_029, 3.0),
+									new FancyGradient003(0.02)
+							)
+						),
+						new MathZone(new Complex(0.000, 0.015), 1.89, 1.26, 0)
 		));
 
 		/*

@@ -58,4 +58,11 @@ public class Max implements Effect {
 			effects.get(i).incrementPhase(deltaPhase);
 		}
 	}
+	
+	@Override
+	public void multiplyThreshold(double coef) {
+		for (int i = 0; i < effects.size(); i ++) {
+			effects.get(i).multiplyThreshold(coef);
+		}
+	}
 }

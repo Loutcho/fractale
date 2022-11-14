@@ -161,5 +161,6 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 	@Override
 	public void multiplyThreshold(double coef) {
 		stopCriterion.multiplyThreshold(coef);
+		effect.multiplyThreshold(coef);
 	}
 }

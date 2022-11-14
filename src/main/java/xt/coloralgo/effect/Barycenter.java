@@ -34,4 +34,25 @@ public class Barycenter implements Effect {
 		a.incrementPhase(deltaPhase);
 		b.incrementPhase(deltaPhase);
 	}
+	
+	@Override
+	public void multiplyThreshold(double coef) {
+		a.multiplyThreshold(coef);
+		b.multiplyThreshold(coef);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Barycenter(");
+		builder.append(ka);
+		builder.append(", ");
+		builder.append(a);
+		builder.append(", ");
+		builder.append(kb);
+		builder.append(", ");
+		builder.append(b);
+		builder.append(")");
+		return builder.toString();
+	}
 }

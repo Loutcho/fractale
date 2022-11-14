@@ -37,4 +37,9 @@ public class Pow implements Effect {
 	public void incrementPhase(double deltaPhase) {
 		effect.incrementPhase(deltaPhase);
 	}
+
+	@Override
+	public void multiplyThreshold(double coef) {
+		effect.multiplyThreshold(coef);
+	}
 }
