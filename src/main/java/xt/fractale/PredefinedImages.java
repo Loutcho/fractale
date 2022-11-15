@@ -439,7 +439,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 29)
+		 * 29) Danseuses aux rubans
 		 */
 		IMAGE.put(29, new Image(
 						new EscapeTimeAlgorithm(
@@ -451,6 +451,22 @@ public class PredefinedImages {
 							)
 						),
 						new MathZone(new Complex(0.000, 0.015), 1.89, 1.26, 0)
+		));
+
+		/*
+		 * 30) Chambre à bulles
+		 */
+		IMAGE.put(30, new Image(
+						new EscapeTimeAlgorithm(
+							new xt.function.MoebiusTenthRootOfUnity(), new Complex(-0.75, 0.0), 18, false,
+							new FancyStopCriterion003(0.0002), new Color(0x000000), ApplyTestOrder.FIRST_TEST_THEN_APPLY,
+							new Mul(
+									new IterationGradient(0.8, 8.0),
+									new IterationPalette(Palette.PALETTE_030, Palette.PALETTE_030.getNbColors()),
+									new FancyGradient003(0.0002)
+							)
+						),
+						new MathZone(new Complex(-1.425, 0.0), 1.3, 1.3 / 1.5, 0.0)
 		));
 
 		/*

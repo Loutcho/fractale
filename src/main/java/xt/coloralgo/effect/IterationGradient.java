@@ -15,7 +15,7 @@ public class IterationGradient implements Effect {
 	@Override
 	public double apply(int iColor, Complex z, double iReel) {
 		if (iReel < iBase) {
-			System.err.println("ARGL: (iBase = " + iBase + ") > (iReel = " + iReel + ")");
+			// System.err.println("ARGL: (iBase = " + iBase + ") > (iReel = " + iReel + ")");
 			return 1.0;
 		}
 		return Math.exp(- tau * (iReel - iBase));
