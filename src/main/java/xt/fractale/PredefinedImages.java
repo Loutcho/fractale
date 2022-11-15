@@ -470,6 +470,21 @@ public class PredefinedImages {
 		));
 
 		/*
+		 * 31) Calice de minuit treize
+		 */
+		IMAGE.put(31, new Image(
+						new EscapeTimeAlgorithm(
+							new xt.function.MoebiusTenthRootOfUnity(), new Complex(-0.75, 0.0), 13, false,
+							new FancyStopCriterion003(0.013), new Color(0x000000), ApplyTestOrder.FIRST_TEST_THEN_APPLY,
+							new Mul(
+									new IterationPalette(Palette.PALETTE_031, 8.0),
+									new FancyGradient003(0.013)
+							)
+						),
+						new MathZone(new Complex(-1.0, 0.0), 1.4, 1.4 / 1.5, Math.PI / 2.0)
+		));
+
+		/*
 		 * 32) Bêtises de Cambrai
 		 */
 		IMAGE.put(32, new Image(

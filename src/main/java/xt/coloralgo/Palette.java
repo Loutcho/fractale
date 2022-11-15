@@ -70,6 +70,7 @@ public class Palette {
 	public static final Palette PALETTE_028 = new Palette(OR, BLEU_FLAMME_DE_SOUFRE);
 	public static final Palette PALETTE_029 = new Palette(OR, ARGENT, BRONZE);
 	public static final Palette PALETTE_030 = new Palette(BORDEAUX, VERT_DE_VESSIE, VERT_CYAN, BLANC, VERT_CYAN, BLANC, BORDEAUX, VERT_DE_VESSIE);
+	public static final Palette PALETTE_031 = new Palette(BLANC, ROUGE, BLEU_NUIT, BORDEAUX);
 	public static final Palette PALETTE_032 = new Palette(BLEU_NUIT, BLANC, NOIR, BEIGE);
 	public static final Palette PALETTE_056 = new Palette(NOIR, BLEU_FRANCE, BLANC, ORANGE);
 	public static final Palette PALETTE_059 = new Palette(BLEU_NUIT, NOIR, OCRE, BLANC, BLANC, BLANC);
