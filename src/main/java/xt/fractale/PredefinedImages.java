@@ -474,10 +474,10 @@ public class PredefinedImages {
 		 */
 		IMAGE.put(31, new Image(
 						new EscapeTimeAlgorithm(
-							new xt.function.MoebiusTenthRootOfUnity(), new Complex(-0.75, 0.0), 13, false,
-							new FancyStopCriterion003(0.013), new Color(0x000000), ApplyTestOrder.FIRST_TEST_THEN_APPLY,
+							new xt.function.MoebiusTenthRootOfUnity(), new Complex(-0.75, 0.0), 12, false,
+							new FancyStopCriterion003(0.013), new Color(0x000000), ApplyTestOrder.FIRST_APPLY_THEN_TEST,
 							new Mul(
-									new IterationPalette(Palette.PALETTE_031, 8.0),
+									new IterationPalette(Palette.PALETTE_031, 8.0, 1.0 / 8.0),
 									new FancyGradient003(0.013)
 							)
 						),
