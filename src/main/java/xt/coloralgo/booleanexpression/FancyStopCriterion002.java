@@ -1,11 +1,11 @@
-package xt.coloralgo.stopcriterion;
+package xt.coloralgo.booleanexpression;
 
 import xt.math.Complex;
 
-public class FancyStopCriterion002 implements StopCriterion {
+public class FancyStopCriterion002 implements BooleanExpression {
 
 	@Override
-	public boolean stopsAt(Complex z) {
+	public boolean evaluate(int i, Complex z) {
 		double r = z.abs();
 		return Math.abs(r - 1.0) < 0.05;
 	}

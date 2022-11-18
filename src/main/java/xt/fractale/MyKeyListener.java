@@ -59,6 +59,7 @@ class MyKeyListener extends KeyAdapter {
 			case KeyEvent.VK_NUMPAD2 : image.getMathZone().keep ( 0, -1); redraw(); break;
 			case KeyEvent.VK_NUMPAD3 : image.getMathZone().keep (+1, -1); redraw(); break;
 			
+			/*
 			case KeyEvent.VK_ADD:
 				{
 					if (colorAlgo instanceof EscapeTimeAlgorithm) {
@@ -87,7 +88,9 @@ class MyKeyListener extends KeyAdapter {
 					}
 				}
 				break;
+			*/
 
+			/*
 			case KeyEvent.VK_Z:
 			{
 				if (colorAlgo instanceof EscapeTimeAlgorithm) {
@@ -100,7 +103,8 @@ class MyKeyListener extends KeyAdapter {
 				}
 			}
 			break;
-			
+			*/
+
 			case KeyEvent.VK_S:
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 				String outFileName = directory + sdf.format(new Date()) + ".png";

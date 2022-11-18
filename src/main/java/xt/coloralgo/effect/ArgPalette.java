@@ -30,7 +30,7 @@ public class ArgPalette implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		return CyclicPalette.apply(palette, iColor, z.arg() / (2.0 * Math.PI) / period + phase);
 	}
 

@@ -21,7 +21,7 @@ public class AbsGradient1 implements Effect {
 	}
 
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		double modifiedAbs = MyMath.ff((z.abs() - 2.0) / 2.0);
 		return (1.0 - attenuation[iColor] * (1.0 - modifiedAbs));
 	}

@@ -13,8 +13,8 @@ public class Pow implements Effect {
 	}
 
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
-		return Math.pow(effect.apply(iColor, z, iReel), power);
+	public double apply(int iColor, Complex z, int i) {
+		return Math.pow(effect.apply(iColor, z, i), power);
 	}
 
 	@Override

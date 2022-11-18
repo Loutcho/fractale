@@ -1,26 +1,25 @@
-package xt.coloralgo.stopcriterion;
+package xt.coloralgo.booleanexpression;
 
 import xt.math.Complex;
 
-public class AbsGreaterThan implements StopCriterion {
+public class AbsLessThan implements BooleanExpression {
 
 	private double threshold;
 	
-	public AbsGreaterThan(double threshold) {
+	public AbsLessThan(double threshold) {
 		this.threshold = threshold;
 	}
 	
 	@Override
-	public boolean stopsAt(Complex t) {
-		return (t.abs() > threshold);
+	public boolean evaluate(int i, Complex t) {
+		return (t.abs() < threshold);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("AbsGreaterThan(");
+		builder.append("|z| < ");
 		builder.append(threshold);
-		builder.append(")");
 		return builder.toString();
 	}
 	

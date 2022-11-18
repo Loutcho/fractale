@@ -30,7 +30,7 @@ public class AbsPalette implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		return CyclicPalette.apply(palette, iColor, z.abs() / period + phase);
 	}
 

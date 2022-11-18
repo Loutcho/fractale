@@ -1,8 +1,8 @@
-package xt.coloralgo.stopcriterion;
+package xt.coloralgo.booleanexpression;
 
 import xt.math.Complex;
 
-public class FancyStopCriterion003 implements StopCriterion {
+public class FancyStopCriterion003 implements BooleanExpression {
 
 	private double threshold;
 	
@@ -16,7 +16,7 @@ public class FancyStopCriterion003 implements StopCriterion {
 	}
 	
 	@Override
-	public boolean stopsAt(Complex z) {
+	public boolean evaluate(int i, Complex z) {
 		double x = z.re();
 		double y = z.im();
 		return (Math.abs(x) < threshold) || (Math.abs(y) < threshold);

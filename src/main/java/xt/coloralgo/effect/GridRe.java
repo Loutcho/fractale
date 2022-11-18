@@ -19,7 +19,7 @@ public class GridRe implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		double re = z.re();
 		double t = 1.0 - Math.pow(MyMath.sq(re - Math.round(re)), thickness);
 		return t * targetIntensity[iColor];

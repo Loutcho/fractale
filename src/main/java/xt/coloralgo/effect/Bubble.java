@@ -9,8 +9,9 @@ public class Bubble implements Effect {
 
 	double period[];
 	double phase[];
+	boolean smooth;
 	
-	public Bubble(double redPeriod, double redPhase, double greenPeriod, double greenPhase, double bluePeriod, double bluePhase) {
+	public Bubble(double redPeriod, double redPhase, double greenPeriod, double greenPhase, double bluePeriod, double bluePhase, boolean smooth) {
 		period = new double[3];
 		phase = new double[3];
 		period[0] = redPeriod;
@@ -19,11 +20,16 @@ public class Bubble implements Effect {
 		phase[0] = redPhase;
 		phase[1] = greenPhase;
 		phase[2] = bluePhase;
+		this.smooth = smooth;
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
-		return Math.max(MyMath.sqcosdemi(z.arg()), MyMath.sqcosdemi(Math.PI * (iReel / period[iColor] + phase[iColor])));
+	public double apply(int iColor, Complex z, int i) {
+		double ii = (double) i;
+		if (smooth) {
+			i += MyMath.smooth(z.abs());
+		}
+		return Math.max(MyMath.sqcosdemi(z.arg()), MyMath.sqcosdemi(Math.PI * (ii / period[iColor] + phase[iColor])));
 	}
 
 	@Override

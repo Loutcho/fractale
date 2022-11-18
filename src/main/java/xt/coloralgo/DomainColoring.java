@@ -45,7 +45,7 @@ public class DomainColoring implements ColorAlgo {
 	}
 	
 	private int composanteCouleur(int iColor, Complex z) {
-		double x = effect.apply(iColor, z, 0.0);
+		double x = effect.apply(iColor, z, 0);
 		return (int)(255.0 * x);
 	}
 

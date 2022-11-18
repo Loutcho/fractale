@@ -10,7 +10,7 @@ public class AbsGradient0 implements Effect {
 	}
 
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		double r = z.abs();
 		return C * Math.atan(r);
 	}

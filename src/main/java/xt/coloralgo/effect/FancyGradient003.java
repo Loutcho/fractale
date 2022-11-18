@@ -17,7 +17,7 @@ public class FancyGradient003 implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		double x = Math.abs(z.re());
 		double y = Math.abs(z.im());
 		

@@ -1,8 +1,8 @@
-package xt.coloralgo.stopcriterion;
+package xt.coloralgo.booleanexpression;
 
 import xt.math.Complex;
 
-public class ReLessThan implements StopCriterion {
+public class ReLessThan implements BooleanExpression {
 
 	private double threshold;
 	
@@ -11,7 +11,7 @@ public class ReLessThan implements StopCriterion {
 	}
 	
 	@Override
-	public boolean stopsAt(Complex t) {
+	public boolean evaluate(int i, Complex t) {
 		return (t.re() < threshold);
 	}
 

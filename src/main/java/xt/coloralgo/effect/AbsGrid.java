@@ -14,7 +14,7 @@ public class AbsGrid implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		return Math.pow(MyMath.sqsindemi(2.0 * Math.PI * Math.log(z.abs()) / Math.log(base)), thickness);
 	}
 }

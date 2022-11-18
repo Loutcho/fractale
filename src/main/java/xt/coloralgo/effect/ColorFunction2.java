@@ -33,7 +33,7 @@ public class ColorFunction2 implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		double rr = z.abs();
 		if (radialSeparation && Math.abs(Math.sin(Math.PI * rr)) >= THRESHOLD) {
 			return 1.0;

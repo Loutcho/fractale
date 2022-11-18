@@ -19,7 +19,7 @@ public class GridIm implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		double im = z.im();
 		double t = 1.0 - Math.pow(MyMath.sq(im - Math.round(im)), thickness);
 		return t * targetIntensity[iColor];

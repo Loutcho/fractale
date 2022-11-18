@@ -7,7 +7,7 @@ public class ColorFunction4 implements Effect {
 	private static final double K = 128.0;
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		double x = z.re(); 
 		double y = z.im();
 		double p = (x * y);

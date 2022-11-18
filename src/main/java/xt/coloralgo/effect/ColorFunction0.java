@@ -14,8 +14,8 @@ public class ColorFunction0 implements Effect {
 	}
 
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
-		return a.apply(iColor, z, iReel);
+	public double apply(int iColor, Complex z, int i) {
+		return a.apply(iColor, z, i);
 	}
 
 	@Override

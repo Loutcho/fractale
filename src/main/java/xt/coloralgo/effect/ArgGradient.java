@@ -19,7 +19,7 @@ public class ArgGradient implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		return (1.0 - attenuation[iColor] * MyMath.sqcosdemi(z.arg()));
 	}
 }

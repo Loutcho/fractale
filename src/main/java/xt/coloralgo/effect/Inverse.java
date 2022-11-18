@@ -11,8 +11,8 @@ public class Inverse implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
-		return 1.0 - effect.apply(iColor, z, iReel);
+	public double apply(int iColor, Complex z, int i) {
+		return 1.0 - effect.apply(iColor, z, i);
 	}
 
 	@Override

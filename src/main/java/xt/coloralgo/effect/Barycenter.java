@@ -17,9 +17,9 @@ public class Barycenter implements Effect {
 	}
 	
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
-		double va = a.apply(iColor, z, iReel);
-		double vb = b.apply(iColor, z, iReel);
+	public double apply(int iColor, Complex z, int i) {
+		double va = a.apply(iColor, z, i);
+		double vb = b.apply(iColor, z, i);
 		return ka * va + kb * vb;
 	}
 

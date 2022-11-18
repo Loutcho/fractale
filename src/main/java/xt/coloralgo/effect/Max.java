@@ -17,13 +17,13 @@ public class Max implements Effect {
 	}
 
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		if (effects.isEmpty()) {
 			return 1.0;
 		}
 		double max = 0.0;
 		for (Effect effect : effects) {
-			double k = effect.apply(iColor, z, iReel);
+			double k = effect.apply(iColor, z, i);
 			if (k > max) {
 				max = k;
 			}

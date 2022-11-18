@@ -17,10 +17,10 @@ public class Mul implements Effect {
 	}
 
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		double product = 1.0;
 		for (Effect effect : effects) {
-			product *= effect.apply(iColor, z, iReel);
+			product *= effect.apply(iColor, z, i);
 		}
 		return product;
 	}

@@ -14,7 +14,7 @@ public class ConstantColor implements Effect {
 	}
 
 	@Override
-	public double apply(int iColor, Complex z, double iReel) {
+	public double apply(int iColor, Complex z, int i) {
 		return tab[iColor];
 	}
 
