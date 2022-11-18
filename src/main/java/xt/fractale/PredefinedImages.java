@@ -252,13 +252,11 @@ public class PredefinedImages {
 		IMAGE.put(10, new Image(
 					new DomainColoring(
 							new xt.function.F2(),
-							new Pow(0.5,
-									new Mul(
-											new ArgPalette(Palette.PALETTE_010, 0.5, 0.0),
-											new Max(
-													new GridRe(0.05, 1.0, 1.0, 1.0),
-													new GridIm(0.05, 1.0, 1.0, 1.0)
-											)
+							new Mul(
+									new ArgPalette(Palette.PALETTE_010, 0.5, 0.0),
+									new Max(
+											new GridRe(0.4, 1.0, 1.0, 1.0),
+											new GridIm(0.4, 1.0, 1.0, 1.0)
 									)
 							)
 					),
