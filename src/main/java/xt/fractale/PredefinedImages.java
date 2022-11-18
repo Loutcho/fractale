@@ -948,6 +948,29 @@ public class PredefinedImages {
 				),
 				new MathZone(new Complex(0.0, 0.0), 1.5 * 1.57, 1.57, 0.0)
 		));
+
+		/*
+		 * 51) 
+		 */
+		IMAGE.put(51, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.F4(), new Complex(0.0, 0.0),
+						OR(
+								new IGreaterThan(128),
+								new FancyStopCriterion002()
+						),
+						IF(
+								new IGreaterThan(128),
+								new ConstantColor(0.0, 0.0, 0.0),
+								new Mul(
+										new IterationPalette(Palette.PALETTE_051, 4.0, 0.0, false),
+										new FancyAbsGradient()
+								)
+						),
+						ApplyTestOrder.FIRST_TEST_THEN_APPLY
+				),
+				new MathZone(new Complex(0.0, 0.0), 1.5 * 1.57, 1.57, 0.53)
+		));
 		
 		/*
 		 * 52) Rubans et fourches
