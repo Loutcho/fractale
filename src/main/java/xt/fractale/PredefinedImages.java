@@ -325,15 +325,10 @@ public class PredefinedImages {
 		IMAGE.put(21, new Image(
 						new EscapeTimeAlgorithm(
 							new xt.function.F6(), new Complex(1.6, -0.1), 1000, true, new AbsGreaterThan(2.71), Color.BLACK, ApplyTestOrder.FIRST_APPLY_THEN_TEST,
-							new Inverse(
 								new Mul(
 									new IterationPalette(Palette.PALETTE_021, 3.0),
-									new Min(
-											new GridRe(0.3, 0.5, 1.0, 1.0),
-											new GridIm(0.3, 1.0, 1.0, 0.5)
-									)
+									new Pow(0.7, new Min(new GridRe(0.3, 0.7, 1.0, 1.0), new GridIm(0.3, 1.0, 1.0, 0.7)))
 								)
-							)
 						),
 						new MathZone(new Complex(0.0, 0.0), 2.70, 1.80, 1.5)
 		));
@@ -548,7 +543,12 @@ public class PredefinedImages {
 					new DomainColoring(new xt.function.ZPower(2), new ColorFunction1()),
 					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
 		));
-		
+
+		/*
+		 * 39)
+		 */		
+		// TODO
+
 		/*
 		 * 40)  Color Function 1 - fonction "Sylvestre" 
 		 */
