@@ -925,6 +925,29 @@ public class PredefinedImages {
 					new DomainColoring(new xt.function.Sylvestre(1), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		));
+
+		/*
+		 * 50) 
+		 */
+		IMAGE.put(50, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.F5(), new Complex(0.0, 0.0),
+						OR(
+								new IGreaterThan(128),
+								new AbsLessThan(0.666)
+						),
+						IF(
+								new IGreaterThan(128),
+								new ConstantColor(0.0, 0.0, 0.0),
+								new Mul(
+										new IterationPalette(Palette.PALETTE_050, 4.0, 0.0, false),
+										new FancyGradient002(0.666)
+								)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(0.0, 0.0), 1.5 * 1.57, 1.57, 0.0)
+		));
 		
 		/*
 		 * 52) Rubans et fourches
