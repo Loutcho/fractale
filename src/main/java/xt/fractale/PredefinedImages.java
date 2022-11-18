@@ -826,7 +826,25 @@ public class PredefinedImages {
 		/*
 		 * 39)
 		 */		
-		// TODO
+		IMAGE.put(39, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.BurningShip(), new Complex(-0.3704811600009095, -0.6617112369285517),
+						OR(
+								new IGreaterThan(1024),
+								new AbsLessThan(3.10147E-12)
+						),
+						IF(
+								new IGreaterThan(1024),
+								new ConstantColor(0.0, 0.0, 0.0),
+								new Mul(
+										new IterationPalette(Palette.PALETTE_039, 4.0, 0.0, false),
+										new FancyGradient003(3.10147E-12)
+								)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(0.0, 0.0), 1.5 * 1.136, 1.136, 0.0)
+		));
 
 		/*
 		 * 40)  Color Function 1 - fonction "Sylvestre" 

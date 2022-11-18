@@ -38,6 +38,8 @@ public class Palette {
 	private static final int BORDEAUX = 0x6D071A;
 	private static final int VERT_DE_VESSIE = 0x22780F;
 	private static final int VERT_CYAN = 0x81FFB3;
+	private static final int FUCHSIA = 0xF2124D;
+	private static final int ABSINTHE = 0x7FDD4C;
 	
 	public static final Palette PALETTE_000 = new Palette(BLEU_MARINE, BLANC, BEIGE, MARRON);
 	public static final Palette PALETTE_001 = new Palette(BLEU_MARINE, BLEU_FRANCE, OCRE, NOIR);
@@ -72,6 +74,7 @@ public class Palette {
 	public static final Palette PALETTE_030 = new Palette(BORDEAUX, VERT_DE_VESSIE, VERT_CYAN, BLANC, VERT_CYAN, BLANC, BORDEAUX, VERT_DE_VESSIE);
 	public static final Palette PALETTE_031 = new Palette(BLANC, ROUGE, BLEU_NUIT, BORDEAUX);
 	public static final Palette PALETTE_032 = new Palette(BLEU_NUIT, BLANC, NOIR, BEIGE);
+	public static final Palette PALETTE_039 = new Palette(FUCHSIA, ABSINTHE, BLANC, BLEU_NUIT);
 	public static final Palette PALETTE_056 = new Palette(NOIR, BLEU_FRANCE, BLANC, ORANGE);
 	public static final Palette PALETTE_059 = new Palette(BLEU_NUIT, NOIR, OCRE, BLANC, BLANC, BLANC);
 	public static final Palette PALETTE_060 = new Palette(BLEU_NUIT, BLANC, BEIGE);
