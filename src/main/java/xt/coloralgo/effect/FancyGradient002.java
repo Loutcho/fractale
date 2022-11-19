@@ -23,6 +23,10 @@ public class FancyGradient002 implements Effect {
 		
 		double tt = ((x * x) + (y * y)) / (threshold * threshold);
 		
+		if (tt > 1.0) {
+			tt = 1.0 / tt;
+		}
+		
 		return (tt > 1.0) ? 0.0 : Math.sqrt(1.0 - tt); 
 	}
 

@@ -1208,8 +1208,7 @@ public class PredefinedImages {
 		/*
 		 * 68) Mouche Toutankhamon
 		 */
-		IMAGE.put(68,
-				new Image(
+		IMAGE.put(68, new Image(
 						new EscapeTimeAlgorithm(
 								new xt.function.F16(), new Complex(0.0, 0.0),
 								OR(
@@ -1229,13 +1228,38 @@ public class PredefinedImages {
 								),
 								ApplyTestOrder.FIRST_APPLY_THEN_TEST
 						),
-						new MathZone(new Complex(-3.2, 0.0), 4.2, 2.4, Math.PI / 2.0)));
-
+						new MathZone(new Complex(-3.2, 0.0), 4.2, 2.4, Math.PI / 2.0)
+		));
+		
 		/*
 		 * 69) Marelle
 		 */
 		IMAGE.put(69, new Image(new DomainColoring(new xt.function.F15(), new ColorFunction4()),
 					new MathZone(new Complex(0.0, 13.0), 27.0, 18.0, 0.0)
+		));
+		
+		/*
+		 * 70) Disques 
+		 */
+
+		IMAGE.put(70, new Image(
+						new EscapeTimeAlgorithm(
+								new xt.function.F19(), new Complex(2.02777777777777777, 0.0),
+								OR(
+										new IGreaterThan(1000),
+										new AbsGreaterThan(5.17)
+								),
+								IF(
+										new IGreaterThan(1000),
+										new ConstantColor(0.0, 0.0, 0.0),
+										new Mul(
+												new IterationPalette(Palette.PALETTE_070, 4.0, 0.0, false),
+												new FancyGradient002(5.17)
+										)
+								),
+								ApplyTestOrder.FIRST_APPLY_THEN_TEST
+						),
+						new MathZone(new Complex(-1.660, 1.649), 1.5 * 0.0247, 0.0247, 0.0)
 		));
 	}
 
