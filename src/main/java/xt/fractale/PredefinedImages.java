@@ -194,7 +194,7 @@ public class PredefinedImages {
 											new Mul(
 													new IterationPalette(Palette.PALETTE_007, 14.0, 0.0, 16.0, 0.0, 20.0, 0.0, true),
 													new Bubble(14.0, 0.0, 16.0, 0.0, 20.0, 0.0, true),
-													new IterationGradient(0.004, 115.0)
+													new IterationGradient(0.004, 225.0)
 											)
 									)
 							),
