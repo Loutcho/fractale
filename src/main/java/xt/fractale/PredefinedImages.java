@@ -1287,7 +1287,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 72) 
+		 * 72) Mer agitée
 		 */
 
 		IMAGE.put(72, new Image(
@@ -1302,8 +1302,8 @@ public class PredefinedImages {
 										new IGreaterThan(1000),
 										new ConstantColor(0.0, 0.0, 0.0),
 										new Max(
-												new IterationPalette(Palette.PALETTE_072, 16.0, 0.3, false),
-												new IterationPalette(Palette.PALETTE_072, 16.0, 0.3, true)
+											new IterationPalette(Palette.PALETTE_072, 16.0, 0.30, false),
+											new IterationPalette(Palette.PALETTE_072, 16.0, 0.53, true)
 										)
 								),
 								ApplyTestOrder.FIRST_TEST_THEN_APPLY
