@@ -239,7 +239,7 @@ public class PredefinedImages {
 									new Pow(0.4,
 											new Mul(
 													new IterationPalette(Palette.PALETTE_009, 33.0, 0.0, true),
-													new IterationGradient(0.015, 0),
+													new IterationGradient(0.015, 0.0),
 													new AbsGradient1(0.85, 1.0, 1.0)
 											)
 									)
@@ -415,7 +415,7 @@ public class PredefinedImages {
 								new ConstantColor(0.0, 0.0, 0.0),
 								new Mul(
 										new ArgPalette(Palette.PALETTE_017, 1.0, 1.0 / 12.0),
-										new IterationGradient(0.05, 0.0)
+										new IterationGradient(0.05, 10.0)
 								)
 						),
 						ApplyTestOrder.FIRST_TEST_THEN_APPLY
