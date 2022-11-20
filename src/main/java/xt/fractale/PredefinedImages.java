@@ -1261,6 +1261,27 @@ public class PredefinedImages {
 						),
 						new MathZone(new Complex(-1.660, 1.649), 1.5 * 0.0247, 0.0247, 0.0)
 		));
+
+		/*
+		 * 71) Une nuit sur le Mont Chauve
+		 */
+
+		IMAGE.put(71, new Image(
+						new EscapeTimeAlgorithm(
+								new xt.function.F20(), new Complex(-0.815, -0.237),
+								OR(
+										new IGreaterThan(2000),
+										new AbsGreaterThan(3.5)
+								),
+								IF(
+										new IGreaterThan(2000),
+										new ConstantColor(0.0, 0.0, 0.0),
+										new IterationPalette(Palette.PALETTE_071, 20.0, -0.05, true)
+								),
+								ApplyTestOrder.FIRST_TEST_THEN_APPLY
+						),
+						new MathZone(new Complex(0, -0.54), 0.45, 0.30, 0.0)
+		));
 	}
 
 	public static Image get(Integer n) {
