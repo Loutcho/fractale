@@ -484,7 +484,7 @@ public class PredefinedImages {
 							),
 							IF(
 									new IGreaterThan(1000),
-									new ConstantColor(0.0841, 0.2430, 0.6729),
+									new ConstantColor(0x091A48),
 									new Max(
 											new Bubble(12.0, 0.0000000, 12.0, 0.3333333, 12.0, 0.6666666, true),
 											new AbsGradient1(1.0, 1.0, 1.0),

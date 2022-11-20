@@ -6,6 +6,12 @@ public class ConstantColor implements Effect {
 
 	private double tab[];
 
+	public ConstantColor(int rgb) {
+		tab = new double[3];
+		tab[0] = ((double) ((rgb & 0xFF0000) >> 16)) / 255.0;
+		tab[1] = ((double) ((rgb & 0x00FF00) >> 8)) / 255.0;
+		tab[2] = ((double) (rgb & 0x0000FF)) / 255.0;
+	}
 	public ConstantColor(double r, double g, double b) {
 		tab = new double[3];
 		tab[0] = r;
