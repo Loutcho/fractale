@@ -39,6 +39,7 @@ public class Palette {
 	private static final int CITRON = 0xF6F924;
 	private static final int VIOLET = 0x660099;
 	private static final int AMETHYSTE = 0x6E308F;
+	private static final int FLUGGER_SWEET_60 = 0x531E39;
 	private static final int CARNATION = 0xFEC3AC;
 	private static final int CHAMPAGNE = 0xEDE3A4;
 	private static final int OCRE = 0xEFC54C;
@@ -46,6 +47,7 @@ public class Palette {
 	private static final int MARRON = 0x5F351D;
 	private static final int MARRON2 = 0x481200;
 	private static final int BRONZE = 0x99723B;
+	private static final int FUMEE = 0xBBD2E1;
 	
 	public static final Palette PALETTE_000 = new Palette(BLEU_MARINE, BLANC, BEIGE, MARRON);
 	public static final Palette PALETTE_001 = new Palette(BLEU_MARINE, BLEU_FRANCE, OCRE, NOIR);
@@ -93,6 +95,7 @@ public class Palette {
 	public static final Palette PALETTE_070 = new Palette(BLEU_FRANCE, BLEU_CIEL, BLANC, BORDEAUX);
 	public static final Palette PALETTE_071 = new Palette(NOIR, NOIR, AZUR, BLANC, CAPUCINE);
 	public static final Palette PALETTE_072 = new Palette(EMERAUDE, BLEU_KLEIN, VERT_IMPERIAL, BLANC, AZURIN);
+	public static final Palette PALETTE_073 = new Palette(FUMEE, FLUGGER_SWEET_60, BLEU_ELECTRIQUE, BLANC);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	

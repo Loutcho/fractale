@@ -1310,6 +1310,28 @@ public class PredefinedImages {
 						),
 						new MathZone(new Complex(-0.935, 1.729), 0.42, 0.28, 0.25)
 		));
+
+		/*
+		 * 73)
+		 */
+
+		IMAGE.put(73, new Image(
+						new EscapeTimeAlgorithm(
+								new xt.function.ZPower(1.5), new Complex(-0.19, 0.00),
+								OR(
+										new IGreaterThan(1000),
+										new GreaterThan(new Re(), new Constant(24)),
+										new GreaterThan(new Im(), new Constant(24))
+								),
+								IF(
+										new IGreaterThan(1000),
+										new ConstantColor(0.0, 0.0, 0.0),
+										new IterationPalette(Palette.PALETTE_073, 71.0, 0.75, false)
+								),
+								ApplyTestOrder.FIRST_TEST_THEN_APPLY
+						),
+						new MathZone(new Complex(0.29, 0.0), 1.05, 0.70, 0.0)
+		));
 	}
 
 	public static Image get(Integer n) {
