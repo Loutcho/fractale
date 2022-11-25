@@ -16,6 +16,7 @@ import xt.coloralgo.booleanexpression.AbsLessThan;
 import xt.coloralgo.booleanexpression.FancyStopCriterion001;
 import xt.coloralgo.booleanexpression.FancyStopCriterion002;
 import xt.coloralgo.booleanexpression.FancyStopCriterion003;
+import xt.coloralgo.booleanexpression.EuclidStopCriterion;
 import xt.coloralgo.booleanexpression.IGreaterThan;
 import xt.coloralgo.booleanexpression.ReLessThan;
 import xt.coloralgo.effect.*;
@@ -986,7 +987,7 @@ public class PredefinedImages {
 							IF(
 									new IGreaterThan(200),
 									new ConstantColor(0.0, 0.0, 0.0),
-									new ColorFunction0()
+									new ColorFunction0(0.0)
 							),
 							ApplyTestOrder.FIRST_APPLY_THEN_TEST
 					),
@@ -1109,7 +1110,7 @@ public class PredefinedImages {
 		 * 61) Lettre J
 		 */
 		IMAGE.put(61, new Image(
-					new DomainColoring(new xt.function.J(), new ColorFunction0()),
+					new DomainColoring(new xt.function.J(), new ColorFunction0(0.0)),
 					new MathZone(new Complex(0.0, 1.0), 6.0, 4.0, 0.0)
 		));
 		
@@ -1117,7 +1118,7 @@ public class PredefinedImages {
 		 * 62) Lettre B
 		 */
 		IMAGE.put(62, new Image(
-					new DomainColoring(new xt.function.B(), new ColorFunction0()),
+					new DomainColoring(new xt.function.B(), new ColorFunction0(0.0)),
 					new MathZone(new Complex(1.0, 2.0), 6.0, 4.0, 0.0)
 		));
 		
@@ -1154,7 +1155,7 @@ public class PredefinedImages {
 							IF(
 									new IGreaterThan(2000),
 									new ConstantColor(0.0, 0.0, 0.0),
-									new ColorFunction0()
+									new ColorFunction0(0.0)
 							),
 							ApplyTestOrder.FIRST_APPLY_THEN_TEST
 					),
@@ -1331,6 +1332,29 @@ public class PredefinedImages {
 								ApplyTestOrder.FIRST_TEST_THEN_APPLY
 						),
 						new MathZone(new Complex(0.29, 0.0), 1.05, 0.70, 0.0)
+		));
+
+		/*
+		 * 74) Color function adaptée à l'algorithme d'Euclide en polaires, cf. ci-après 75) 
+		 */
+		IMAGE.put(74, new Image(new DomainColoring(new xt.function.EuclidFunction(), new EuclidColorFunction()),
+					new MathZone(new Complex(0.0, 0.0), 60.0, 40.0, 0.0)
+		));
+
+		/*
+		 * 75) Algorithme d'Euclide en polaires :
+		 * a <==> rayon
+		 * b <==> angle
+		 * couleur fonction du PGCD de a et de b
+		 */
+		IMAGE.put(75, new Image(
+						new EscapeTimeAlgorithm(
+								new xt.function.EuclidFunction(), new Complex(0.0, 0.0),
+								new EuclidStopCriterion(),
+								new EuclidColorFunction(),
+								ApplyTestOrder.FIRST_TEST_THEN_APPLY
+						),
+						new MathZone(new Complex(-100.0, 40.0), 180.0, 120.0, 0.0)
 		));
 	}
 
