@@ -97,7 +97,7 @@ public class EscapeTimeAlgorithm implements ColorAlgo {
 		try {
 			color = new Color(colors[0], colors[1], colors[2]);
 		} catch (java.lang.IllegalArgumentException e) {
-			System.out.println("new Color() - ARGL");
+			System.out.println("new Color() - ARGL: " + colors[0] + "," + colors[1] + "," + colors[2]);
 		}
 		
 		return color;

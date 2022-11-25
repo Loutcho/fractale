@@ -8,9 +8,9 @@ public class ColorFunction0 implements Effect {
 	Palette palette;
 	ArgPalette a;
 	
-	public ColorFunction0() {
+	public ColorFunction0(double phase) {
 		palette = new Palette(0xFF2222, 0x22FF22, 0x2222FF);
-		a = new ArgPalette(palette, 1.0, 0.0);
+		a = new ArgPalette(palette, 1.0, phase);
 	}
 
 	@Override
