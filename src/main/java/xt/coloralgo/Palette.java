@@ -96,6 +96,7 @@ public class Palette {
 	public static final Palette PALETTE_071 = new Palette(NOIR, NOIR, AZUR, BLANC, CAPUCINE);
 	public static final Palette PALETTE_072 = new Palette(EMERAUDE, BLEU_KLEIN, VERT_IMPERIAL, BLANC, AZURIN);
 	public static final Palette PALETTE_073 = new Palette(FUMEE, FLUGGER_SWEET_60, BLEU_ELECTRIQUE, BLANC);
+	public static final Palette PALETTE_075 = new Palette(BLEU_FRANCE, OCRE, BLANC);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	
