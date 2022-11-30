@@ -1376,6 +1376,13 @@ public class PredefinedImages {
 						),
 						new MathZone(new Complex(3.0, 0.5), 2.04, 1.36, -0.9)
 		));
+
+		/*
+		 * 77) Distance de 0 à z en évitant le mur circulaire x^2 + y^2 = 1 percé en 1 ; niveaux de gris.
+		 */
+		IMAGE.put(77, new Image(new DomainColoring(new xt.function.F23(), new RealGrayColorFunction(Math.PI / 2.0)),
+				new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
+		));
 	}
 
 	public static Image get(Integer n) {
