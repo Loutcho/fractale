@@ -28,7 +28,7 @@ public class RealGrayColorFunction implements Effect {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("new ColorFunction4()");
+		builder.append("new RealGrayColorFunction()");
 		return builder.toString();
 	}
 }
