@@ -5,6 +5,7 @@ public class Complex {
 	private double im;
 	
 	public static final Complex ZERO = new Complex(0.0, 0.0);
+	public static final Complex UN = new Complex(1.0, 0.0);
 	public static final Complex I = new Complex(0.0, 1.0);
 
 	public Complex(double re, double im) {

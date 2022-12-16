@@ -1383,6 +1383,32 @@ public class PredefinedImages {
 		IMAGE.put(77, new Image(new DomainColoring(new xt.function.F23(), new RealGrayColorFunction(Math.PI / 2.0)),
 				new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
 		));
+		
+		/*
+		 * 78) Joyeux Noël
+		 */
+		IMAGE.put(78, new Image(
+						new EscapeTimeAlgorithm(
+								new xt.function.F24(), new Complex(0.0, 2.477),
+								OR(
+										new IGreaterThan(1000),
+										new AbsGreaterThan(3.5875)
+								),
+								IF(
+										new IGreaterThan(1000),
+										new ConstantColor(0x000000),
+										new Mul(
+												new IterationPalette(Palette.PALETTE_078, 10.0, 0.0, false),
+												new Max(
+														new Inverse(new FancyGradient004(3.5875)),
+														new FancyGradient002(3.5875)
+												)
+										)
+								),
+								ApplyTestOrder.FIRST_TEST_THEN_APPLY
+						),
+						new MathZone(new Complex(0.0, 2.4), 1.8, 1.2, 0.0)
+		));
 	}
 
 	public static Image get(Integer n) {
