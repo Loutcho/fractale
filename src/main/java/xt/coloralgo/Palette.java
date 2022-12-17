@@ -3,6 +3,7 @@ package xt.coloralgo;
 public class Palette {
 
 	private static final int NOIR = 0x000000;
+	private static final int BITUME = 0x201511;
 	private static final int BLANC = 0xFFFFFF;
 	private static final int ARGENT = 0xFEFEFE;
 	private static final int ROUGE = 0xFF0000;
@@ -99,6 +100,7 @@ public class Palette {
 	public static final Palette PALETTE_073 = new Palette(FUMEE, FLUGGER_SWEET_60, BLEU_ELECTRIQUE, BLANC);
 	public static final Palette PALETTE_075 = new Palette(BLEU_FRANCE, OCRE, BLANC);
 	public static final Palette PALETTE_078 = new Palette(BEIGE, BLANC, BORDEAUX, BLANC, BORDEAUX, BLANC, OCRE, GRENADINE, OCRE, BLANC);
+	public static final Palette PALETTE_079 = new Palette(BLANC, BITUME);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	
