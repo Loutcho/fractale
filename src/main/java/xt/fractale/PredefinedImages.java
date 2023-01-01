@@ -1365,12 +1365,15 @@ public class PredefinedImages {
 								new xt.function.F22(5.0), new Complex(-104.9, 0.0),
 								OR(
 										new IGreaterThan(1000),
-										new AbsGreaterThan(1E13)
+										new AbsGreaterThan(1E8)
 								),
 								IF(
 										new IGreaterThan(1000),
 										new ConstantColor(0x000022),
-										new IterationPalette(Palette.PALETTE_075, 512.0, 0.7, false)
+										new Max(
+												new ArgPalette(Palette.PALETTE_075, 1.0, 0.85),
+												new AbsLog()
+										)
 								),
 								ApplyTestOrder.FIRST_TEST_THEN_APPLY
 						),
