@@ -1372,7 +1372,7 @@ public class PredefinedImages {
 										new ConstantColor(0x000022),
 										new Max(
 												new ArgPalette(Palette.PALETTE_075, 1.0, 0.85),
-												new AbsLog()
+												new AbsLog(33.0)
 										)
 								),
 								ApplyTestOrder.FIRST_TEST_THEN_APPLY
@@ -1459,6 +1459,31 @@ public class PredefinedImages {
 								ApplyTestOrder.FIRST_TEST_THEN_APPLY
 						),
 						new MathZone(new Complex(-0.5175, -0.4493), 14.7E-4, 9.8E-4, 0.04)
+		));
+
+		/*
+		 * 81)
+		 */
+		IMAGE.put(81, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.Sylvestre(1.5),
+						new Complex(-0.812, 0.7575),
+						OR(
+								new IGreaterThan(70),
+								new AbsGreaterThan(2.37)
+						),
+						IF(
+								new IGreaterThan(70),
+								new ConstantColor(0x000000),
+								new Max(
+									new IterationPalette(Palette.PALETTE_081, 72.0, 0.62, true),
+									new GridRe(0.075, 0.3, 0.0, 1.0),
+									new GridIm(0.075, 0.9, 0.8, 0.5)
+								)
+						),
+						ApplyTestOrder.FIRST_TEST_THEN_APPLY
+				),
+				new MathZone(new Complex(-1.042, 0.35), 0.165, 0.110, -1.18)
 		));
 	}
 
