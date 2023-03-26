@@ -1462,7 +1462,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 81)
+		 * 81) Méduse / fantôme / voile de mariée
 		 */
 		IMAGE.put(81, new Image(
 				new EscapeTimeAlgorithm(
@@ -1484,6 +1484,30 @@ public class PredefinedImages {
 						ApplyTestOrder.FIRST_TEST_THEN_APPLY
 				),
 				new MathZone(new Complex(-1.042, 0.35), 0.165, 0.110, -1.18)
+		));
+		
+		/*
+		 * 82)
+		 */
+		IMAGE.put(82, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.Sylvestre(1.5),
+						new Complex(-1.075903, 0.62803),
+						OR(
+								new IGreaterThan(200),
+								new AbsLessThan(6.8E-4)
+						),
+						IF(
+								new IGreaterThan(200),
+								new ConstantColor(0x001000),
+								new Mul(
+										new IterationPalette(Palette.PALETTE_082, Palette.PALETTE_082.getNbColors(), 0.0, false),
+										new FancyGradient002(6.8E-4)
+								)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(-0.13992, 0.02442), 0.001542, 0.001028, -0.23)
 		));
 	}
 
