@@ -1388,7 +1388,7 @@ public class PredefinedImages {
 		));
 		
 		/*
-		 * 78) Joyeux Noël
+		 * 78) Clown de Noël
 		 */
 		IMAGE.put(78, new Image(
 						new EscapeTimeAlgorithm(
@@ -1414,7 +1414,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 79)
+		 * 79) Odysseus
 		 */
 		IMAGE.put(79, new Image(
 						new EscapeTimeAlgorithm(
@@ -1438,7 +1438,7 @@ public class PredefinedImages {
 		));
 		
 		/*
-		 * 80)
+		 * 80) Embrasement
 		 */
 		IMAGE.put(80, new Image(
 						new EscapeTimeAlgorithm(
@@ -1462,7 +1462,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 81) Méduse / fantôme / voile de mariée
+		 * 81) Méduse fantôme
 		 */
 		IMAGE.put(81, new Image(
 				new EscapeTimeAlgorithm(
@@ -1487,7 +1487,7 @@ public class PredefinedImages {
 		));
 		
 		/*
-		 * 82)
+		 * 82) Totem polype
 		 */
 		IMAGE.put(82, new Image(
 				new EscapeTimeAlgorithm(
@@ -1508,6 +1508,30 @@ public class PredefinedImages {
 						ApplyTestOrder.FIRST_APPLY_THEN_TEST
 				),
 				new MathZone(new Complex(-0.13992, 0.02442), 0.001542, 0.001028, -0.23)
+		));
+		
+		/*
+		 * 83)
+		 */
+		IMAGE.put(83, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.Sylvestre(1.3333333),
+						new Complex(-0.73743019, -0.12891747),
+						OR(
+								new IGreaterThan(80),
+								new AbsLessThan(0.15353)
+						),
+						IF(
+								new IGreaterThan(80),
+								new ConstantColor(0x222222),
+								new Mul(
+									new FancyGradient002(0.15353),
+									new ArgPalette(Palette.PALETTE_083, 1.0, 0.42)
+								)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(-0.35, 0.0), 1.15, 0.70, Math.PI / 2.0)
 		));
 	}
 

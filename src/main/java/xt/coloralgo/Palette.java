@@ -17,6 +17,7 @@ public class Palette {
 	private static final int EMERAUDE = 0x2ED585;
 	private static final int VERT_D_EAU = 0xCEEEE0;
 	private static final int VERT_BLEU = 0x0D8C7E;
+	private static final int TURQUOISE = 0x25FDE9;
 	private static final int PISTACHE = 0xBEF574;
 	private static final int VERT_DE_VESSIE = 0x22780F;
 	private static final int VERT_CYAN = 0x81FFB3;
@@ -108,6 +109,14 @@ public class Palette {
 			0xC0C0FF, 0xFF80A0,
 			0xE0E0FF, 0xFFE0E0,
 			0xFFFFFF, 0xFF80A0);
+	public static final Palette PALETTE_083 = new Palette(
+			OR,
+			BEIGE,
+			BRONZE,
+			CHAMPAGNE,
+			VERT_IMPERIAL,
+			TURQUOISE
+	);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	public static final Palette PALETTE_VIDEO_010 = new Palette(0x000000, 0xFF0000, 0xFFCC00);
