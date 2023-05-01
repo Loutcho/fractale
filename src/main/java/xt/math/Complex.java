@@ -97,7 +97,7 @@ public class Complex {
 		} else {
 			builder.append(re);
 		}
-		builder.append(", ");
+		builder.append(",");
 		if (y == im) {
 			builder.append(yy);
 		} else {

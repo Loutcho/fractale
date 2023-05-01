@@ -1533,6 +1533,14 @@ public class PredefinedImages {
 				),
 				new MathZone(new Complex(-0.35, 0.0), 1.15, 0.70, Math.PI / 2.0)
 		));
+		
+		/*
+		 * 84)  Color Function 5
+		 */
+		IMAGE.put(84, new Image(
+					new DomainColoring(new xt.function.Identity(), new Max(new ColorFunction5(), new GridRe(0.1, 1.0, 0.0, 0.0), new GridIm(0.1, 0.0, 1.0, 0.0))),
+					new MathZone(new Complex(0.0, 0.0), 3.6, 2.4, 0.0)
+		));
 	}
 
 	public static Image get(Integer n) {
