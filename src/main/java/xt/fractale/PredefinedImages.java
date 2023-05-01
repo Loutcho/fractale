@@ -1541,6 +1541,44 @@ public class PredefinedImages {
 					new DomainColoring(new xt.function.Identity(), new Max(new ColorFunction5(), new GridRe(0.1, 1.0, 0.0, 0.0), new GridIm(0.1, 0.0, 1.0, 0.0))),
 					new MathZone(new Complex(0.0, 0.0), 3.6, 2.4, 0.0)
 		));
+
+		/*
+		 * 85)  
+		 */
+		IMAGE.put(85, new Image(
+					new DomainColoring(new xt.function.F27(), new Max(new ColorFunction5(), new GridRe(0.1, 1.0, 0.0, 0.0), new GridIm(0.1, 0.0, 1.0, 0.0))),
+					new MathZone(new Complex(0.0, 0.0), 3.6, 2.4, 0.0)
+		));
+		
+		/*
+		 * 86)
+		 */
+		IMAGE.put(86, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.F27(),
+						new Complex(0.0, 0.0),
+						OR(
+								new IGreaterThan(512),
+								new AbsGreaterThan(1.0)
+						),
+						IF(
+								new IGreaterThan(512),
+								new ConstantColor(0.0, 0.0, 0.0),
+								new Inverse(
+								new Max(
+									new IterationPalette(Palette.PALETTE_086, 18.0, -0.25, true),
+									new Mul(
+										new IterationPalette(Palette.PALETTE_086, 12.0, -0.25, false),
+										new FancyGradient002(1.0),
+										new FancyGradient003(5.0)
+									)
+								)
+								)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(0.0, 0.0), Math.PI, Math.PI / 1.5, - Math.PI / 2.0)
+		));
 	}
 
 	public static Image get(Integer n) {

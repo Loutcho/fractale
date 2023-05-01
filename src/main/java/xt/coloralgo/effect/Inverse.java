@@ -29,4 +29,9 @@ public class Inverse implements Effect {
 	public void multiplyThreshold(double coef) {
 		effect.multiplyThreshold(coef);
 	}
+
+	@Override
+	public String toString() {
+		return "Inverse [effect=" + effect + "]";
+	}
 }
