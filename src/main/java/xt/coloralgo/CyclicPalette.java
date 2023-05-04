@@ -5,7 +5,7 @@ public class CyclicPalette {
 	public static double apply(Palette palette, int iColor, double x) {
 		x -= Math.floor(x);
 		int n = palette.getNbColors();
-		int i = (int)(n * x);
+		int i = ((int)(n * x)) % n;
 		int j = (i + 1) % n;
 		double coef = n * x - i;
 		int mask;

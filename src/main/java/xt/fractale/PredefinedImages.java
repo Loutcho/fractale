@@ -1577,7 +1577,7 @@ public class PredefinedImages {
 						),
 						ApplyTestOrder.FIRST_APPLY_THEN_TEST
 				),
-				new MathZone(new Complex(0.0, 0.0), Math.PI, Math.PI / 1.5, - Math.PI / 2.0)
+				new MathZone(new Complex(0.0, 0.0), 1.44, 0.96, - Math.PI / 2.0)
 		));
 	}
 
