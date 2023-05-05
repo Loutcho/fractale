@@ -1579,6 +1579,29 @@ public class PredefinedImages {
 				),
 				new MathZone(new Complex(0.0, 0.0), 1.44, 0.96, - Math.PI / 2.0)
 		));
+		
+		/*
+		 * 87) Joyeux Anniversaire Nini !
+		 */
+		IMAGE.put(87, new Image(
+						new EscapeTimeAlgorithm(
+							new xt.function.F28(), new Complex(-1.014, -1.414),
+							OR(
+									new IGreaterThan(512),
+									new FancyStopCriterion002()
+							),
+							IF(
+									new IGreaterThan(512),
+									new ConstantColor(0.0, 0.0, 0.1),
+									new Mul(
+											new IterationPalette(Palette.PALETTE_087, 4.0, 0.0, false),
+											new FancyAbsGradient()
+									)
+							),
+							ApplyTestOrder.FIRST_APPLY_THEN_TEST
+						),
+						new MathZone(new Complex(0.0, 0.0), 4.23, 2.82, 0.0)
+		));
 	}
 
 	public static Image get(Integer n) {
