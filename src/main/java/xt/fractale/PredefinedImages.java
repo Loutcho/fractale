@@ -1469,11 +1469,11 @@ public class PredefinedImages {
 						new xt.function.Sylvestre(1.5),
 						new Complex(-0.812, 0.7575),
 						OR(
-								new IGreaterThan(70),
+								new IGreaterThan(200),
 								new AbsGreaterThan(2.37)
 						),
 						IF(
-								new IGreaterThan(70),
+								new IGreaterThan(200),
 								new ConstantColor(0x000000),
 								new Max(
 									new IterationPalette(Palette.PALETTE_081, 72.0, 0.62, true),
