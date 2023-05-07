@@ -14,7 +14,6 @@ import xt.coloralgo.booleanexpression.AbsGreaterThan;
 import xt.coloralgo.booleanexpression.AbsLessThan;
 import xt.coloralgo.booleanexpression.FancyStopCriterion001;
 import xt.coloralgo.booleanexpression.FancyStopCriterion002;
-import xt.coloralgo.booleanexpression.FancyStopCriterion003;
 import xt.coloralgo.booleanexpression.EuclidStopCriterion;
 import xt.coloralgo.booleanexpression.IGreaterThan;
 import xt.coloralgo.booleanexpression.ReLessThan;
@@ -62,134 +61,16 @@ public class PredefinedImages {
 		IMAGE.put(28, Image028.get()); // Comique et cosmique 
 		IMAGE.put(29, Image029.get()); // Danseuses aux rubans 
 		IMAGE.put(30, Image030.get()); // Chambre à bulles
-
-		/*
-		 * 31) Calice de minuit treize
-		 */
-		IMAGE.put(31, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.MoebiusTenthRootOfUnity(), new Complex(-0.75, 0.0),
-							OR(
-									new IGreaterThan(12),
-									new FancyStopCriterion003(0.013)
-							),
-							IF(
-									new IGreaterThan(12),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Mul(
-											new IterationPalette(Palette.PALETTE_031, 8.0, 1.0 / 8.0, false),
-											new FancyGradient003(0.013)
-									)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(-1.0, 0.0), 1.4, 1.4 / 1.5, Math.PI / 2.0)
-		));
-
-		/*
-		 * 32) Bêtises de Cambrai
-		 */
-		IMAGE.put(32, new Image(
-					new EscapeTimeAlgorithm(
-							new xt.function.Collatz2(), new Complex(0.0, -0.0025),
-							OR(
-									new IGreaterThan(2000),
-									new AbsGreaterThan(1.75)
-							),
-							IF(
-									new IGreaterThan(2000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Mul(
-											new IterationPalette(Palette.PALETTE_032, 33.0, 0.0, true),
-											new Bubble(50.0, 0.0, 50.0, 0.2, 50.0, 1.0, true)
-									)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-					),
-					new MathZone(new Complex(-0.00820, 0.00786), 0.0054, 0.0036, 0.4)
-		));
-		
-		/*
-		 * 33)  Color Function 1 - identité (= légende)
-		 */
-		IMAGE.put(33, new Image(
-					new DomainColoring(
-							new xt.function.Identity(),
-							new ColorFunction1()
-					),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
-		
-		/*
-		 * 34)  Color Function 1 - cosinus
-		 */
-		IMAGE.put(34, new Image(
-					new DomainColoring(new xt.function.Cos(), new ColorFunction1()),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
-		
-		/*
-		 * 35)  Color Function 1 - sinus
-		 */
-		IMAGE.put(35, new Image(
-					new DomainColoring(new xt.function.Sin(), new ColorFunction1()),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
-		
-		/*
-		 * 36)  Color Function 1 - tangente
-		 */
-		IMAGE.put(36, new Image(
-					new DomainColoring(new xt.function.Tan(), new ColorFunction1()),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
-		
-		/*
-		 * 37)  Color Function 1 - exponentielle
-		 */
-		IMAGE.put(37, new Image(
-					new DomainColoring(new xt.function.Exp(), new ColorFunction1()),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
-		
-		/*
-		 * 38)  Color Function 1 - carré
-		 */
-		IMAGE.put(38, new Image(
-					new DomainColoring(new xt.function.ZPower(2), new ColorFunction1()),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
-
-		/*
-		 * 39)
-		 */		
-		IMAGE.put(39, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.BurningShip(), new Complex(-0.3704811600009095, -0.6617112369285517),
-						OR(
-								new IGreaterThan(1024),
-								new AbsLessThan(3.10147E-12)
-						),
-						IF(
-								new IGreaterThan(1024),
-								new ConstantColor(0.0, 0.0, 0.0),
-								new Mul(
-										new IterationPalette(Palette.PALETTE_039, 4.0, 0.0, false),
-										new FancyGradient003(3.10147E-12)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(0.0, 0.0), 1.5 * 1.136, 1.136, 0.0)
-		));
-
-		/*
-		 * 40)  Color Function 1 - fonction "Sylvestre" 
-		 */
-		IMAGE.put(40, new Image(
-					new DomainColoring(new xt.function.Sylvestre(1), new ColorFunction1()),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
+		IMAGE.put(31, Image031.get()); // Calice de minuit treize
+		IMAGE.put(32, Image032.get()); // Bêtises de Cambrai
+		IMAGE.put(33, Image033.get()); // Color Function 1 - identité (= légende)
+		IMAGE.put(34, Image034.get()); // Color Function 1 - cosinus
+		IMAGE.put(35, Image035.get()); // Color Function 1 - sinus
+		IMAGE.put(36, Image036.get()); // Color Function 1 - tangente
+		IMAGE.put(37, Image037.get()); // Color Function 1 - exponentielle
+		IMAGE.put(38, Image038.get()); // Color Function 1 - carré
+		IMAGE.put(39, Image039.get()); // Pavage
+		IMAGE.put(40, Image040.get()); // Color Function 1 - fonction "Sylvestre"
 		
 		/*
 		 * 41)  Color Function 1 - fonction "Papillon" 
