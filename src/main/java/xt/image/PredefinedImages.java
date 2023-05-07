@@ -28,10 +28,9 @@ import xt.math.Complex;
 
 public class PredefinedImages {
 
-	private static final Map<Integer, Image> IMAGE;
+	private static final Map<Integer, Image> IMAGE = new TreeMap<>();
 
 	static {
-		IMAGE = new TreeMap<>();
 		IMAGE.put( 0, Image000.get()); // L'ensemble de Mandelbrot
 		IMAGE.put( 1, Image001.get()); // Propagation
 		IMAGE.put( 2, Image002.get()); // Courbevoie
@@ -53,237 +52,16 @@ public class PredefinedImages {
 		IMAGE.put(18, Image018.get()); // Composition florale
 		IMAGE.put(19, Image019.get()); // Mélodies nacrées
 		IMAGE.put(20, Image020.get()); // Aïe j'ai mal
-		
-		/*
-		 * 21) Lentille gravitationnelle
-		 */
-		IMAGE.put(21, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.F6(), new Complex(1.6, -0.1),
-							OR(
-									new IGreaterThan(1000),
-									new AbsGreaterThan(2.71)
-							),
-							IF(
-									new IGreaterThan(1000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Mul(
-											new IterationPalette(Palette.PALETTE_021, 3.0, 0.0, true),
-											new Pow(0.7, new Min(new GridRe(0.3, 0.7, 1.0, 1.0), new GridIm(0.3, 1.0, 1.0, 0.7)))
-									)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(0.0, 0.0), 2.70, 1.80, 1.5)
-		));
-		
-		/*
-		 * 22) Silhouette vampirique
-		 */
-		IMAGE.put(22, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.NidDeMonstres(), new Complex(-0.0090, 0.0385),
-							OR(
-									new IGreaterThan(1000),
-									new AbsGreaterThan(3E5)
-							),
-							IF(
-									new IGreaterThan(1000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Pow(0.8,
-											new Max(
-													new IterationPalette(Palette.PALETTE_022, 66.0, 0.33, true),
-													new ArgGradient(1.0, 0.80, 0.75)
-											)
-									)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(0.0, -0.15), 1.05, 0.37, 0.0)
-		));
-
-		/*
-		 * 23) Eclatement de paradis
-		 */
-		IMAGE.put(23, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.F7(), new Complex(0.1, 0.1),
-							OR(
-									new IGreaterThan(1000),
-									new AbsGreaterThan(2.4)
-							),
-							IF(
-									new IGreaterThan(1000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Max(
-											new IterationPalette(Palette.PALETTE_023, 3.0, 0.800000, true),
-											new IterationPalette(Palette.PALETTE_023, 4.0, 0.133333, true),
-											new IterationPalette(Palette.PALETTE_023, 5.0, 0.466666, true)
-									)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(0.14, 0.35), 0.3, 0.2, 0.0)
-		));
-		
-		/*
-		 * 24) Stomoxe
-		 */
-		IMAGE.put(24, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.Stomoxe(), new Complex(0.0, 0.0),
-							OR(
-									new IGreaterThan(1000),
-									new AbsGreaterThan(1E12)
-							),
-							IF(
-									new IGreaterThan(1000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new IterationPalette(Palette.PALETTE_024, 15.0, 0.05, true)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(-0.95, 0.0), 1.65, 1.10, 0.0)
-		));
-		
-		/*
-		 * 25) Démonologie
-		 */
-		IMAGE.put(25, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.Demonologie(), null,
-							OR(
-									new IGreaterThan(1000),
-									new AbsGreaterThan(3.8)
-							),
-							IF(
-									new IGreaterThan(1000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Mul(
-											new IterationPalette(Palette.PALETTE_025, 7.0, 0.8, true),
-											new Bubble(2.0, 0.5, 2.0, 0.0, 2.0, 0.5, true)
-									)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(-0.23, 0.0), 1.5, 1.0, Math.PI / 2.0)
-		));
-		
-		/*
-		 * 26) Trop d'écran
-		 */
-		IMAGE.put(26, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.TropDEcran(), new Complex(0.0, 0.0),
-							OR(
-									new IGreaterThan(10000),
-									new AbsLessThan(0.25)
-							),
-							IF(
-									new IGreaterThan(10000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new IterationPalette(Palette.PALETTE_026, 4.0, 0.0, false)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(13.5, 21.5), 0.5, 0.5, 0.0)
-		));
-		
-		/*
-		 * 27) Eclipse de trou noir
-		 */
-		IMAGE.put(27, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.F17(), null,
-							OR(
-									new IGreaterThan(2000),
-									new AbsGreaterThan(6.0)
-							),
-							IF(
-									new IGreaterThan(2000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Mul(
-											new IterationPalette(Palette.PALETTE_027, 47.0, 0.25, false),
-											new Barycenter(
-													0.75, new ConstantColor(1.0, 1.0, 1.0),
-													0.25, new Bubble(1.0, 0.0, 1.0, 0.333, 1.0, 0.666, false)
-											)
-									)
-							),
-							ApplyTestOrder.FIRST_TEST_THEN_APPLY
-						),
-						new MathZone(new Complex(-1.321, 0.288), 0.0555, 0.0370, 0.25)
-		));
-
-		/*
-		 * 28) Comique et cosmique
-		 */
-		IMAGE.put(28, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.F18(), new Complex(0.0, 0.0),
-							OR(
-									new IGreaterThan(64),
-									new FancyStopCriterion002()
-							),
-							IF(
-									new IGreaterThan(64),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Mul(
-											new IterationPalette(Palette.PALETTE_028, 2.0, 0.0, false),
-											new FancyAbsGradient()
-									)
-							),
-							ApplyTestOrder.FIRST_TEST_THEN_APPLY
-						),
-						new MathZone(new Complex(2.930, -2.930), 1.5 * 0.041, 0.041, 2.360)
-		));
-
-		/*
-		 * 29) Danseuses aux rubans
-		 */
-		IMAGE.put(29, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.MoebiusTenthRootOfUnity(), new Complex(-0.035, -0.794),
-							OR(
-									new IGreaterThan(64),
-									new FancyStopCriterion003(0.02)
-							),
-							IF(
-									new IGreaterThan(64),
-									new ConstantColor(0.0, 0.0, 0.1),
-									new Mul(
-											new IterationPalette(Palette.PALETTE_029, 3.0, 0.0, false),
-											new FancyGradient003(0.02)
-									)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(0.000, 0.015), 1.89, 1.26, 0.0)
-		));
-
-		/*
-		 * 30) Chambre à bulles
-		 */
-		IMAGE.put(30, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.MoebiusTenthRootOfUnity(), new Complex(-0.75, 0.0),
-							OR(
-									new IGreaterThan(18),
-									new FancyStopCriterion003(0.0002)
-							),
-							IF(
-									new IGreaterThan(18),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new Mul(
-											new IterationGradient(0.8, 8.0),
-											new IterationPalette(Palette.PALETTE_030, 8.0, 0.0, false),
-											new FancyGradient003(0.0002)
-									)
-							),
-							ApplyTestOrder.FIRST_TEST_THEN_APPLY
-						),
-						new MathZone(new Complex(-1.425, 0.0), 1.3, 1.3 / 1.5, 0.0)
-		));
+		IMAGE.put(21, Image021.get()); // Lentille gravitationnelle
+		IMAGE.put(22, Image022.get()); // Silhouette vampirique
+		IMAGE.put(23, Image023.get()); // Eclatement de paradis
+		IMAGE.put(24, Image024.get()); // Stomoxe
+		IMAGE.put(25, Image025.get()); // Démonologie
+		IMAGE.put(26, Image026.get()); // Trop d'écran
+		IMAGE.put(27, Image027.get()); // Eclipse de trou noir
+		IMAGE.put(28, Image028.get()); // Comique et cosmique 
+		IMAGE.put(29, Image029.get()); // Danseuses aux rubans 
+		IMAGE.put(30, Image030.get()); // Chambre à bulles
 
 		/*
 		 * 31) Calice de minuit treize
