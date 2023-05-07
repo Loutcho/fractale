@@ -1604,7 +1604,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 88) Expérience
+		 * 88) Orobanche
 		 */
 		IMAGE.put(88, new Image(
 				new EscapeTimeAlgorithm(
