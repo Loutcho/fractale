@@ -841,6 +841,22 @@ public class PredefinedImages {
 				),
 				new MathZone(new Complex(2.276, -0.307), 0.09, 0.06, -0.3927)
 		));
+		
+		/*
+		 * 89)  Donut Experiments
+		 */
+		IMAGE.put(89, new Image(
+			new DomainColoring(new xt.function.Identity(),
+				new Mul(
+					new Donut(0.7, 2.2, 2.0, 2.0, 2.0),
+					new Max(
+						new ArgPalette(Palette.PALETTE_089, 1.0, 0.333),
+						new AbsPalette(Palette.PALETTE_089, 1.6, 0.333)
+					)
+				)
+			),
+			new MathZone(new Complex(0.0, 0.0), 3.6, 2.4, 0.0)
+		));
 	}
 
 	public static Image get(Integer n) {
