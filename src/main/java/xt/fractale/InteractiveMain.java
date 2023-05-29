@@ -12,6 +12,7 @@ import java.util.Date;
 
 import xt.math.Complex;
 import xt.graph.Graph;
+import xt.image.PredefinedImages;
 import xt.sound.Sound;
 
 public class InteractiveMain extends Graph {

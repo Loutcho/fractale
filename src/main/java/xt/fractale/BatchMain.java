@@ -1,5 +1,7 @@
 package xt.fractale;
 
+import xt.image.PredefinedImages;
+
 public class BatchMain {
 	
 	private static final int NUMERO_IMAGE = 0;
