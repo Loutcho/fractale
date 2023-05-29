@@ -866,13 +866,12 @@ public class PredefinedImages {
 				new EscapeTimeAlgorithm(
 						new xt.function.F30(), new Complex(0.0, 0.0),
 						OR(
-								new IGreaterThan(100),
+								new IGreaterThan(200),
 								new And(new AbsGreaterThan(0.57), new AbsLessThan(0.93))
 						),
 						IF(
-								new IGreaterThan(100),
+								new IGreaterThan(200),
 								new ConstantColor(0.0, 0.0, 0.0),
-								//new Pow(0.7,
 								new Mul(
 										new Donut(0.57, 0.93, 2.0, 2.0, 2.0),
 										new IterationGradient(0.20, 2.0),
@@ -884,7 +883,6 @@ public class PredefinedImages {
 												new ArgGrid(4, 2.0)
 										)
 								)
-								//)
 						),
 						ApplyTestOrder.FIRST_APPLY_THEN_TEST
 				),
