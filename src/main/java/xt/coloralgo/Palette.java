@@ -24,6 +24,7 @@ public class Palette {
 	private static final int VERT_GAZON = 0x0AAD08;
 	private static final int VERT_IMPERIAL = 0x00561B;
 	private static final int ABSINTHE = 0x7FDD4C;
+	private static final int AIGUE_MARINE = 0xBFFFE9;
 	private static final int BLEU = 0x0000FF;
 	private static final int AZUR = 0x1E7FCB;
 	private static final int AZURIN = 0xA9EAFE;
@@ -109,7 +110,7 @@ public class Palette {
 	public static final Palette PALETTE_086 = new Palette(BLANC, AZURIN, BLEU_ELECTRIQUE, BLEU_NUIT, MARRON, BEIGE);
 	public static final Palette PALETTE_087 = new Palette(BLANC, BLEU_ELECTRIQUE, BLANC, FUCHSIA);
 	public static final Palette PALETTE_089 = new Palette(BLANC, EMERAUDE, VERT_BLEU, BLEU_CIEL, AMETHYSTE, FUCHSIA);
-	public static final Palette PALETTE_090a = new Palette(BLANC, VERT_CYAN);
+	public static final Palette PALETTE_090a = new Palette(BLANC, AIGUE_MARINE);
 	public static final Palette PALETTE_090b = new Palette(BLANC, CARNATION);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);

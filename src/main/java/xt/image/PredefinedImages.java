@@ -72,30 +72,9 @@ public class PredefinedImages {
 		IMAGE.put(38, Image038.get()); // Color Function 1 - carré
 		IMAGE.put(39, Image039.get()); // Pavage
 		IMAGE.put(40, Image040.get()); // Color Function 1 - fonction "Sylvestre"
-		
-		/*
-		 * 41)  Color Function 1 - fonction "Papillon" 
-		 */
-		IMAGE.put(41, new Image(
-					new DomainColoring(new xt.function.Papillon(), new ColorFunction1()),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
-		
-		/*
-		 * 42)  Color Function 2 - fonction "NidDeMonstres" 
-		 */
-		IMAGE.put(42, new Image(
-					new DomainColoring(new xt.function.NidDeMonstres(), new ColorFunction1()),
-					new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0)
-		));
-
-		/*
-		 * 43)  Color Function 2 - identité 
-		 */
-		IMAGE.put(43, new Image(
-					new DomainColoring(new xt.function.Identity(), new ColorFunction2(true, true, true)),
-					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
-		));
+		IMAGE.put(41, Image041.get()); // Color Function 1 - fonction "Papillon"
+		IMAGE.put(42, Image042.get()); // Color Function 1 - fonction "NidDeMonstres"
+		IMAGE.put(43, Image043.get()); // Color Function 2 - identité 
 
 		/*
 		 * 44)  Color Function 2 - fonction z^3 
