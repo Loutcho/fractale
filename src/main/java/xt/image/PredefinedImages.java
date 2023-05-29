@@ -75,22 +75,8 @@ public class PredefinedImages {
 		IMAGE.put(41, Image041.get()); // Color Function 1 - fonction "Papillon"
 		IMAGE.put(42, Image042.get()); // Color Function 1 - fonction "NidDeMonstres"
 		IMAGE.put(43, Image043.get()); // Color Function 2 - identité 
-
-		/*
-		 * 44)  Color Function 2 - fonction z^3 
-		 */
-		IMAGE.put(44, new Image(
-					new DomainColoring(new xt.function.ZPower(3), new ColorFunction2(true, true, true)),
-					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
-		));
-
-		/*
-		 * 45)  Color Function 2 - fonction exponentielle 
-		 */
-		IMAGE.put(45, new Image(
-					new DomainColoring(new xt.function.Exp(), new ColorFunction2(true, true, true)),
-					new MathZone(new Complex(0.0, Math.PI), 1.5 * Math.PI, Math.PI, 0.0)
-		));
+		IMAGE.put(44, Image044.get()); // Color Function 2 - fonction z^3
+		IMAGE.put(45, Image045.get()); // Color Function 2 - fonction exponentielle 
 
 		/*
 		 * 46)  Color Function 2 - cosinus 
