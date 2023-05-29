@@ -860,7 +860,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 90) Expérience
+		 * 91) Bisou
 		 */
 		IMAGE.put(90, new Image(
 				new EscapeTimeAlgorithm(
@@ -888,7 +888,6 @@ public class PredefinedImages {
 				),
 				new MathZone(new Complex(+0.0, -0.0), 1.41, 0.94, -Math.PI/4.0)
 		));
-	
 	}
 
 	public static Image get(Integer n) {
