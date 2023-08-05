@@ -36,7 +36,7 @@ public class Video001 {
 			new ImageFile(
 					new Image(
 					new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(1), new Complex(-0.87 + dx, -0.90 + dy),
+						new xt.function.Sylvestre(1, 0.0), new Complex(-0.87 + dx, -0.90 + dy),
 						OR(
 								new IGreaterThan(100),
 								new AbsGreaterThan(2.0)

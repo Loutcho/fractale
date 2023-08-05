@@ -6,6 +6,7 @@ public class Palette {
 	private static final int BITUME = 0x201511;
 	private static final int BLANC = 0xFFFFFF;
 	private static final int ARGENT = 0xFEFEFE;
+	private static final int PLATINE = 0xE8E0E0;
 	private static final int ROUGE = 0xFF0000;
 	private static final int ECARLATE = 0xE30B01;
 	private static final int GRENADINE = 0xEA474E;
@@ -35,6 +36,7 @@ public class Palette {
 	private static final int BLEU_FRANCE = 0x1375ED;
 	private static final int BLEU_MARINE = 0x03224C;
 	private static final int BLEU_ELECTRIQUE = 0xC75FF;
+	private static final int BLEU_INTERDIMENSIONNEL = 0x3300CC;
 	private static final int ORANGE = 0xFD7F00;
 	private static final int MANDARINE = 0xFD9715;
 	private static final int OR = 0xFFD700;
@@ -104,7 +106,7 @@ public class Palette {
 	public static final Palette PALETTE_078 = new Palette(BEIGE, BLANC, BORDEAUX, BLANC, BORDEAUX, BLANC, OCRE, GRENADINE, OCRE, BLANC);
 	public static final Palette PALETTE_079 = new Palette(BLANC, BITUME);
 	public static final Palette PALETTE_080 = new Palette(BLANC, ECARLATE, ORANGE, JAUNE);
-	public static final Palette PALETTE_081 = new Palette(BLANC, 0xE8E0E0, BLEU_MARINE);
+	public static final Palette PALETTE_081 = new Palette(BLANC, PLATINE, BLEU_MARINE);
 	public static final Palette PALETTE_082 = new Palette(0xE0E0FF, 0xFF0000, 0xC0C0FF, 0xFF80A0, 0xE0E0FF, 0xFFE0E0, 0xFFFFFF, 0xFF80A0);
 	public static final Palette PALETTE_083 = new Palette(OR, BEIGE, BRONZE, CHAMPAGNE, VERT_IMPERIAL, TURQUOISE);
 	public static final Palette PALETTE_086 = new Palette(BLANC, AZURIN, BLEU_ELECTRIQUE, BLEU_NUIT, MARRON, BEIGE);
@@ -112,6 +114,7 @@ public class Palette {
 	public static final Palette PALETTE_089 = new Palette(BLANC, EMERAUDE, VERT_BLEU, BLEU_CIEL, AMETHYSTE, FUCHSIA);
 	public static final Palette PALETTE_090a = new Palette(BLANC, AIGUE_MARINE);
 	public static final Palette PALETTE_090b = new Palette(BLANC, CARNATION);
+	public static final Palette PALETTE_092 = new Palette(NOIR, NOIR, BLEU_CIEL, BLANC, BLANC, BLANC, BLANC, BLANC, BLANC, BLANC, BLEU_INTERDIMENSIONNEL, NOIR);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	public static final Palette PALETTE_VIDEO_010 = new Palette(0x000000, 0xFF0000, 0xFFCC00);

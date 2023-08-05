@@ -106,7 +106,7 @@ public class PredefinedImages {
 		 * 49)  Color Function 2 - fonction "Sylvestre" 
 		 */
 		IMAGE.put(49, new Image(
-					new DomainColoring(new xt.function.Sylvestre(1), new ColorFunction2(true, true, true)),
+					new DomainColoring(new xt.function.Sylvestre(1, 0.0), new ColorFunction2(true, true, true)),
 					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
 		));
 
@@ -253,7 +253,7 @@ public class PredefinedImages {
 		 */
 		IMAGE.put(59, new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.Sylvestre(1), new Complex(-0.96873, -0.64454),
+							new xt.function.Sylvestre(1, 0.0), new Complex(-0.96873, -0.64454),
 							OR(
 									new IGreaterThan(1000),
 									new AbsGreaterThan(1E4)
@@ -273,7 +273,7 @@ public class PredefinedImages {
 		 */
 		IMAGE.put(60, new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.Sylvestre(2), new Complex(-0.2241, -0.2049),
+							new xt.function.Sylvestre(2, 0.0), new Complex(-0.2241, -0.2049),
 							OR(
 									new IGreaterThan(1000),
 									new AbsGreaterThan(1E5)
@@ -309,7 +309,7 @@ public class PredefinedImages {
 		 */
 		IMAGE.put(63, new Image(
 					new EscapeTimeAlgorithm(
-							new xt.function.Sylvestre(3), new Complex(1.114, -0.128),
+							new xt.function.Sylvestre(3, 0.0), new Complex(1.114, -0.128),
 							OR(
 									new IGreaterThan(1000),
 									new AbsGreaterThan(1E5)
@@ -648,7 +648,7 @@ public class PredefinedImages {
 		 */
 		IMAGE.put(81, new Image(
 				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(1.5),
+						new xt.function.Sylvestre(1.5, 0.0),
 						new Complex(-0.812, 0.7575),
 						OR(
 								new IGreaterThan(200),
@@ -673,7 +673,7 @@ public class PredefinedImages {
 		 */
 		IMAGE.put(82, new Image(
 				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(1.5),
+						new xt.function.Sylvestre(1.5, 0.0),
 						new Complex(-1.075903, 0.62803),
 						OR(
 								new IGreaterThan(200),
@@ -693,11 +693,11 @@ public class PredefinedImages {
 		));
 		
 		/*
-		 * 83)
+		 * 83) Brebis turquoise
 		 */
 		IMAGE.put(83, new Image(
 				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(1.3333333),
+						new xt.function.Sylvestre(1.3333333, 0.0),
 						new Complex(-0.73743019, -0.12891747),
 						OR(
 								new IGreaterThan(80),
@@ -717,7 +717,7 @@ public class PredefinedImages {
 		));
 		
 		/*
-		 * 84)  Color Function 5
+		 * 84)  Color Function 5 (identité)
 		 */
 		IMAGE.put(84, new Image(
 					new DomainColoring(new xt.function.Identity(), new Max(new ColorFunction5(), new GridRe(0.1, 1.0, 0.0, 0.0), new GridIm(0.1, 0.0, 1.0, 0.0))),
@@ -725,7 +725,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 85)  
+		 * 85)  Surnombre
 		 */
 		IMAGE.put(85, new Image(
 					new DomainColoring(new xt.function.F27(), new Max(new ColorFunction5(), new GridRe(0.1, 1.0, 0.0, 0.0), new GridIm(0.1, 0.0, 1.0, 0.0))),
@@ -733,7 +733,7 @@ public class PredefinedImages {
 		));
 		
 		/*
-		 * 86)
+		 * 86) Magma basaltique
 		 */
 		IMAGE.put(86, new Image(
 				new EscapeTimeAlgorithm(
@@ -809,7 +809,7 @@ public class PredefinedImages {
 		));
 		
 		/*
-		 * 89)  Donut Experiments
+		 * 89)  Donut
 		 */
 		IMAGE.put(89, new Image(
 			new DomainColoring(new xt.function.Identity(),
@@ -825,7 +825,7 @@ public class PredefinedImages {
 		));
 
 		/*
-		 * 91) Bisou
+		 * 90) Bisou
 		 */
 		IMAGE.put(90, new Image(
 				new EscapeTimeAlgorithm(
@@ -852,6 +852,41 @@ public class PredefinedImages {
 						ApplyTestOrder.FIRST_APPLY_THEN_TEST
 				),
 				new MathZone(new Complex(+0.0, -0.0), 1.41, 0.94, -Math.PI/4.0)
+		));
+		
+		/*
+		 * 91) 
+		 */
+		// Recyclé. Numéro disponible.
+		
+		/*
+		 * 92) Spiderman
+		 */
+		IMAGE.put(92, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.Spiderman(), new Complex(0.1890, 0.0019),
+						OR(
+								new IGreaterThan(2000),
+								new AbsGreaterThan(1.54)
+						),
+						IF(
+								new IGreaterThan(2000),
+								new ConstantColor(0.0, 0.0, 0.0),
+								
+								new Max(
+									new Mul(
+										new Inverse(new IterationGradient(0.005, -0.11)),
+										new ConstantColor(1.0, 0.25, 0.30)
+									),
+									new Mul(
+										new IterationGradient(0.017, -0.11),
+										new ArgPalette(Palette.PALETTE_092, 0.25, -0.10)
+									)
+								)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(0.0, 0.0), 1.5 * 0.76, 0.76, 0.0)
 		));
 	}
 

@@ -22,7 +22,7 @@ public class Image011 {
 
 	public static Image get() {
 		return new Image(
-				new EscapeTimeAlgorithm(new xt.function.Sylvestre(1), new Complex(-0.9568, -0.7992),
+				new EscapeTimeAlgorithm(new xt.function.Sylvestre(1, 0.0), new Complex(-0.9568, -0.7992),
 						OR(new IGreaterThan(1000), new AbsGreaterThan(2.0)),
 						IF(new IGreaterThan(1000), new ConstantColor(0.0, 0.0, 0.0),
 								new Pow(0.7, new IterationPalette(Palette.PALETTE_011, 84.0, 0.7, true))),

@@ -12,7 +12,7 @@ import xt.math.Complex;
 public class Image040 {
 
 	public static Image get() {
-		return new Image(new DomainColoring(new xt.function.Sylvestre(1), new ColorFunction1()),
+		return new Image(new DomainColoring(new xt.function.Sylvestre(1, 0.0), new ColorFunction1()),
 				new MathZone(new Complex(0.0, 0.0), 4.5, 3.0, 0.0));
 	}
 }

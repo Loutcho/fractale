@@ -7,9 +7,11 @@ import xt.math.Complex;
 public class Sylvestre implements Function<Complex, Complex> {
 
 	private double n;
+	private double phase;
 	
-	public Sylvestre(double n) {
+	public Sylvestre(double n, double phase) {
 		this.n = n;
+		this.phase = phase;
 	}
 	
 	@Override
@@ -17,7 +19,7 @@ public class Sylvestre implements Function<Complex, Complex> {
 		double r = z.abs();
 		double theta = z.arg();
 		r = r * r;
-		theta = Math.PI * Math.cos(n * theta / 2.0);
+		theta = Math.PI * Math.cos(n * theta / 2.0) + phase;
 		return Complex.polar(r, theta);
 	}
 
