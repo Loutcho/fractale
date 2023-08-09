@@ -857,7 +857,25 @@ public class PredefinedImages {
 		/*
 		 * 91) 
 		 */
-		// Recyclé. Numéro disponible.
+		IMAGE.put(91, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.F31(), new Complex(-0.488, -0.537),
+						OR(
+								new IGreaterThan(100),
+								new FancyStopCriterion002()
+						),
+						IF(
+								new IGreaterThan(100),
+								new ConstantColor(0.0, 0.0, 0.0),
+								new Mul(
+										new FancyAbsGradient(),
+										new IterationPalette(Palette.PALETTE_091, 4, 0.0, false)
+								)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(-0.167, -0.405), 1.5 * 0.07, 0.07, 0.82)
+		));
 		
 		/*
 		 * 92) Spiderman
