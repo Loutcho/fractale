@@ -1,6 +1,6 @@
 package xt.coloralgo.effect;
 
-import xt.coloralgo.CyclicPalette;
+import xt.coloralgo.PaletteUtils;
 import xt.coloralgo.Palette;
 import xt.math.Complex;
 
@@ -31,7 +31,7 @@ public class ArgPalette implements Effect {
 	
 	@Override
 	public double apply(int iColor, Complex z, int i) {
-		return CyclicPalette.apply(palette, iColor, z.arg() / (2.0 * Math.PI) / period + phase);
+		return PaletteUtils.cyclicApply(palette, iColor, z.arg() / (2.0 * Math.PI) / period + phase);
 	}
 
 	@Override

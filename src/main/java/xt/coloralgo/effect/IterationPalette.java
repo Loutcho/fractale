@@ -1,6 +1,6 @@
 package xt.coloralgo.effect;
 
-import xt.coloralgo.CyclicPalette;
+import xt.coloralgo.PaletteUtils;
 import xt.coloralgo.Palette;
 import xt.math.Complex;
 import xt.math.MyMath;
@@ -49,7 +49,7 @@ public class IterationPalette implements Effect {
 		if (smooth) {
 			ii += MyMath.smooth(z.abs());
 		}
-		return CyclicPalette.apply(palette, iColor, ii / period[iColor] + phase[iColor]);
+		return PaletteUtils.cyclicApply(palette, iColor, ii / period[iColor] + phase[iColor]);
 	}
 
 	@Override
