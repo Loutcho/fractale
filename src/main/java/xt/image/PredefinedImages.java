@@ -77,14 +77,7 @@ public class PredefinedImages {
 		IMAGE.put(43, Image043.get()); // Color Function 2 - identité 
 		IMAGE.put(44, Image044.get()); // Color Function 2 - fonction z^3
 		IMAGE.put(45, Image045.get()); // Color Function 2 - fonction exponentielle 
-
-		/*
-		 * 46)  Color Function 2 - cosinus 
-		 */
-		IMAGE.put(46, new Image(
-					new DomainColoring(new xt.function.Cos(), new ColorFunction2(true, true, true)),
-					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
-		));
+		IMAGE.put(46, Image046.get()); // Color Function 2 - cosinus 
 
 		/*
 		 * 47)  Color Function 2 - sinus 
