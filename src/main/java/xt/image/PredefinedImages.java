@@ -838,7 +838,7 @@ public class PredefinedImages {
 										new Barycenter(0.45,
 												new ConstantColor(1.0, 1.0, 1.0),
 												0.55,
-												new ArgGrid(4, 2.0)
+												new ArgGrid(4, 2.0, 0.0)
 										)
 								)
 						),
@@ -931,6 +931,32 @@ public class PredefinedImages {
 						ApplyTestOrder.FIRST_APPLY_THEN_TEST
 				),
 				new MathZone(new Complex(0.0, 0.0), 1.0 * 1.5 * 1.18, 0.75 * 1.18, 0.0)
+		));
+
+		/*
+		 * 94) Barbie
+		 */
+		IMAGE.put(94, new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.F33(), new Complex(0.29463, 0.0),
+						OR(
+								new IGreaterThan(1500),
+								new AbsGreaterThan(18.65)
+						),
+						IF(
+								new IGreaterThan(1500),
+								new ConstantColor(0.0, 0.0, 0.0),
+								new Inverse(
+									new Mul(
+											new IterationPalette(Palette.PALETTE_094, 4.0, 0.0, false),
+											new IterationGradient(0.01, 0.0),
+											new ArgGrid(1, 0.2, 0.5 * 2.0 * Math.PI)
+									)
+								)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(1.0, 0.0), 1.5 * 2.6, 2.6, -Math.PI / 2.0)
 		));
 	}
 

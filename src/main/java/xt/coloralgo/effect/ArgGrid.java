@@ -7,15 +7,17 @@ public class ArgGrid implements Effect {
 
 	private int nbSlices;
 	private double thickness;
+	private double phase;
 
-	public ArgGrid(int nbSlices, double thickness) {
+	public ArgGrid(int nbSlices, double thickness, double phase) {
 		this.nbSlices = nbSlices;
 		this.thickness = thickness;
+		this.phase = phase;
 	}
 	
 	@Override
 	public double apply(int iColor, Complex z, int i) {
-		return Math.pow(MyMath.sqcosdemi(nbSlices * z.arg()), thickness);
+		return Math.pow(MyMath.sqcosdemi(nbSlices * (z.arg() + phase)), thickness);
 	}
 
 	@Override

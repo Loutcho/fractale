@@ -30,7 +30,7 @@ public class Image012 {
 				IF(new IGreaterThan(200), new ConstantColor(0.0, 0.0, 0.0),
 						new Pow(0.7,
 								new Mul(new IterationPalette(Palette.PALETTE_012, 8.0, 0.1, true),
-										new Max(new ArgGrid(6, 1.0), new ArgPalette(Palette.PALETTE_012, 1.0, 0.0))))),
+										new Max(new ArgGrid(6, 1.0, 0.0), new ArgPalette(Palette.PALETTE_012, 1.0, 0.0))))),
 				ApplyTestOrder.FIRST_APPLY_THEN_TEST), new MathZone(new Complex(0.160, -0.230), 0.585, 0.390, -0.72));
 	}
 }
