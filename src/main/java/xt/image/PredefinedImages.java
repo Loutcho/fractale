@@ -12,7 +12,6 @@ import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.Palette;
 import xt.coloralgo.booleanexpression.AbsGreaterThan;
 import xt.coloralgo.booleanexpression.AbsLessThan;
-import xt.coloralgo.booleanexpression.And;
 import xt.coloralgo.booleanexpression.FancyStopCriterion001;
 import xt.coloralgo.booleanexpression.FancyStopCriterion002;
 import xt.coloralgo.booleanexpression.EuclidStopCriterion;
@@ -755,184 +754,13 @@ public class PredefinedImages {
 				new MathZone(new Complex(0.0, 0.0), 1.44, 0.96, - Math.PI / 2.0)
 		));
 		
-		/*
-		 * 87) Joyeux Anniversaire Nini !
-		 */
-		IMAGE.put(87, new Image(
-						new EscapeTimeAlgorithm(
-							new xt.function.F28(), new Complex(-1.014, -1.414),
-							OR(
-									new IGreaterThan(512),
-									new FancyStopCriterion002()
-							),
-							IF(
-									new IGreaterThan(512),
-									new ConstantColor(0.0, 0.0, 0.1),
-									new Mul(
-											new IterationPalette(Palette.PALETTE_087, 4.0, 0.0, false),
-											new FancyAbsGradient()
-									)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-						),
-						new MathZone(new Complex(0.0, 0.0), 4.23, 2.82, 0.0)
-		));
-
-		/*
-		 * 88) Orobanche
-		 */
-		IMAGE.put(88, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.F29(), new Complex(-3.705387, 0.838875),
-						OR(
-								new IGreaterThan(100),
-								new AbsGreaterThan(4.459596)
-						),
-						IF(
-								new IGreaterThan(100),
-								new ConstantColor(0.0, 0.0, 0.0),
-								new Mul(
-									new Pow(0.1, new FancyGradient002(4.459596)),
-									new IterationGradient(0.04, 10)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(2.276, -0.307), 0.09, 0.06, -0.3927)
-		));
-		
-		/*
-		 * 89)  Donut
-		 */
-		IMAGE.put(89, new Image(
-			new DomainColoring(new xt.function.Identity(),
-				new Mul(
-					new Donut(0.7, 2.2, 2.0, 2.0, 2.0),
-					new Max(
-						new ArgPalette(Palette.PALETTE_089, 1.0, 0.333),
-						new AbsPalette(Palette.PALETTE_089, 1.6, 0.333)
-					)
-				)
-			),
-			new MathZone(new Complex(0.0, 0.0), 3.6, 2.4, 0.0)
-		));
-
-		/*
-		 * 90) Bisou
-		 */
-		IMAGE.put(90, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.F30(), new Complex(0.0, 0.0),
-						OR(
-								new IGreaterThan(200),
-								new And(new AbsGreaterThan(0.57), new AbsLessThan(0.93))
-						),
-						IF(
-								new IGreaterThan(200),
-								new ConstantColor(0.0, 0.0, 0.0),
-								new Mul(
-										new Donut(0.57, 0.93, 2.0, 2.0, 2.0),
-										new IterationGradient(0.20, 2.0),
-										new ArgPalette(Palette.PALETTE_090a, 1.0 / 3.0, 0.4),
-										new AbsPalette(Palette.PALETTE_090b, 0.3, 0.4),
-										new Barycenter(0.45,
-												new ConstantColor(1.0, 1.0, 1.0),
-												0.55,
-												new ArgGrid(4, 2.0, 0.0)
-										)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(+0.0, -0.0), 1.41, 0.94, -Math.PI/4.0)
-		));
-		
-		/*
-		 * 91) 
-		 */
-		IMAGE.put(91, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.F31(), new Complex(-0.488, -0.537),
-						OR(
-								new IGreaterThan(100),
-								new FancyStopCriterion002()
-						),
-						IF(
-								new IGreaterThan(100),
-								new ConstantColor(0.0, 0.0, 0.0),
-								new Mul(
-										new FancyAbsGradient(),
-										new IterationPalette(Palette.PALETTE_091, 4, 0.0, false)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(-0.167, -0.405), 1.5 * 0.07, 0.07, 0.82)
-		));
-		
-		/*
-		 * 92) Spiderman
-		 */
-		IMAGE.put(92, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.Spiderman(), new Complex(0.1890, 0.0019),
-						OR(
-								new IGreaterThan(2000),
-								new AbsGreaterThan(1.54)
-						),
-						IF(
-								new IGreaterThan(2000),
-								new ConstantColor(0.0, 0.0, 0.0),
-								
-								new Max(
-									new Mul(
-										new Inverse(new IterationGradient(0.005, -0.11)),
-										new ConstantColor(1.0, 0.25, 0.30)
-									),
-									new Mul(
-										new IterationGradient(0.017, -0.11),
-										new ArgPalette(Palette.PALETTE_092, 0.25, -0.10)
-									)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(0.0, 0.0), 1.5 * 0.76, 0.76, 0.0)
-		));
-
-		/*
-		 * 93) Lemniscate
-		 */
-		IMAGE.put(93, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.F32(2.0, 2.0), new Complex(1.540922, -0.091003),
-						OR(
-								new IGreaterThan(500),
-								new AbsGreaterThan(32.0)
-						),
-						IF(
-								new IGreaterThan(500),
-								new ConstantColor(0.0, 0.0, 0.0),
-								new Max(
-									new Mul(
-											new ConstantColor(1.0, 0.0, 0.0),
-											new Inverse(new IterationGradient(0.3, 12.0))
-									),
-									new Mul(
-										new ConstantColor(0.0, 1.0, 0.0),
-										new Inverse(new IterationGradient(0.4, 17.0))
-									),
-									new Mul(
-											new ConstantColor(0.0, 0.0, 1.0),
-											new Inverse(new IterationGradient(0.2, 22.0))
-									)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(0.0, 0.0), 1.0 * 1.5 * 1.18, 0.75 * 1.18, 0.0)
-		));
-
+		IMAGE.put(87, Image087.get()); // Joyeux anniversaire Nini !
+		IMAGE.put(88, Image088.get()); // Orobanche
+		IMAGE.put(89, Image089.get()); // Donut
+		IMAGE.put(90, Image090.get()); // Bisou
+		IMAGE.put(91, Image091.get()); // Epineux
+		IMAGE.put(92, Image092.get()); // Spiderman
+		IMAGE.put(93, Image093.get()); // Lemniscate
 		IMAGE.put(94, Image094.get()); // Barbie
 		IMAGE.put(95, Image095.get()); // Stomoxe II
 	}
