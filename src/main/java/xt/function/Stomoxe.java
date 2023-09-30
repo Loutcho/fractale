@@ -7,6 +7,14 @@ import xt.math.MyMath;
 
 public class Stomoxe implements Function<Complex, Complex> {
 	
+	private double a;
+	private double b;
+	
+	public Stomoxe(double a, double b) {
+		this.a = a;
+		this.b = b;
+	}
+	
 	private static final Complex One = new Complex(1.0, 0.0);
 	
 	private static Complex t(Complex z) {
@@ -22,8 +30,8 @@ public class Stomoxe implements Function<Complex, Complex> {
 		Complex q = t(z);
 		Complex p = Complex.sub(One, q);
 		
-		Complex z1 = Complex.mul(0.5, z);
-		Complex z2 = Complex.add(Complex.mul(3.0, z), One);
+		Complex z1 = Complex.mul(a, z);
+		Complex z2 = Complex.add(Complex.mul(b, z), One);
 		
 		return Complex.add(Complex.mul(p, z1), Complex.mul(q, z2));
 	}
@@ -31,7 +39,11 @@ public class Stomoxe implements Function<Complex, Complex> {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Stomoxe");
+		builder.append("Stomoxe(");
+		builder.append(a);
+		builder.append(",");
+		builder.append(b);
+		builder.append(")");
 		return builder.toString();
 	}
 }

@@ -20,7 +20,7 @@ import xt.math.Complex;
 public class Image024 {
 
 	public static Image get() {
-		return new Image(new EscapeTimeAlgorithm(new xt.function.Stomoxe(), new Complex(0.0, 0.0),
+		return new Image(new EscapeTimeAlgorithm(new xt.function.Stomoxe(0.5, 3.0), new Complex(0.0, 0.0),
 				OR(new IGreaterThan(1000), new AbsGreaterThan(1E12)),
 				IF(new IGreaterThan(1000), new ConstantColor(0.0, 0.0, 0.0),
 						new IterationPalette(Palette.PALETTE_024, 15.0, 0.05, true)),
