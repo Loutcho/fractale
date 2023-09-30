@@ -720,6 +720,7 @@ public class PredefinedImages {
 		IMAGE.put(93, Image093.get()); // Lemniscate
 		IMAGE.put(94, Image094.get()); // Barbie
 		IMAGE.put(95, Image095.get()); // Stomoxe II
+		IMAGE.put(96, Image096.get()); // Frise
 	}
 
 	public static Image get(Integer n) {
