@@ -12,8 +12,6 @@ import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.Palette;
 import xt.coloralgo.booleanexpression.AbsGreaterThan;
 import xt.coloralgo.booleanexpression.AbsLessThan;
-import xt.coloralgo.booleanexpression.FancyStopCriterion001;
-import xt.coloralgo.booleanexpression.FancyStopCriterion002;
 import xt.coloralgo.booleanexpression.EuclidStopCriterion;
 import xt.coloralgo.booleanexpression.IGreaterThan;
 import xt.coloralgo.booleanexpression.ReLessThan;
@@ -76,97 +74,13 @@ public class PredefinedImages {
 		IMAGE.put(43, Image043.get()); // Color Function 2 - identité 
 		IMAGE.put(44, Image044.get()); // Color Function 2 - fonction z^3
 		IMAGE.put(45, Image045.get()); // Color Function 2 - fonction exponentielle 
-		IMAGE.put(46, Image046.get()); // Color Function 2 - cosinus 
-
-		/*
-		 * 47)  Color Function 2 - sinus 
-		 */
-		IMAGE.put(47, new Image(
-					new DomainColoring(new xt.function.Sin(), new ColorFunction2(true, true, true)),
-					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
-		));
-
-		/*
-		 * 48)  Color Function 2 - tangente 
-		 */
-		IMAGE.put(48, new Image(
-					new DomainColoring(new xt.function.Tan(), new ColorFunction2(true, true, true)),
-					new MathZone(new Complex(0.0, 0.0), Math.PI, Math.PI / 1.5, 0.0)
-		));
-
-		/*
-		 * 49)  Color Function 2 - fonction "Sylvestre" 
-		 */
-		IMAGE.put(49, new Image(
-					new DomainColoring(new xt.function.Sylvestre(1, 0.0), new ColorFunction2(true, true, true)),
-					new MathZone(new Complex(0.0, 0.0), 7.5, 5.0, 0.0)
-		));
-
-		/*
-		 * 50) 
-		 */
-		IMAGE.put(50, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.F5(), new Complex(0.0, 0.0),
-						OR(
-								new IGreaterThan(128),
-								new AbsLessThan(0.666)
-						),
-						IF(
-								new IGreaterThan(128),
-								new ConstantColor(0.0, 0.0, 0.0),
-								new Mul(
-										new IterationPalette(Palette.PALETTE_050, 4.0, 0.0, false),
-										new FancyGradient002(0.666)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(0.0, 0.0), 1.5 * 1.57, 1.57, 0.0)
-		));
-
-		/*
-		 * 51) 
-		 */
-		IMAGE.put(51, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.F4(), new Complex(0.0, 0.0),
-						OR(
-								new IGreaterThan(128),
-								new FancyStopCriterion002()
-						),
-						IF(
-								new IGreaterThan(128),
-								new ConstantColor(0.0, 0.0, 0.0),
-								new Mul(
-										new IterationPalette(Palette.PALETTE_051, 4.0, 0.0, false),
-										new FancyAbsGradient()
-								)
-						),
-						ApplyTestOrder.FIRST_TEST_THEN_APPLY
-				),
-				new MathZone(new Complex(0.0, 0.0), 1.5 * 1.57, 1.57, 0.53)
-		));
-		
-		/*
-		 * 52) Rubans et fourches
-		 */
-		IMAGE.put(52, new Image(
-					new EscapeTimeAlgorithm(
-							new xt.function.F8(), null,
-							OR(
-									new IGreaterThan(200),
-									new FancyStopCriterion001()
-							),
-							IF(
-									new IGreaterThan(200),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new ColorFunction0(0.0)
-							),
-							ApplyTestOrder.FIRST_APPLY_THEN_TEST
-					),
-					new MathZone(new Complex(-1.210, -0.381), 0.216, 0.144, 0.0)
-		));
+		IMAGE.put(46, Image046.get()); // Color Function 2 - cosinus
+		IMAGE.put(47, Image047.get()); // Color Function 2 - sinus
+		IMAGE.put(48, Image048.get()); // Color Function 2 - tangente
+		IMAGE.put(49, Image049.get()); // Color Function 2 - fonction "Sylvestre" 
+		IMAGE.put(50, Image050.get()); // Couronne de Pâques
+		IMAGE.put(51, Image051.get()); // Tentacules
+		IMAGE.put(52, Image052.get()); // Rubans et fourches
 
 		/*
 		 * 53) Domain Coloring, Color Function 3 - identité
