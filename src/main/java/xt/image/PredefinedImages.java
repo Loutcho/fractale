@@ -636,6 +636,7 @@ public class PredefinedImages {
 		IMAGE.put(95, Image095.get()); // Stomoxe II
 		IMAGE.put(96, Image096.get()); // Frise
 		IMAGE.put(97, Image097.get()); // Plumage
+		IMAGE.put(98, Image098.get()); // Experience
 	}
 
 	public static Image get(Integer n) {
