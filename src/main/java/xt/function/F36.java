@@ -11,7 +11,7 @@ public class F36 implements Function<Complex, Complex> {
 		double y = z.im();
 		double xx = 2.0 * Math.sin(Math.sqrt(Math.abs(x + y)));
 		double yy = 2.0 * Math.cos(Math.sqrt(Math.abs(- x + y)));
-		return new Complex(xx, yy); // x = u + v; y = u - v;
+		return new Complex(xx, yy);
 	}
 
 	@Override

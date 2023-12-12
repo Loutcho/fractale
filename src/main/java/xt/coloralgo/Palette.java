@@ -35,7 +35,7 @@ public class Palette {
 	private static final int BLEU_KLEIN = 0x001F98;
 	private static final int BLEU_FRANCE = 0x1375ED;
 	private static final int BLEU_MARINE = 0x03224C;
-	private static final int BLEU_ELECTRIQUE = 0xC75FF;
+	private static final int BLEU_ELECTRIQUE = 0x0C75FF;
 	private static final int BLEU_INTERDIMENSIONNEL = 0x3300CC;
 	private static final int ORANGE = 0xFD7F00;
 	private static final int MANDARINE = 0xFD9715;
@@ -117,6 +117,7 @@ public class Palette {
 	public static final Palette PALETTE_091 = new Palette(BLANC, BORDEAUX);
 	public static final Palette PALETTE_092 = new Palette(NOIR, NOIR, BLEU_CIEL, BLANC, BLANC, BLANC, BLANC, BLANC, BLANC, BLANC, BLEU_INTERDIMENSIONNEL, NOIR);
 	public static final Palette PALETTE_094 = new Palette(0xFFDDEE, 0x336633, 0xFFEEDD, 0x336633);
+	public static final Palette PALETTE_099 = new Palette(BLANC, BEIGE, OCRE, BEIGE, BLANC, BLEU_CIEL, BLEU_ELECTRIQUE, BLEU_ELECTRIQUE, BLEU_ELECTRIQUE, BLEU_ELECTRIQUE, BLEU_CIEL);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	public static final Palette PALETTE_VIDEO_010 = new Palette(0x000000, 0xFF0000, 0xFFCC00);
