@@ -18,6 +18,7 @@ import xt.coloralgo.effect.ConstantColor;
 import xt.coloralgo.effect.Donut;
 import xt.coloralgo.effect.IterationGradient;
 import xt.coloralgo.effect.Mul;
+import xt.coloralgo.effect.Pow;
 import xt.fractale.Image;
 import xt.fractale.MathZone;
 import xt.math.Complex;
@@ -38,21 +39,23 @@ public class Image090 {
 						IF(
 								new IGreaterThan(200),
 								new ConstantColor(0.0, 0.0, 0.0),
-								new Mul(
-										new Donut(0.57, 0.93, 2.0, 2.0, 2.0),
-										new IterationGradient(0.20, 2.0),
-										new ArgPalette(Palette.PALETTE_090a, 1.0 / 3.0, 0.4),
-										new AbsPalette(Palette.PALETTE_090b, 0.3, 0.4),
-										new Barycenter(0.45,
-												new ConstantColor(1.0, 1.0, 1.0),
-												0.55,
-												new ArgGrid(4, 2.0, 0.0)
-										)
+								new Pow(0.7,
+									new Mul(
+											new Donut(0.57, 0.93, 2.0, 2.0, 2.0),
+											new IterationGradient(0.30, 2.0),
+											new ArgPalette(Palette.PALETTE_090a, 1.0 / 3.0, 0.4),
+											new AbsPalette(Palette.PALETTE_090b, 0.3, 0.4),
+											new Barycenter(0.65,
+													new ConstantColor(1.0, 1.0, 1.0),
+													0.35,
+													new ArgGrid(4, 2.0, 0.0)
+											)
+									)
 								)
 						),
 						ApplyTestOrder.FIRST_APPLY_THEN_TEST
 				),
-				new MathZone(new Complex(+0.0, -0.0), 1.41, 0.94, -Math.PI/4.0)
+				new MathZone(new Complex(+0.0, -0.0), 1.5 * 0.69, 0.69, -Math.PI/4.0)
 		);
 	}
 }
