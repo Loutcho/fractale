@@ -638,6 +638,7 @@ public class PredefinedImages {
 		IMAGE.put(97, Image097.get()); // Plumage
 		IMAGE.put(98, Image098.get()); // Zeus drapé
 		IMAGE.put(99, Image099.get()); // Escargots
+		IMAGE.put(100, Image100.get()); // Entortillé
 	}
 
 	public static Image get(Integer n) {
