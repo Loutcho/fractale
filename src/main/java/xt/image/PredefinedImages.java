@@ -640,6 +640,7 @@ public class PredefinedImages {
 		IMAGE.put(99, Image099.get()); // Escargots
 		IMAGE.put(100, Image100.get()); // Entortillé
 		IMAGE.put(101, Image101.get()); // 101
+		IMAGE.put(102, Image102.get()); // Hiver
 	}
 
 	public static Image get(Integer n) {
