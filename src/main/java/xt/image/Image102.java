@@ -7,12 +7,11 @@ import xt.coloralgo.ApplyTestOrder;
 import xt.coloralgo.EscapeTimeAlgorithm;
 import xt.coloralgo.booleanexpression.AbsGreaterThan;
 import xt.coloralgo.booleanexpression.IGreaterThan;
+import xt.coloralgo.effect.Barycenter;
 import xt.coloralgo.effect.ConstantColor;
 import xt.coloralgo.effect.GridIm;
-import xt.coloralgo.effect.GridRe;
 import xt.coloralgo.effect.Inverse;
 import xt.coloralgo.effect.IterationGradient;
-import xt.coloralgo.effect.Max;
 import xt.coloralgo.effect.Mul;
 import xt.fractale.Image;
 import xt.fractale.MathZone;
@@ -29,16 +28,18 @@ public class Image102 {
 	
 	public static Image get() {
 		return new Image(new EscapeTimeAlgorithm(new xt.function.F39(K * Math.PI), new Complex(X, Y),
-				OR(new IGreaterThan(200), new AbsGreaterThan(1.00)),
+				OR(new IGreaterThan(200), new AbsGreaterThan(0.98)),
 				IF(new IGreaterThan(200),
-						new ConstantColor(0.0, 0.0, 0.0),
-								new Mul(
-								new Max(
-										new Inverse(new GridIm(0.40, 1.00, 0.50, 0.30)),
-										new GridRe(0.40, 0.80, 0.60, 0.60)
-								),
-								new IterationGradient(0.4, 12.0)
-						)
+					new ConstantColor(0.0, 0.0, 0.0),
+					new Mul(
+						new Barycenter(
+							0.25,
+							new Inverse(new GridIm(0.50, 1.00, 0.60, 0.40)),
+							0.75,
+							new Inverse(new GridIm(0.25, 1.00, 0.60, 0.40))
+						),
+						new IterationGradient(0.35, 12.5)
+					)
 				),
 				ApplyTestOrder.FIRST_TEST_THEN_APPLY), new MathZone(new Complex(0.0, 0.0), 1.5 * 0.0058, 0.0058, 0.0));
 	}
