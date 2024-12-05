@@ -12,13 +12,12 @@ import xt.coloralgo.effect.GridIm;
 import xt.coloralgo.effect.Inverse;
 import xt.coloralgo.effect.IterationGradient;
 import xt.coloralgo.effect.Max;
-import xt.coloralgo.effect.Mul;
 import xt.fractale.Image;
 import xt.fractale.MathZone;
 import xt.math.Complex;
 
 /**
- * Experiment
+ * Supernova
  */
 public class Image103 {
 

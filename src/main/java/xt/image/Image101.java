@@ -16,7 +16,7 @@ import xt.fractale.MathZone;
 import xt.math.Complex;
 
 /**
- * 101
+ * Harmonie des Sphères
  */
 public class Image101 {
 

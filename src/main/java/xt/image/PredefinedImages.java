@@ -598,30 +598,7 @@ public class PredefinedImages {
 				new MathZone(new Complex(-0.13992, 0.02442), 0.001542, 0.001028, -0.23)
 		));
 		
-		/*
-		 * 83) Brebis turquoise
-		 */
-		IMAGE.put(83, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(1.3333333, 0.0),
-						new Complex(-0.73743019, -0.12891747),
-						OR(
-								new IGreaterThan(80),
-								new AbsLessThan(0.15353)
-						),
-						IF(
-								new IGreaterThan(80),
-								new ConstantColor(0x222222),
-								new Mul(
-									new FancyGradient002(0.15353),
-									new ArgPalette(Palette.PALETTE_083, 1.0, 0.42)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(-0.35, 0.0), 1.15, 0.70, Math.PI / 2.0)
-		));
-		
+		IMAGE.put(83, Image083.get()); // Brebis turquoise
 		IMAGE.put(84, Image084.get()); // Color Function 5 (identité)
 		IMAGE.put(85, Image085.get()); // Surnombre
 		IMAGE.put(86, Image086.get()); // Magma basaltique
@@ -639,9 +616,9 @@ public class PredefinedImages {
 		IMAGE.put(98, Image098.get()); // Zeus drapé
 		IMAGE.put(99, Image099.get()); // Escargots
 		IMAGE.put(100, Image100.get()); // Entortillé
-		IMAGE.put(101, Image101.get()); // 101
+		IMAGE.put(101, Image101.get()); // Harmonie des Sphères
 		IMAGE.put(102, Image102.get()); // Flocons de neige
-		IMAGE.put(103, Image103.get()); // Experiment
+		IMAGE.put(103, Image103.get()); // Supernova
 	}
 
 	public static Image get(Integer n) {
