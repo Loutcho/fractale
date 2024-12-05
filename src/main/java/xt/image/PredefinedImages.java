@@ -28,7 +28,7 @@ public class PredefinedImages {
 	private static final Map<Integer, Image> IMAGE = new TreeMap<>();
 
 	static {
-		IMAGE.put( 0, Image000.get()); // L'ensemble de Mandelbrot
+		IMAGE.put( 0, Image000.RECIPE); // L'ensemble de Mandelbrot
 		IMAGE.put( 1, Image001.get()); // Propagation
 		IMAGE.put( 2, Image002.get()); // Courbevoie
 		IMAGE.put( 3, Image003.get()); // Fegatello
@@ -501,103 +501,10 @@ public class PredefinedImages {
 						new MathZone(new Complex(0.0, 2.4), 1.8, 1.2, 0.0)
 		));
 
-		/*
-		 * 79) Odysseus
-		 */
-		IMAGE.put(79, new Image(
-						new EscapeTimeAlgorithm(
-								new xt.function.F25(),
-								new Complex(6.1, 7.8),
-								OR(
-										new IGreaterThan(50),
-										new AbsGreaterThan(1100.0)
-								),
-								IF(
-										new IGreaterThan(50),
-										new ConstantColor(0xFFFFFF),
-										new Mul(
-											new IterationPalette(Palette.PALETTE_079, Palette.PALETTE_079.getNbColors(), 0.0, false),
-											new FancyGradient005(1100.0)
-										)
-								),
-								ApplyTestOrder.FIRST_TEST_THEN_APPLY
-						),
-						new MathZone(new Complex(-80.5, 0.0), 10.5, 7.0, Math.PI / 2.0)
-		));
-		
-		/*
-		 * 80) Embrasement
-		 */
-		IMAGE.put(80, new Image(
-						new EscapeTimeAlgorithm(
-								new xt.function.F26(),
-								null,
-								OR(
-										new IGreaterThan(25000),
-										new AbsGreaterThan(3.0)
-								),
-								IF(
-										new IGreaterThan(25000),
-										new ConstantColor(0x100040),
-										new Mul(
-											new IterationPalette(Palette.PALETTE_080, 2000.0, 0.2333333, false),
-											new FancyGradient005(1144.66)
-										)
-								),
-								ApplyTestOrder.FIRST_TEST_THEN_APPLY
-						),
-						new MathZone(new Complex(-0.5175, -0.4493), 14.7E-4, 9.8E-4, 0.04)
-		));
-
-		/*
-		 * 81) Méduse fantôme
-		 */
-		IMAGE.put(81, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(1.5, 0.0),
-						new Complex(-0.812, 0.7575),
-						OR(
-								new IGreaterThan(200),
-								new AbsGreaterThan(2.37)
-						),
-						IF(
-								new IGreaterThan(200),
-								new ConstantColor(0x000000),
-								new Max(
-									new IterationPalette(Palette.PALETTE_081, 72.0, 0.62, true),
-									new GridRe(0.075, 0.3, 0.0, 1.0),
-									new GridIm(0.075, 0.9, 0.8, 0.5)
-								)
-						),
-						ApplyTestOrder.FIRST_TEST_THEN_APPLY
-				),
-				new MathZone(new Complex(-1.042, 0.35), 0.165, 0.110, -1.18)
-		));
-		
-		/*
-		 * 82) Totem polype
-		 */
-		IMAGE.put(82, new Image(
-				new EscapeTimeAlgorithm(
-						new xt.function.Sylvestre(1.5, 0.0),
-						new Complex(-1.075903, 0.62803),
-						OR(
-								new IGreaterThan(200),
-								new AbsLessThan(6.8E-4)
-						),
-						IF(
-								new IGreaterThan(200),
-								new ConstantColor(0x001000),
-								new Mul(
-										new IterationPalette(Palette.PALETTE_082, Palette.PALETTE_082.getNbColors(), 0.0, false),
-										new FancyGradient002(6.8E-4)
-								)
-						),
-						ApplyTestOrder.FIRST_APPLY_THEN_TEST
-				),
-				new MathZone(new Complex(-0.13992, 0.02442), 0.001542, 0.001028, -0.23)
-		));
-		
+		IMAGE.put(79, Image079.get()); // Odysseus
+		IMAGE.put(80, Image080.get()); // Embrasement
+		IMAGE.put(81, Image081.get()); // Méduse fantôme
+		IMAGE.put(82, Image082.get()); // Totem polype
 		IMAGE.put(83, Image083.get()); // Brebis turquoise
 		IMAGE.put(84, Image084.get()); // Color Function 5 (identité)
 		IMAGE.put(85, Image085.get()); // Surnombre
