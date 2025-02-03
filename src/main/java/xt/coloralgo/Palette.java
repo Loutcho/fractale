@@ -118,6 +118,7 @@ public class Palette {
 	public static final Palette PALETTE_094 = new Palette(0xFFDDEE, 0x336633, 0xFFEEDD, 0x336633);
 	public static final Palette PALETTE_099 = new Palette(BLANC, BEIGE, OCRE, BEIGE, BLANC, BLEU_CIEL, BLEU_ELECTRIQUE, BLEU_ELECTRIQUE, BLEU_ELECTRIQUE, BLEU_ELECTRIQUE, BLEU_CIEL);
 	public static final Palette PALETTE_100 = new Palette(BLANC, VERT_IMPERIAL);
+	public static final Palette PALETTE_104 = new Palette(MARRON, BEIGE, FUMEE, BLANC, AZUR, BLEU_INTERDIMENSIONNEL);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	public static final Palette PALETTE_VIDEO_010 = new Palette(0x000000, 0xFF0000, 0xFFCC00);

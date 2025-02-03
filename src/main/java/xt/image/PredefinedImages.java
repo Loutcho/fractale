@@ -526,6 +526,7 @@ public class PredefinedImages {
 		IMAGE.put(101, Image101.get()); // Harmonie des Sphères
 		IMAGE.put(102, Image102.get()); // Flocons de neige
 		IMAGE.put(103, Image103.get()); // Supernova
+		IMAGE.put(104, Image104.get()); // Arbre binaire double
 	}
 
 	public static Image get(Integer n) {
