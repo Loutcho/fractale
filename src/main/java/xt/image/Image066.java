@@ -14,16 +14,26 @@ import xt.fractale.Image;
 import xt.fractale.MathZone;
 import xt.math.Complex;
 
-/**
- * L'ensemble de Mandelbrot
+/*
+ * 66)
  */
-public class Image000 {
-
+public class Image066 {
 	public static Image get() {
-		return new Image(new EscapeTimeAlgorithm(new xt.function.ZPower(2), null,
-				OR(new IGreaterThan(4096), new AbsGreaterThan(2.0)),
-				IF(new IGreaterThan(4096), new ConstantColor(0.0, 0.0, 0.0),
-						new IterationPalette(Palette.PALETTE_000, 40.0, 0.0, true)),
-				ApplyTestOrder.FIRST_TEST_THEN_APPLY), new MathZone(new Complex(-0.7, 0.0), 1.725, 1.150, 0.0));
+		return new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.F14(), new Complex(0.0, 0.0),
+						OR(
+								new IGreaterThan(1000),
+								new AbsGreaterThan(320.0)
+						),
+						IF(
+								new IGreaterThan(1000),
+								new ConstantColor(0.078, 0.0, 0.0),
+								new IterationPalette(Palette.PALETTE_066, 32.0, 0.25, true)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(0.0, 0.0), 6.6, 4.4, 0.0)
+		);
 	}
 }

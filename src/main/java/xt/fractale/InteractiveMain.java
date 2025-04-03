@@ -12,13 +12,15 @@ import java.util.Date;
 
 import xt.math.Complex;
 import xt.graph.Graph;
-import xt.image.Image000;
+import xt.image.PredefinedImages;
 import xt.sound.Sound;
 
 public class InteractiveMain extends Graph {
 
+	private static final int NUMERO_IMAGE = 0;
+	
 	public static void main(String[] args) {
-		draw(Image000.RECIPE);
+		draw(PredefinedImages.get(NUMERO_IMAGE));
 	}
 	
 	static final long serialVersionUID	= 1234;

@@ -14,16 +14,26 @@ import xt.fractale.Image;
 import xt.fractale.MathZone;
 import xt.math.Complex;
 
-/**
- * L'ensemble de Mandelbrot
+/*
+ * 65) Des empreintes dans la neige
  */
-public class Image000 {
-
+public class Image065 {
 	public static Image get() {
-		return new Image(new EscapeTimeAlgorithm(new xt.function.ZPower(2), null,
-				OR(new IGreaterThan(4096), new AbsGreaterThan(2.0)),
-				IF(new IGreaterThan(4096), new ConstantColor(0.0, 0.0, 0.0),
-						new IterationPalette(Palette.PALETTE_000, 40.0, 0.0, true)),
-				ApplyTestOrder.FIRST_TEST_THEN_APPLY), new MathZone(new Complex(-0.7, 0.0), 1.725, 1.150, 0.0));
+		return new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.F13(), null,
+						OR(
+								new IGreaterThan(32000),
+								new AbsGreaterThan(2.7)
+						),
+						IF(
+								new IGreaterThan(32000),
+								new ConstantColor(0.0, 0.0, 0.0),
+								new IterationPalette(Palette.PALETTE_065, 30.91, 0.0, true)
+						),
+						ApplyTestOrder.FIRST_APPLY_THEN_TEST
+				),
+				new MathZone(new Complex(-0.674387, 0.002552), 6E-5, 4E-5, 0.0)
+		);
 	}
 }

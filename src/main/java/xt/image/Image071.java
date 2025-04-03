@@ -14,16 +14,26 @@ import xt.fractale.Image;
 import xt.fractale.MathZone;
 import xt.math.Complex;
 
-/**
- * L'ensemble de Mandelbrot
+/*
+ * 71) Une nuit sur le Mont Chauve
  */
-public class Image000 {
-
+public class Image071 {
 	public static Image get() {
-		return new Image(new EscapeTimeAlgorithm(new xt.function.ZPower(2), null,
-				OR(new IGreaterThan(4096), new AbsGreaterThan(2.0)),
-				IF(new IGreaterThan(4096), new ConstantColor(0.0, 0.0, 0.0),
-						new IterationPalette(Palette.PALETTE_000, 40.0, 0.0, true)),
-				ApplyTestOrder.FIRST_TEST_THEN_APPLY), new MathZone(new Complex(-0.7, 0.0), 1.725, 1.150, 0.0));
+		return new Image(
+				new EscapeTimeAlgorithm(
+						new xt.function.F20(), new Complex(-0.815, -0.237),
+						OR(
+								new IGreaterThan(2000),
+								new AbsGreaterThan(3.5)
+						),
+						IF(
+								new IGreaterThan(2000),
+								new ConstantColor(0.0, 0.0, 0.0),
+								new IterationPalette(Palette.PALETTE_071, 20.0, -0.05, true)
+						),
+						ApplyTestOrder.FIRST_TEST_THEN_APPLY
+				),
+				new MathZone(new Complex(0.0, -0.54), 0.45, 0.30, 0.0)
+		);
 	}
 }
