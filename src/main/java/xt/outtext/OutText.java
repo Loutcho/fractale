@@ -12,6 +12,7 @@ public class OutText {
 	
 	private Function<Complex, Double> s;
 	
+	@SuppressWarnings("unchecked")
 	public OutText(Complex anchor, double size, String string) {
 		int n = string.length();
 		Function<Complex, Double>[] functions = new Function[n];
