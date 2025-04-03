@@ -14,7 +14,6 @@ import xt.coloralgo.booleanexpression.AbsGreaterThan;
 import xt.coloralgo.booleanexpression.AbsLessThan;
 import xt.coloralgo.booleanexpression.EuclidStopCriterion;
 import xt.coloralgo.booleanexpression.IGreaterThan;
-import xt.coloralgo.booleanexpression.ReLessThan;
 import xt.coloralgo.effect.*;
 import xt.coloralgo.realexpression.Constant;
 import xt.coloralgo.realexpression.Im;
@@ -81,42 +80,9 @@ public class PredefinedImages {
 		IMAGE.put(50, Image050.get()); // Couronne de Pâques
 		IMAGE.put(51, Image051.get()); // Tentacules
 		IMAGE.put(52, Image052.get()); // Rubans et fourches
-
-		/*
-		 * 53) Domain Coloring, Color Function 3 - identité
-		 */
-		IMAGE.put(53, new Image(
-					new DomainColoring(new xt.function.Identity(), new ColorFunction3()),
-					new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
-		));
-		
-		/*
-		 * 54) Domain Coloring, pas très joli mais pédagogique : doublement d'angle
-		 */
-		IMAGE.put(54, new Image(
-					new DomainColoring(new xt.function.F9(), new ColorFunction3()),
-					new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
-		));
-		
-		/*
-		 * 55) Fractale, pas très jolie mais pédagogique : doublement d'angle
-		 */
-		IMAGE.put(55, new Image(
-					new EscapeTimeAlgorithm(
-							new xt.function.F9(), new Complex(0.0, 0.0),
-							OR(
-									new IGreaterThan(2000),
-									new ReLessThan(0.0)
-							),
-							IF(
-									new IGreaterThan(2000),
-									new ConstantColor(0.0, 0.0, 0.0),
-									new ColorFunction3()
-							),
-							ApplyTestOrder.FIRST_TEST_THEN_APPLY
-					),
-					new MathZone(new Complex(0.0, 0.0), 3.0, 2.0, 0.0)
-		));
+		IMAGE.put(53, Image053.get()); // Domain Coloring, Color Function 3 - identité
+		IMAGE.put(54, Image054.get()); // Domain Coloring, pas très joli mais pédagogique : doublement d'angle
+		IMAGE.put(55, Image055.get()); // Fractale, pas très jolie mais pédagogique : doublement d'angle
 		
 		/*
 		 * 56) Un EscapeTimeAlgorithm et un DomainColoring peuvent donner exactement le même résultat : comparer 56 et 57
