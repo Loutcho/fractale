@@ -115,6 +115,7 @@ public class PredefinedImages {
 		IMAGE.put(102, Image102.get()); // Flocons de neige
 		IMAGE.put(103, Image103.get()); // Supernova
 		IMAGE.put(104, Image104.get()); // Arbre binaire double
+		IMAGE.put(105, Image105.get()); // Galaxie
 	}
 
 	public static Image get(Integer n) {
