@@ -117,6 +117,7 @@ public class PredefinedImages {
 		IMAGE.put(104, Image104.get()); // Arbre binaire double
 		IMAGE.put(105, Image105.get()); // Galaxie
 		IMAGE.put(106, Image106.get()); //
+		IMAGE.put(107, Image107.get()); // Couleurs d'automne
 	}
 
 	public static Image get(Integer n) {
