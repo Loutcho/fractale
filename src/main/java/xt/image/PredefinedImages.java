@@ -118,6 +118,7 @@ public class PredefinedImages {
 		IMAGE.put(105, Image105.get()); // Galaxie
 		IMAGE.put(106, Image106.get()); //
 		IMAGE.put(107, Image107.get()); // Couleurs d'automne
+		IMAGE.put(108, Image108.get()); // Cercles imbriqués tournants
 	}
 
 	public static Image get(Integer n) {
