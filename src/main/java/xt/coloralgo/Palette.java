@@ -131,6 +131,7 @@ public class Palette {
 			0x395F01 // herbe II (vert)
 			);
 	public static final Palette PALETTE_108 = new Palette(BLANC, ECARLATE, VERT_IMPERIAL, BLEU_ELECTRIQUE);
+	public static final Palette PALETTE_109 = new Palette(VERT, EMERAUDE, BLEU_ELECTRIQUE, BLEU, BLANC, ORANGE, OCRE);
 	
 	public static final Palette PALETTE_VIDEO_001 = new Palette(BLEU, BLANC);
 	public static final Palette PALETTE_VIDEO_010 = new Palette(0x000000, 0xFF0000, 0xFFCC00);
