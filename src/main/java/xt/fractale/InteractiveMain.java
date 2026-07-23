@@ -17,7 +17,7 @@ import xt.sound.Sound;
 
 public class InteractiveMain extends Graph {
 
-	private static final int NUMERO_IMAGE = 109;
+	private static final int NUMERO_IMAGE = 110;
 	
 	public static void main(String[] args) {
 		draw(PredefinedImages.get(NUMERO_IMAGE));

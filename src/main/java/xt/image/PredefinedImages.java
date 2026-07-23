@@ -120,6 +120,7 @@ public class PredefinedImages {
 		IMAGE.put(107, Image107.get()); // Couleurs d'automne
 		IMAGE.put(108, Image108.get()); // Cercles imbriqués tournants
 		IMAGE.put(109, Image109.get()); // Pour Sophie
+		IMAGE.put(110, Image110.get()); // Aurore boréale
 	}
 
 	public static Image get(Integer n) {
